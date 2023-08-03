@@ -90,14 +90,14 @@
             // usuarioToolStripMenuItem
             // 
             usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            usuarioToolStripMenuItem.Size = new Size(224, 26);
+            usuarioToolStripMenuItem.Size = new Size(187, 26);
             usuarioToolStripMenuItem.Text = "Usuario";
             usuarioToolStripMenuItem.Click += usuarioToolStripMenuItem_Click;
             // 
             // administradorToolStripMenuItem
             // 
             administradorToolStripMenuItem.Name = "administradorToolStripMenuItem";
-            administradorToolStripMenuItem.Size = new Size(224, 26);
+            administradorToolStripMenuItem.Size = new Size(187, 26);
             administradorToolStripMenuItem.Text = "Administrador";
             administradorToolStripMenuItem.Click += administradorToolStripMenuItem_Click;
             // 

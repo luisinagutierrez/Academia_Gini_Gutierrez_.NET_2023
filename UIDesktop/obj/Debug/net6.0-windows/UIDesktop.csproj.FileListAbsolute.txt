@@ -238,3 +238,12 @@ C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_Academia\Ac
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_Academia\Academia\TP_Academia_2023\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmAdminLogIn.resources
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_Academia\Academia\TP_Academia_2023\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmAdminMainMenu.resources
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_Academia\Academia\TP_Academia_2023\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmTeachersList.resources
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmAdminLogIn.resources
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmAdminMainMenu.resources
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmContacts.resources
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmDeleteRegistration.resources
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmNewRegistration.resources
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmStudentRegistration.resources
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmTeachersList.resources
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmUserLogIn.resources
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmUserPasswordChange.resources

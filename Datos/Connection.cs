@@ -12,7 +12,7 @@ namespace Datos
     {
         public static SqlConnection Connect()
         {
-            SqlConnection conn = new SqlConnection("server=DESKTOP-5D774K5;Integrated Security=false;Database=db_Academia_302_TT_2023;uid=sa;pwd=contrasenia02;");
+            SqlConnection conn = new SqlConnection("server=PC-LUCA;Integrated Security=false;Database=db_Academia_302_TT_2023;uid=sa;pwd=261001;");
             conn.Open();
             return conn;
         }
@@ -25,15 +25,17 @@ namespace Datos
         //    connection.Open();
         //}
 
-        public static SqlConnection Disconnect()
+        public void CloseConnection()
         {
             SqlConnection conn = new SqlConnection("server=PC-LUCA;Integrated Security=false;Database=db_Academia_302_TT_2023;uid=sa;pwd=261001;");
             conn.Close();
-            return conn;
+            conn = null;
         }
 
-        // Aquí puedes agregar otros métodos para ejecutar consultas en la base de datos
-    }
+        // Se pueden agregar otros métodos para ejecutar consultas en la base de datos
 
+    }
 }
+
+
 
