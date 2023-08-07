@@ -21,6 +21,7 @@ namespace UIDesktop
 
         private void frmSpecialitiesList_Load(object sender, EventArgs e)
         {
+            dgwSpecialitiesList.DataSource = NegocioEspecialidades.GetAll();
             Connection.Connect();
             dgwSpecialitiesList.DataSource = Index();
             Connection.Disconnect();

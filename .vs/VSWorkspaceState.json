@@ -1,8 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\UIDesktop"
+    "\\Negocio"
   ],
-  "SelectedNode": "\\UIDesktop\\frmSpecialitiesList.cs",
+  "SelectedNode": "\\Negocio\\Specialities.cs",
   "PreviewInSolutionExplorer": false
 }

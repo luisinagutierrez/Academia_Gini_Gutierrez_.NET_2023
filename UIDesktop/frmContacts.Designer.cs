@@ -38,9 +38,9 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(134, 320);
+            btnBack.Location = new Point(316, 318);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(99, 40);
+            btnBack.Size = new Size(158, 52);
             btnBack.TabIndex = 0;
             btnBack.Text = "Atras";
             btnBack.UseVisualStyleBackColor = true;
@@ -49,7 +49,7 @@
             // lbTitleContacts
             // 
             lbTitleContacts.AutoSize = true;
-            lbTitleContacts.Location = new Point(95, 107);
+            lbTitleContacts.Location = new Point(290, 90);
             lbTitleContacts.Name = "lbTitleContacts";
             lbTitleContacts.Size = new Size(193, 200);
             lbTitleContacts.TabIndex = 2;
@@ -59,7 +59,7 @@
             // 
             lbSpecialities.AutoSize = true;
             lbSpecialities.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbSpecialities.Location = new Point(125, 44);
+            lbSpecialities.Location = new Point(334, 49);
             lbSpecialities.Name = "lbSpecialities";
             lbSpecialities.Size = new Size(111, 25);
             lbSpecialities.TabIndex = 3;
@@ -80,7 +80,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(373, 425);
+            ClientSize = new Size(826, 400);
             Controls.Add(pictureLogo);
             Controls.Add(lbSpecialities);
             Controls.Add(lbTitleContacts);

@@ -49,7 +49,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 34);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(800, 415);
+            pictureBox1.Size = new Size(771, 465);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -60,7 +60,7 @@
             msMain.Items.AddRange(new ToolStripItem[] { tstMain, registrarseToolStripMenuItem, iniciarSesiónToolStripMenuItem, materiasToolStripMenuItem, docentesToolStripMenuItem, especialidadesToolStripMenuItem, contactoToolStripMenuItem });
             msMain.Location = new Point(0, 0);
             msMain.Name = "msMain";
-            msMain.Size = new Size(800, 31);
+            msMain.Size = new Size(771, 31);
             msMain.TabIndex = 1;
             msMain.Text = "menuStrip1";
             msMain.ItemClicked += msMain_ItemClicked;
@@ -90,14 +90,14 @@
             // usuarioToolStripMenuItem
             // 
             usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            usuarioToolStripMenuItem.Size = new Size(187, 26);
+            usuarioToolStripMenuItem.Size = new Size(224, 26);
             usuarioToolStripMenuItem.Text = "Usuario";
             usuarioToolStripMenuItem.Click += usuarioToolStripMenuItem_Click;
             // 
             // administradorToolStripMenuItem
             // 
             administradorToolStripMenuItem.Name = "administradorToolStripMenuItem";
-            administradorToolStripMenuItem.Size = new Size(187, 26);
+            administradorToolStripMenuItem.Size = new Size(224, 26);
             administradorToolStripMenuItem.Text = "Administrador";
             administradorToolStripMenuItem.Click += administradorToolStripMenuItem_Click;
             // 
@@ -132,7 +132,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(771, 497);
             Controls.Add(pictureBox1);
             Controls.Add(msMain);
             MainMenuStrip = msMain;

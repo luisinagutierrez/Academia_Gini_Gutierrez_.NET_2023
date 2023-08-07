@@ -10,30 +10,19 @@ namespace Datos
 {
     public class Connection
     {
-        public static SqlConnection Connect()
+        SqlConnection _conn;
+        public SqlConnection Conn { get { return _conn; } set { _conn = value; } }
+        public void Connect()
         {
-            SqlConnection conn = new SqlConnection("server=PC-LUCA;Integrated Security=false;Database=db_Academia_302_TT_2023;uid=sa;pwd=261001;");
-            conn.Open();
-            return conn;
+            Conn = new SqlConnection("server=DESKTOP-5D774K5;Integrated Security=false;Database=db_Academia_302_TT_2023;uid=sa;pwd=contrasenia02;");
+            Conn.Open();
+            
         }
-        //public SqlConnection connection;
-        //public string connectionString = "server=PC-LUCA;Integrated Security=false;Database=db_Academia_302_TT_2023;uid=sa;pwd=261001;";
-
-        //public void OpenConnection()
-        //{
-        //    connection = new SqlConnection(connectionString);
-        //    connection.Open();
-        //}
-
-        public void CloseConnection()
+        public void Disconnect()
         {
-            SqlConnection conn = new SqlConnection("server=PC-LUCA;Integrated Security=false;Database=db_Academia_302_TT_2023;uid=sa;pwd=261001;");
-            conn.Close();
-            conn = null;
+            Conn.Close();
+            Conn = null;
         }
-
-        // Se pueden agregar otros métodos para ejecutar consultas en la base de datos
-
     }
 }
 

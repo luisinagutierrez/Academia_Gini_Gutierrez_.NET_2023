@@ -23,13 +23,13 @@ namespace Negocio
             }
         }
 
-        public void Update(Entidades.Specialities item)
+        public void Update(Entidades.Specialities item, int id )
         {
             Datos.Specialities ds;
             try
             {
                 ds = new Datos.Specialities();
-                ds.Update(item);
+                ds.Update(item,id);
             }
             finally
             {
