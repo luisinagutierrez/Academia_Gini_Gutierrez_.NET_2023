@@ -21,7 +21,7 @@ namespace Datos
             }
             catch (Exception Ex) 
             {
-                Exception HandledException = new Exception("Error al eliminar especialidad", Ex);
+                Exception HandledException = new Exception("Error al agregar especialidad", Ex);
                 throw HandledException;
             }
             finally
@@ -41,7 +41,7 @@ namespace Datos
             }
             catch (Exception Ex)
             {
-                Exception HandledException = new Exception("Error al eliminar especialidad", Ex);
+                Exception HandledException = new Exception("Error al actualizar especialidad", Ex);
                 throw HandledException;
             }
             finally
@@ -62,7 +62,7 @@ namespace Datos
             }
             catch (Exception Ex)
             {
-                Exception HandledException = new Exception("Error al eliminar especialidad", Ex);
+                Exception HandledException = new Exception("Error al eliminar especialidad ", Ex);
                 throw HandledException;
             }
             finally 
