@@ -74,5 +74,66 @@ namespace Datos
                 Conn.Close();
             }
         }
+
+        public List<Entidades.TeacherCourses> GetAll()
+        {
+            Entidades.TeacherCourses objTeacherCourses = new Entidades.TeacherCourses();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM TeacherCourses", Conn);
+                List<Entidades.TeacherCourses> TeacherCoursesList = new List<Entidades.TeacherCourses>();
+                
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    while (oReader.Read())
+                    {
+                        objTeacherCourses.IdDictation = Convert.ToInt32(oReader["IdDictation"]);
+                        objTeacherCourses.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
+                        objTeacherCourses.IdTeacher = Convert.ToInt32(oReader["IdTeacher"]);
+                        objTeacherCourses.Position = Convert.ToInt32(oReader["Position"]);
+
+                        TeacherCoursesList.Add(objTeacherCourses);
+                        objTeacherCourses = null;
+                    }
+                    return TeacherCoursesList;
+                }
+            }
+            finally
+            {
+                objTeacherCourses = null;
+            }
+        }
+        public Entidades.TeacherCourses GetOne(int id)
+        {
+            Entidades.TeacherCourses objTeacherCourses = new Entidades.TeacherCourses();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM TeacherCourses WHERE @IdUser = id", Conn);
+                comm.Parameters.AddWithValue("@IdUser", id);
+                
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+
+                    objTeacherCourses.IdDictation = Convert.ToInt32(oReader["IdDictation"]);
+                    objTeacherCourses.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
+                    objTeacherCourses.IdTeacher = Convert.ToInt32(oReader["IdTeacher"]);
+                    objTeacherCourses.Position = Convert.ToInt32(oReader["Position"]);
+
+                    objTeacherCourses = null;
+
+                    return objTeacherCourses;
+
+                }
+            }
+            finally
+            {
+                objTeacherCourses = null;
+            }
+        }
     }
 }

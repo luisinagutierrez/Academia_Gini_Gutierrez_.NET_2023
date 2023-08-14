@@ -51,7 +51,7 @@ namespace Datos
                 comm.Parameters.AddWithValue("@Telephone", item.Telephone);
                 comm.Parameters.AddWithValue("@BirthDate", item.BirthDate);
                 comm.Parameters.AddWithValue("@FileId", item.FileId);
-                comm.Parameters.AddWithValue("@PersonType", item.PersonType);
+                comm.Parameters.AddWithValue("@PersonType", item.PersonType);     
                 comm.Parameters.AddWithValue("@IdPlan", item.IdPlan);
                 comm.ExecuteNonQuery();
             }
@@ -84,6 +84,77 @@ namespace Datos
             finally
             {
                 Conn.Close();
+            }
+        }
+        public List<Entidades.People> GetAll()
+        {
+            Entidades.People objPeople = new Entidades.People();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM People", Conn);
+                List<Entidades.People> PeopleList = new List<Entidades.People>();
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    while (oReader.Read())
+                    {
+                        objPeople.IdPerson = Convert.ToInt32(oReader["IdPerson"]);
+                        objPeople.Name = Convert.ToString(oReader["Name"]);
+                        objPeople.Address = Convert.ToString(oReader["Address"]);
+                        objPeople.Email = Convert.ToString(oReader["Email"]);
+                        objPeople.Telephone = Convert.ToString(oReader["Telephone"]);
+                        objPeople.BirthDate = Convert.ToDateTime(oReader["BirthDate"]);
+                        objPeople.FileId = Convert.ToInt32(oReader["FileId"]);
+                        objPeople.PersonType = Convert.ToInt32(oReader["PersonType"]);
+                        objPeople.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+
+                        PeopleList.Add(objPeople);
+                        objPeople = null;
+                    }
+                    return PeopleList;
+                }
+            }
+            finally
+            {
+                objPeople = null;
+            }
+        }
+        public Entidades.People GetOne(int id)
+        {
+            Entidades.People objPeople = new Entidades.People();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM People WHERE @IdUser = id", Conn);
+                comm.Parameters.AddWithValue("@IdUser", id);
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+
+                    objPeople.IdPerson = Convert.ToInt32(oReader["IdPerson"]);
+                    objPeople.Name = Convert.ToString(oReader["Name"]);
+                    objPeople.Address = Convert.ToString(oReader["Address"]);
+                    objPeople.Email = Convert.ToString(oReader["Email"]);
+                    objPeople.Telephone = Convert.ToString(oReader["Telephone"]);
+                    objPeople.BirthDate = Convert.ToDateTime(oReader["BirthDate"]);
+                    objPeople.FileId = Convert.ToInt32(oReader["FileId"]);
+                    objPeople.PersonType = Convert.ToInt32(oReader["PersonType"]);
+                    objPeople.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+                
+
+                    objPeople = null;
+
+                    return objPeople;
+
+                }
+            }
+            finally
+            {
+                objPeople = null;
             }
         }
     }

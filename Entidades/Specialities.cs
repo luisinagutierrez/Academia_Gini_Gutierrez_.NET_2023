@@ -11,8 +11,10 @@ namespace Entidades
         int _idSpeciality;
         string _specialityDescription;
 
-        public int IdSpeciality { get { return _idSpeciality; } set { _idSpeciality = value; } } 
+        public int IdSpeciality { get { return _idSpeciality; } set { _idSpeciality = value; } }
         public string SpecialityDescription { get { return _specialityDescription; } set { _specialityDescription = value; } }
+        public Specialities() { }
+
         public Specialities(int idSpeciality, string specialityDescription) 
         { 
             this._idSpeciality = idSpeciality;

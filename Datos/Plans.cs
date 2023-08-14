@@ -72,5 +72,63 @@ namespace Datos
                 Conn.Close();
             }
         }
+        public List<Entidades.Plans> GetAll()
+        {
+            Entidades.Plans objPlans = new Entidades.Plans();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Plans", Conn);
+                List<Entidades.Plans> PlansList = new List<Entidades.Plans>();
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    while (oReader.Read())
+                    {
+                        objPlans.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+                        objPlans.PlanDescription = Convert.ToString(oReader["PlanDescription"]);
+                        objPlans.IdSpeciality = Convert.ToInt32(oReader["IdSpeciality"]);
+
+                        PlansList.Add(objPlans);
+                        objPlans = null;
+                    }
+                    return PlansList;
+                }
+            }
+            finally
+            {
+                objPlans = null;
+            }
+        }
+        public Entidades.Plans GetOne(int id)
+        {
+            Entidades.Plans objPlans = new Entidades.Plans();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Plans WHERE @IdUser = id", Conn);
+                comm.Parameters.AddWithValue("@IdUser", id);
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+
+                    objPlans.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+                    objPlans.PlanDescription = Convert.ToString(oReader["PlanDescription"]);
+                    objPlans.IdSpeciality = Convert.ToInt32(oReader["IdSpeciality"]);
+
+                    objPlans = null;
+
+                    return objPlans;
+
+                }
+            }
+            finally
+            {
+                objPlans = null;
+            }
+        }
     }
 }

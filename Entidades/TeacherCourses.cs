@@ -16,6 +16,7 @@ namespace Entidades
         public int IdCourse { get { return _idCourse; } set { _idCourse = value; } }
         public int IdTeacher { get { return _idTeacher; } set { _idTeacher = value; } }
         public int Position { get { return _position; } set { _position = value; } }
+        public TeacherCourses() { }
         public TeacherCourses(int idDictation, int idCourse, int idTeacher, int position)
         {
             this._idDictation = idDictation;

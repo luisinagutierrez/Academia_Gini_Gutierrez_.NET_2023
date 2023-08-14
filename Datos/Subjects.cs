@@ -18,7 +18,7 @@ namespace Datos
                 SqlCommand comm = new SqlCommand("INSERT INTO Subjects (SubjectDescription, WeeklyHours, TotalHours, IdPlan) VALUES (@SubjectDescription, @WeeklyHours, @TotalHours, @IdPlan)", Conn);
                 comm.Parameters.AddWithValue("@SubjectDescription", item.SubjectDescription);
                 comm.Parameters.AddWithValue("@WeeklyHours", item.WeeklyHours);
-                comm.Parameters.AddWithValue("@TotalHours", item.TotalHours);
+                comm.Parameters.AddWithValue("@TotalHours", item.TotalHours);    
                 comm.Parameters.AddWithValue("@IdPlan", item.IdPlan);
                 return comm.ExecuteNonQuery();
             }
@@ -74,6 +74,68 @@ namespace Datos
             finally
             {
                 Conn.Close();
+            }
+        }
+        public List<Entidades.Subjects> GetAll()
+        {
+            Entidades.Subjects objSubjects = new Entidades.Subjects();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Subjects", Conn);
+                List<Entidades.Subjects> SubjectsList = new List<Entidades.Subjects>();
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    while (oReader.Read())
+                    {
+                        objSubjects.IdSubject = Convert.ToInt32(oReader["IdSubject"]);
+                        objSubjects.SubjectDescription = Convert.ToString(oReader["SubjectDescription"]);
+                        objSubjects.WeeklyHours = Convert.ToInt32(oReader["WeeklyHours"]);
+                        objSubjects.TotalHours = Convert.ToInt32(oReader["TotalHours"]);
+                        objSubjects.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+
+                        SubjectsList.Add(objSubjects);
+                        objSubjects = null;
+                    }
+                    return SubjectsList;
+                }
+            }
+            finally
+            {
+                objSubjects = null;
+            }
+        }
+        public Entidades.Subjects GetOne(int id)
+        {
+            Entidades.Subjects objSubjects = new Entidades.Subjects();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Subjects WHERE @IdUser = id", Conn);
+                comm.Parameters.AddWithValue("@IdUser", id);
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+
+                    objSubjects.IdSubject = Convert.ToInt32(oReader["IdSubject"]);
+                    objSubjects.SubjectDescription = Convert.ToString(oReader["SubjectDescription"]);
+                    objSubjects.WeeklyHours = Convert.ToInt32(oReader["WeeklyHours"]);
+                    objSubjects.TotalHours = Convert.ToInt32(oReader["TotalHours"]);
+                    objSubjects.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+
+                    objSubjects = null;
+
+                    return objSubjects;
+
+                }
+            }
+            finally
+            {
+                objSubjects = null;
             }
         }
     }

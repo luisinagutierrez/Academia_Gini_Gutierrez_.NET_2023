@@ -18,8 +18,9 @@ namespace Entidades
         public int IdStudent { get { return _idStudent; } set { _idStudent = value; } } 
         public int IdCourse { get { return _idCourse; } set { _idCourse = value; } }    
         public string Condition { get { return _condition; } set { _condition = value; } }  
-        public int Mark { get { return _mark; } set { _mark = value; } }    
+        public int Mark { get { return _mark; } set { _mark = value; } }
 
+        public StudentsRegistrations() { }
         public StudentsRegistrations(int idRegistration, int idStudent, int idCourse, string condition, int mark)
         {
             this._idRegistration = idRegistration;

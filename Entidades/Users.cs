@@ -28,7 +28,9 @@ namespace Entidades
         public bool ChangePassword { get { return _changePassword; } set { _changePassword = value; } }
         public int IdPerson { get { return _idPerson; } set { _idPerson = value; } }
 
-        public Users(int idUser, string userName, string password, bool status, string name, string surname, string email, bool changePassword, int idPerson)
+        public Users() { }
+
+        public Users( int idUser,string userName, string password, bool status, string name, string surname, string email, bool changePassword, int idPerson)
         {
             this.IdUser = idUser;
             this.UserName = userName;

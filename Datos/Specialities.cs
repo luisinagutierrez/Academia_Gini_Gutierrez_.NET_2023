@@ -70,5 +70,61 @@ namespace Datos
                 Conn.Close();
             }
         }
+        public List<Entidades.Specialities> GetAll()
+        {
+            Entidades.Specialities objSpecialities = new Entidades.Specialities();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Specialities", Conn);
+                List<Entidades.Specialities> SpecialitiesList = new List<Entidades.Specialities>();
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    while (oReader.Read())
+                    {
+                        objSpecialities.IdSpeciality = Convert.ToInt32(oReader["IdSpeciality"]);
+                        objSpecialities.SpecialityDescription = Convert.ToString(oReader["SpecialityDescription"]);
+
+                        SpecialitiesList.Add(objSpecialities);
+                        objSpecialities = null;
+                    }
+                    return SpecialitiesList;
+                }
+            }
+            finally
+            {
+                objSpecialities = null;
+            }
+        }
+        public Entidades.Specialities GetOne(int id)
+        {
+            Entidades.Specialities objSpecialities = new Entidades.Specialities();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Specialities WHERE @IdUser = id", Conn);
+                comm.Parameters.AddWithValue("@IdUser", id);
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+
+                    objSpecialities.IdSpeciality = Convert.ToInt32(oReader["IdSpeciality"]);
+                    objSpecialities.SpecialityDescription = Convert.ToString(oReader["SpecialityDescription"]);
+
+                    objSpecialities = null;
+
+                    return objSpecialities;
+
+                }
+            }
+            finally
+            {
+                objSpecialities = null;
+            }
+        }
     }
 }

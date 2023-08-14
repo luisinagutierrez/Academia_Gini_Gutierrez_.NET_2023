@@ -85,26 +85,26 @@
             // altaToolStripMenuItem
             // 
             altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            altaToolStripMenuItem.Size = new Size(224, 26);
+            altaToolStripMenuItem.Size = new Size(179, 26);
             altaToolStripMenuItem.Text = "Alta";
             // 
             // bajaToolStripMenuItem
             // 
             bajaToolStripMenuItem.Name = "bajaToolStripMenuItem";
-            bajaToolStripMenuItem.Size = new Size(224, 26);
+            bajaToolStripMenuItem.Size = new Size(179, 26);
             bajaToolStripMenuItem.Text = "Baja";
             bajaToolStripMenuItem.Click += bajaToolStripMenuItem_Click;
             // 
             // modificacionToolStripMenuItem
             // 
             modificacionToolStripMenuItem.Name = "modificacionToolStripMenuItem";
-            modificacionToolStripMenuItem.Size = new Size(224, 26);
+            modificacionToolStripMenuItem.Size = new Size(179, 26);
             modificacionToolStripMenuItem.Text = "Modificacion";
             // 
             // consultaToolStripMenuItem
             // 
             consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            consultaToolStripMenuItem.Size = new Size(224, 26);
+            consultaToolStripMenuItem.Size = new Size(179, 26);
             consultaToolStripMenuItem.Text = "Consulta";
             // 
             // especialidadesToolStripMenuItem
@@ -245,31 +245,31 @@
             // altaToolStripMenuItem5
             // 
             altaToolStripMenuItem5.Name = "altaToolStripMenuItem5";
-            altaToolStripMenuItem5.Size = new Size(179, 26);
+            altaToolStripMenuItem5.Size = new Size(224, 26);
             altaToolStripMenuItem5.Text = "Alta";
             // 
             // bajaToolStripMenuItem5
             // 
             bajaToolStripMenuItem5.Name = "bajaToolStripMenuItem5";
-            bajaToolStripMenuItem5.Size = new Size(179, 26);
+            bajaToolStripMenuItem5.Size = new Size(224, 26);
             bajaToolStripMenuItem5.Text = "Baja";
             // 
             // modificacionToolStripMenuItem5
             // 
             modificacionToolStripMenuItem5.Name = "modificacionToolStripMenuItem5";
-            modificacionToolStripMenuItem5.Size = new Size(179, 26);
+            modificacionToolStripMenuItem5.Size = new Size(224, 26);
             modificacionToolStripMenuItem5.Text = "Modificacion";
             // 
             // consultaToolStripMenuItem5
             // 
             consultaToolStripMenuItem5.Name = "consultaToolStripMenuItem5";
-            consultaToolStripMenuItem5.Size = new Size(179, 26);
+            consultaToolStripMenuItem5.Size = new Size(224, 26);
             consultaToolStripMenuItem5.Text = "Consulta";
             // 
             // pictureLogo
             // 
             pictureLogo.Image = (Image)resources.GetObject("pictureLogo.Image");
-            pictureLogo.Location = new Point(159, 60);
+            pictureLogo.Location = new Point(145, 58);
             pictureLogo.Name = "pictureLogo";
             pictureLogo.Size = new Size(224, 211);
             pictureLogo.SizeMode = PictureBoxSizeMode.StretchImage;

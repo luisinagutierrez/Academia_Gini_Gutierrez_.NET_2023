@@ -28,8 +28,9 @@ namespace Entidades
         public DateTime BirthDate { get { return _birthDate; } set { _birthDate = value; } }    
         public int FileId { get { return _fileId; } set { _fileId = value; } }    
         public int PersonType { get { return _personType; } set { _personType = value; } }  
-        public int IdPlan { get { return _idPlan; } set { _idPlan = value; } }  
+        public int IdPlan { get { return _idPlan; } set { _idPlan = value; } }
 
+        public People() { }
         public People(int idPerson, string name, string surname, string address, string email, string telephone, DateTime birthDate, int fileId, int personType, int idPlan)
         {
             this.IdPerson = idPerson;

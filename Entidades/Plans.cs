@@ -12,10 +12,11 @@ namespace Entidades
         string _planDescription;
         int _idSpeciality;
 
-        public int IdPlan { get { return _idPlan; } set { _idPlan = value; } }  
-        public string PlanDescription { get { return _planDescription; } set { _planDescription = value; } }    
-        public int IdSpeciality { get { return _idSpeciality; } set { _idSpeciality = value; } }    
+        public int IdPlan { get { return _idPlan; } set { _idPlan = value; } }
+        public string PlanDescription { get { return _planDescription; } set { _planDescription = value; } }
+        public int IdSpeciality { get { return _idSpeciality; } set { _idSpeciality = value; } }
 
+        public Plans() { }
         public Plans(int idPlan, string planDescription, int idSpeciality)
         {
             this._idPlan = idPlan;

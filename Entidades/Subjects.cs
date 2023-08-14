@@ -18,6 +18,7 @@ namespace Entidades
         public int WeeklyHours { get { return _weeklyHours; } set { _weeklyHours = value; } }
         public int TotalHours { get { return _totalHours; } set { _totalHours = value; } }
         public int IdPlan { get { return _idPlan; } set { _idPlan = value; } }
+        public Subjects() { }
         public Subjects(int idSubject, string subjectDescription, int weeklyHours, int totalHours, int idPlan)
         {
             this._idSubject = idSubject;

@@ -33,12 +33,14 @@
             lbTitleContacts = new Label();
             lbSpecialities = new Label();
             pictureLogo = new PictureBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(316, 318);
+            btnBack.Location = new Point(290, 304);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(158, 52);
             btnBack.TabIndex = 0;
@@ -75,12 +77,23 @@
             pictureLogo.TabIndex = 7;
             pictureLogo.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(594, 90);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(184, 190);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            // 
             // frmContacts
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(826, 400);
+            Controls.Add(pictureBox1);
             Controls.Add(pictureLogo);
             Controls.Add(lbSpecialities);
             Controls.Add(lbTitleContacts);
@@ -88,6 +101,7 @@
             Name = "frmContacts";
             Text = "frmContacts";
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -98,5 +112,6 @@
         private Label lbTitleContacts;
         private Label lbSpecialities;
         private PictureBox pictureLogo;
+        private PictureBox pictureBox1;
     }
 }
