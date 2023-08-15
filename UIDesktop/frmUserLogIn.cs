@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio;
 
 namespace UIDesktop
 {
@@ -31,8 +32,38 @@ namespace UIDesktop
         private void btnUserLogInAccept_Click(object sender, EventArgs e)
         {
             // si se verifica q coincide nombre y contra y la ingreso menos de 3 veces 
-            frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
-            frmStudentRegistration.ShowDialog();
+            int cont = 0;
+            while (cont < 3)
+            {
+                Negocio.Users u = Negocio.Users.ValidateUser(UserName, password);
+                cont++;
+                if (u != null)
+                {
+                    //hay que buscar desde el idperson el typeperson que es
+                    int typeP = new Negocio.People.GetPersonType(u.idPerson);
+                    switch (typeP)
+                    {
+                        case 1:
+                            {
+                                frmTeacherMainMenu frmTeacherMainMenu = new frmTeacherMainMenu();
+                                frmTeacherMainMenu.ShowDialog();
+                                break;
+                            }
+                        case 2:
+                            {
+                                frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
+                                frmStudentRegistration.ShowDialog(); 
+                                break;
+                            }
+                        case 3:
+                            {
+                                frmAdminMainMenu frmAdminMainMenu = new frmAdminMainMenu();
+                                frmAdminMainMenu.ShowDialog();
+                                break;
+                            }
+                    }
+                }
+            }
         }
 
         private void frmUserLogIn_Load(object sender, EventArgs e)

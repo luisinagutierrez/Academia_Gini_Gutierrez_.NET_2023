@@ -17,6 +17,8 @@ namespace Entidades
         public string CommissionDescription { get { return _commissionDescription; } set { _commissionDescription = value; } }
         public int SpecialityYear { get { return _specialityYear; } set { _specialityYear = value; } }
         public int IdPlan { get { return _idPlan; } set { _idPlan = value; } }
+
+        public Commissions() { }
         public Commissions(int idCommission, string commissionDescription, int specialityYear, int idPlan)
         {
             this._idCommission = idCommission;

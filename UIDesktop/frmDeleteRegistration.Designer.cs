@@ -48,6 +48,7 @@
             btnStudentDeleteRegistrationAccept.TabIndex = 15;
             btnStudentDeleteRegistrationAccept.Text = "Aceptar";
             btnStudentDeleteRegistrationAccept.UseVisualStyleBackColor = true;
+            btnStudentDeleteRegistrationAccept.Click += btnStudentDeleteRegistrationAccept_Click;
             // 
             // btnStudentDeleteRegistrationCancel
             // 
@@ -79,6 +80,7 @@
             dgvCoursesRegistration.RowTemplate.Height = 29;
             dgvCoursesRegistration.Size = new Size(673, 216);
             dgvCoursesRegistration.TabIndex = 12;
+            dgvCoursesRegistration.CellContentClick += dgvCoursesRegistration_CellContentClick;
             // 
             // txtDeleteCouseRegistrationIdCourse
             // 

@@ -127,7 +127,6 @@ namespace Datos
                     objSubjects.TotalHours = Convert.ToInt32(oReader["TotalHours"]);
                     objSubjects.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
 
-                    objSubjects = null;
 
                     return objSubjects;
 

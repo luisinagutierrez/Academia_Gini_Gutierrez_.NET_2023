@@ -34,8 +34,6 @@
             tstMain = new ToolStripTextBox();
             registrarseToolStripMenuItem = new ToolStripMenuItem();
             iniciarSesiónToolStripMenuItem = new ToolStripMenuItem();
-            usuarioToolStripMenuItem = new ToolStripMenuItem();
-            administradorToolStripMenuItem = new ToolStripMenuItem();
             materiasToolStripMenuItem = new ToolStripMenuItem();
             docentesToolStripMenuItem = new ToolStripMenuItem();
             especialidadesToolStripMenuItem = new ToolStripMenuItem();
@@ -71,7 +69,6 @@
             tstMain.Size = new Size(100, 27);
             tstMain.Tag = "";
             tstMain.Text = "Academia";
-            tstMain.Click += toolStripTextBox1_Click;
             // 
             // registrarseToolStripMenuItem
             // 
@@ -82,24 +79,10 @@
             // 
             // iniciarSesiónToolStripMenuItem
             // 
-            iniciarSesiónToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { usuarioToolStripMenuItem, administradorToolStripMenuItem });
             iniciarSesiónToolStripMenuItem.Name = "iniciarSesiónToolStripMenuItem";
             iniciarSesiónToolStripMenuItem.Size = new Size(110, 27);
             iniciarSesiónToolStripMenuItem.Text = "Iniciar Sesión";
-            // 
-            // usuarioToolStripMenuItem
-            // 
-            usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            usuarioToolStripMenuItem.Size = new Size(224, 26);
-            usuarioToolStripMenuItem.Text = "Usuario";
-            usuarioToolStripMenuItem.Click += usuarioToolStripMenuItem_Click;
-            // 
-            // administradorToolStripMenuItem
-            // 
-            administradorToolStripMenuItem.Name = "administradorToolStripMenuItem";
-            administradorToolStripMenuItem.Size = new Size(224, 26);
-            administradorToolStripMenuItem.Text = "Administrador";
-            administradorToolStripMenuItem.Click += administradorToolStripMenuItem_Click;
+            iniciarSesiónToolStripMenuItem.Click += iniciarSesiónToolStripMenuItem_Click;
             // 
             // materiasToolStripMenuItem
             // 
@@ -156,8 +139,6 @@
         private ToolStripMenuItem materiasToolStripMenuItem;
         private ToolStripMenuItem docentesToolStripMenuItem;
         private ToolStripMenuItem especialidadesToolStripMenuItem;
-        private ToolStripMenuItem usuarioToolStripMenuItem;
-        private ToolStripMenuItem administradorToolStripMenuItem;
         private ToolStripMenuItem contactoToolStripMenuItem;
     }
 }

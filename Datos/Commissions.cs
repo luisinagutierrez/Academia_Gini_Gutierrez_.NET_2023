@@ -73,5 +73,66 @@ namespace Datos
                 Conn.Close();
             }
         }
+
+        public List<Entidades.Commissions> GetAll()
+        {
+            Entidades.Commissions objCommissions = new Entidades.Commissions();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Commissions", Conn);
+                List<Entidades.Commissions> CommissionsList = new List<Entidades.Commissions>();
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    while (oReader.Read())
+                    {
+                        objCommissions.IdCommission = Convert.ToInt32(oReader["IdCommission"]);
+                        objCommissions.CommissionDescription = Convert.ToString(oReader["CommissionDescription"]);
+                        objCommissions.SpecialityYear = Convert.ToInt32(oReader["SpecialityYear"]);
+                        objCommissions.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+
+                        CommissionsList.Add(objCommissions);
+                        objCommissions = null;
+                    }
+                    return CommissionsList;
+                }
+            }
+            finally
+            {
+                objCommissions = null;
+            }
+        }
+
+        public Entidades.Commissions GetOne(int id)
+        {
+            Entidades.Commissions objCommissions = new Entidades.Commissions();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Commissions WHERE @IdCommission = id", Conn);
+                comm.Parameters.AddWithValue("@IdCommission", id);
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+
+                    objCommissions.IdCommission = Convert.ToInt32(oReader["IdCommission"]);
+                    objCommissions.CommissionDescription = Convert.ToString(oReader["CommissionDescription"]);
+                    objCommissions.SpecialityYear = Convert.ToInt32(oReader["SpecialityYear"]);
+                    objCommissions.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+
+
+                    return objCommissions;
+
+                }
+            }
+            finally
+            {
+                objCommissions = null;
+            }
+        }
     }
 }

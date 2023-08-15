@@ -119,7 +119,6 @@ namespace Datos
                     objPlans.PlanDescription = Convert.ToString(oReader["PlanDescription"]);
                     objPlans.IdSpeciality = Convert.ToInt32(oReader["IdSpeciality"]);
 
-                    objPlans = null;
 
                     return objPlans;
 

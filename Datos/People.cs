@@ -146,9 +146,31 @@ namespace Datos
                     objPeople.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
                 
 
-                    objPeople = null;
-
                     return objPeople;
+
+                }
+            }
+            finally
+            {
+                objPeople = null;
+            }
+        }
+        public int GetTypePerson(int id)
+        {
+            Entidades.People objPeople = new Entidades.People();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT PersonType FROM People WHERE @IdPerson = id", Conn);
+                comm.Parameters.AddWithValue("@IdPerson", id);
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+                    objPeople.PersonType = Convert.ToInt32(oReader["PersonType"]);
+
+                    return objPeople.PersonType;
 
                 }
             }

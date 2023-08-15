@@ -115,11 +115,10 @@ namespace Datos
                     objSpecialities.IdSpeciality = Convert.ToInt32(oReader["IdSpeciality"]);
                     objSpecialities.SpecialityDescription = Convert.ToString(oReader["SpecialityDescription"]);
 
-                    objSpecialities = null;
-
                     return objSpecialities;
-
+                    
                 }
+                
             }
             finally
             {

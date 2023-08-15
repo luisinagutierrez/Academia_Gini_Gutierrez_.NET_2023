@@ -22,11 +22,6 @@ namespace UIDesktop
 
         }
 
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void registrarseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUserSignUp frmUserSp = new frmUserSignUp();
@@ -50,23 +45,16 @@ namespace UIDesktop
 
         }
 
-        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmUserLogIn frmUserLogIn = new frmUserLogIn();
-            frmUserLogIn.ShowDialog();
-
-        }
-
         private void docentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmTeachersList frmTeachersList = new frmTeachersList();
             frmTeachersList.ShowDialog();
         }
 
-        private void administradorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void iniciarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAdminLogIn frmAdminLogIn = new frmAdminLogIn();
-            frmAdminLogIn.ShowDialog();
+            frmUserLogIn frmUserLogIn = new frmUserLogIn();
+            frmUserLogIn.ShowDialog();
         }
     }
 }

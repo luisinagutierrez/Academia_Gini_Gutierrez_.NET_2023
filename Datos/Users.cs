@@ -115,14 +115,15 @@ namespace Datos
                 objUsers = null;
             }
         }
-        public Entidades.Users GetOne(int id)
+        public Entidades.Users GetOne(string userName, string password)
         {
             Entidades.Users objUsers = new Entidades.Users();
             try
             {
                 Conn.Open();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE @IdUser = id", Conn);
-                comm.Parameters.AddWithValue("@IdUser", id);
+                SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE @UserName = userName AND @Password = password", Conn);
+                comm.Parameters.AddWithValue("@UserName", userName);
+                comm.Parameters.AddWithValue("@Password", password);
                 // Ejecutamos el comando y retornamos los valores
                 SqlDataReader oReader = comm.ExecuteReader();    
                 using (oReader)
@@ -133,10 +134,9 @@ namespace Datos
                     objUsers.UserName = Convert.ToString(oReader["UserName"]);
                     objUsers.Password = Convert.ToString(oReader["Password"]);
                     objUsers.Status = Convert.ToBoolean(oReader["Status"]);
-                    objUsers.ChangePassword = Convert.ToBoolean(oReader["Status"]);
+                    objUsers.ChangePassword = Convert.ToBoolean(oReader["ChangePassword"]);
                     objUsers.IdPerson = Convert.ToInt32(oReader["IdPerson"]);
 
-                    objUsers = null;
 
                     return objUsers;
 

@@ -124,7 +124,6 @@ namespace Datos
                     objTeacherCourses.IdTeacher = Convert.ToInt32(oReader["IdTeacher"]);
                     objTeacherCourses.Position = Convert.ToInt32(oReader["Position"]);
 
-                    objTeacherCourses = null;
 
                     return objTeacherCourses;
 

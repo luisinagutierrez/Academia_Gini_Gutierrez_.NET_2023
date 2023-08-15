@@ -127,8 +127,6 @@ namespace Datos
                     objStudentsRegistrations.Condition = Convert.ToString(oReader["Condition"]);
                     objStudentsRegistrations.Mark = Convert.ToInt32(oReader["Mark"]);
 
-                    objStudentsRegistrations = null;
-
                     return objStudentsRegistrations;
 
                 }
