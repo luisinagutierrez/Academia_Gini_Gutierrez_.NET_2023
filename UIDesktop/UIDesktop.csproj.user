@@ -4,10 +4,46 @@
     <Compile Update="frmAdminMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmCreateAndUpdateCommissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCreateAndUpdateCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCreateAndUpdatePeople.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCreateAndUpdatePlans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCreateAndUpdateSpecialities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCreateAndUpdateSubjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDeleteCommissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDeleteCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDeletePeople.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDeletePlans.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmDeleteRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDeleteSpecialities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDeleteSubjects.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmMain.cs">

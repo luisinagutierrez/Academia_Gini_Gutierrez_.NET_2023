@@ -71,7 +71,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { alumnoToolStripMenuItem, especialidadesToolStripMenuItem, planesToolStripMenuItem, cursosToolStripMenuItem, materiasToolStripMenuItem, cursoToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(527, 28);
+            menuStrip1.Size = new Size(518, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -85,26 +85,28 @@
             // altaToolStripMenuItem
             // 
             altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            altaToolStripMenuItem.Size = new Size(179, 26);
+            altaToolStripMenuItem.Size = new Size(224, 26);
             altaToolStripMenuItem.Text = "Alta";
+            altaToolStripMenuItem.Click += altaToolStripMenuItem_Click;
             // 
             // bajaToolStripMenuItem
             // 
             bajaToolStripMenuItem.Name = "bajaToolStripMenuItem";
-            bajaToolStripMenuItem.Size = new Size(179, 26);
+            bajaToolStripMenuItem.Size = new Size(224, 26);
             bajaToolStripMenuItem.Text = "Baja";
             bajaToolStripMenuItem.Click += bajaToolStripMenuItem_Click;
             // 
             // modificacionToolStripMenuItem
             // 
             modificacionToolStripMenuItem.Name = "modificacionToolStripMenuItem";
-            modificacionToolStripMenuItem.Size = new Size(179, 26);
+            modificacionToolStripMenuItem.Size = new Size(224, 26);
             modificacionToolStripMenuItem.Text = "Modificacion";
+            modificacionToolStripMenuItem.Click += modificacionToolStripMenuItem_Click;
             // 
             // consultaToolStripMenuItem
             // 
             consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            consultaToolStripMenuItem.Size = new Size(179, 26);
+            consultaToolStripMenuItem.Size = new Size(224, 26);
             consultaToolStripMenuItem.Text = "Consulta";
             // 
             // especialidadesToolStripMenuItem
@@ -120,18 +122,21 @@
             altaToolStripMenuItem1.Name = "altaToolStripMenuItem1";
             altaToolStripMenuItem1.Size = new Size(179, 26);
             altaToolStripMenuItem1.Text = "Alta";
+            altaToolStripMenuItem1.Click += altaToolStripMenuItem1_Click;
             // 
             // bajaToolStripMenuItem1
             // 
             bajaToolStripMenuItem1.Name = "bajaToolStripMenuItem1";
             bajaToolStripMenuItem1.Size = new Size(179, 26);
             bajaToolStripMenuItem1.Text = "Baja";
+            bajaToolStripMenuItem1.Click += bajaToolStripMenuItem1_Click;
             // 
             // modificacionToolStripMenuItem1
             // 
             modificacionToolStripMenuItem1.Name = "modificacionToolStripMenuItem1";
             modificacionToolStripMenuItem1.Size = new Size(179, 26);
             modificacionToolStripMenuItem1.Text = "Modificacion";
+            modificacionToolStripMenuItem1.Click += modificacionToolStripMenuItem1_Click;
             // 
             // consultaToolStripMenuItem1
             // 
@@ -152,18 +157,21 @@
             altaToolStripMenuItem2.Name = "altaToolStripMenuItem2";
             altaToolStripMenuItem2.Size = new Size(179, 26);
             altaToolStripMenuItem2.Text = "Alta";
+            altaToolStripMenuItem2.Click += altaToolStripMenuItem2_Click;
             // 
             // bajaToolStripMenuItem2
             // 
             bajaToolStripMenuItem2.Name = "bajaToolStripMenuItem2";
             bajaToolStripMenuItem2.Size = new Size(179, 26);
             bajaToolStripMenuItem2.Text = "Baja";
+            bajaToolStripMenuItem2.Click += bajaToolStripMenuItem2_Click;
             // 
             // modificacionToolStripMenuItem2
             // 
             modificacionToolStripMenuItem2.Name = "modificacionToolStripMenuItem2";
             modificacionToolStripMenuItem2.Size = new Size(179, 26);
             modificacionToolStripMenuItem2.Text = "Modificacion";
+            modificacionToolStripMenuItem2.Click += modificacionToolStripMenuItem2_Click;
             // 
             // consultaToolStripMenuItem2
             // 
@@ -185,18 +193,21 @@
             altaToolStripMenuItem4.Name = "altaToolStripMenuItem4";
             altaToolStripMenuItem4.Size = new Size(179, 26);
             altaToolStripMenuItem4.Text = "Alta";
+            altaToolStripMenuItem4.Click += altaToolStripMenuItem4_Click;
             // 
             // bajaToolStripMenuItem4
             // 
             bajaToolStripMenuItem4.Name = "bajaToolStripMenuItem4";
             bajaToolStripMenuItem4.Size = new Size(179, 26);
             bajaToolStripMenuItem4.Text = "Baja";
+            bajaToolStripMenuItem4.Click += bajaToolStripMenuItem4_Click;
             // 
             // modificacionToolStripMenuItem4
             // 
             modificacionToolStripMenuItem4.Name = "modificacionToolStripMenuItem4";
             modificacionToolStripMenuItem4.Size = new Size(179, 26);
             modificacionToolStripMenuItem4.Text = "Modificacion";
+            modificacionToolStripMenuItem4.Click += modificacionToolStripMenuItem4_Click;
             // 
             // consultaToolStripMenuItem4
             // 
@@ -216,18 +227,21 @@
             altaToolStripMenuItem3.Name = "altaToolStripMenuItem3";
             altaToolStripMenuItem3.Size = new Size(179, 26);
             altaToolStripMenuItem3.Text = "Alta";
+            altaToolStripMenuItem3.Click += altaToolStripMenuItem3_Click;
             // 
             // bajaToolStripMenuItem3
             // 
             bajaToolStripMenuItem3.Name = "bajaToolStripMenuItem3";
             bajaToolStripMenuItem3.Size = new Size(179, 26);
             bajaToolStripMenuItem3.Text = "Baja";
+            bajaToolStripMenuItem3.Click += bajaToolStripMenuItem3_Click;
             // 
             // modificacionToolStripMenuItem3
             // 
             modificacionToolStripMenuItem3.Name = "modificacionToolStripMenuItem3";
             modificacionToolStripMenuItem3.Size = new Size(179, 26);
             modificacionToolStripMenuItem3.Text = "Modificacion";
+            modificacionToolStripMenuItem3.Click += modificacionToolStripMenuItem3_Click;
             // 
             // consultaToolStripMenuItem3
             // 
@@ -245,25 +259,28 @@
             // altaToolStripMenuItem5
             // 
             altaToolStripMenuItem5.Name = "altaToolStripMenuItem5";
-            altaToolStripMenuItem5.Size = new Size(224, 26);
+            altaToolStripMenuItem5.Size = new Size(179, 26);
             altaToolStripMenuItem5.Text = "Alta";
+            altaToolStripMenuItem5.Click += altaToolStripMenuItem5_Click;
             // 
             // bajaToolStripMenuItem5
             // 
             bajaToolStripMenuItem5.Name = "bajaToolStripMenuItem5";
-            bajaToolStripMenuItem5.Size = new Size(224, 26);
+            bajaToolStripMenuItem5.Size = new Size(179, 26);
             bajaToolStripMenuItem5.Text = "Baja";
+            bajaToolStripMenuItem5.Click += bajaToolStripMenuItem5_Click;
             // 
             // modificacionToolStripMenuItem5
             // 
             modificacionToolStripMenuItem5.Name = "modificacionToolStripMenuItem5";
-            modificacionToolStripMenuItem5.Size = new Size(224, 26);
+            modificacionToolStripMenuItem5.Size = new Size(179, 26);
             modificacionToolStripMenuItem5.Text = "Modificacion";
+            modificacionToolStripMenuItem5.Click += modificacionToolStripMenuItem5_Click;
             // 
             // consultaToolStripMenuItem5
             // 
             consultaToolStripMenuItem5.Name = "consultaToolStripMenuItem5";
-            consultaToolStripMenuItem5.Size = new Size(224, 26);
+            consultaToolStripMenuItem5.Size = new Size(179, 26);
             consultaToolStripMenuItem5.Text = "Consulta";
             // 
             // pictureLogo
@@ -282,12 +299,13 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(527, 308);
+            ClientSize = new Size(518, 298);
             Controls.Add(pictureLogo);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "frmAdminMainMenu";
             Text = "Menu Principal Administrador";
+            Load += frmAdminMainMenu_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();

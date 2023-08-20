@@ -42,7 +42,7 @@
             // 
             // btnStudentDeleteRegistrationAccept
             // 
-            btnStudentDeleteRegistrationAccept.Location = new Point(642, 435);
+            btnStudentDeleteRegistrationAccept.Location = new Point(629, 425);
             btnStudentDeleteRegistrationAccept.Name = "btnStudentDeleteRegistrationAccept";
             btnStudentDeleteRegistrationAccept.Size = new Size(95, 39);
             btnStudentDeleteRegistrationAccept.TabIndex = 15;
@@ -52,7 +52,7 @@
             // 
             // btnStudentDeleteRegistrationCancel
             // 
-            btnStudentDeleteRegistrationCancel.Location = new Point(412, 435);
+            btnStudentDeleteRegistrationCancel.Location = new Point(399, 425);
             btnStudentDeleteRegistrationCancel.Name = "btnStudentDeleteRegistrationCancel";
             btnStudentDeleteRegistrationCancel.Size = new Size(105, 39);
             btnStudentDeleteRegistrationCancel.TabIndex = 14;
@@ -64,7 +64,7 @@
             // 
             lbCourses.AutoSize = true;
             lbCourses.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbCourses.Location = new Point(319, 47);
+            lbCourses.Location = new Point(306, 37);
             lbCourses.Name = "lbCourses";
             lbCourses.Size = new Size(198, 25);
             lbCourses.TabIndex = 13;
@@ -74,7 +74,7 @@
             // dgvCoursesRegistration
             // 
             dgvCoursesRegistration.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCoursesRegistration.Location = new Point(64, 134);
+            dgvCoursesRegistration.Location = new Point(51, 124);
             dgvCoursesRegistration.Name = "dgvCoursesRegistration";
             dgvCoursesRegistration.RowHeadersWidth = 51;
             dgvCoursesRegistration.RowTemplate.Height = 29;
@@ -84,7 +84,7 @@
             // 
             // txtDeleteCouseRegistrationIdCourse
             // 
-            txtDeleteCouseRegistrationIdCourse.Location = new Point(183, 367);
+            txtDeleteCouseRegistrationIdCourse.Location = new Point(170, 357);
             txtDeleteCouseRegistrationIdCourse.Name = "txtDeleteCouseRegistrationIdCourse";
             txtDeleteCouseRegistrationIdCourse.Size = new Size(125, 27);
             txtDeleteCouseRegistrationIdCourse.TabIndex = 11;
@@ -92,7 +92,7 @@
             // lbtxtDeleteCouseRegistrationIdCourse
             // 
             lbtxtDeleteCouseRegistrationIdCourse.AutoSize = true;
-            lbtxtDeleteCouseRegistrationIdCourse.Location = new Point(63, 374);
+            lbtxtDeleteCouseRegistrationIdCourse.Location = new Point(50, 364);
             lbtxtDeleteCouseRegistrationIdCourse.Name = "lbtxtDeleteCouseRegistrationIdCourse";
             lbtxtDeleteCouseRegistrationIdCourse.Size = new Size(67, 20);
             lbtxtDeleteCouseRegistrationIdCourse.TabIndex = 10;
@@ -101,7 +101,7 @@
             // pictureLogo
             // 
             pictureLogo.Image = (Image)resources.GetObject("pictureLogo.Image");
-            pictureLogo.Location = new Point(25, 22);
+            pictureLogo.Location = new Point(12, 12);
             pictureLogo.Name = "pictureLogo";
             pictureLogo.Size = new Size(96, 84);
             pictureLogo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -113,7 +113,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(812, 558);
+            ClientSize = new Size(800, 484);
             Controls.Add(pictureLogo);
             Controls.Add(btnStudentDeleteRegistrationAccept);
             Controls.Add(btnStudentDeleteRegistrationCancel);
