@@ -10,14 +10,14 @@ namespace Datos
 {
     public class Specialities : Connection
     {
-        public int Add(Entidades.Specialities item)
+        public void Add(string item)
         {
             try 
             {
                 Conn.Open();
                 SqlCommand comm = new SqlCommand("INSERT INTO Specialities (SpecialityDescription) VALUES (@SpecialityDescription)", Conn);
-                comm.Parameters.AddWithValue("@SpecialityDescription", item.SpecialityDescription);
-                return comm.ExecuteNonQuery();
+                comm.Parameters.AddWithValue("@SpecialityDescription", item);
+                comm.ExecuteNonQuery();
             }
             catch (Exception Ex) 
             {
@@ -30,13 +30,13 @@ namespace Datos
             }
         }
 
-        public void Update(Entidades.Specialities item, int id)
+        public void Update(string item, int id)
         {
             try 
             {
                 Conn.Open();
                 SqlCommand comm = new SqlCommand("UPDATE Specialities SET SpecialityDescription = @SpecialityDescription WHERE IdSpeciality = @Id", Conn);
-                comm.Parameters.AddWithValue("@SpecialityDescription", item.SpecialityDescription);
+                comm.Parameters.AddWithValue("@SpecialityDescription", item);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)

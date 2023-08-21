@@ -26,5 +26,17 @@ namespace UIDesktop
         {
             this.Close();
         }
+
+        private void btnCreateSpecialitie_Click(object sender, EventArgs e)
+        {
+            Negocio.Specialities ns = new Negocio.Specialities();
+            ns.Add(txtSpecialityDescription.Text);
+        }
+
+        private void btnUpdateSpecialitie_Click(object sender, EventArgs e)
+        {
+            Negocio.Specialities ns = new Negocio.Specialities();
+            ns.Update(txtSpecialityDescription.Text, Convert.ToInt32(txtIdSpeciality.Text));
+        }
     }
 }

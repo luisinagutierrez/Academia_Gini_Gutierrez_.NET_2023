@@ -68,3 +68,17 @@ C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_Academia_Gi
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_Academia_Gini_Gutierrez\luisinagutierrez\PruebaAcademia\Entidades\obj\Debug\net6.0\Entidades.pdb
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_Academia_Gini_Gutierrez\luisinagutierrez\PruebaAcademia\Entidades\obj\Debug\net6.0\Entidades.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_Academia_Gini_Gutierrez\luisinagutierrez\PruebaAcademia\Entidades\obj\Debug\net6.0\ref\Entidades.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\bin\Debug\net6.0\Entidades.deps.json
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\bin\Debug\net6.0\Entidades.runtimeconfig.json
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\bin\Debug\net6.0\Entidades.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\bin\Debug\net6.0\Entidades.pdb
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\obj\Debug\net6.0\Entidades.csproj.AssemblyReference.cache
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\obj\Debug\net6.0\Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\obj\Debug\net6.0\Entidades.AssemblyInfoInputs.cache
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\obj\Debug\net6.0\Entidades.AssemblyInfo.cs
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\obj\Debug\net6.0\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\obj\Debug\net6.0\Entidades.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\obj\Debug\net6.0\refint\Entidades.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\obj\Debug\net6.0\Entidades.pdb
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\obj\Debug\net6.0\Entidades.genruntimeconfig.cache
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\Entidades\obj\Debug\net6.0\ref\Entidades.dll

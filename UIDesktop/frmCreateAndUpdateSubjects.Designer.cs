@@ -134,7 +134,7 @@
             btnUpdateSubject.Name = "btnUpdateSubject";
             btnUpdateSubject.Size = new Size(121, 48);
             btnUpdateSubject.TabIndex = 45;
-            btnUpdateSubject.Text = "Actualizar comision";
+            btnUpdateSubject.Text = "Actualizar materia";
             btnUpdateSubject.UseVisualStyleBackColor = true;
             // 
             // btnCreateSubject
@@ -143,7 +143,7 @@
             btnCreateSubject.Name = "btnCreateSubject";
             btnCreateSubject.Size = new Size(121, 48);
             btnCreateSubject.TabIndex = 44;
-            btnCreateSubject.Text = "Guardar nueva comision";
+            btnCreateSubject.Text = "Guardar nueva materia";
             btnCreateSubject.UseVisualStyleBackColor = true;
             // 
             // btnBack

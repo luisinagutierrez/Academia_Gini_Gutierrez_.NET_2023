@@ -30,12 +30,10 @@ namespace UIDesktop
 
         private void btnStudentDeleteRegistrationAccept_Click(object sender, EventArgs e)
         {
-            Negocio.StudentsRegistrations.Delete(int id);
         }
 
         private void dgvCoursesRegistration_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            List<Entidades.StudentsRegistrations> RegistrationsList = StudentsRegistrations.GetAll();
         }
     }
 }

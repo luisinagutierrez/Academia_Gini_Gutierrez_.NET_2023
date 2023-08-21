@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateAndUpdateSpecialities));
             lbIdSpecialities = new Label();
-            txtIdSpecialities = new TextBox();
+            txtIdSpeciality = new TextBox();
             brnBack = new Button();
-            brnCreateSpecialitie = new Button();
+            btnCreateSpecialitie = new Button();
             btnUpdateSpecialitie = new Button();
             txtSpecialityDescription = new TextBox();
             lbSpecialityDescription = new Label();
@@ -48,16 +48,16 @@
             lbIdSpecialities.AutoSize = true;
             lbIdSpecialities.Location = new Point(571, 152);
             lbIdSpecialities.Name = "lbIdSpecialities";
-            lbIdSpecialities.Size = new Size(117, 20);
+            lbIdSpecialities.Size = new Size(110, 20);
             lbIdSpecialities.TabIndex = 0;
-            lbIdSpecialities.Text = "Id escpecialidad";
+            lbIdSpecialities.Text = "Id especialidad";
             // 
-            // txtIdSpecialities
+            // txtIdSpeciality
             // 
-            txtIdSpecialities.Location = new Point(694, 152);
-            txtIdSpecialities.Name = "txtIdSpecialities";
-            txtIdSpecialities.Size = new Size(124, 27);
-            txtIdSpecialities.TabIndex = 1;
+            txtIdSpeciality.Location = new Point(694, 152);
+            txtIdSpeciality.Name = "txtIdSpeciality";
+            txtIdSpeciality.Size = new Size(124, 27);
+            txtIdSpeciality.TabIndex = 1;
             // 
             // brnBack
             // 
@@ -69,14 +69,15 @@
             brnBack.UseVisualStyleBackColor = true;
             brnBack.Click += button1_Click;
             // 
-            // brnCreateSpecialitie
+            // btnCreateSpecialitie
             // 
-            brnCreateSpecialitie.Location = new Point(503, 348);
-            brnCreateSpecialitie.Name = "brnCreateSpecialitie";
-            brnCreateSpecialitie.Size = new Size(121, 48);
-            brnCreateSpecialitie.TabIndex = 3;
-            brnCreateSpecialitie.Text = "Guardar nueva especialidad";
-            brnCreateSpecialitie.UseVisualStyleBackColor = true;
+            btnCreateSpecialitie.Location = new Point(503, 348);
+            btnCreateSpecialitie.Name = "btnCreateSpecialitie";
+            btnCreateSpecialitie.Size = new Size(121, 48);
+            btnCreateSpecialitie.TabIndex = 3;
+            btnCreateSpecialitie.Text = "Guardar nueva especialidad";
+            btnCreateSpecialitie.UseVisualStyleBackColor = true;
+            btnCreateSpecialitie.Click += btnCreateSpecialitie_Click;
             // 
             // btnUpdateSpecialitie
             // 
@@ -84,8 +85,9 @@
             btnUpdateSpecialitie.Name = "btnUpdateSpecialitie";
             btnUpdateSpecialitie.Size = new Size(121, 48);
             btnUpdateSpecialitie.TabIndex = 4;
-            btnUpdateSpecialitie.Text = "Actualizar descripcion";
+            btnUpdateSpecialitie.Text = "Actualizar especialidad";
             btnUpdateSpecialitie.UseVisualStyleBackColor = true;
+            btnUpdateSpecialitie.Click += btnUpdateSpecialitie_Click;
             // 
             // txtSpecialityDescription
             // 
@@ -146,9 +148,9 @@
             Controls.Add(txtSpecialityDescription);
             Controls.Add(lbSpecialityDescription);
             Controls.Add(btnUpdateSpecialitie);
-            Controls.Add(brnCreateSpecialitie);
+            Controls.Add(btnCreateSpecialitie);
             Controls.Add(brnBack);
-            Controls.Add(txtIdSpecialities);
+            Controls.Add(txtIdSpeciality);
             Controls.Add(lbIdSpecialities);
             Name = "frmCreateAndUpdateSpecialities";
             Text = "Crear o Actualizar Especialidades";
@@ -162,9 +164,9 @@
         #endregion
 
         private Label lbIdSpecialities;
-        private TextBox txtIdSpecialities;
+        private TextBox txtIdSpeciality;
         private Button brnBack;
-        private Button brnCreateSpecialitie;
+        private Button btnCreateSpecialitie;
         private Button btnUpdateSpecialitie;
         private TextBox txtSpecialityDescription;
         private Label lbSpecialityDescription;

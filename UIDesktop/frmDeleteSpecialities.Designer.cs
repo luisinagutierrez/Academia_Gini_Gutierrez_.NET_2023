@@ -69,6 +69,7 @@
             dgvSpecialities.RowTemplate.Height = 29;
             dgvSpecialities.Size = new Size(456, 189);
             dgvSpecialities.TabIndex = 22;
+            dgvSpecialities.CellContentClick += dgvSpecialities_CellContentClick;
             // 
             // btnDeleteSpecialitie
             // 
@@ -78,6 +79,7 @@
             btnDeleteSpecialitie.TabIndex = 18;
             btnDeleteSpecialitie.Text = "Aceptar";
             btnDeleteSpecialitie.UseVisualStyleBackColor = true;
+            btnDeleteSpecialitie.Click += btnDeleteSpecialitie_Click;
             // 
             // button1
             // 
@@ -101,9 +103,9 @@
             lbIdSpecialities.AutoSize = true;
             lbIdSpecialities.Location = new Point(37, 361);
             lbIdSpecialities.Name = "lbIdSpecialities";
-            lbIdSpecialities.Size = new Size(123, 20);
+            lbIdSpecialities.Size = new Size(116, 20);
             lbIdSpecialities.TabIndex = 15;
-            lbIdSpecialities.Text = "Id escpecialidad*";
+            lbIdSpecialities.Text = "Id especialidad*";
             // 
             // frmDeleteSpecialities
             // 

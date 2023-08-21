@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             pictureBox1 = new PictureBox();
             msMain = new MenuStrip();
-            tstMain = new ToolStripTextBox();
             registrarseToolStripMenuItem = new ToolStripMenuItem();
             iniciarSesiónToolStripMenuItem = new ToolStripMenuItem();
             materiasToolStripMenuItem = new ToolStripMenuItem();
@@ -55,59 +54,52 @@
             // msMain
             // 
             msMain.ImageScalingSize = new Size(20, 20);
-            msMain.Items.AddRange(new ToolStripItem[] { tstMain, registrarseToolStripMenuItem, iniciarSesiónToolStripMenuItem, materiasToolStripMenuItem, docentesToolStripMenuItem, especialidadesToolStripMenuItem, contactoToolStripMenuItem });
+            msMain.Items.AddRange(new ToolStripItem[] { registrarseToolStripMenuItem, iniciarSesiónToolStripMenuItem, materiasToolStripMenuItem, docentesToolStripMenuItem, especialidadesToolStripMenuItem, contactoToolStripMenuItem });
             msMain.Location = new Point(0, 0);
             msMain.Name = "msMain";
-            msMain.Size = new Size(771, 31);
+            msMain.Size = new Size(771, 28);
             msMain.TabIndex = 1;
             msMain.Text = "menuStrip1";
             msMain.ItemClicked += msMain_ItemClicked;
             // 
-            // tstMain
-            // 
-            tstMain.Name = "tstMain";
-            tstMain.Size = new Size(100, 27);
-            tstMain.Tag = "";
-            tstMain.Text = "Academia";
-            // 
             // registrarseToolStripMenuItem
             // 
             registrarseToolStripMenuItem.Name = "registrarseToolStripMenuItem";
-            registrarseToolStripMenuItem.Size = new Size(96, 27);
+            registrarseToolStripMenuItem.Size = new Size(96, 24);
             registrarseToolStripMenuItem.Text = "Registrarse";
             registrarseToolStripMenuItem.Click += registrarseToolStripMenuItem_Click;
             // 
             // iniciarSesiónToolStripMenuItem
             // 
             iniciarSesiónToolStripMenuItem.Name = "iniciarSesiónToolStripMenuItem";
-            iniciarSesiónToolStripMenuItem.Size = new Size(110, 27);
+            iniciarSesiónToolStripMenuItem.Size = new Size(110, 24);
             iniciarSesiónToolStripMenuItem.Text = "Iniciar Sesión";
             iniciarSesiónToolStripMenuItem.Click += iniciarSesiónToolStripMenuItem_Click;
             // 
             // materiasToolStripMenuItem
             // 
             materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            materiasToolStripMenuItem.Size = new Size(80, 27);
+            materiasToolStripMenuItem.Size = new Size(80, 24);
             materiasToolStripMenuItem.Text = "Materias";
             // 
             // docentesToolStripMenuItem
             // 
             docentesToolStripMenuItem.Name = "docentesToolStripMenuItem";
-            docentesToolStripMenuItem.Size = new Size(85, 27);
+            docentesToolStripMenuItem.Size = new Size(85, 24);
             docentesToolStripMenuItem.Text = "Docentes";
             docentesToolStripMenuItem.Click += docentesToolStripMenuItem_Click;
             // 
             // especialidadesToolStripMenuItem
             // 
             especialidadesToolStripMenuItem.Name = "especialidadesToolStripMenuItem";
-            especialidadesToolStripMenuItem.Size = new Size(121, 27);
+            especialidadesToolStripMenuItem.Size = new Size(121, 24);
             especialidadesToolStripMenuItem.Text = "Especialidades";
             especialidadesToolStripMenuItem.Click += especialidadesToolStripMenuItem_Click;
             // 
             // contactoToolStripMenuItem
             // 
             contactoToolStripMenuItem.Name = "contactoToolStripMenuItem";
-            contactoToolStripMenuItem.Size = new Size(83, 27);
+            contactoToolStripMenuItem.Size = new Size(83, 24);
             contactoToolStripMenuItem.Text = "Contacto";
             contactoToolStripMenuItem.Click += contactoToolStripMenuItem_Click;
             // 
@@ -133,7 +125,6 @@
 
         private PictureBox pictureBox1;
         private MenuStrip msMain;
-        private ToolStripTextBox tstMain;
         private ToolStripMenuItem registrarseToolStripMenuItem;
         private ToolStripMenuItem iniciarSesiónToolStripMenuItem;
         private ToolStripMenuItem materiasToolStripMenuItem;

@@ -9,13 +9,13 @@ namespace Negocio
 {
     public class Specialities
     {
-        public int Add(Entidades.Specialities item)
+        public void Add(string item)
         {
             Datos.Specialities ds;
             try
             {
                 ds = new Datos.Specialities();
-                return ds.Add(item);
+                ds.Add(item);
             }
             finally
             {
@@ -23,7 +23,7 @@ namespace Negocio
             }
         }
 
-        public void Update(Entidades.Specialities item, int id )
+        public void Update(string item, int id )
         {
             Datos.Specialities ds;
             try
@@ -44,6 +44,20 @@ namespace Negocio
             {
                 ds = new Datos.Specialities();
                 ds.Delete(id);
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
+        public List<Entidades.Specialities> GetAll()
+        {
+            Datos.Specialities ds;
+            try
+            {
+                ds = new Datos.Specialities();
+                return ds.GetAll();
             }
             finally
             {
