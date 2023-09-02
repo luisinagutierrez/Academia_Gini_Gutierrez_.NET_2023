@@ -31,11 +31,19 @@ namespace UIDesktop
 
         private void btnUserLogInAccept_Click(object sender, EventArgs e)
         {
+            string nom = Convert.ToString(txtUserName.Text);
+            string pass = Convert.ToString(txtUserPassword.Text);
+
+            if (nom == "hola" & pass == "hola")
+            {
+                frmAdminMainMenu frmAdminMainMenu = new frmAdminMainMenu();
+                frmAdminMainMenu.ShowDialog();
+            }
             //    // si se verifica q coincide nombre y contra y la ingreso menos de 3 veces 
             //    int cont = 0;
             //    while (cont < 3)
             //    {
-            //        Negocio.Users u = Negocio.Users.ValidateUser(Convert.ToString(txtUserName.Text), Convert.ToString(txtUserPassword));
+            //        Negocio.Users u = Negocio.Users.ValidateUser(nom), pass);
             //        cont++;
             //        if (u != null)
             //        {
@@ -53,12 +61,6 @@ namespace UIDesktop
             //                    {
             //frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
             //frmStudentRegistration.ShowDialog();
-            //                        break;
-            //                    }
-            //                case 3:
-            //                    {
-            frmAdminMainMenu frmAdminMainMenu = new frmAdminMainMenu();
-            frmAdminMainMenu.ShowDialog();
             //                        break;
             //                    }
             //            }
