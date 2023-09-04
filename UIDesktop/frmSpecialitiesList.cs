@@ -21,6 +21,9 @@ namespace UIDesktop
 
         private void frmSpecialitiesList_Load(object sender, EventArgs e)
         {
+            Negocio.Specialities nSpecialities = new Negocio.Specialities();
+            List < Entidades.Specialities > specialitiesList = nSpecialities.GetAll();
+            dgwSpecialitiesList.DataSource = specialitiesList;
 
         }
 

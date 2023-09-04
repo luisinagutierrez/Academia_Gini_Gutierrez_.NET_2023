@@ -14,7 +14,7 @@ namespace Datos
         {
             try 
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("INSERT INTO Specialities (SpecialityDescription) VALUES (@SpecialityDescription)", Conn);
                 comm.Parameters.AddWithValue("@SpecialityDescription", item);
                 comm.ExecuteNonQuery();
@@ -26,7 +26,7 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
@@ -34,7 +34,7 @@ namespace Datos
         {
             try 
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("UPDATE Specialities SET SpecialityDescription = @SpecialityDescription WHERE IdSpeciality = @Id", Conn);
                 comm.Parameters.AddWithValue("@SpecialityDescription", item);
                 comm.ExecuteNonQuery();
@@ -46,7 +46,7 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
@@ -54,7 +54,7 @@ namespace Datos
         {
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("DELETE Specialities WHERE IdSpeciality = @Id", Conn);
      
                 comm.Parameters.AddWithValue("@IdSpeciality", id);
@@ -67,15 +67,15 @@ namespace Datos
             }
             finally 
             { 
-                Conn.Close();
+                this.Disconnect();
             }
         }
         public List<Entidades.Specialities> GetAll()
         {
-            Entidades.Specialities objSpecialities = new Entidades.Specialities();
+           
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("SELECT * FROM Specialities", Conn);
                 List<Entidades.Specialities> SpecialitiesList = new List<Entidades.Specialities>();
 
@@ -84,8 +84,9 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
-                        objSpecialities.IdSpeciality = Convert.ToInt32(oReader["IdSpeciality"]);
-                        objSpecialities.SpecialityDescription = Convert.ToString(oReader["SpecialityDescription"]);
+                        Entidades.Specialities objSpecialities = new Entidades.Specialities();
+                        objSpecialities.IdSpeciality = (int)oReader[ "IdSpeciality"];
+                        objSpecialities.SpecialityDescription = (string)oReader["SpecialityDescription"];
 
                         SpecialitiesList.Add(objSpecialities);
                         objSpecialities = null;
@@ -95,7 +96,8 @@ namespace Datos
             }
             finally
             {
-                objSpecialities = null;
+               // objSpecialities = null;
+                this.Disconnect();
             }
         }
         public Entidades.Specialities GetOne(int id)
@@ -103,7 +105,7 @@ namespace Datos
             Entidades.Specialities objSpecialities = new Entidades.Specialities();
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("SELECT * FROM Specialities WHERE @IdUser = id", Conn);
                 comm.Parameters.AddWithValue("@IdUser", id);
 

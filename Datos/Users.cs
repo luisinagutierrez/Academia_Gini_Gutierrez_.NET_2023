@@ -148,5 +148,41 @@ namespace Datos
                 objUsers = null;
             }
         }
+        public int GetIdPerson(string userName, string password)
+        {
+            Entidades.Users objUsers = new Entidades.Users();
+            try
+            {
+                Conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT IdPerson FROM Users WHERE @UserName = userName AND @Password = password", Conn);
+                comm.Parameters.AddWithValue("@UserName", userName);
+                comm.Parameters.AddWithValue("@Password", password);
+                // Ejecutamos el comando y retornamos los valores
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+                    // Si existe algun valor, creamos el objeto y lo almacenamos en la colección
+                    objUsers.IdPerson = Convert.ToInt32(oReader["IdPerson"]);
+                    if (objUsers.IdPerson == null)
+                    {
+                        return -1;
+                    }
+                    else 
+                    {
+                        return objUsers.IdPerson;
+                    }
+                        
+
+                }
+            }
+            finally
+            {
+                // Finally nos da siempre la oportunidad de liberar memoria usada por los objetos 
+                objUsers = null;
+            }
+        }
+
+
     }
 }

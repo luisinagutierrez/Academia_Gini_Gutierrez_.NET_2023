@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,38 +35,53 @@ namespace UIDesktop
             string nom = Convert.ToString(txtUserName.Text);
             string pass = Convert.ToString(txtUserPassword.Text);
 
-            if (nom == "hola" & pass == "hola")
+
+            if (nom == "admi" && pass == "admi")
             {
                 frmAdminMainMenu frmAdminMainMenu = new frmAdminMainMenu();
                 frmAdminMainMenu.ShowDialog();
             }
-            //    // si se verifica q coincide nombre y contra y la ingreso menos de 3 veces 
-            //    int cont = 0;
-            //    while (cont < 3)
+
+           
+            // si se verifica q coincide nombre y contra y la ingreso menos de 3 veces 
+            //int cont = 0;
+            //while (cont < 3)
+            //{
+            //    Negocio.Users u = new Negocio.Users();
+            //    int idPerson = u.ValidateUser(nom, pass); // validamos que nom y pass sean de
+            //    if (idPerson != -1)
             //    {
-            //        Negocio.Users u = Negocio.Users.ValidateUser(nom), pass);
-            //        cont++;
-            //        if (u != null)
+            //        //hay que buscar desde el idperson el typeperson que es
+            //        int typeP = new Negocio.People.GetPersonType(idPerson);
+            //        switch (typeP)
             //        {
-            //            //hay que buscar desde el idperson el typeperson que es
-            //            int typeP = new Negocio.People.GetPersonType(u.idPerson);
-            //            switch (typeP)
-            //            {
-            //                case 1:
-            //                    {
-            //                        frmTeacherMainMenu frmTeacherMainMenu = new frmTeacherMainMenu();
-            //                        frmTeacherMainMenu.ShowDialog();
-            //                        break;
-            //                    }
-            //                case 2:
-            //                    {
-            //frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
-            //frmStudentRegistration.ShowDialog();
-            //                        break;
-            //                    }
-            //            }
+            //            case 1:
+            //                {
+            //                    frmTeacherMainMenu frmTeacherMainMenu = new frmTeacherMainMenu();
+            //                    frmTeacherMainMenu.ShowDialog();
+            //                    break;
+            //                }
+            //            case 2:
+            //                {
+            //                    frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
+            //                    frmStudentRegistration.ShowDialog();
+            //                    break;
+            //                }
+            //            case 3:
+            //                {
+            //                    frmAdminMainMenu frmAdminMainMenu = new frmAdminMainMenu();
+            //                    frmAdminMainMenu.ShowDialog();
+            //                    break;
+            //                }
+
             //        }
+                    
             //    }
+            //    else 
+            //    { // nom usuario o contra no validos
+            //        cont++;
+            //    }
+           // }
         }
 
         private void frmUserLogIn_Load(object sender, EventArgs e)

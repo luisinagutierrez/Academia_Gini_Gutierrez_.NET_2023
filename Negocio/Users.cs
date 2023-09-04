@@ -8,14 +8,15 @@ namespace Negocio
 {
     public class Users
     {
-        public Datos.Users ValidateUser(string userName, string password)
+        public int ValidateUser(string userName, string password)
         {
             Datos.Users ds;
             try
             {
                 ds = new Datos.Users();
-                ds.GetOne(userName, password);
-                return ds;
+                int idPerson = ds.GetIdPerson(userName, password);
+
+                return idPerson;
             }
             finally
             {
