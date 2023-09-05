@@ -123,6 +123,7 @@
             Controls.Add(lbtxtDeleteCouseRegistrationIdCourse);
             Name = "frmDeleteRegistration";
             Text = "Eliminar Inscripcion";
+            Load += frmDeleteRegistration_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCoursesRegistration).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ResumeLayout(false);

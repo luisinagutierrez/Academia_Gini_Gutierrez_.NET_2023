@@ -23,5 +23,19 @@ namespace Negocio
                 ds = null;
             }
         }
+        //public List<Entidades.User> GetAll()
+        //{
+        //    Datos.User ds;
+        //    try
+        //    {
+        //        ds = new Datos.User();
+        //        return ds.GetAll();
+        //    }
+        //    finally
+        //    {
+        //        ds = null;
+        //    }
+        //}
+
     }
 }

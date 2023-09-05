@@ -78,6 +78,7 @@
             lbPlans.Size = new Size(202, 25);
             lbPlans.TabIndex = 34;
             lbPlans.Text = "Eliminar persona";
+            lbPlans.Click += lbPlans_Click;
             // 
             // dgvPeople
             // 
@@ -88,6 +89,7 @@
             dgvPeople.RowTemplate.Height = 29;
             dgvPeople.Size = new Size(673, 216);
             dgvPeople.TabIndex = 33;
+            dgvPeople.CellContentClick += dgvPeople_CellContentClick;
             // 
             // txtDeletePeople
             // 
@@ -120,6 +122,7 @@
             Controls.Add(lbtxtDeletePeople);
             Name = "frmDeletePeople";
             Text = "Eliminar Persona";
+            Load += frmDeletePeople_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
             ResumeLayout(false);

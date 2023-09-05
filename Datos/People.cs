@@ -88,10 +88,10 @@ namespace Datos
         }
         public List<Entidades.People> GetAll()
         {
-            Entidades.People objPeople = new Entidades.People();
+
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("SELECT * FROM People", Conn);
                 List<Entidades.People> PeopleList = new List<Entidades.People>();
 
@@ -100,15 +100,16 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
-                        objPeople.IdPerson = Convert.ToInt32(oReader["IdPerson"]);
-                        objPeople.Name = Convert.ToString(oReader["Name"]);
-                        objPeople.Address = Convert.ToString(oReader["Address"]);
-                        objPeople.Email = Convert.ToString(oReader["Email"]);
-                        objPeople.Telephone = Convert.ToString(oReader["Telephone"]);
+                        Entidades.People objPeople = new Entidades.People();
+                        objPeople.IdPerson = (int)oReader["IdPerson"];
+                        objPeople.Name = (string)oReader["Name"];
+                        objPeople.Address = (string)oReader["Address"];
+                        objPeople.Email = (string)oReader["Email"];
+                        objPeople.Telephone = (string)oReader["Telephone"];
                         objPeople.BirthDate = Convert.ToDateTime(oReader["BirthDate"]);
-                        objPeople.FileId = Convert.ToInt32(oReader["FileId"]);
-                        objPeople.PersonType = Convert.ToInt32(oReader["PersonType"]);
-                        objPeople.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+                        objPeople.FileId = (int)oReader["FileId"];
+                        objPeople.PersonType = (int)oReader["PersonType"];
+                        objPeople.IdPlan = (int)oReader["IdPlan"];
 
                         PeopleList.Add(objPeople);
                         objPeople = null;
@@ -118,7 +119,8 @@ namespace Datos
             }
             finally
             {
-                objPeople = null;
+                this.Disconnect();
+                //objPeople = null;
             }
         }
         public Entidades.People GetOne(int id)

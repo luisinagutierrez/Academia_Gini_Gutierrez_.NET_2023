@@ -19,12 +19,18 @@ namespace UIDesktop
 
         private void frmCreateAndUpdateCommissions_Load(object sender, EventArgs e)
         {
-
+            Negocio.Commissions nCommissions = new Negocio.Commissions();
+            List<Entidades.Commissions> CommissionsList = nCommissions.GetAll();
+            dgvCommissions.DataSource = CommissionsList;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvCommissions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

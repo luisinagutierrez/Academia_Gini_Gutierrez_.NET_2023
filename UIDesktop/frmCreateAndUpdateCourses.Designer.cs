@@ -80,6 +80,7 @@
             dgvCourses.RowTemplate.Height = 29;
             dgvCourses.Size = new Size(532, 212);
             dgvCourses.TabIndex = 48;
+            dgvCourses.CellContentClick += dgvCourses_CellContentClick;
             // 
             // btnUpdateCourse
             // 
@@ -235,6 +236,7 @@
             Controls.Add(lbIdCommission);
             Name = "frmCreateAndUpdateCourses";
             Text = "Crear o nombrar curso";
+            Load += frmCreateAndUpdateCourses_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvCourses).EndInit();
             ResumeLayout(false);

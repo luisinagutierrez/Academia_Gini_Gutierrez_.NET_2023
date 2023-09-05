@@ -8,5 +8,20 @@ namespace Negocio
 {
     public class Commissions
     {
+        public List<Entidades.Commissions> GetAll()
+        {
+            Datos.Commissions ds;
+            try
+            {
+                ds = new Datos.Commissions();
+                return ds.GetAll();
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
+
     }
 }

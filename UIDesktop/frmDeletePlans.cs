@@ -21,5 +21,17 @@ namespace UIDesktop
         {
             this.Close();
         }
+
+        private void dgvPlans_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void frmDeletePlans_Load(object sender, EventArgs e)
+        {
+            Negocio.Plans nPlans = new Negocio.Plans();
+            List<Entidades.Plans> PlansList = nPlans.GetAll();
+            dgvPlans.DataSource = PlansList;
+        }
     }
 }

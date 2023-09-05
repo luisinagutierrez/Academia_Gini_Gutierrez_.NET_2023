@@ -47,6 +47,7 @@
             dgvStudentCourses.RowTemplate.Height = 29;
             dgvStudentCourses.Size = new Size(650, 200);
             dgvStudentCourses.TabIndex = 0;
+            dgvStudentCourses.CellContentClick += dgvStudentCourses_CellContentClick;
             // 
             // btnStudentNewInscription
             // 

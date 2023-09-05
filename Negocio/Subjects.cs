@@ -8,5 +8,19 @@ namespace Negocio
 {
     public class Subjects
     {
+        public List<Entidades.Subjects> GetAll()
+        {
+            Datos.Subjects ds;
+            try
+            {
+                ds = new Datos.Subjects();
+                return ds.GetAll();
+            }
+            finally
+            {
+               // ds = null;
+            }
+        }
+
     }
 }

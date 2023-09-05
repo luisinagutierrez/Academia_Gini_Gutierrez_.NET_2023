@@ -88,6 +88,7 @@
             dgvCourses.RowTemplate.Height = 29;
             dgvCourses.Size = new Size(673, 216);
             dgvCourses.TabIndex = 33;
+            dgvCourses.CellContentClick += dgvCourses_CellContentClick;
             // 
             // txtDeleteCourses
             // 
@@ -120,6 +121,7 @@
             Controls.Add(lbtxtDeleteCourses);
             Name = "frmDeleteCourses";
             Text = "Eliminar Curso";
+            Load += frmDeleteCourses_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvCourses).EndInit();
             ResumeLayout(false);

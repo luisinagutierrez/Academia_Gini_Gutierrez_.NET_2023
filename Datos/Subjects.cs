@@ -14,7 +14,7 @@ namespace Datos
         {
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("INSERT INTO Subjects (SubjectDescription, WeeklyHours, TotalHours, IdPlan) VALUES (@SubjectDescription, @WeeklyHours, @TotalHours, @IdPlan)", Conn);
                 comm.Parameters.AddWithValue("@SubjectDescription", item.SubjectDescription);
                 comm.Parameters.AddWithValue("@WeeklyHours", item.WeeklyHours);
@@ -29,7 +29,7 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
@@ -37,7 +37,7 @@ namespace Datos
         {
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("UPDATE Subjects SET (SubjectDescription, WeeklyHours, TotalHours, IdPlan) = (@SubjectDescription, @WeeklyHours, @TotalHours, @IdPlan) WHERE IdSubject = @Id", Conn);
                 comm.Parameters.AddWithValue("@SubjectDescription", item.SubjectDescription);
                 comm.Parameters.AddWithValue("@WeeklyHours", item.WeeklyHours);
@@ -52,7 +52,7 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
@@ -60,7 +60,7 @@ namespace Datos
         {
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("DELETE Subjects WHERE IdSubject = @Id", Conn);
 
                 comm.Parameters.AddWithValue("@IdSubject", id);
@@ -73,15 +73,15 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
         public List<Entidades.Subjects> GetAll()
         {
-            Entidades.Subjects objSubjects = new Entidades.Subjects();
+
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("SELECT * FROM Subjects", Conn);
                 List<Entidades.Subjects> SubjectsList = new List<Entidades.Subjects>();
 
@@ -90,11 +90,12 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
-                        objSubjects.IdSubject = Convert.ToInt32(oReader["IdSubject"]);
-                        objSubjects.SubjectDescription = Convert.ToString(oReader["SubjectDescription"]);
-                        objSubjects.WeeklyHours = Convert.ToInt32(oReader["WeeklyHours"]);
-                        objSubjects.TotalHours = Convert.ToInt32(oReader["TotalHours"]);
-                        objSubjects.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+                        Entidades.Subjects objSubjects = new Entidades.Subjects();
+                        objSubjects.IdSubject = (int)oReader["IdSubject"];
+                        objSubjects.SubjectDescription = (string)oReader["SubjectDescription"];
+                        objSubjects.WeeklyHours = (int)oReader["WeeklyHours"];
+                        objSubjects.TotalHours = (int)oReader["TotalHours"];
+                        objSubjects.IdPlan = (int)oReader["IdPlan"];
 
                         SubjectsList.Add(objSubjects);
                         objSubjects = null;
@@ -104,7 +105,8 @@ namespace Datos
             }
             finally
             {
-                objSubjects = null;
+                //objSubjects = null;
+                this.Disconnect();
             }
         }
         public Entidades.Subjects GetOne(int id)
@@ -112,7 +114,7 @@ namespace Datos
             Entidades.Subjects objSubjects = new Entidades.Subjects();
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("SELECT * FROM Subjects WHERE @IdUser = id", Conn);
                 comm.Parameters.AddWithValue("@IdUser", id);
 

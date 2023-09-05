@@ -110,6 +110,7 @@
             dgvSubjects.RowTemplate.Height = 29;
             dgvSubjects.Size = new Size(632, 276);
             dgvSubjects.TabIndex = 48;
+            dgvSubjects.CellContentClick += dgvSubjects_CellContentClick;
             // 
             // txtSubjectDescription
             // 

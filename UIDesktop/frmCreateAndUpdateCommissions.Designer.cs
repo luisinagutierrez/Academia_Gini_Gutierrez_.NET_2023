@@ -92,6 +92,7 @@
             dgvCommissions.RowTemplate.Height = 29;
             dgvCommissions.Size = new Size(532, 212);
             dgvCommissions.TabIndex = 34;
+            dgvCommissions.CellContentClick += dgvCommissions_CellContentClick;
             // 
             // txtCommissionDescription
             // 

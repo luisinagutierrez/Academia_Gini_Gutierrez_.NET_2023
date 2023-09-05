@@ -45,6 +45,7 @@
             btnBack.TabIndex = 5;
             btnBack.Text = "Atras";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // lbTeachers
             // 
@@ -66,6 +67,7 @@
             dgwTeachersList.RowTemplate.Height = 29;
             dgwTeachersList.Size = new Size(776, 188);
             dgwTeachersList.TabIndex = 3;
+            dgwTeachersList.CellContentClick += dgwTeachersList_CellContentClick;
             // 
             // pictureLogo
             // 

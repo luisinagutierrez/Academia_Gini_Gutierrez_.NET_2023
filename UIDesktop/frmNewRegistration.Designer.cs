@@ -78,6 +78,7 @@
             dgvNewCourses.RowTemplate.Height = 29;
             dgvNewCourses.Size = new Size(673, 216);
             dgvNewCourses.TabIndex = 18;
+            dgvNewCourses.CellContentClick += dgvNewCourses_CellContentClick;
             // 
             // txtNewCouseRegistrationIdCourse
             // 
@@ -120,6 +121,7 @@
             Controls.Add(lbtxtNewCouseRegistrationIdCourse);
             Name = "frmNewRegistration";
             Text = "Inscripcion curso";
+            Load += frmNewRegistration_Load;
             ((System.ComponentModel.ISupportInitialize)dgvNewCourses).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ResumeLayout(false);

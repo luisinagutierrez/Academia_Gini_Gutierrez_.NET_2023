@@ -34,6 +34,14 @@ namespace UIDesktop
 
         private void dgvCoursesRegistration_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void frmDeleteRegistration_Load(object sender, EventArgs e)
+        {
+            Negocio.Courses nCourses = new Negocio.Courses();
+            List<Entidades.Courses> CoursesList = nCourses.GetAll();
+            dgvCoursesRegistration.DataSource = CoursesList;
         }
     }
 }

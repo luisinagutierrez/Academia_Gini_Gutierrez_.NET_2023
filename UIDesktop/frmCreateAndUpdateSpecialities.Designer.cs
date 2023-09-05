@@ -115,6 +115,7 @@
             dgvSpecialities.RowTemplate.Height = 29;
             dgvSpecialities.Size = new Size(448, 185);
             dgvSpecialities.TabIndex = 9;
+            dgvSpecialities.CellContentClick += dgvSpecialities_CellContentClick;
             // 
             // pictureLogo
             // 

@@ -88,6 +88,7 @@
             dgvCommissions.RowTemplate.Height = 29;
             dgvCommissions.Size = new Size(673, 216);
             dgvCommissions.TabIndex = 26;
+            dgvCommissions.CellContentClick += dgvCommissions_CellContentClick;
             // 
             // txtDeleteCommission
             // 
@@ -120,6 +121,7 @@
             Controls.Add(lbtxtDeleteCommssion);
             Name = "frmDeleteCommissions";
             Text = "Eliminar comision";
+            Load += frmDeleteCommissions_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvCommissions).EndInit();
             ResumeLayout(false);

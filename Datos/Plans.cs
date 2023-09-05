@@ -74,10 +74,10 @@ namespace Datos
         }
         public List<Entidades.Plans> GetAll()
         {
-            Entidades.Plans objPlans = new Entidades.Plans();
+
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("SELECT * FROM Plans", Conn);
                 List<Entidades.Plans> PlansList = new List<Entidades.Plans>();
 
@@ -86,9 +86,10 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
-                        objPlans.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
-                        objPlans.PlanDescription = Convert.ToString(oReader["PlanDescription"]);
-                        objPlans.IdSpeciality = Convert.ToInt32(oReader["IdSpeciality"]);
+                        Entidades.Plans objPlans = new Entidades.Plans();
+                        objPlans.IdPlan = (int)oReader["IdPlan"];
+                        objPlans.PlanDescription = (string)oReader["PlanDescription"];
+                        objPlans.IdSpeciality = (int)oReader["IdSpeciality"];
 
                         PlansList.Add(objPlans);
                         objPlans = null;
@@ -98,7 +99,8 @@ namespace Datos
             }
             finally
             {
-                objPlans = null;
+                this.Disconnect();
+                //objPlans = null;
             }
         }
         public Entidades.Plans GetOne(int id)
@@ -106,7 +108,7 @@ namespace Datos
             Entidades.Plans objPlans = new Entidades.Plans();
             try
             {
-                Conn.Open();
+                Conn.Open(); 
                 SqlCommand comm = new SqlCommand("SELECT * FROM Plans WHERE @IdUser = id", Conn);
                 comm.Parameters.AddWithValue("@IdUser", id);
 

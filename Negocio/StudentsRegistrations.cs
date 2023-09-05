@@ -23,19 +23,19 @@ namespace Negocio
             }
         }
 
-        public List<Entidades.StudentsRegistrations> GetAll()
-        {
-            Datos.StudentsRegistrations ds;
-            try
-            {
-                ds = new Datos.StudentsRegistrations();
-                List<Entidades.StudentsRegistrations> RegistrationsList = ds.GetAll();
-                return RegistrationsList;
-            }
-            finally
-            {
-                ds = null;
-            }
-        }
+        //public List<Entidades.StudentsRegistrations> GetAll()
+        //{
+        //    Datos.StudentsRegistrations ds;
+        //    try
+        //    {
+        //        ds = new Datos.StudentsRegistrations();
+        //        List<Entidades.StudentsRegistrations> RegistrationsList = ds.GetAll();
+        //        return RegistrationsList;
+        //    }
+        //    finally
+        //    {
+        //        ds = null;
+        //    }
+        //}
     }
 }

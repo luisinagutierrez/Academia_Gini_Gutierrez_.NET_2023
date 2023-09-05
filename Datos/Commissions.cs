@@ -76,10 +76,10 @@ namespace Datos
 
         public List<Entidades.Commissions> GetAll()
         {
-            Entidades.Commissions objCommissions = new Entidades.Commissions();
+
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("SELECT * FROM Commissions", Conn);
                 List<Entidades.Commissions> CommissionsList = new List<Entidades.Commissions>();
 
@@ -88,6 +88,7 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
+                        Entidades.Commissions objCommissions = new Entidades.Commissions();
                         objCommissions.IdCommission = Convert.ToInt32(oReader["IdCommission"]);
                         objCommissions.CommissionDescription = Convert.ToString(oReader["CommissionDescription"]);
                         objCommissions.SpecialityYear = Convert.ToInt32(oReader["SpecialityYear"]);
@@ -101,7 +102,9 @@ namespace Datos
             }
             finally
             {
-                objCommissions = null;
+                //objCommissions = null;
+                this.Disconnect();
+
             }
         }
 

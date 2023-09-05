@@ -168,6 +168,7 @@
             dgvPeople.RowTemplate.Height = 29;
             dgvPeople.Size = new Size(713, 385);
             dgvPeople.TabIndex = 70;
+            dgvPeople.CellContentClick += dgvPeople_CellContentClick;
             // 
             // btnUpdatePeople
             // 
@@ -316,6 +317,7 @@
             Controls.Add(lbIdPerson);
             Name = "frmCreateAndUpdatePeople";
             Text = "Crear o actualizar persona";
+            Load += frmCreateAndUpdatePeople_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
             ResumeLayout(false);

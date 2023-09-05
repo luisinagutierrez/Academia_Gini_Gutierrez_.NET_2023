@@ -122,6 +122,7 @@
             Controls.Add(lbIdSpecialities);
             Name = "frmDeleteSpecialities";
             Text = "Eliminar Especialidad";
+            Load += frmDeleteSpecialities_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvSpecialities).EndInit();
             ResumeLayout(false);

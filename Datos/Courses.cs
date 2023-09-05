@@ -80,10 +80,10 @@ namespace Datos {
 
         public List<Entidades.Courses> GetAll()
         {
-            Entidades.Courses objCourses = new Entidades.Courses();
+
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("SELECT * FROM Courses", Conn);
                 List<Entidades.Courses> CoursesList = new List<Entidades.Courses>();
 
@@ -92,12 +92,13 @@ namespace Datos {
                 {
                     while (oReader.Read())
                     {
-                        objCourses.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
-                        objCourses.IdSubject = Convert.ToInt32(oReader["IdSubject"]);
-                        objCourses.IdCommission = Convert.ToInt32(oReader["IdCommission"]);
-                        objCourses.CalendarYear = Convert.ToInt32(oReader["CalendarYear"]);
-                        objCourses.Quota = Convert.ToInt32(oReader["Quota"]);
-                        objCourses.NumStudents = Convert.ToInt32(oReader["NumStudents"]);
+                        Entidades.Courses objCourses = new Entidades.Courses();
+                        objCourses.IdCourse = (int)oReader["IdCourse"];
+                        objCourses.IdSubject = (int)oReader["IdSubject"];
+                        objCourses.IdCommission = (int)oReader["IdCommission"];
+                        objCourses.CalendarYear = (int)oReader["CalendarYear"];
+                        objCourses.Quota = (int)oReader["Quota"];
+                        objCourses.NumStudents = (int)oReader["NumStudents"];
 
                         CoursesList.Add(objCourses);
                         objCourses = null;
@@ -107,7 +108,8 @@ namespace Datos {
             }
             finally
             {
-                objCourses = null;
+                //objCourses = null;
+                this.Disconnect();
             }
         }
 

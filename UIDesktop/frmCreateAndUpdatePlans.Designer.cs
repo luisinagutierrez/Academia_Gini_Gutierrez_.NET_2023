@@ -74,6 +74,7 @@
             dgvPlans.RowTemplate.Height = 29;
             dgvPlans.Size = new Size(448, 185);
             dgvPlans.TabIndex = 22;
+            dgvPlans.CellContentClick += dgvPlans_CellContentClick;
             // 
             // txtPlanDescription
             // 
@@ -173,6 +174,7 @@
             Controls.Add(lbIdPlan);
             Name = "frmCreateAndUpdatePlans";
             Text = "Crear o Actualizar planes";
+            Load += frmCreateAndUpdatePlans_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPlans).EndInit();
             ResumeLayout(false);

@@ -19,7 +19,9 @@ namespace UIDesktop
 
         private void frmCreateAndUpdateSpecialities_Load(object sender, EventArgs e)
         {
-
+            Negocio.Specialities nSpecialities = new Negocio.Specialities();
+            List<Entidades.Specialities> SpecialitiesList = nSpecialities.GetAll();
+            dgvSpecialities.DataSource = SpecialitiesList;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,6 +39,10 @@ namespace UIDesktop
         {
             Negocio.Specialities ns = new Negocio.Specialities();
             ns.Update(txtSpecialityDescription.Text, Convert.ToInt32(txtIdSpeciality.Text));
+        }
+
+        private void dgvSpecialities_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

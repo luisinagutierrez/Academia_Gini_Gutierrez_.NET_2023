@@ -21,5 +21,17 @@ namespace UIDesktop
         {
             this.Close();
         }
+
+        private void dgvNewCourses_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void frmNewRegistration_Load(object sender, EventArgs e)
+        {
+            Negocio.Courses nCourses = new Negocio.Courses();
+            List<Entidades.Courses> CoursesList = nCourses.GetAll();
+            dgvNewCourses.DataSource = CoursesList;
+        }
     }
 }

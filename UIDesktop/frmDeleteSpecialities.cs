@@ -31,10 +31,14 @@ namespace UIDesktop
 
         private void dgvSpecialities_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            List<Entidades.Specialities> specialities = new List<Entidades.Specialities>();
-            specialities = new Negocio.Specialities().GetAll();
-            dgvSpecialities.DataSource = specialities;
-            //The content of the table is not showing in the dgvSpecialities. Solve this.
+   
+        }
+
+        private void frmDeleteSpecialities_Load(object sender, EventArgs e)
+        {
+            Negocio.Specialities nSpecialities = new Negocio.Specialities();
+            List<Entidades.Specialities> SpecialitiesList = nSpecialities.GetAll();
+            dgvSpecialities.DataSource = SpecialitiesList;
         }
     }
 }

@@ -21,5 +21,17 @@ namespace UIDesktop
         {
             this.Close();
         }
+
+        private void dgvCommissions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void frmDeleteCommissions_Load(object sender, EventArgs e)
+        {
+            Negocio.Commissions nCommissions = new Negocio.Commissions();
+            List<Entidades.Commissions> CommissionsList = nCommissions.GetAll();
+            dgvCommissions.DataSource = CommissionsList;
+        }
     }
 }

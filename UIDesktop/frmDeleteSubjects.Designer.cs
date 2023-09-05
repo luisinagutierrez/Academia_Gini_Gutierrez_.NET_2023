@@ -88,6 +88,7 @@
             dgvSubjects.RowTemplate.Height = 29;
             dgvSubjects.Size = new Size(673, 216);
             dgvSubjects.TabIndex = 26;
+            dgvSubjects.CellContentClick += dgvSubjects_CellContentClick;
             // 
             // txtDeleteSubjects
             // 
@@ -120,6 +121,7 @@
             Controls.Add(lbtxtDeleteSubjects);
             Name = "frmDeleteSubjects";
             Text = "Eliminar materia";
+            Load += frmDeleteSubjects_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvSubjects).EndInit();
             ResumeLayout(false);
