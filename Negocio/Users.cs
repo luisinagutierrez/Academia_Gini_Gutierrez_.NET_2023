@@ -53,6 +53,38 @@ namespace Negocio
             }
 
         }
+
+        public int GetIdPerson(string nom, string pass)
+        {
+            Datos.Users ds;
+            try
+            {
+                ds = new Datos.Users();
+                int IdPerson = ds.GetPrivilege(nom, pass);
+
+                return IdPerson;
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
+        public void ChangePassword(string nom, string pass)
+        {
+            Datos.Users ds;
+            try
+            {
+                ds = new Datos.Users();
+                ds.ChangePassword(nom, pass);
+
+            }
+            finally
+            {
+                ds = null;
+            }
+
+        }
         public void Delete(int ID)
         {
             Datos.Users ds;
@@ -86,7 +118,7 @@ namespace Negocio
         {
             Datos.Users ds;
             try
-            {                                                                                                  
+            {
                 ds = new Datos.Users();
                 ds.Update(item);
             }

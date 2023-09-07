@@ -24,7 +24,12 @@ namespace UIDesktop
 
         private void btnUserNewPasswordAcept_Click(object sender, EventArgs e)
         {
-            // consulta para verificar que sea el mismo nombre de usuario y mail y dejarle ingresar la nueva contra y cambiarla por la vieja y actualizar el atributo de contraseña cambiada
+            string nom = Convert.ToString(txtUserName.Text);
+            string pass = Convert.ToString(txtUserNewPassword.Text);
+
+            Negocio.Users u = new Negocio.Users();
+            u.ChangePassword(nom, pass);
+            MessageBox.Show("Se guardó la contraseña correctamente.");
             this.Close();
         }
     }

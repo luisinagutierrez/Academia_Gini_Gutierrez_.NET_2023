@@ -39,43 +39,31 @@ namespace UIDesktop
             while (cont < 3)
             {
                 Negocio.Users u = new Negocio.Users();
-                int privilege = u.ValidateUser(nom, pass); 
+                int privilege = u.ValidateUser(nom, pass);
                 if (privilege != -1)
                 {
-                    switch (privilege)
-                    {
-                        case 1:
-                            {
-                                frmTeacherMainMenu frmTeacherMainMenu = new frmTeacherMainMenu();
-                                frmTeacherMainMenu.ShowDialog();
-                                break;
-                            }
-                        case 2:
-                            {
-                                frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
-                                frmStudentRegistration.ShowDialog();
-                                break;
-                            }
-                        case 3:
-                            {
-                                frmAdminMainMenu frmAdminMainMenu = new frmAdminMainMenu();
-                                frmAdminMainMenu.ShowDialog();
-                                break;
-                            }
-
-                    }
-
+                    int idPerson = u.GetIdPerson(nom, pass);
+                    frmMain frmMain = new frmMain(idPerson, privilege);
+                    frmMain.ShowDialog();
+                    this.Close();
                 }
-                else 
-                { // nom usuario o contra no validos
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incrrectos, intente nuevamente");
                     cont++;
                 }
-             }
+            }
         }
 
         private void frmUserLogIn_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void llbSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmUserSignUp frmUserSignUp = new frmUserSignUp();
+            frmUserSignUp.ShowDialog();
         }
     }
 }

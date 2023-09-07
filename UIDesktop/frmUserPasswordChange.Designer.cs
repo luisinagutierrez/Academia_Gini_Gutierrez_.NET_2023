@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserPasswordChange));
-            txtUserEmail = new TextBox();
-            textBox1 = new TextBox();
-            lbUserPasswordChangeEmail = new Label();
+            txtUserName = new TextBox();
             lbUserPasswordChangeName = new Label();
             btnUserNewPasswordCancel = new Button();
             btnUserNewPasswordAcept = new Button();
@@ -42,28 +40,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
             SuspendLayout();
             // 
-            // txtUserEmail
+            // txtUserName
             // 
-            txtUserEmail.Location = new Point(269, 171);
-            txtUserEmail.Name = "txtUserEmail";
-            txtUserEmail.Size = new Size(192, 27);
-            txtUserEmail.TabIndex = 7;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(269, 123);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 27);
-            textBox1.TabIndex = 6;
-            // 
-            // lbUserPasswordChangeEmail
-            // 
-            lbUserPasswordChangeEmail.AutoSize = true;
-            lbUserPasswordChangeEmail.Location = new Point(96, 174);
-            lbUserPasswordChangeEmail.Name = "lbUserPasswordChangeEmail";
-            lbUserPasswordChangeEmail.Size = new Size(52, 20);
-            lbUserPasswordChangeEmail.TabIndex = 5;
-            lbUserPasswordChangeEmail.Text = "Email*";
+            txtUserName.Location = new Point(269, 123);
+            txtUserName.Name = "txtUserName";
+            txtUserName.Size = new Size(192, 27);
+            txtUserName.TabIndex = 6;
             // 
             // lbUserPasswordChangeName
             // 
@@ -96,7 +78,7 @@
             // 
             // txtUserNewPassword
             // 
-            txtUserNewPassword.Location = new Point(269, 228);
+            txtUserNewPassword.Location = new Point(269, 188);
             txtUserNewPassword.Name = "txtUserNewPassword";
             txtUserNewPassword.Size = new Size(192, 27);
             txtUserNewPassword.TabIndex = 11;
@@ -104,7 +86,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(96, 231);
+            label1.Location = new Point(96, 191);
             label1.Name = "label1";
             label1.Size = new Size(135, 20);
             label1.TabIndex = 10;
@@ -142,9 +124,7 @@
             Controls.Add(label1);
             Controls.Add(btnUserNewPasswordAcept);
             Controls.Add(btnUserNewPasswordCancel);
-            Controls.Add(txtUserEmail);
-            Controls.Add(textBox1);
-            Controls.Add(lbUserPasswordChangeEmail);
+            Controls.Add(txtUserName);
             Controls.Add(lbUserPasswordChangeName);
             Name = "frmUserPasswordChange";
             Text = "frmUserPasswordChange";
@@ -154,10 +134,7 @@
         }
 
         #endregion
-
-        private TextBox txtUserEmail;
-        private TextBox textBox1;
-        private Label lbUserPasswordChangeEmail;
+        private TextBox txtUserName;
         private Label lbUserPasswordChangeName;
         private Button btnUserNewPasswordCancel;
         private Button btnUserNewPasswordAcept;

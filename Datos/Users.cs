@@ -185,6 +185,53 @@ namespace Datos
             }
         }
 
+        public void ChangePassword(string nom, string pass)
+        {
+            Entidades.Users objUsers = new Entidades.Users();
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("UPDATE User SET Password = @pass, ChangePassword = 1 WHERE UserName = @nom", Conn);
+                comm.Parameters.AddWithValue("@UserName", nom);
+                comm.Parameters.AddWithValue("@Password", pass);
+                comm.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception HandledException = new Exception("Error al actualizar usuario ", Ex);
+                //throw HandledException;
+            }
+            finally
+            {
+                this.Disconnect();
+            }
+        }
 
+        public int GetIdPerson(string nom, string pass)
+        {
+            Entidades.Users objUsers = new Entidades.Users();
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT IdPerson FROM Users WHERE UserName = @nom AND Password = @pass", Conn);
+                comm.Parameters.AddWithValue("@UserName", nom);
+                comm.Parameters.AddWithValue("@Password", pass);
+                // Ejecutamos el comando y retornamos los valores
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+                    // Si existe algun valor, creamos el objeto y lo almacenamos en la colección
+                    objUsers.IdPerson = (int)oReader["IdPerson"];
+                }
+                return objUsers.IdPerson;
+            }
+            finally
+            {
+                // Finally nos da siempre la oportunidad de liberar memoria usada por los objetos 
+                objUsers = null;
+                this.Disconnect();
+            }
+        }
     }
 }

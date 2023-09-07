@@ -38,6 +38,7 @@
             lbUserLogIn = new Label();
             llbUserPassword = new LinkLabel();
             pictureLogo = new PictureBox();
+            llbSignUp = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
             SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             // 
             // btnUserLogInCancel
             // 
-            btnUserLogInCancel.Location = new Point(88, 257);
+            btnUserLogInCancel.Location = new Point(88, 241);
             btnUserLogInCancel.Name = "btnUserLogInCancel";
             btnUserLogInCancel.Size = new Size(105, 39);
             btnUserLogInCancel.TabIndex = 4;
@@ -86,7 +87,7 @@
             // 
             // btnUserLogInAccept
             // 
-            btnUserLogInAccept.Location = new Point(320, 257);
+            btnUserLogInAccept.Location = new Point(320, 241);
             btnUserLogInAccept.Name = "btnUserLogInAccept";
             btnUserLogInAccept.Size = new Size(95, 39);
             btnUserLogInAccept.TabIndex = 5;
@@ -125,12 +126,24 @@
             pictureLogo.TabIndex = 23;
             pictureLogo.TabStop = false;
             // 
+            // llbSignUp
+            // 
+            llbSignUp.AutoSize = true;
+            llbSignUp.Location = new Point(12, 309);
+            llbSignUp.Name = "llbSignUp";
+            llbSignUp.Size = new Size(82, 20);
+            llbSignUp.TabIndex = 24;
+            llbSignUp.TabStop = true;
+            llbSignUp.Text = "Registrarse";
+            llbSignUp.LinkClicked += llbSignUp_LinkClicked;
+            // 
             // frmUserLogIn
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(482, 338);
+            Controls.Add(llbSignUp);
             Controls.Add(pictureLogo);
             Controls.Add(llbUserPassword);
             Controls.Add(lbUserLogIn);
@@ -159,5 +172,6 @@
         private Label lbUserLogIn;
         private LinkLabel llbUserPassword;
         private PictureBox pictureLogo;
+        private LinkLabel llbSignUp;
     }
 }
