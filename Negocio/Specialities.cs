@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,13 +10,13 @@ namespace Negocio
 {
     public class Specialities
     {
-        public void Add(string item)
+        public void Add(string desc)
         {
             Datos.Specialities ds;
             try
             {
                 ds = new Datos.Specialities();
-                ds.Add(item);
+                ds.Add(desc);
             }
             finally
             {
@@ -23,13 +24,13 @@ namespace Negocio
             }
         }
 
-        public void Update(string item, int id )
+        public void Update(int id, string desp)
         {
             Datos.Specialities ds;
             try
             {
                 ds = new Datos.Specialities();
-                ds.Update(item,id);
+                ds.Update(id, desp);
             }
             finally
             {
@@ -42,8 +43,17 @@ namespace Negocio
             Datos.Specialities ds;
             try
             {
+                Entidades.Specialities sp = new Entidades.Specialities();
                 ds = new Datos.Specialities();
-                ds.Delete(id);
+                sp = ds.GetOne(id);
+                if (sp != null)
+                {
+                    ds.Delete(id);
+                }
+                else
+                {
+                    throw new Exception("No se puede eliminar una especialidad que no existe");
+                }
             }
             finally
             {
@@ -58,6 +68,30 @@ namespace Negocio
             {
                 ds = new Datos.Specialities();
                 return ds.GetAll();
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
+        public int UpdateSpeciality(int id, string desp)
+        {
+            Datos.Specialities ds;
+            try
+            {
+                Entidades.Specialities sp = new Entidades.Specialities();
+                ds = new Datos.Specialities();
+                sp = ds.GetOne(id);
+                if (sp != null)
+                {
+                    this.Update(id, desp);
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             finally
             {

@@ -155,7 +155,7 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT privilege FROM Users WHERE @UserName = userName AND @Password = password", Conn);
+                SqlCommand comm = new SqlCommand("SELECT privilege FROM Users WHERE UserName = @userName AND Password = @password", Conn);
                 comm.Parameters.AddWithValue("@UserName", userName);
                 comm.Parameters.AddWithValue("@Password", password);
                 // Ejecutamos el comando y retornamos los valores
@@ -164,13 +164,14 @@ namespace Datos
                 {
                     oReader.Read();
                     // Si existe algun valor, creamos el objeto y lo almacenamos en la colección
-                    objUsers.Privilege = (int)oReader["Privilege"];
+                   objUsers.Privilege = (int)oReader["Privilege"];
                     if (oReader["Privilege"]  == DBNull.Value)
                     {
                         return -1;
                     }
                     else 
                     {
+                        objUsers.Privilege = (int)oReader["Privilege"];
                         return objUsers.Privilege;
                     }
                         

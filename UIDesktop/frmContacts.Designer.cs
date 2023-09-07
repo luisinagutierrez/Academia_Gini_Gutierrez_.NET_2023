@@ -32,9 +32,7 @@
             btnBack = new Button();
             lbTitleContacts = new Label();
             lbSpecialities = new Label();
-            pictureLogo = new PictureBox();
             pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -67,16 +65,6 @@
             lbSpecialities.TabIndex = 3;
             lbSpecialities.Text = "Contacto";
             // 
-            // pictureLogo
-            // 
-            pictureLogo.Image = (Image)resources.GetObject("pictureLogo.Image");
-            pictureLogo.Location = new Point(18, 21);
-            pictureLogo.Name = "pictureLogo";
-            pictureLogo.Size = new Size(101, 83);
-            pictureLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureLogo.TabIndex = 7;
-            pictureLogo.TabStop = false;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -94,13 +82,12 @@
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(826, 400);
             Controls.Add(pictureBox1);
-            Controls.Add(pictureLogo);
             Controls.Add(lbSpecialities);
             Controls.Add(lbTitleContacts);
             Controls.Add(btnBack);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmContacts";
             Text = "frmContacts";
-            ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -111,7 +98,6 @@
         private Button btnBack;
         private Label lbTitleContacts;
         private Label lbSpecialities;
-        private PictureBox pictureLogo;
         private PictureBox pictureBox1;
     }
 }

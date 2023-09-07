@@ -10,16 +10,16 @@ namespace Datos
 {
     public class Specialities : Connection
     {
-        public void Add(string item)
+        public void Add(string desc)
         {
-            try 
+            try
             {
                 this.Connect();
                 SqlCommand comm = new SqlCommand("INSERT INTO Specialities (SpecialityDescription) VALUES (@SpecialityDescription)", Conn);
-                comm.Parameters.AddWithValue("@SpecialityDescription", item);
+                comm.Parameters.AddWithValue("@SpecialityDescription", desc);
                 comm.ExecuteNonQuery();
             }
-            catch (Exception Ex) 
+            catch (Exception Ex)
             {
                 Exception HandledException = new Exception("Error al agregar especialidad", Ex);
                 throw HandledException;
@@ -30,13 +30,14 @@ namespace Datos
             }
         }
 
-        public void Update(string item, int id)
+        public void Update(int IdSpeciality, string SpecialityDescription)
         {
-            try 
+            try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("UPDATE Specialities SET SpecialityDescription = @SpecialityDescription WHERE IdSpeciality = @Id", Conn);
-                comm.Parameters.AddWithValue("@SpecialityDescription", item);
+                SqlCommand comm = new SqlCommand("UPDATE Specialities SET SpecialityDescription = @SpecialityDescription WHERE IdSpeciality = @IdSpeciality", Conn);
+                comm.Parameters.AddWithValue("@SpecialityDescription", SpecialityDescription);
+                comm.Parameters.AddWithValue("@IdSpeciality", IdSpeciality);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -50,29 +51,28 @@ namespace Datos
             }
         }
 
-        public void Delete(int id)
+        public void Delete(int IdSpeciality)
         {
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("DELETE Specialities WHERE IdSpeciality = @Id", Conn);
-     
-                comm.Parameters.AddWithValue("@IdSpeciality", id);
+                SqlCommand comm = new SqlCommand("DELETE FROM Specialities WHERE IdSpeciality = @IdSpeciality", Conn);
+                comm.Parameters.AddWithValue("@IdSpeciality", IdSpeciality);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
                 Exception HandledException = new Exception("Error al eliminar especialidad ", Ex);
-                throw HandledException;
+               // throw HandledException;
             }
-            finally 
-            { 
+            finally
+            {
                 this.Disconnect();
             }
         }
         public List<Entidades.Specialities> GetAll()
         {
-           
+
             try
             {
                 this.Connect();
@@ -85,7 +85,7 @@ namespace Datos
                     while (oReader.Read())
                     {
                         Entidades.Specialities objSpecialities = new Entidades.Specialities();
-                        objSpecialities.IdSpeciality = (int)oReader[ "IdSpeciality"];
+                        objSpecialities.IdSpeciality = (int)oReader["IdSpeciality"];
                         objSpecialities.SpecialityDescription = (string)oReader["SpecialityDescription"];
 
                         SpecialitiesList.Add(objSpecialities);
@@ -96,36 +96,43 @@ namespace Datos
             }
             finally
             {
-               // objSpecialities = null;
+                // objSpecialities = null;
                 this.Disconnect();
             }
         }
-        public Entidades.Specialities GetOne(int id)
+        public Entidades.Specialities GetOne(int IdSpeciality)
         {
             Entidades.Specialities objSpecialities = new Entidades.Specialities();
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Specialities WHERE @IdUser = id", Conn);
-                comm.Parameters.AddWithValue("@IdUser", id);
+                SqlCommand comm = new SqlCommand("SELECT * FROM Specialities WHERE IdSpeciality = @IdSpeciality", Conn);
+                comm.Parameters.AddWithValue("@IdSpeciality", IdSpeciality);
 
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
                 {
                     oReader.Read();
 
-                    objSpecialities.IdSpeciality = Convert.ToInt32(oReader["IdSpeciality"]);
-                    objSpecialities.SpecialityDescription = Convert.ToString(oReader["SpecialityDescription"]);
-
-                    return objSpecialities;
-                    
+                    objSpecialities.IdSpeciality = (int)oReader["IdSpeciality"];
+                    objSpecialities.SpecialityDescription = (string)oReader["SpecialityDescription"];
+                    if (oReader["IdSpeciality"] == DBNull.Value)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return objSpecialities;
+                    }
                 }
-                
+
             }
             finally
             {
+                this.Disconnect( );
                 objSpecialities = null;
             }
         }
+
     }
 }

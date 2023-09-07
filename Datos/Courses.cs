@@ -145,5 +145,39 @@ namespace Datos {
                 objCourses = null;
             }
         }
+
+        public List<Entidades.Courses> GetAvailableCourses()
+        {
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT Quota > NumStudents FROM Courses", Conn);
+                List<Entidades.Courses> CoursesList = new List<Entidades.Courses>();
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    while (oReader.Read())
+                    {
+                        Entidades.Courses objCourses = new Entidades.Courses();
+                        objCourses.IdCourse = (int)oReader["IdCourse"];
+                        objCourses.IdSubject = (int)oReader["IdSubject"];
+                        objCourses.IdCommission = (int)oReader["IdCommission"];
+                        objCourses.CalendarYear = (int)oReader["CalendarYear"];
+                        objCourses.Quota = (int)oReader["Quota"];
+                        objCourses.NumStudents = (int)oReader["NumStudents"];
+
+                        CoursesList.Add(objCourses);
+                        objCourses = null;
+                    }
+                    return CoursesList;
+                }
+            }
+            finally
+            {
+                //objCourses = null;
+                this.Disconnect();
+            }
+        }
     }
 }

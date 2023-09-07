@@ -22,5 +22,19 @@ namespace Negocio
             }
         }
 
+        public List<Entidades.Courses> GetAvailableCourses()
+        {
+            Datos.Courses ds;
+            try
+            {
+                ds = new Datos.Courses();
+                return ds.GetAvailableCourses();
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
     }
 }

@@ -50,6 +50,7 @@
             btnPerson = new Button();
             pictureBox1 = new PictureBox();
             pnContainerMain = new Panel();
+            btnContact = new Button();
             pnUpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnRestore).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimize).BeginInit();
@@ -71,7 +72,7 @@
             pnUpMain.Dock = DockStyle.Top;
             pnUpMain.Location = new Point(0, 0);
             pnUpMain.Name = "pnUpMain";
-            pnUpMain.Size = new Size(1300, 38);
+            pnUpMain.Size = new Size(1370, 38);
             pnUpMain.TabIndex = 0;
             pnUpMain.MouseDown += pnUpMain_MouseDown;
             // 
@@ -80,7 +81,7 @@
             btnRestore.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnRestore.Cursor = Cursors.Hand;
             btnRestore.Image = (Image)resources.GetObject("btnRestore.Image");
-            btnRestore.Location = new Point(1229, 7);
+            btnRestore.Location = new Point(1299, 7);
             btnRestore.Name = "btnRestore";
             btnRestore.Size = new Size(25, 25);
             btnRestore.SizeMode = PictureBoxSizeMode.Zoom;
@@ -94,7 +95,7 @@
             btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMinimize.Cursor = Cursors.Hand;
             btnMinimize.Image = (Image)resources.GetObject("btnMinimize.Image");
-            btnMinimize.Location = new Point(1186, 7);
+            btnMinimize.Location = new Point(1256, 7);
             btnMinimize.Name = "btnMinimize";
             btnMinimize.Size = new Size(25, 25);
             btnMinimize.SizeMode = PictureBoxSizeMode.Zoom;
@@ -107,7 +108,7 @@
             btnMaximize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMaximize.Cursor = Cursors.Hand;
             btnMaximize.Image = (Image)resources.GetObject("btnMaximize.Image");
-            btnMaximize.Location = new Point(1229, 7);
+            btnMaximize.Location = new Point(1299, 7);
             btnMaximize.Name = "btnMaximize";
             btnMaximize.Size = new Size(25, 25);
             btnMaximize.SizeMode = PictureBoxSizeMode.Zoom;
@@ -120,7 +121,7 @@
             btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnClose.Cursor = Cursors.Hand;
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
-            btnClose.Location = new Point(1272, 7);
+            btnClose.Location = new Point(1342, 7);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(25, 25);
             btnClose.SizeMode = PictureBoxSizeMode.Zoom;
@@ -131,6 +132,7 @@
             // pnLeftMain
             // 
             pnLeftMain.BackColor = Color.FromArgb(26, 32, 40);
+            pnLeftMain.Controls.Add(btnContact);
             pnLeftMain.Controls.Add(btnExit);
             pnLeftMain.Controls.Add(pnSubmenuReports);
             pnLeftMain.Controls.Add(btnReports);
@@ -146,13 +148,14 @@
             pnLeftMain.Dock = DockStyle.Left;
             pnLeftMain.Location = new Point(0, 38);
             pnLeftMain.Name = "pnLeftMain";
-            pnLeftMain.Size = new Size(220, 687);
+            pnLeftMain.Size = new Size(220, 742);
             pnLeftMain.TabIndex = 1;
             // 
             // btnExit
             // 
+            btnExit.Cursor = Cursors.Hand;
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
-            btnExit.Location = new Point(0, 628);
+            btnExit.Location = new Point(0, 683);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(60, 59);
             btnExit.SizeMode = PictureBoxSizeMode.Zoom;
@@ -172,6 +175,7 @@
             // 
             // btnPeopleReports
             // 
+            btnPeopleReports.Cursor = Cursors.Hand;
             btnPeopleReports.FlatAppearance.BorderSize = 0;
             btnPeopleReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnPeopleReports.FlatStyle = FlatStyle.Flat;
@@ -187,6 +191,7 @@
             // 
             // btnUsersReport
             // 
+            btnUsersReport.Cursor = Cursors.Hand;
             btnUsersReport.FlatAppearance.BorderSize = 0;
             btnUsersReport.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnUsersReport.FlatStyle = FlatStyle.Flat;
@@ -202,6 +207,7 @@
             // 
             // btnReports
             // 
+            btnReports.Cursor = Cursors.Hand;
             btnReports.FlatAppearance.BorderSize = 0;
             btnReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnReports.FlatStyle = FlatStyle.Flat;
@@ -217,6 +223,7 @@
             // 
             // btnTeacherMenu
             // 
+            btnTeacherMenu.Cursor = Cursors.Hand;
             btnTeacherMenu.FlatAppearance.BorderSize = 0;
             btnTeacherMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnTeacherMenu.FlatStyle = FlatStyle.Flat;
@@ -231,6 +238,7 @@
             // 
             // btnStudentRegistration
             // 
+            btnStudentRegistration.Cursor = Cursors.Hand;
             btnStudentRegistration.FlatAppearance.BorderSize = 0;
             btnStudentRegistration.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnStudentRegistration.FlatStyle = FlatStyle.Flat;
@@ -242,9 +250,11 @@
             btnStudentRegistration.TabIndex = 2;
             btnStudentRegistration.Text = "Inscripciones";
             btnStudentRegistration.UseVisualStyleBackColor = true;
+            btnStudentRegistration.Click += btnStudentRegistration_Click;
             // 
             // btnCourse
             // 
+            btnCourse.Cursor = Cursors.Hand;
             btnCourse.FlatAppearance.BorderSize = 0;
             btnCourse.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnCourse.FlatStyle = FlatStyle.Flat;
@@ -256,9 +266,11 @@
             btnCourse.TabIndex = 2;
             btnCourse.Text = "Cursos";
             btnCourse.UseVisualStyleBackColor = true;
+            btnCourse.Click += btnCourse_Click;
             // 
             // btnSubjects
             // 
+            btnSubjects.Cursor = Cursors.Hand;
             btnSubjects.FlatAppearance.BorderSize = 0;
             btnSubjects.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnSubjects.FlatStyle = FlatStyle.Flat;
@@ -270,9 +282,11 @@
             btnSubjects.TabIndex = 2;
             btnSubjects.Text = "Materias";
             btnSubjects.UseVisualStyleBackColor = true;
+            btnSubjects.Click += btnSubjects_Click;
             // 
             // btnCommission
             // 
+            btnCommission.Cursor = Cursors.Hand;
             btnCommission.FlatAppearance.BorderSize = 0;
             btnCommission.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnCommission.FlatStyle = FlatStyle.Flat;
@@ -284,9 +298,11 @@
             btnCommission.TabIndex = 2;
             btnCommission.Text = "Comisiones";
             btnCommission.UseVisualStyleBackColor = true;
+            btnCommission.Click += btnCommission_Click;
             // 
             // btnPlan
             // 
+            btnPlan.Cursor = Cursors.Hand;
             btnPlan.FlatAppearance.BorderSize = 0;
             btnPlan.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnPlan.FlatStyle = FlatStyle.Flat;
@@ -298,9 +314,11 @@
             btnPlan.TabIndex = 3;
             btnPlan.Text = "Planes";
             btnPlan.UseVisualStyleBackColor = true;
+            btnPlan.Click += btnPlan_Click;
             // 
             // btnSpeciality
             // 
+            btnSpeciality.Cursor = Cursors.Hand;
             btnSpeciality.FlatAppearance.BorderSize = 0;
             btnSpeciality.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnSpeciality.FlatStyle = FlatStyle.Flat;
@@ -312,9 +330,11 @@
             btnSpeciality.TabIndex = 2;
             btnSpeciality.Text = "Especialidades";
             btnSpeciality.UseVisualStyleBackColor = true;
+            btnSpeciality.Click += btnSpeciality_Click;
             // 
             // btnPerson
             // 
+            btnPerson.Cursor = Cursors.Hand;
             btnPerson.FlatAppearance.BorderSize = 0;
             btnPerson.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
             btnPerson.FlatStyle = FlatStyle.Flat;
@@ -326,6 +346,7 @@
             btnPerson.TabIndex = 1;
             btnPerson.Text = "Personas";
             btnPerson.UseVisualStyleBackColor = true;
+            btnPerson.Click += btnPerson_Click;
             // 
             // pictureBox1
             // 
@@ -343,14 +364,30 @@
             pnContainerMain.Dock = DockStyle.Fill;
             pnContainerMain.Location = new Point(220, 38);
             pnContainerMain.Name = "pnContainerMain";
-            pnContainerMain.Size = new Size(1080, 687);
+            pnContainerMain.Size = new Size(1150, 742);
             pnContainerMain.TabIndex = 2;
+            // 
+            // btnContact
+            // 
+            btnContact.Cursor = Cursors.Hand;
+            btnContact.FlatAppearance.BorderSize = 0;
+            btnContact.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            btnContact.FlatStyle = FlatStyle.Flat;
+            btnContact.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnContact.ForeColor = SystemColors.ButtonHighlight;
+            btnContact.Location = new Point(0, 620);
+            btnContact.Name = "btnContact";
+            btnContact.Size = new Size(220, 32);
+            btnContact.TabIndex = 6;
+            btnContact.Text = "Contacto";
+            btnContact.UseVisualStyleBackColor = true;
+            btnContact.Click += btnContact_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1300, 725);
+            ClientSize = new Size(1370, 780);
             Controls.Add(pnContainerMain);
             Controls.Add(pnLeftMain);
             Controls.Add(pnUpMain);
@@ -392,5 +429,6 @@
         private Button btnPeopleReports;
         private Button btnUsersReport;
         private PictureBox btnExit;
+        private Button btnContact;
     }
 }

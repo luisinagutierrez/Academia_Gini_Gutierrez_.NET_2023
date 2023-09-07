@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeacherMainMenu));
             dgvTeacheraCoursesList = new DataGridView();
             lbTeacherCoursesList = new Label();
             label1 = new Label();
             txtTeacherCoursesIdCourse = new TextBox();
             btnTeacherCoursesAccept = new Button();
             btnTeacherCoursesCancel = new Button();
-            pictureLogo = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvTeacheraCoursesList).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
             SuspendLayout();
             // 
             // dgvTeacheraCoursesList
@@ -99,23 +96,12 @@
             btnTeacherCoursesCancel.UseVisualStyleBackColor = true;
             btnTeacherCoursesCancel.Click += btnTeacherCoursesCancel_Click;
             // 
-            // pictureLogo
-            // 
-            pictureLogo.Image = (Image)resources.GetObject("pictureLogo.Image");
-            pictureLogo.Location = new Point(12, 12);
-            pictureLogo.Name = "pictureLogo";
-            pictureLogo.Size = new Size(96, 84);
-            pictureLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureLogo.TabIndex = 17;
-            pictureLogo.TabStop = false;
-            // 
             // frmTeacherMainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(800, 450);
-            Controls.Add(pictureLogo);
             Controls.Add(btnTeacherCoursesCancel);
             Controls.Add(btnTeacherCoursesAccept);
             Controls.Add(txtTeacherCoursesIdCourse);
@@ -126,7 +112,6 @@
             Text = "Menú de Profesores";
             Load += frmTeacherMainMenu_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTeacheraCoursesList).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -139,6 +124,5 @@
         private TextBox txtTeacherCoursesIdCourse;
         private Button btnTeacherCoursesAccept;
         private Button btnTeacherCoursesCancel;
-        private PictureBox pictureLogo;
     }
 }
