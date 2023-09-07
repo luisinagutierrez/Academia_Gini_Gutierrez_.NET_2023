@@ -8,19 +8,20 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class Users: Connection
+    public class Users : Connection
     {
         public int Add(Entidades.Users item)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("INSERT INTO Users (UserName, Password, Status, ChangePassword, IdPerson) VALUES (@UserName, @Password, @Status, @ChangePassword, @IdPerson)", Conn);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("INSERT INTO Users (UserName, Password, Status, ChangePassword, IdPerson, Privilege) VALUES (@UserName, @Password, @Status, @ChangePassword, @IdPerson, @Privilege) seelct @@identity", Conn);
                 comm.Parameters.AddWithValue("@UserName", item.UserName);
                 comm.Parameters.AddWithValue("@Password", item.Password);
-                comm.Parameters.AddWithValue("@Status", item.Status); 
-                comm.Parameters.AddWithValue("@ChangePassword", item.ChangePassword); 
+                comm.Parameters.AddWithValue("@Status", item.Status);
+                comm.Parameters.AddWithValue("@ChangePassword", item.ChangePassword);
                 comm.Parameters.AddWithValue("@IdPerson", item.IdPerson);
+                comm.Parameters.AddWithValue("@Privilege", item.Privilege);
                 return comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -30,21 +31,23 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
-        public void Update(Entidades.Users item, int id)
+        public void Update(Entidades.Users item)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("UPDATE Users SET (UserName, Password, Status, ChangePassword, IdPerson) = (@UserName, @Password, @Status, @ChangePassword, @IdPerson) WHERE IdUser = @Id", Conn);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("UPDATE Users SET (UserName, Password, Status, ChangePassword, Privilege, IdPerson) = (@UserName, @Password, @Status, @ChangePassword, @Privilege,@IdPerson) WHERE IdUser = @IdUser", Conn);
                 comm.Parameters.AddWithValue("@UserName", item.UserName);
                 comm.Parameters.AddWithValue("@Password", item.Password);
                 comm.Parameters.AddWithValue("@Status", item.Status);
                 comm.Parameters.AddWithValue("@ChangePassword", item.ChangePassword);
+                comm.Parameters.AddWithValue("@Privilege", item.Privilege);
                 comm.Parameters.AddWithValue("@IdPerson", item.IdPerson);
+
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -54,7 +57,7 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
@@ -62,7 +65,7 @@ namespace Datos
         {
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("DELETE Users WHERE IdUser = @Id", Conn);
 
                 comm.Parameters.AddWithValue("@IdUser", id);
@@ -75,7 +78,7 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
         public List<Entidades.Users> GetAll()
@@ -83,7 +86,7 @@ namespace Datos
             Entidades.Users objUsers = new Entidades.Users();
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("SELECT * FROM Users", Conn);
                 List<Entidades.Users> UsersList = new List<Entidades.Users>();
                 // Ejecutamos el comando y retornamos los valores
@@ -92,51 +95,49 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
-                        // Si existe algun valor, creamos el objeto y lo almacenamos en la colección
-                        objUsers.IdUser = Convert.ToInt32(oReader["IdUser"]);
-                        objUsers.UserName = Convert.ToString(oReader["UserName"]);
-                        objUsers.Password = Convert.ToString(oReader["Password"]);
-                        objUsers.Status = Convert.ToBoolean(oReader["Status"]);
-                        objUsers.ChangePassword = Convert.ToBoolean(oReader["Status"]);
-                        objUsers.IdPerson = Convert.ToInt32(oReader["IdPerson"]);
-
-                        // Agregamos el objeto a la coleccion de resultados
+                        objUsers.IdUser = (int)oReader["IdUser"];
+                        objUsers.Privilege = (int)oReader["Privilege"];
+                        objUsers.UserName = (string)oReader["UserName"];
+                        objUsers.Password = (string)oReader["Password"];
+                        objUsers.Status = (bool)oReader["Status"];
+                        objUsers.ChangePassword = (bool)oReader["Status"];
+                        objUsers.IdPerson = (int)oReader["IdPerson"];
                         UsersList.Add(objUsers);
                         objUsers = null;
                     }
-                    // Retornamos los valores encontrados
                     return UsersList;
                 }
             }
             finally
             {
-                // El Finally nos da siempre la oportunidad de liberar
-                // la memoria utilizada por los objetos 
                 objUsers = null;
+                this.Disconnect();
             }
         }
-        public Entidades.Users GetOne(string userName, string password)
+ 
+        
+        public Entidades.Users GetOne(int id)
         {
             Entidades.Users objUsers = new Entidades.Users();
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE @UserName = userName AND @Password = password", Conn);
-                comm.Parameters.AddWithValue("@UserName", userName);
-                comm.Parameters.AddWithValue("@Password", password);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE @IdUser = id", Conn);
+                comm.Parameters.AddWithValue("@IdUser", id);
+  
                 // Ejecutamos el comando y retornamos los valores
-                SqlDataReader oReader = comm.ExecuteReader();    
+                SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
                 {
                     oReader.Read();
                     // Si existe algun valor, creamos el objeto y lo almacenamos en la colección
-                    objUsers.IdUser = Convert.ToInt32(oReader["IdUser"]);
-                    objUsers.UserName = Convert.ToString(oReader["UserName"]);
-                    objUsers.Password = Convert.ToString(oReader["Password"]);
-                    objUsers.Status = Convert.ToBoolean(oReader["Status"]);
-                    objUsers.ChangePassword = Convert.ToBoolean(oReader["ChangePassword"]);
-                    objUsers.IdPerson = Convert.ToInt32(oReader["IdPerson"]);
-
+                    objUsers.IdUser = (int)oReader["IdUser"];
+                    objUsers.UserName = (string)oReader["UserName"];
+                    objUsers.Privilege = (int)oReader["Privilege"];
+                    objUsers.Password = (string)oReader["Password"];
+                    objUsers.Status = (bool)oReader["Status"];
+                    objUsers.ChangePassword = (bool)oReader["ChangePassword"];
+                    objUsers.IdPerson = (int)oReader["IdPerson"];
 
                     return objUsers;
 
@@ -144,17 +145,17 @@ namespace Datos
             }
             finally
             {
-                // Finally nos da siempre la oportunidad de liberar memoria usada por los objetos 
                 objUsers = null;
+                this.Disconnect();
             }
         }
-        public int GetIdPerson(string userName, string password)
+        public int GetPrivilege(string userName, string password)
         {
             Entidades.Users objUsers = new Entidades.Users();
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("SELECT IdPerson FROM Users WHERE @UserName = userName AND @Password = password", Conn);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT privilege FROM Users WHERE @UserName = userName AND @Password = password", Conn);
                 comm.Parameters.AddWithValue("@UserName", userName);
                 comm.Parameters.AddWithValue("@Password", password);
                 // Ejecutamos el comando y retornamos los valores
@@ -163,14 +164,14 @@ namespace Datos
                 {
                     oReader.Read();
                     // Si existe algun valor, creamos el objeto y lo almacenamos en la colección
-                    objUsers.IdPerson = Convert.ToInt32(oReader["IdPerson"]);
-                    if (objUsers.IdPerson == null)
+                    objUsers.Privilege = (int)oReader["Privilege"];
+                    if (oReader["Privilege"]  == DBNull.Value)
                     {
                         return -1;
                     }
                     else 
                     {
-                        return objUsers.IdPerson;
+                        return objUsers.Privilege;
                     }
                         
 
@@ -180,6 +181,7 @@ namespace Datos
             {
                 // Finally nos da siempre la oportunidad de liberar memoria usada por los objetos 
                 objUsers = null;
+                this.Disconnect();
             }
         }
 

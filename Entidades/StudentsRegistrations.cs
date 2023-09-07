@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class StudentsRegistrations
+    public class StudentsRegistrations : Entity
     {
         int _idRegistration;
         int _idStudent;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Commissions
+    public class Commissions : Entity 
     {
         int _idCommission;
         string _commissionDescription;
