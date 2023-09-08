@@ -30,7 +30,6 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
         public void Update(int IdPlan, string PlanDescription, int IdSpeciality)
         {
             try
@@ -52,7 +51,6 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
         public void Delete(int IdPlan)
         {
             try

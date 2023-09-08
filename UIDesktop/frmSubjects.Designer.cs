@@ -41,14 +41,15 @@
             btnBack = new Button();
             txtIdSubject = new TextBox();
             lbIdSubject = new Label();
-            txtSubjectsSpecialityYear = new TextBox();
-            lbSubjectsSpecialityYear = new Label();
+            txtSubjectsTotalHours = new TextBox();
+            lbSubjecttotalHours = new Label();
+            btnDeleteSubject = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvSubjects).BeginInit();
             SuspendLayout();
             // 
             // txtSubjectsPlan
             // 
-            txtSubjectsPlan.Location = new Point(822, 367);
+            txtSubjectsPlan.Location = new Point(825, 273);
             txtSubjectsPlan.Name = "txtSubjectsPlan";
             txtSubjectsPlan.Size = new Size(124, 27);
             txtSubjectsPlan.TabIndex = 54;
@@ -56,7 +57,7 @@
             // lbSubjectIdPlan
             // 
             lbSubjectIdPlan.AutoSize = true;
-            lbSubjectIdPlan.Location = new Point(699, 367);
+            lbSubjectIdPlan.Location = new Point(702, 273);
             lbSubjectIdPlan.Name = "lbSubjectIdPlan";
             lbSubjectIdPlan.Size = new Size(55, 20);
             lbSubjectIdPlan.TabIndex = 53;
@@ -64,7 +65,7 @@
             // 
             // txtSubjectsWeeklyHours
             // 
-            txtSubjectsWeeklyHours.Location = new Point(822, 259);
+            txtSubjectsWeeklyHours.Location = new Point(825, 316);
             txtSubjectsWeeklyHours.Name = "txtSubjectsWeeklyHours";
             txtSubjectsWeeklyHours.Size = new Size(124, 27);
             txtSubjectsWeeklyHours.TabIndex = 52;
@@ -72,11 +73,12 @@
             // lbSubjectsWeeklyHours
             // 
             lbSubjectsWeeklyHours.AutoSize = true;
-            lbSubjectsWeeklyHours.Location = new Point(699, 259);
+            lbSubjectsWeeklyHours.Location = new Point(702, 316);
             lbSubjectsWeeklyHours.Name = "lbSubjectsWeeklyHours";
-            lbSubjectsWeeklyHours.Size = new Size(92, 20);
+            lbSubjectsWeeklyHours.Size = new Size(121, 20);
             lbSubjectsWeeklyHours.TabIndex = 51;
-            lbSubjectsWeeklyHours.Text = "Año cursado";
+            lbSubjectsWeeklyHours.Text = "Horas semanales";
+            lbSubjectsWeeklyHours.Click += lbSubjectsWeeklyHours_Click;
             // 
             // lbCreateUpdateSubjects
             // 
@@ -95,13 +97,13 @@
             dgvSubjects.Name = "dgvSubjects";
             dgvSubjects.RowHeadersWidth = 51;
             dgvSubjects.RowTemplate.Height = 29;
-            dgvSubjects.Size = new Size(632, 276);
+            dgvSubjects.Size = new Size(641, 233);
             dgvSubjects.TabIndex = 48;
             dgvSubjects.CellContentClick += dgvSubjects_CellContentClick;
             // 
             // txtSubjectDescription
             // 
-            txtSubjectDescription.Location = new Point(822, 170);
+            txtSubjectDescription.Location = new Point(825, 184);
             txtSubjectDescription.Multiline = true;
             txtSubjectDescription.Name = "txtSubjectDescription";
             txtSubjectDescription.Size = new Size(221, 71);
@@ -110,7 +112,7 @@
             // lbSubjectDescription
             // 
             lbSubjectDescription.AutoSize = true;
-            lbSubjectDescription.Location = new Point(699, 173);
+            lbSubjectDescription.Location = new Point(702, 187);
             lbSubjectDescription.Name = "lbSubjectDescription";
             lbSubjectDescription.Size = new Size(87, 20);
             lbSubjectDescription.TabIndex = 46;
@@ -124,6 +126,7 @@
             btnUpdateSubject.TabIndex = 45;
             btnUpdateSubject.Text = "Actualizar materia";
             btnUpdateSubject.UseVisualStyleBackColor = true;
+            btnUpdateSubject.Click += btnUpdateSubject_Click;
             // 
             // btnCreateSubject
             // 
@@ -133,6 +136,7 @@
             btnCreateSubject.TabIndex = 44;
             btnCreateSubject.Text = "Guardar nueva materia";
             btnCreateSubject.UseVisualStyleBackColor = true;
+            btnCreateSubject.Click += btnCreateSubject_Click;
             // 
             // btnBack
             // 
@@ -147,7 +151,7 @@
             // 
             // txtIdSubject
             // 
-            txtIdSubject.Location = new Point(822, 125);
+            txtIdSubject.Location = new Point(825, 139);
             txtIdSubject.Name = "txtIdSubject";
             txtIdSubject.Size = new Size(124, 27);
             txtIdSubject.TabIndex = 42;
@@ -155,36 +159,47 @@
             // lbIdSubject
             // 
             lbIdSubject.AutoSize = true;
-            lbIdSubject.Location = new Point(699, 128);
+            lbIdSubject.Location = new Point(702, 142);
             lbIdSubject.Name = "lbIdSubject";
             lbIdSubject.Size = new Size(77, 20);
             lbIdSubject.TabIndex = 41;
             lbIdSubject.Text = "Id materia";
             // 
-            // txtSubjectsSpecialityYear
+            // txtSubjectsTotalHours
             // 
-            txtSubjectsSpecialityYear.Location = new Point(822, 317);
-            txtSubjectsSpecialityYear.Name = "txtSubjectsSpecialityYear";
-            txtSubjectsSpecialityYear.Size = new Size(124, 27);
-            txtSubjectsSpecialityYear.TabIndex = 56;
+            txtSubjectsTotalHours.Location = new Point(1092, 316);
+            txtSubjectsTotalHours.Name = "txtSubjectsTotalHours";
+            txtSubjectsTotalHours.Size = new Size(124, 27);
+            txtSubjectsTotalHours.TabIndex = 56;
             // 
-            // lbSubjectsSpecialityYear
+            // lbSubjecttotalHours
             // 
-            lbSubjectsSpecialityYear.AutoSize = true;
-            lbSubjectsSpecialityYear.Location = new Point(699, 317);
-            lbSubjectsSpecialityYear.Name = "lbSubjectsSpecialityYear";
-            lbSubjectsSpecialityYear.Size = new Size(92, 20);
-            lbSubjectsSpecialityYear.TabIndex = 55;
-            lbSubjectsSpecialityYear.Text = "Año cursado";
+            lbSubjecttotalHours.AutoSize = true;
+            lbSubjecttotalHours.Location = new Point(969, 316);
+            lbSubjecttotalHours.Name = "lbSubjecttotalHours";
+            lbSubjecttotalHours.Size = new Size(103, 20);
+            lbSubjecttotalHours.TabIndex = 55;
+            lbSubjecttotalHours.Text = "Total de horas";
+            // 
+            // btnDeleteSubject
+            // 
+            btnDeleteSubject.Location = new Point(979, 447);
+            btnDeleteSubject.Name = "btnDeleteSubject";
+            btnDeleteSubject.Size = new Size(121, 48);
+            btnDeleteSubject.TabIndex = 57;
+            btnDeleteSubject.Text = "Eliminar materia";
+            btnDeleteSubject.UseVisualStyleBackColor = true;
+            btnDeleteSubject.Click += btnDeleteSubject_Click;
             // 
             // frmSubjects
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1195, 554);
-            Controls.Add(txtSubjectsSpecialityYear);
-            Controls.Add(lbSubjectsSpecialityYear);
+            ClientSize = new Size(1243, 511);
+            Controls.Add(btnDeleteSubject);
+            Controls.Add(txtSubjectsTotalHours);
+            Controls.Add(lbSubjecttotalHours);
             Controls.Add(txtSubjectsPlan);
             Controls.Add(lbSubjectIdPlan);
             Controls.Add(txtSubjectsWeeklyHours);
@@ -221,7 +236,8 @@
         private Button btnBack;
         private TextBox txtIdSubject;
         private Label lbIdSubject;
-        private TextBox txtSubjectsSpecialityYear;
-        private Label lbSubjectsSpecialityYear;
+        private TextBox txtSubjectsTotalHours;
+        private Label lbSubjecttotalHours;
+        private Button btnDeleteSubject;
     }
 }

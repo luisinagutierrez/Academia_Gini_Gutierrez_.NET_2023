@@ -33,5 +33,75 @@ namespace UIDesktop
         {
 
         }
+
+        private void lbSubjectsWeeklyHours_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteSubject_Click(object sender, EventArgs e)
+        {
+            int idS = Convert.ToInt32(txtIdSubject.Text);
+            Negocio.Subjects sub = new Negocio.Subjects();
+            sub.Delete(idS);
+            MessageBox.Show("Operación exitosa");
+            this.Close();
+        }
+
+        private void btnCreateSubject_Click(object sender, EventArgs e)
+        {
+
+            int idP = Convert.ToInt32(txtSubjectsPlan.Text);
+            string descrip = Convert.ToString(txtSubjectDescription.Text);
+            int ths = Convert.ToInt32(txtSubjectsTotalHours.Text);
+            int whs = Convert.ToInt32(txtSubjectsWeeklyHours.Text);
+
+            Negocio.Plans p = new Negocio.Plans();
+            Entidades.Plans pl = p.GetOne(idP);
+
+            if (pl != null)
+            {
+                Negocio.Subjects sub = new Negocio.Subjects();
+                sub.Add(idP, descrip, ths, whs);
+                MessageBox.Show("Operación exitosa");
+            }
+            else
+            {
+                MessageBox.Show("El Id del plan no fue encontrado");
+            }
+            this.Close();
+        }
+
+        private void btnUpdateSubject_Click(object sender, EventArgs e)
+        {
+            int idS = Convert.ToInt32(txtIdSubject.Text);
+            int idP = Convert.ToInt32(txtSubjectsPlan.Text);
+            string descrip = Convert.ToString(txtSubjectDescription.Text);
+            int ths = Convert.ToInt32(txtSubjectsTotalHours.Text);
+            int whs = Convert.ToInt32(txtSubjectsWeeklyHours.Text);
+
+            Negocio.Plans p = new Negocio.Plans();
+            Entidades.Plans pl = p.GetOne(idP);
+
+            if (pl != null)
+            {
+                Negocio.Subjects sub = new Negocio.Subjects();
+                int sb = sub.UpdateSubject(idS, descrip, ths, whs, idP);
+                if (sb == 1)
+                {
+                    MessageBox.Show("Se actualizó la materia correctamente.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar la materia.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El Id del plan no fue encontrado");
+            }
+            this.Close();
+        }
     }
 }
