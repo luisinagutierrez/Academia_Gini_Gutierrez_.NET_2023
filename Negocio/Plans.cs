@@ -22,5 +22,19 @@ namespace Negocio
             }
         }
 
+        public Entidades.Plans GetOne(int id)
+        {
+            Datos.Plans ds;
+            try
+            {
+                ds = new Datos.Plans();
+                return ds.GetOne(id);
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
     }
 }

@@ -14,7 +14,7 @@ namespace Datos
         {
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("INSERT INTO Plans (PlanDescription, IdSpeciality) VALUES (@PlanDescription, @IdSpeciality)", Conn);
                 comm.Parameters.AddWithValue("@PlanDescription", item.PlanDescription);
                 comm.Parameters.AddWithValue("@IdSpeciality", item.IdSpeciality);
@@ -27,16 +27,16 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
-        public void Update(Entidades.Plans item, int id)
+        public void Update(Entidades.Plans item, int IdPlan)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("UPDATE Plans SET (PlanDescription, IdSpeciality) = (@PlanDescription, @IdSpeciality) WHERE IdPlan = @Id", Conn);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("UPDATE Plans SET (PlanDescription, IdSpeciality) = (@PlanDescription, @IdSpeciality) WHERE IdPlan = @IdPlan", Conn);
                 comm.Parameters.AddWithValue("@PlanDescription", item.PlanDescription);
                 comm.Parameters.AddWithValue("@IdSpeciality", item.IdSpeciality);
                 comm.ExecuteNonQuery();
@@ -48,18 +48,18 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
-        public void Delete(int id)
+        public void Delete(int IdPlan)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("DELETE Plans WHERE IdPlan = @Id", Conn);
+                this.Connect();    
+                SqlCommand comm = new SqlCommand("DELETE Plans WHERE IdPlan = @IdPlan", Conn);
 
-                comm.Parameters.AddWithValue("@IdPlan", id);
+                comm.Parameters.AddWithValue("@IdPlan", IdPlan);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -69,7 +69,7 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
         public List<Entidades.Plans> GetAll()
@@ -103,23 +103,23 @@ namespace Datos
                 //objPlans = null;
             }
         }
-        public Entidades.Plans GetOne(int id)
+        public Entidades.Plans GetOne(int IdPlan)
         {
             Entidades.Plans objPlans = new Entidades.Plans();
             try
             {
-                Conn.Open(); 
-                SqlCommand comm = new SqlCommand("SELECT * FROM Plans WHERE @IdUser = id", Conn);
-                comm.Parameters.AddWithValue("@IdUser", id);
+                this.Connect(); 
+                SqlCommand comm = new SqlCommand("SELECT * FROM Plans WHERE @IdPlan = IdPlan", Conn);
+                comm.Parameters.AddWithValue("@IdPlan", IdPlan);
 
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
                 {
                     oReader.Read();
 
-                    objPlans.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
-                    objPlans.PlanDescription = Convert.ToString(oReader["PlanDescription"]);
-                    objPlans.IdSpeciality = Convert.ToInt32(oReader["IdSpeciality"]);
+                    objPlans.IdPlan = (int)(oReader["IdPlan"]);
+                    objPlans.PlanDescription = (string)(oReader["PlanDescription"]);
+                    objPlans.IdSpeciality = (int)(oReader["IdSpeciality"]);
 
 
                     return objPlans;
@@ -128,6 +128,7 @@ namespace Datos
             }
             finally
             {
+                this.Disconnect();
                 objPlans = null;
             }
         }

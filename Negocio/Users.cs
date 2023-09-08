@@ -129,21 +129,21 @@ namespace Negocio
 
         }
 
-        public void Save(Entidades.Users usuario)
-        {
-            if (usuario.St == Entity.States.Delete)
-            {
-                this.Delete(usuario.ID);
-            }
-            else if (usuario.St == Entity.States.New)
-            {
-                this.Add(usuario);
-            }
-            else if (usuario.St == Entity.States.Update)
-            {
-                this.Update(usuario);
-            }
-        }
+        //public void Save(Entidades.Users usuario)
+        //{
+        //    if (usuario.St == Entity.States.Delete)
+        //    {
+        //        this.Delete(usuario.ID);
+        //    }
+        //    else if (usuario.St == Entity.States.New)
+        //    {
+        //        this.Add(usuario);
+        //    }
+        //    else if (usuario.St == Entity.States.Update)
+        //    {
+        //        this.Update(usuario);
+        //    }
+        //}
 
     }
 }

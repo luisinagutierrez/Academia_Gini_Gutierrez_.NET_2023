@@ -43,8 +43,6 @@
             btnUpdatePeople = new Button();
             btnCreatePeople = new Button();
             btnBack = new Button();
-            txtIdPerson = new TextBox();
-            lbIdPerson = new Label();
             txtPeoplePersonType = new TextBox();
             lbPeoplePersonType = new Label();
             txtPeopleFileId = new TextBox();
@@ -52,8 +50,10 @@
             lbPeopleBirthDate = new Label();
             txtPeopleTelephone = new TextBox();
             lbPeopleTelephone = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dtpPeopleBirthDate = new DateTimePicker();
             btnDeletePerson = new Button();
+            lbIdPerson = new Label();
+            txtIdPerson = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
             SuspendLayout();
             // 
@@ -87,7 +87,7 @@
             lbPeopleEmail.Name = "lbPeopleEmail";
             lbPeopleEmail.Size = new Size(52, 20);
             lbPeopleEmail.TabIndex = 79;
-            lbPeopleEmail.Text = "e-mail";
+            lbPeopleEmail.Text = "E-mail";
             // 
             // txtPeopleAddress
             // 
@@ -115,7 +115,7 @@
             // lbPeopleSurname
             // 
             lbPeopleSurname.AutoSize = true;
-            lbPeopleSurname.Location = new Point(1090, 189);
+            lbPeopleSurname.Location = new Point(1101, 189);
             lbPeopleSurname.Name = "lbPeopleSurname";
             lbPeopleSurname.Size = new Size(66, 20);
             lbPeopleSurname.TabIndex = 75;
@@ -166,6 +166,7 @@
             btnUpdatePeople.TabIndex = 69;
             btnUpdatePeople.Text = "Actualizar datos persona";
             btnUpdatePeople.UseVisualStyleBackColor = true;
+            btnUpdatePeople.Click += btnUpdatePeople_Click;
             // 
             // btnCreatePeople
             // 
@@ -173,8 +174,9 @@
             btnCreatePeople.Name = "btnCreatePeople";
             btnCreatePeople.Size = new Size(121, 48);
             btnCreatePeople.TabIndex = 68;
-            btnCreatePeople.Text = "Guardar nuevo persona";
+            btnCreatePeople.Text = "Guardar nueva persona";
             btnCreatePeople.UseVisualStyleBackColor = true;
+            btnCreatePeople.Click += btnCreatePeople_Click;
             // 
             // btnBack
             // 
@@ -186,22 +188,6 @@
             btnBack.Text = "Atras";
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
-            // 
-            // txtIdPerson
-            // 
-            txtIdPerson.Location = new Point(889, 137);
-            txtIdPerson.Name = "txtIdPerson";
-            txtIdPerson.Size = new Size(80, 27);
-            txtIdPerson.TabIndex = 66;
-            // 
-            // lbIdPerson
-            // 
-            lbIdPerson.AutoSize = true;
-            lbIdPerson.Location = new Point(766, 140);
-            lbIdPerson.Name = "lbIdPerson";
-            lbIdPerson.Size = new Size(79, 20);
-            lbIdPerson.TabIndex = 65;
-            lbIdPerson.Text = "Id persona";
             // 
             // txtPeoplePersonType
             // 
@@ -223,7 +209,7 @@
             // 
             // txtPeopleFileId
             // 
-            txtPeopleFileId.Location = new Point(1181, 137);
+            txtPeopleFileId.Location = new Point(1218, 138);
             txtPeopleFileId.Name = "txtPeopleFileId";
             txtPeopleFileId.Size = new Size(87, 27);
             txtPeopleFileId.TabIndex = 88;
@@ -231,7 +217,7 @@
             // lbPeopleFileId
             // 
             lbPeopleFileId.AutoSize = true;
-            lbPeopleFileId.Location = new Point(1090, 137);
+            lbPeopleFileId.Location = new Point(1101, 145);
             lbPeopleFileId.Name = "lbPeopleFileId";
             lbPeopleFileId.Size = new Size(54, 20);
             lbPeopleFileId.TabIndex = 87;
@@ -262,12 +248,12 @@
             lbPeopleTelephone.TabIndex = 83;
             lbPeopleTelephone.Text = "Telefono";
             // 
-            // dateTimePicker1
+            // dtpPeopleBirthDate
             // 
-            dateTimePicker1.Location = new Point(918, 262);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 91;
+            dtpPeopleBirthDate.Location = new Point(918, 262);
+            dtpPeopleBirthDate.Name = "dtpPeopleBirthDate";
+            dtpPeopleBirthDate.Size = new Size(250, 27);
+            dtpPeopleBirthDate.TabIndex = 91;
             // 
             // btnDeletePerson
             // 
@@ -278,14 +264,32 @@
             btnDeletePerson.Text = "Eliminar persona";
             btnDeletePerson.UseVisualStyleBackColor = true;
             // 
+            // lbIdPerson
+            // 
+            lbIdPerson.AutoSize = true;
+            lbIdPerson.Location = new Point(766, 145);
+            lbIdPerson.Name = "lbIdPerson";
+            lbIdPerson.Size = new Size(73, 20);
+            lbIdPerson.TabIndex = 93;
+            lbIdPerson.Text = "IdPersona";
+            // 
+            // txtIdPerson
+            // 
+            txtIdPerson.Location = new Point(889, 138);
+            txtIdPerson.Name = "txtIdPerson";
+            txtIdPerson.Size = new Size(124, 27);
+            txtIdPerson.TabIndex = 94;
+            // 
             // frmPeople
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1532, 525);
+            Controls.Add(txtIdPerson);
+            Controls.Add(lbIdPerson);
             Controls.Add(btnDeletePerson);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtpPeopleBirthDate);
             Controls.Add(txtPeoplePersonType);
             Controls.Add(lbPeoplePersonType);
             Controls.Add(txtPeopleFileId);
@@ -308,11 +312,8 @@
             Controls.Add(btnUpdatePeople);
             Controls.Add(btnCreatePeople);
             Controls.Add(btnBack);
-            Controls.Add(txtIdPerson);
-            Controls.Add(lbIdPerson);
             Name = "frmPeople";
             Text = "Crear o actualizar persona";
-            Load += frmCreateAndUpdatePeople_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -335,8 +336,6 @@
         private Button btnUpdatePeople;
         private Button btnCreatePeople;
         private Button btnBack;
-        private TextBox txtIdPerson;
-        private Label lbIdPerson;
         private TextBox txtPeoplePersonType;
         private Label lbPeoplePersonType;
         private TextBox txtPeopleFileId;
@@ -344,7 +343,9 @@
         private Label lbPeopleBirthDate;
         private TextBox txtPeopleTelephone;
         private Label lbPeopleTelephone;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpPeopleBirthDate;
         private Button btnDeletePerson;
+        private Label lbIdPerson;
+        private TextBox txtIdPerson;
     }
 }

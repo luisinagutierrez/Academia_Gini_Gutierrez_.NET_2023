@@ -14,7 +14,7 @@ namespace Datos
         {
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("INSERT INTO People (Name, Surname, Address, Email, Telephone, BirthDate, FileId, PersonType, IdPlan) VALUES (@Name, @Surname, @Address, @Email, @Telephone, @BirthDate, @FileId, @PersonType, @IdPlan)", Conn);
                 comm.Parameters.AddWithValue("@Name", item.Name);
                 comm.Parameters.AddWithValue("@Surname", item.Surname);
@@ -34,16 +34,16 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
-        public void Update(Entidades.People item, int id)
+        public void Update(Entidades.People item, int IdPerson)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("UPDATE People SET (Name, Surname, Address, Email, Telephone, BirthDate, FileId, PersonType, IdPlan) = (@Name, @Surname, @Address, @Email, @Telephone, @BirthDate, @FileId, @PersonType, @IdPlan) WHERE IdPerson = @Id", Conn);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("UPDATE People SET (Name, Surname, Address, Email, Telephone, BirthDate, FileId, PersonType, IdPlan) = (@Name, @Surname, @Address, @Email, @Telephone, @BirthDate, @FileId, @PersonType, @IdPlan) WHERE IdPerson = @IdPerson", Conn);
                 comm.Parameters.AddWithValue("@Name", item.Name);
                 comm.Parameters.AddWithValue("@Surname", item.Surname);
                 comm.Parameters.AddWithValue("@Address", item.Address);
@@ -62,18 +62,18 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
-        public void Delete(int id)
+        public void Delete(int IdPerson)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("DELETE People WHERE IdPerson = @Id", Conn);
+                this.Connect();            
+                SqlCommand comm = new SqlCommand("DELETE People WHERE IdPerson = @IdPerson", Conn);
 
-                comm.Parameters.AddWithValue("@IdPerson", id);
+                comm.Parameters.AddWithValue("@IdPerson", IdPerson);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -123,29 +123,29 @@ namespace Datos
                 //objPeople = null;
             }
         }
-        public Entidades.People GetOne(int id)
+        public Entidades.People GetOne(int IdUser)
         {
             Entidades.People objPeople = new Entidades.People();
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("SELECT * FROM People WHERE @IdUser = id", Conn);
-                comm.Parameters.AddWithValue("@IdUser", id);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM People WHERE @IdUser = IdUser", Conn);
+                comm.Parameters.AddWithValue("@IdUser", IdUser);
 
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
                 {
                     oReader.Read();
 
-                    objPeople.IdPerson = Convert.ToInt32(oReader["IdPerson"]);
-                    objPeople.Name = Convert.ToString(oReader["Name"]);
-                    objPeople.Address = Convert.ToString(oReader["Address"]);
-                    objPeople.Email = Convert.ToString(oReader["Email"]);
-                    objPeople.Telephone = Convert.ToString(oReader["Telephone"]);
-                    objPeople.BirthDate = Convert.ToDateTime(oReader["BirthDate"]);
-                    objPeople.FileId = Convert.ToInt32(oReader["FileId"]);
-                    objPeople.PersonType = Convert.ToInt32(oReader["PersonType"]);
-                    objPeople.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+                    objPeople.IdPerson = (int)(oReader["IdPerson"]);
+                    objPeople.Name = (string)(oReader["Name"]);
+                    objPeople.Address = (string)(oReader["Address"]);
+                    objPeople.Email = (string)(oReader["Email"]);
+                    objPeople.Telephone = (string)(oReader["Telephone"]);
+                    objPeople.BirthDate = (DateTime)(oReader["BirthDate"]);
+                    objPeople.FileId = (int)(oReader["FileId"]);
+                    objPeople.PersonType = (int)(oReader["PersonType"]);
+                    objPeople.IdPlan = (int)(oReader["IdPlan"]);
                 
 
                     return objPeople;
@@ -154,17 +154,18 @@ namespace Datos
             }
             finally
             {
+                this.Disconnect();
                 objPeople = null;
             }
         }
-        public int GetTypePerson(int id)
+        public int GetTypePerson(int IdPerson)
         {
             Entidades.People objPeople = new Entidades.People();
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("SELECT PersonType FROM People WHERE @IdPerson = id", Conn);
-                comm.Parameters.AddWithValue("@IdPerson", id);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT PersonType FROM People WHERE @IdPerson = IdPerson", Conn);
+                comm.Parameters.AddWithValue("@IdPerson", IdPerson);
 
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
@@ -178,6 +179,7 @@ namespace Datos
             }
             finally
             {
+                this.Disconnect();  
                 objPeople = null;
             }
         }

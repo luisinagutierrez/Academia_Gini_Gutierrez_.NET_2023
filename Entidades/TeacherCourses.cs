@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class TeacherCourses : Entity
+    public class TeacherCourses //: Entity
     {
         int _idDictation;
         int _idCourse;

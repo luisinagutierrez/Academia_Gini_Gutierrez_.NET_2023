@@ -31,7 +31,7 @@ namespace UIDesktop
         {
             Negocio.Courses nCourses = new Negocio.Courses();
             List<Entidades.Courses> CoursesList = nCourses.GetAvailableCourses();
-            dgvStudentCourses.DataSource = CoursesList;
+            dgvNewCourses.DataSource = CoursesList;
         }
     }
 }

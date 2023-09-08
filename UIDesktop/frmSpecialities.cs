@@ -17,7 +17,7 @@ namespace UIDesktop
             InitializeComponent();
         }
 
-        private void frmCreateAndUpdateSpecialities_Load(object sender, EventArgs e)
+        private void frmSpecialities_Load(object sender, EventArgs e)
         {
             Negocio.Specialities nSpecialities = new Negocio.Specialities();
             List<Entidades.Specialities> SpecialitiesList = nSpecialities.GetAll();

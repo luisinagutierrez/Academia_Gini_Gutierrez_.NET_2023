@@ -153,7 +153,6 @@
             Controls.Add(lbIdSpecialities);
             Name = "frmSpecialities";
             Text = "Crear o Actualizar Especialidades";
-            Load += frmCreateAndUpdateSpecialities_Load;
             ((System.ComponentModel.ISupportInitialize)dgvSpecialities).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -8,6 +8,19 @@ namespace Negocio
 {
     public class People
     {
+        public void Add(Entidades.People item)
+        {
+            Datos.People ds;
+            try
+            {
+                ds = new Datos.People();
+                ds.Add(item);
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
         public int GetPersonType(int id)
         {
             Datos.People ds;
