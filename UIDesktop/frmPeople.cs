@@ -77,19 +77,19 @@ namespace UIDesktop
 
         private void btnUpdatePeople_Click(object sender, EventArgs e)
         {
-            string descrip = Convert.ToString(txtSpecialityDescription.Text);
-            int id = Convert.ToInt32(txtIdSpeciality.Text);
-            Negocio.Specialities s = new Negocio.Specialities();
-            int sp = s.UpdateSpeciality(id, descrip);
-            if (sp == 1)
-            {
-                MessageBox.Show("Se actualizó la especialidad correctamente.");
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("No se pudo actualizar la especialidad.");
-            }
+            //string descrip = Convert.ToString(txtSpecialityDescription.Text);
+            //int id = Convert.ToInt32(txtIdSpeciality.Text);
+            //Negocio.Specialities s = new Negocio.Specialities();
+            //int sp = s.UpdateSpeciality(id, descrip);
+            //if (sp == 1)
+            //{
+            //    MessageBox.Show("Se actualizó la especialidad correctamente.");
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("No se pudo actualizar la especialidad.");
+            //}
         }
     }
 }

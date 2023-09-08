@@ -10,14 +10,14 @@ namespace Datos
 {
     public class Plans:Connection
     {
-        public int Add(Entidades.Plans item)
+        public int Add(int IdSpeciality, string PlanDescription)
         {
             try
             {
                 this.Connect();
                 SqlCommand comm = new SqlCommand("INSERT INTO Plans (PlanDescription, IdSpeciality) VALUES (@PlanDescription, @IdSpeciality)", Conn);
-                comm.Parameters.AddWithValue("@PlanDescription", item.PlanDescription);
-                comm.Parameters.AddWithValue("@IdSpeciality", item.IdSpeciality);
+                comm.Parameters.AddWithValue("@PlanDescription", PlanDescription);
+                comm.Parameters.AddWithValue("@IdSpeciality", IdSpeciality);
                 return comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -31,19 +31,20 @@ namespace Datos
             }
         }
 
-        public void Update(Entidades.Plans item, int IdPlan)
+        public void Update(int IdPlan, string PlanDescription, int IdSpeciality)
         {
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("UPDATE Plans SET (PlanDescription, IdSpeciality) = (@PlanDescription, @IdSpeciality) WHERE IdPlan = @IdPlan", Conn);
-                comm.Parameters.AddWithValue("@PlanDescription", item.PlanDescription);
-                comm.Parameters.AddWithValue("@IdSpeciality", item.IdSpeciality);
+                SqlCommand comm = new SqlCommand("UPDATE Plans SET PlanDescription = @PlanDescription, @IdSpeciality = IdSpeciality WHERE @IdPlan = IdPlan", Conn);
+                comm.Parameters.AddWithValue("@IdPlan", IdPlan);
+                comm.Parameters.AddWithValue("@PlanDescription", PlanDescription);
+                comm.Parameters.AddWithValue("@IdSpeciality", IdSpeciality);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                Exception HandledException = new Exception("Error al actualizar plan ", Ex);
+                Exception HandledException = new Exception("Error al actualizar el plan", Ex);
                 throw HandledException;
             }
             finally
@@ -56,16 +57,15 @@ namespace Datos
         {
             try
             {
-                this.Connect();    
-                SqlCommand comm = new SqlCommand("DELETE Plans WHERE IdPlan = @IdPlan", Conn);
-
+                this.Connect();
+                SqlCommand comm = new SqlCommand("DELETE FROM Plans WHERE IdPlan = @IdPlan", Conn);
                 comm.Parameters.AddWithValue("@IdPlan", IdPlan);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                Exception HandledException = new Exception("Error al eliminar plan ", Ex);
-                throw HandledException;
+                Exception HandledException = new Exception("Error al eliminar el plan ", Ex);
+                // throw HandledException;
             }
             finally
             {
@@ -121,9 +121,7 @@ namespace Datos
                     objPlans.PlanDescription = (string)(oReader["PlanDescription"]);
                     objPlans.IdSpeciality = (int)(oReader["IdSpeciality"]);
 
-
                     return objPlans;
-
                 }
             }
             finally

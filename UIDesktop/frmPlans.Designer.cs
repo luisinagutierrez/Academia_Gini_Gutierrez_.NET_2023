@@ -89,6 +89,7 @@
             btnUpdatePlan.TabIndex = 19;
             btnUpdatePlan.Text = "Actualizar plan";
             btnUpdatePlan.UseVisualStyleBackColor = true;
+            btnUpdatePlan.Click += btnUpdatePlan_Click;
             // 
             // btnCreatePlan
             // 
@@ -98,6 +99,7 @@
             btnCreatePlan.TabIndex = 18;
             btnCreatePlan.Text = "Guardar nuevo plan";
             btnCreatePlan.UseVisualStyleBackColor = true;
+            btnCreatePlan.Click += btnCreatePlan_Click;
             // 
             // btnBack
             // 
@@ -150,6 +152,7 @@
             btnDeletePlan.TabIndex = 27;
             btnDeletePlan.Text = "Eliminar plan";
             btnDeletePlan.UseVisualStyleBackColor = true;
+            btnDeletePlan.Click += btnDeletePlan_Click;
             // 
             // frmPlans
             // 

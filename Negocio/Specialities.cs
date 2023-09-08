@@ -24,6 +24,22 @@ namespace Negocio
             }
         }
 
+        public Entidades.Specialities GetOne(int id)
+        {
+            Datos.Specialities ds;
+            try
+            {
+                Entidades.Specialities sp = new Entidades.Specialities();
+                ds = new Datos.Specialities();
+                sp  = ds.GetOne(id);
+                return sp; 
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
         public void Update(int id, string desp)
         {
             Datos.Specialities ds;
