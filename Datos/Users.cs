@@ -234,5 +234,36 @@ namespace Datos
                 this.Disconnect();
             }
         }
+
+        public Entidades.Users GetUserByIdPerson(int IdPerson)
+        {
+            Entidades.Users objUsers = new Entidades.Users();
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE IdPerson = @IdPerson", Conn);
+                comm.Parameters.AddWithValue("@IdPerson", IdPerson);
+                // Ejecutamos el comando y retornamos los valores
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+                    objUsers.IdUser = (int)oReader["IdUser"];
+                    objUsers.UserName = (string)oReader["UserName"];
+                    objUsers.Privilege = (int)oReader["Privilege"];
+                    objUsers.Password = (string)oReader["Password"];
+                    objUsers.Status = (bool)oReader["Status"];
+                    objUsers.ChangePassword = (bool)oReader["ChangePassword"];
+                    objUsers.IdPerson = (int)oReader["IdPerson"];
+                }
+                return objUsers;
+            }
+            finally
+            {
+                // Finally nos da siempre la oportunidad de liberar memoria usada por los objetos 
+                objUsers = null;
+                this.Disconnect();
+            }
+        }
     }
 }

@@ -121,6 +121,10 @@ namespace Datos
 
                     return objPlans;
                 }
+            } catch (Exception Ex)
+            {
+                Exception HandledException = new Exception("Error al buscar plan ", Ex);
+                throw HandledException;
             }
             finally
             {

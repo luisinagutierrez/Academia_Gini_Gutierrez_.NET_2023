@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,70 +27,100 @@ namespace UIDesktop
         {
         }
 
-        private void frmPeople_Load(object sender, EventArgs e)
+        private void btnCreatePeople_Click(object sender, EventArgs e)
+        {
+            int idPlan = Convert.ToInt32(txtPeopleIdPlan.Text);
+            int fileId = Convert.ToInt32(txtPeopleFileId.Text);
+            string name = Convert.ToString(txtPeopleName.Text);
+            string surname = Convert.ToString(txtPeopleSurname.Text);
+            string address = Convert.ToString(txtPeopleAddress.Text);
+            string email = Convert.ToString(txtPeopleEmail.Text);
+            DateTime birthDate = Convert.ToDateTime(dtpPeopleBirthDate.Text);
+            string telephone = Convert.ToString(txtPeopleTelephone.Text);
+            int personType = Convert.ToInt32(txtPeoplePersonType.Text);
+            Negocio.Plans nPlans = new Negocio.Plans();
+            Entidades.Plans pl = nPlans.GetOne(idPlan);
+            if (pl != null)
+            {
+                Negocio.People nP = new Negocio.People();
+                Entidades.People p = new Entidades.People();
+                p.FileId = fileId;
+                p.Name = name;
+                p.Surname = surname;
+                p.Address = address;
+                p.Email = email;
+                p.BirthDate = birthDate;
+                p.Telephone = telephone;
+                p.PersonType = personType;
+                p.IdPlan = idPlan;
+                nP.Add(p);
+                MessageBox.Show("Operación exitosa");
+            }
+            else
+            {
+                MessageBox.Show("El IdPlan ingresado no existe.");
+            }
+            this.Close();
+        }
+        private void btnUpdatePeople_Click(object sender, EventArgs e)
+        {
+            int idP = Convert.ToInt32(txtIdPerson.Text);
+            int idPlan = Convert.ToInt32(txtPeopleIdPlan.Text);
+            int fileId = Convert.ToInt32(txtPeopleFileId.Text);
+            string name = Convert.ToString(txtPeopleName.Text);
+            string surname = Convert.ToString(txtPeopleSurname.Text);
+            string address = Convert.ToString(txtPeopleAddress.Text);
+            string email = Convert.ToString(txtPeopleEmail.Text);
+            DateTime birthDate = Convert.ToDateTime(dtpPeopleBirthDate.Text);
+            string telephone = Convert.ToString(txtPeopleTelephone.Text);
+
+            Negocio.Plans nPlan = new Negocio.Plans();
+            Entidades.Plans pl = nPlan.GetOne(idPlan);
+            if (pl != null)
+            {
+
+                Negocio.People p = new Negocio.People();
+                int pe = p.UpdatePeople(idP, fileId, name, surname, address, email, birthDate, telephone, idPlan);
+                if (pe == 1)
+                {
+                    MessageBox.Show("Se actualizó la persona correctamente.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar la persona.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El Id del plan no fue encontrado");
+            }
+        }
+
+        private void frmPeople_Load_1(object sender, EventArgs e)
         {
             Negocio.People nPeople = new Negocio.People();
             List<Entidades.People> PeopleList = nPeople.GetAll();
             dgvPeople.DataSource = PeopleList;
         }
 
-        private void btnCreatePeople_Click(object sender, EventArgs e)
+        private void btnDeletePerson_Click(object sender, EventArgs e)
         {
-            int fileId = Convert.ToInt32(txtPeopleFileId.Text);
-            string name = Convert.ToString(txtPeopleName.Text);
-            string surname = Convert.ToString(txtPeopleSurname.Text);
-            int idPlan = Convert.ToInt32(txtPeopleIdPlan.Text);
-            Negocio.Plans nPlans = new Negocio.Plans();
-            while (idPlan != -1)
+            int idP = Convert.ToInt32(txtIdPerson.Text);
+            Negocio.People nP = new Negocio.People();
+            Negocio.Users nU = new Negocio.Users();
+            int u = nU.GetUserByIdPerson(idP);
+            if (u == 0)
             {
-                Entidades.Plans p = nPlans.GetOne(idPlan);
-                if (p.IdPlan == idPlan)
-                {
-                    break;
-                }
-                else
-                {
-                    MessageBox.Show("El IdPlan ingresado no existe.");
-                    break;
-                }
-            }
-            if (fileId > 0 && name != " " && surname != " ")
-            {
-                Negocio.People nP = new Negocio.People();
-                Entidades.People p = new Entidades.People();
-                p.FileId = Convert.ToInt32(txtPeopleFileId.Text);
-                p.Name = Convert.ToString(txtPeopleName.Text);
-                p.Surname = Convert.ToString(txtPeopleSurname.Text);
-                p.Address = Convert.ToString(txtPeopleAddress.Text);
-                p.Email = Convert.ToString(txtPeopleEmail.Text);
-                p.BirthDate = Convert.ToDateTime(dtpPeopleBirthDate.Text);
-                p.Telephone = Convert.ToString(txtPeopleTelephone.Text);
-                p.PersonType = Convert.ToInt32(txtPeoplePersonType.Text);
-                nP.Add(p);
+                nP.Delete(idP);
                 MessageBox.Show("Operación exitosa");
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Para poder crear una nueva persona debe ingresar su legajo, nombre, apellido.");
+                MessageBox.Show("No se puede eliminar la persona, ya que tiene un usuario asociado.");
+                this.Close();
             }
-            this.Close();
-        }
-
-        private void btnUpdatePeople_Click(object sender, EventArgs e)
-        {
-            //string descrip = Convert.ToString(txtSpecialityDescription.Text);
-            //int id = Convert.ToInt32(txtIdSpeciality.Text);
-            //Negocio.Specialities s = new Negocio.Specialities();
-            //int sp = s.UpdateSpeciality(id, descrip);
-            //if (sp == 1)
-            //{
-            //    MessageBox.Show("Se actualizó la especialidad correctamente.");
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No se pudo actualizar la especialidad.");
-            //}
         }
     }
 }

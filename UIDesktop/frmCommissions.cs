@@ -32,5 +32,77 @@ namespace UIDesktop
         private void dgvCommissions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
+
+        private void btnCreateCommission_Click(object sender, EventArgs e)
+        {
+            int idP = Convert.ToInt32(txtCommissionPlan.Text);
+            string descrip = Convert.ToString(txtCommissionDescription.Text);
+            int y = Convert.ToInt32(txtCommissionSpecialityYear.Text);
+
+            Negocio.Plans p = new Negocio.Plans();
+            Entidades.Plans pl = p.GetOne(idP);
+
+            if (pl != null)
+            {
+                Negocio.Commissions sub = new Negocio.Commissions();
+                sub.Add(idP, descrip, y);
+                MessageBox.Show("Operación exitosa");
+            }
+            else
+            {
+                MessageBox.Show("El Id del plan no fue encontrado");
+            }
+            this.Close();
+        }
+
+        private void btnUpdateCommission_Click(object sender, EventArgs e)
+        {
+            int idC = Convert.ToInt32(txtIdCommission.Text);
+            int idP = Convert.ToInt32(txtCommissionPlan.Text);
+            string descrip = Convert.ToString(txtCommissionDescription.Text);
+            int y = Convert.ToInt32(txtCommissionSpecialityYear.Text);
+
+            Negocio.Plans p = new Negocio.Plans();
+            Entidades.Plans pl = p.GetOne(idP);
+
+            if (pl != null)
+            {
+                Negocio.Commissions com = new Negocio.Commissions();
+                int co = com.UpdateCommission(idC, descrip, y, idP);
+                if (co == 1)
+                {
+                    MessageBox.Show("Se actualizó la comision correctamente.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar la comision.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El Id del plan no fue encontrado");
+            }
+            this.Close();
+        }
+
+        private void btnDeleteCommission_Click(object sender, EventArgs e)
+        {
+            int idC = Convert.ToInt32(txtIdCommission.Text);
+            Negocio.Commissions nC = new Negocio.Commissions();
+            Negocio.Courses nCourses = new Negocio.Courses();
+            int c = nCourses.GetCoursesByIdCommission(idC);
+            if (c == 0)
+            {
+                nC.Delete(idC);
+                MessageBox.Show("Operación exitosa");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se puede eliminar la comision, ya que tiene uno o varios curso/s asociado/s.");
+                this.Close();
+            }
+        }
     }
 }

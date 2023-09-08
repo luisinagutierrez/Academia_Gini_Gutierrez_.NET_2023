@@ -85,7 +85,7 @@ namespace Negocio
                 }
                 else
                 {
-                    throw new Exception("No se puede eliminar el plan, ya que no existe");
+                    throw new Exception("No se puede eliminar la materia, ya que no existe.");
                 }
             }
             finally

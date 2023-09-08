@@ -36,5 +36,59 @@ namespace Negocio
             }
         }
 
+        public int GetCoursesByIdSubject(int idS)
+        {
+            Datos.Courses ds;
+            try
+            {
+                ds = new Datos.Courses();
+                int cant = 0;
+                foreach(Entidades.Courses c in ds.GetCoursesByIdSubject(idS))
+                {
+                    cant++;
+                }
+                if (cant == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
+
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
+        public int GetCoursesByIdCommission(int idC)
+        {
+            Datos.Courses ds;
+            try
+            {
+                ds = new Datos.Courses();
+                int cant = 0;
+                foreach (Entidades.Courses c in ds.GetCoursesByIdCommission(idC))
+                {
+                    cant++;
+                }
+                if (cant == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
+
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
     }
 }

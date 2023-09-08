@@ -38,21 +38,21 @@ namespace Datos
             }
         }
 
-        public void Update(Entidades.People item, int IdPerson)
+        public void Update(int IdPerson, int FileId, string Name, string Surname, string Address, string Email, DateTime BirthDate, string Telephone, int IdPlan)
         {
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("UPDATE People SET (Name, Surname, Address, Email, Telephone, BirthDate, FileId, PersonType, IdPlan) = (@Name, @Surname, @Address, @Email, @Telephone, @BirthDate, @FileId, @PersonType, @IdPlan) WHERE IdPerson = @IdPerson", Conn);
-                comm.Parameters.AddWithValue("@Name", item.Name);
-                comm.Parameters.AddWithValue("@Surname", item.Surname);
-                comm.Parameters.AddWithValue("@Address", item.Address);
-                comm.Parameters.AddWithValue("@Email", item.Email);
-                comm.Parameters.AddWithValue("@Telephone", item.Telephone);
-                comm.Parameters.AddWithValue("@BirthDate", item.BirthDate);
-                comm.Parameters.AddWithValue("@FileId", item.FileId);
-                comm.Parameters.AddWithValue("@PersonType", item.PersonType);     
-                comm.Parameters.AddWithValue("@IdPlan", item.IdPlan);
+                SqlCommand comm = new SqlCommand("UPDATE People SET FileId = @FileId, Name = @Name, Surname = @Surname, Address = @Address, Email = @Email, BirthDate = @BirthDate, Telephone = @Telephone, IdPlan = @IdPlan WHERE IdPerson = @IdPerson", Conn);
+                comm.Parameters.AddWithValue("@IdPerson", IdPerson);
+                comm.Parameters.AddWithValue("FileId", FileId);
+                comm.Parameters.AddWithValue("@Name", Name);
+                comm.Parameters.AddWithValue("@Surname", Surname);
+                comm.Parameters.AddWithValue("@Address", Address);
+                comm.Parameters.AddWithValue("@Email", Email);
+                comm.Parameters.AddWithValue("@BirthDate", BirthDate);
+                comm.Parameters.AddWithValue("@Telephone", Telephone);
+                comm.Parameters.AddWithValue("@IdPlan", IdPlan);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -103,6 +103,7 @@ namespace Datos
                         Entidades.People objPeople = new Entidades.People();
                         objPeople.IdPerson = (int)oReader["IdPerson"];
                         objPeople.Name = (string)oReader["Name"];
+                        objPeople.Surname = (string)oReader["Surname"];
                         objPeople.Address = (string)oReader["Address"];
                         objPeople.Email = (string)oReader["Email"];
                         objPeople.Telephone = (string)oReader["Telephone"];
@@ -123,14 +124,14 @@ namespace Datos
                 //objPeople = null;
             }
         }
-        public Entidades.People GetOne(int IdUser)
+        public Entidades.People GetOne(int IdPerson)
         {
             Entidades.People objPeople = new Entidades.People();
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT * FROM People WHERE @IdUser = IdUser", Conn);
-                comm.Parameters.AddWithValue("@IdUser", IdUser);
+                SqlCommand comm = new SqlCommand("SELECT * FROM People WHERE IdPerson = @IdPerson", Conn);
+                comm.Parameters.AddWithValue("@IdPerson", IdPerson);
 
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)

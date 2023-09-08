@@ -9,15 +9,15 @@ using System.Data.SqlClient;
 namespace Datos
 {
     public class Commissions : Connection { 
-        public int Add(Entidades.Commissions item)
+        public int Add(int IdPlan, string CommissionDescription, int SpecialityYear)
         {
             try
             {
-                Conn.Open();
+                this.Connect();
                 SqlCommand comm = new SqlCommand("INSERT INTO Commissions (CommissionDescription, SpecialityYear, IdPlan) VALUES (@CommissionDescription, @SpecialityYear, @IdPlan)", Conn);
-                comm.Parameters.AddWithValue("@CommissionDescription", item.CommissionDescription);
-                comm.Parameters.AddWithValue("@SpecialityYear", item.SpecialityYear);
-                comm.Parameters.AddWithValue("@IdPlan", item.IdPlan);
+                comm.Parameters.AddWithValue("@CommissionDescription", CommissionDescription);
+                comm.Parameters.AddWithValue("@SpecialityYear", SpecialityYear);
+                comm.Parameters.AddWithValue("@IdPlan", IdPlan);
                 return comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -27,40 +27,41 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
-        public void Update(Entidades.Commissions item, int id)
+        public void Update(int IdCommission, string CommissionDescription, int SpecialityYear, int IdPlan)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("UPDATE Commissions SET (CommissionDescription, SpecialityYear, IdPlan) = (@CommissionDescription, @SpeacialityYear, @IdPlan) WHERE IdCommission = @Id", Conn);
-                comm.Parameters.AddWithValue("@CommissionDescription", item.CommissionDescription);
-                comm.Parameters.AddWithValue("@SpecialityYear", item.SpecialityYear);
-                comm.Parameters.AddWithValue("@IdPlan", item.IdPlan);
+                this.Connect(); 
+                SqlCommand comm = new SqlCommand("UPDATE Commissions SET CommissionDescription = @CommissionDescription, SpecialityYear = @SpecialityYear, IdPlan = @IdPlan WHERE IdCommission = @IdCommission", Conn);
+                comm.Parameters.AddWithValue("@IdCommission", IdCommission);
+                comm.Parameters.AddWithValue("@CommissionDescription", CommissionDescription);
+                comm.Parameters.AddWithValue("@SpecialityYear", SpecialityYear);
+                comm.Parameters.AddWithValue("@IdPlan", IdPlan);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                Exception HandledException = new Exception("Error al actualizar especialidad", Ex);
+                Exception HandledException = new Exception("Error al actualizar comision", Ex);
                 throw HandledException;
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
-        public void Delete(int id)
+        public void Delete(int IdCommission)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("DELETE Commissions WHERE IdCommission = @Id", Conn);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("DELETE Commissions WHERE IdCommission = @IdCommission", Conn);
 
-                comm.Parameters.AddWithValue("@IdCommission", id);
+                comm.Parameters.AddWithValue("@IdCommission", IdCommission);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -70,7 +71,7 @@ namespace Datos
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
@@ -89,10 +90,10 @@ namespace Datos
                     while (oReader.Read())
                     {
                         Entidades.Commissions objCommissions = new Entidades.Commissions();
-                        objCommissions.IdCommission = Convert.ToInt32(oReader["IdCommission"]);
-                        objCommissions.CommissionDescription = Convert.ToString(oReader["CommissionDescription"]);
-                        objCommissions.SpecialityYear = Convert.ToInt32(oReader["SpecialityYear"]);
-                        objCommissions.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+                        objCommissions.IdCommission = (int)(oReader["IdCommission"]);
+                        objCommissions.CommissionDescription = (string)(oReader["CommissionDescription"]);
+                        objCommissions.SpecialityYear = (int)(oReader["SpecialityYear"]);
+                        objCommissions.IdPlan = (int)(oReader["IdPlan"]);
 
                         CommissionsList.Add(objCommissions);
                         objCommissions = null;
@@ -108,24 +109,24 @@ namespace Datos
             }
         }
 
-        public Entidades.Commissions GetOne(int id)
+        public Entidades.Commissions GetOne(int IdCommission)
         {
             Entidades.Commissions objCommissions = new Entidades.Commissions();
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Commissions WHERE @IdCommission = id", Conn);
-                comm.Parameters.AddWithValue("@IdCommission", id);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Commissions WHERE @IdCommission = IdCommission", Conn);
+                comm.Parameters.AddWithValue("@IdCommission", IdCommission);
 
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
                 {
                     oReader.Read();
 
-                    objCommissions.IdCommission = Convert.ToInt32(oReader["IdCommission"]);
-                    objCommissions.CommissionDescription = Convert.ToString(oReader["CommissionDescription"]);
-                    objCommissions.SpecialityYear = Convert.ToInt32(oReader["SpecialityYear"]);
-                    objCommissions.IdPlan = Convert.ToInt32(oReader["IdPlan"]);
+                    objCommissions.IdCommission = (int)(oReader["IdCommission"]);
+                    objCommissions.CommissionDescription = (string)(oReader["CommissionDescription"]);
+                    objCommissions.SpecialityYear = (int)(oReader["SpecialityYear"]);
+                    objCommissions.IdPlan = (int)(oReader["IdPlan"]);
 
 
                     return objCommissions;
@@ -134,6 +135,7 @@ namespace Datos
             }
             finally
             {
+                this.Disconnect();
                 objCommissions = null;
             }
         }

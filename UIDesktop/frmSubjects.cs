@@ -42,10 +42,20 @@ namespace UIDesktop
         private void btnDeleteSubject_Click(object sender, EventArgs e)
         {
             int idS = Convert.ToInt32(txtIdSubject.Text);
-            Negocio.Subjects sub = new Negocio.Subjects();
-            sub.Delete(idS);
-            MessageBox.Show("Operación exitosa");
-            this.Close();
+            Negocio.Subjects nS = new Negocio.Subjects();
+            Negocio.Courses nC = new Negocio.Courses();
+            int c = nC.GetCoursesByIdSubject(idS);
+            if (c == 0)
+            {
+                nS.Delete(idS);
+                MessageBox.Show("Operación exitosa");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se puede eliminar la materia, ya que tiene uno o varios curso/s asociado/s.");
+                this.Close();
+            }
         }
 
         private void btnCreateSubject_Click(object sender, EventArgs e)

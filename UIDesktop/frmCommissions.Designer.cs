@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCommissions));
             txtCommissionSpecialityYear = new TextBox();
             lbCommissionSpecialityYear = new Label();
             lbCreateUpdateCommission = new Label();
-            pictureLogo = new PictureBox();
             dgvCommissions = new DataGridView();
             txtCommissionDescription = new TextBox();
             lbCommissionDescription = new Label();
@@ -43,7 +41,7 @@
             lbIdCommission = new Label();
             txtCommissionPlan = new TextBox();
             lbCommissionIdPlan = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
+            btnDeleteCommission = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCommissions).BeginInit();
             SuspendLayout();
             // 
@@ -72,16 +70,6 @@
             lbCreateUpdateCommission.Size = new Size(140, 25);
             lbCreateUpdateCommission.TabIndex = 36;
             lbCreateUpdateCommission.Text = "Comisiones";
-            // 
-            // pictureLogo
-            // 
-            pictureLogo.Image = (Image)resources.GetObject("pictureLogo.Image");
-            pictureLogo.Location = new Point(12, 12);
-            pictureLogo.Name = "pictureLogo";
-            pictureLogo.Size = new Size(101, 90);
-            pictureLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureLogo.TabIndex = 35;
-            pictureLogo.TabStop = false;
             // 
             // dgvCommissions
             // 
@@ -119,6 +107,7 @@
             btnUpdateCommission.TabIndex = 31;
             btnUpdateCommission.Text = "Actualizar comision";
             btnUpdateCommission.UseVisualStyleBackColor = true;
+            btnUpdateCommission.Click += btnUpdateCommission_Click;
             // 
             // btnCreateCommission
             // 
@@ -128,6 +117,7 @@
             btnCreateCommission.TabIndex = 30;
             btnCreateCommission.Text = "Guardar nueva comision";
             btnCreateCommission.UseVisualStyleBackColor = true;
+            btnCreateCommission.Click += btnCreateCommission_Click;
             // 
             // btnBack
             // 
@@ -172,18 +162,28 @@
             lbCommissionIdPlan.TabIndex = 39;
             lbCommissionIdPlan.Text = "Id plan";
             // 
-            // frmCreateAndUpdateCommissions
+            // btnDeleteCommission
+            // 
+            btnDeleteCommission.Location = new Point(827, 381);
+            btnDeleteCommission.Name = "btnDeleteCommission";
+            btnDeleteCommission.Size = new Size(121, 48);
+            btnDeleteCommission.TabIndex = 41;
+            btnDeleteCommission.Text = "Eliminar comision\r\n";
+            btnDeleteCommission.UseVisualStyleBackColor = true;
+            btnDeleteCommission.Click += btnDeleteCommission_Click;
+            // 
+            // frmCommissions
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(985, 482);
+            Controls.Add(btnDeleteCommission);
             Controls.Add(txtCommissionPlan);
             Controls.Add(lbCommissionIdPlan);
             Controls.Add(txtCommissionSpecialityYear);
             Controls.Add(lbCommissionSpecialityYear);
             Controls.Add(lbCreateUpdateCommission);
-            Controls.Add(pictureLogo);
             Controls.Add(dgvCommissions);
             Controls.Add(txtCommissionDescription);
             Controls.Add(lbCommissionDescription);
@@ -192,10 +192,9 @@
             Controls.Add(btnBack);
             Controls.Add(txtIdCommission);
             Controls.Add(lbIdCommission);
-            Name = "frmCreateAndUpdateCommissions";
+            Name = "frmCommissions";
             Text = "Crear o actualizar comision";
             Load += frmCreateAndUpdateCommissions_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvCommissions).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -206,7 +205,6 @@
         private TextBox txtCommissionSpecialityYear;
         private Label lbCommissionSpecialityYear;
         private Label lbCreateUpdateCommission;
-        private PictureBox pictureLogo;
         private DataGridView dgvCommissions;
         private TextBox txtCommissionDescription;
         private Label lbCommissionDescription;
@@ -217,5 +215,6 @@
         private Label lbIdCommission;
         private TextBox txtCommissionPlan;
         private Label lbCommissionIdPlan;
+        private Button btnDeleteCommission;
     }
 }

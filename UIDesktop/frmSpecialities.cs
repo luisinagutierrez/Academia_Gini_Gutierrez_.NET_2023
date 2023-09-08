@@ -74,5 +74,12 @@ namespace UIDesktop
             MessageBox.Show("Operación exitosa");
             this.Close();
         }
+
+        private void frmSpecialities_Load_1(object sender, EventArgs e)
+        {
+            Negocio.Specialities nSpecialities = new Negocio.Specialities();
+            List<Entidades.Specialities> PeopleList = nSpecialities.GetAll();
+            dgvSpecialities.DataSource = PeopleList;
+        }
     }
 }

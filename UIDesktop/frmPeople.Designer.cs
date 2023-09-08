@@ -263,6 +263,7 @@
             btnDeletePerson.TabIndex = 92;
             btnDeletePerson.Text = "Eliminar persona";
             btnDeletePerson.UseVisualStyleBackColor = true;
+            btnDeletePerson.Click += btnDeletePerson_Click;
             // 
             // lbIdPerson
             // 
@@ -314,6 +315,7 @@
             Controls.Add(btnBack);
             Name = "frmPeople";
             Text = "Crear o actualizar persona";
+            Load += frmPeople_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
             ResumeLayout(false);
             PerformLayout();
