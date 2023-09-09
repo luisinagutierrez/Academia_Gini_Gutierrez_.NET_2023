@@ -17,3 +17,22 @@ C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_academia\Pr
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\refint\UIConsole.dll
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\UIConsole.pdb
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\TP_academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\ref\UIConsole.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\bin\Debug\net6.0\UIConsole.deps.json
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\bin\Debug\net6.0\UIConsole.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\bin\Debug\net6.0\UIConsole.pdb
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\bin\Debug\net6.0\Datos.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\bin\Debug\net6.0\Entidades.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\bin\Debug\net6.0\Negocio.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\bin\Debug\net6.0\Entidades.pdb
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\bin\Debug\net6.0\Negocio.pdb
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\bin\Debug\net6.0\Datos.pdb
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\UIConsole.csproj.AssemblyReference.cache
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\UIConsole.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\UIConsole.AssemblyInfoInputs.cache
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\UIConsole.AssemblyInfo.cs
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\UIConsole.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\UIConsole.csproj.CopyComplete
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\UIConsole.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\refint\UIConsole.dll
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\UIConsole.pdb
+C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIConsole\obj\Debug\net6.0\ref\UIConsole.dll

@@ -110,14 +110,14 @@ namespace UIDesktop
         {
             int idC = Convert.ToInt32(txtIdCourse.Text);
             Negocio.Courses c = new Negocio.Courses();
-            
+
             Negocio.StudentsRegistrations str = new Negocio.StudentsRegistrations();
             int s = str.GetStudentsRegByIdCourse(idC);
 
             Negocio.TeacherCourses tc = new Negocio.TeacherCourses();
             int t = tc.GetTeacherCoursesByIdCourse(idC);
 
-            if ( s == 0 && t == 0)
+            if (s == 0 && t == 0)
             {
                 Negocio.Courses course = new Negocio.Courses();
                 course.Delete(idC);
@@ -126,12 +126,9 @@ namespace UIDesktop
             }
             else
             {
-                MessageBox.Show("No se puede eliminar la materia, ya que tiene uno o varios curso/s asociado/s.");
+                MessageBox.Show("No se puede eliminar el curso, ya que tiene uno o varios profesores o inscripciones activas.");
                 this.Close();
             }
-
-
-
         }
     }
 }

@@ -35,6 +35,7 @@
             btnMaximize = new PictureBox();
             btnClose = new PictureBox();
             pnLeftMain = new Panel();
+            btnContact = new Button();
             btnExit = new PictureBox();
             pnSubmenuReports = new Panel();
             btnPeopleReports = new Button();
@@ -50,7 +51,6 @@
             btnPerson = new Button();
             pictureBox1 = new PictureBox();
             pnContainerMain = new Panel();
-            btnContact = new Button();
             pnUpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnRestore).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimize).BeginInit();
@@ -150,6 +150,22 @@
             pnLeftMain.Name = "pnLeftMain";
             pnLeftMain.Size = new Size(220, 742);
             pnLeftMain.TabIndex = 1;
+            // 
+            // btnContact
+            // 
+            btnContact.Cursor = Cursors.Hand;
+            btnContact.FlatAppearance.BorderSize = 0;
+            btnContact.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            btnContact.FlatStyle = FlatStyle.Flat;
+            btnContact.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnContact.ForeColor = SystemColors.ButtonHighlight;
+            btnContact.Location = new Point(0, 620);
+            btnContact.Name = "btnContact";
+            btnContact.Size = new Size(220, 32);
+            btnContact.TabIndex = 6;
+            btnContact.Text = "Contacto";
+            btnContact.UseVisualStyleBackColor = true;
+            btnContact.Click += btnContact_Click;
             // 
             // btnExit
             // 
@@ -367,22 +383,6 @@
             pnContainerMain.Size = new Size(1150, 742);
             pnContainerMain.TabIndex = 2;
             // 
-            // btnContact
-            // 
-            btnContact.Cursor = Cursors.Hand;
-            btnContact.FlatAppearance.BorderSize = 0;
-            btnContact.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
-            btnContact.FlatStyle = FlatStyle.Flat;
-            btnContact.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnContact.ForeColor = SystemColors.ButtonHighlight;
-            btnContact.Location = new Point(0, 620);
-            btnContact.Name = "btnContact";
-            btnContact.Size = new Size(220, 32);
-            btnContact.TabIndex = 6;
-            btnContact.Text = "Contacto";
-            btnContact.UseVisualStyleBackColor = true;
-            btnContact.Click += btnContact_Click;
-            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -393,6 +393,7 @@
             Controls.Add(pnUpMain);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";
             pnUpMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btnRestore).EndInit();

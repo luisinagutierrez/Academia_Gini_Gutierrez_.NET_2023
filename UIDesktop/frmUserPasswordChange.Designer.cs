@@ -127,6 +127,7 @@
             Controls.Add(txtIdUser);
             Controls.Add(lbIdUser);
             Name = "frmUserPasswordChange";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmUserPasswordChange";
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ResumeLayout(false);

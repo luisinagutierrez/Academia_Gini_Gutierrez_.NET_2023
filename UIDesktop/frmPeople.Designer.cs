@@ -285,6 +285,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1532, 525);
             Controls.Add(txtIdPerson);
@@ -313,6 +314,7 @@
             Controls.Add(btnUpdatePeople);
             Controls.Add(btnCreatePeople);
             Controls.Add(btnBack);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmPeople";
             Text = "Crear o actualizar persona";
             Load += frmPeople_Load_1;

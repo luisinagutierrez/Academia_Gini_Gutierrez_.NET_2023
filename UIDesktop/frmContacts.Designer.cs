@@ -79,6 +79,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(826, 400);
             Controls.Add(pictureBox1);

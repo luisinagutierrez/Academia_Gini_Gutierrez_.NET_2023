@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Enti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIDesktop", "UIDesktop\UIDesktop.csproj", "{B5A8B8B7-C718-4D54-8C1C-8718739C3701}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIConsole", "UIConsole\UIConsole.csproj", "{808654F7-C597-49F1-9744-4F52F27B6FEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIConsole", "UIConsole\UIConsole.csproj", "{808654F7-C597-49F1-9744-4F52F27B6FEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reportes", "Reportes\Reportes.csproj", "{702C4F8D-A1C3-4AE1-A792-E1E8B429F7BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{808654F7-C597-49F1-9744-4F52F27B6FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{808654F7-C597-49F1-9744-4F52F27B6FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{808654F7-C597-49F1-9744-4F52F27B6FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{702C4F8D-A1C3-4AE1-A792-E1E8B429F7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702C4F8D-A1C3-4AE1-A792-E1E8B429F7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702C4F8D-A1C3-4AE1-A792-E1E8B429F7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702C4F8D-A1C3-4AE1-A792-E1E8B429F7BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -151,6 +151,7 @@
             Controls.Add(brnBack);
             Controls.Add(txtIdSpeciality);
             Controls.Add(lbIdSpecialities);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmSpecialities";
             Text = "Crear o Actualizar Especialidades";
             Load += frmSpecialities_Load_1;

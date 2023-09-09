@@ -213,6 +213,7 @@
             Controls.Add(btnBack);
             Controls.Add(txtIdSubject);
             Controls.Add(lbIdSubject);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmSubjects";
             Text = "Crear o actualizar materias";
             Load += frmCreateAndUpdateSubjects_Load;

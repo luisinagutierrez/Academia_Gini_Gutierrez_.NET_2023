@@ -139,9 +139,11 @@
             // 
             // frmUserLogIn
             // 
+            AcceptButton = btnUserLogInAccept;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
+            CancelButton = btnUserLogInCancel;
             ClientSize = new Size(482, 338);
             Controls.Add(llbSignUp);
             Controls.Add(pictureLogo);
@@ -154,6 +156,7 @@
             Controls.Add(lbUserLogInPassword);
             Controls.Add(lbUserLogInName);
             Name = "frmUserLogIn";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio sesión";
             Load += frmUserLogIn_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();

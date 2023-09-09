@@ -172,6 +172,7 @@
             Controls.Add(btnBack);
             Controls.Add(txtIdPlans);
             Controls.Add(lbIdPlan);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmPlans";
             Text = "Crear o Actualizar planes";
             Load += frmCreateAndUpdatePlans_Load;

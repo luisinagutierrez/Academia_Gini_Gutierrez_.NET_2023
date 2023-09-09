@@ -116,6 +116,7 @@
             Controls.Add(dgvNewCourses);
             Controls.Add(txtNewCouseRegistrationIdCourse);
             Controls.Add(lbtxtNewCouseRegistrationIdCourse);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmRegistration";
             Text = "Inscripcion curso";
             Load += frmNewRegistration_Load;

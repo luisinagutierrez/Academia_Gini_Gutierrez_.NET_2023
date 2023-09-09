@@ -144,7 +144,7 @@ namespace Datos
             {
                 this.Connect();
 
-                SqlCommand comm = new SqlCommand("SELECT (IdRegistration, IdStudent, IdCourse, Condition ) FROM StudentsRegistrations WHERE IdCourse = @IdCourse", Conn);
+                SqlCommand comm = new SqlCommand("SELECT IdRegistration, IdStudent, IdCourse, Condition FROM StudentsRegistrations WHERE IdCourse = @IdCourse", Conn);
                 comm.Parameters.AddWithValue("@IdCourse", IdCourse);
                 List<Entidades.StudentsRegistrations> StudentsRegistrationsList = new List<Entidades.StudentsRegistrations>();
 

@@ -150,6 +150,7 @@
             Controls.Add(txtUserPassword);
             Controls.Add(txtUserName);
             Name = "frmUserSignUp";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmUserSignUp";
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ResumeLayout(false);

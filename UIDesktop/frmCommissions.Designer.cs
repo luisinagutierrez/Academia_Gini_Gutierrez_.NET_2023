@@ -176,6 +176,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(985, 482);
             Controls.Add(btnDeleteCommission);
@@ -192,6 +193,7 @@
             Controls.Add(btnBack);
             Controls.Add(txtIdCommission);
             Controls.Add(lbIdCommission);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmCommissions";
             Text = "Crear o actualizar comision";
             Load += frmCreateAndUpdateCommissions_Load;

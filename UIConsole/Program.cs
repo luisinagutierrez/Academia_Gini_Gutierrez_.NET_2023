@@ -14,7 +14,8 @@ namespace UIConsole
     {
         static void Main(string[] args)
         {
-            new User().Menu();
+            UI.Consola.User ui = new UI.Consola.User();
+            ui.Menu();
         }
     }
 

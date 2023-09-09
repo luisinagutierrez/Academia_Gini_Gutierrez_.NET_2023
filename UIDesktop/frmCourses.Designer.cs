@@ -213,6 +213,7 @@
             Controls.Add(btnBack);
             Controls.Add(txtIdCourse);
             Controls.Add(lbIdCommission);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmCourses";
             Text = "Crear o nombrar curso";
             Load += frmCreateAndUpdateCourses_Load;

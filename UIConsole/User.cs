@@ -124,8 +124,8 @@ namespace UI.Consola
                     u.Status = false;
                 }
                 u.ChangePassword = false;
-                u.St = Entity.States.Update;
-                UsersN.Save(u);
+                //u.St = Entity.States.Update;
+                UsersN.Update(u);
             }
             catch (FormatException)
             {
@@ -162,9 +162,9 @@ namespace UI.Consola
                     u.Status = false;
                 }
                 u.ChangePassword = false;
-                u.St = Entity.States.Update;
-                UsersN.Save(u);
-                Console.Write("\nID: {0}", u.ID);
+                //u.St = Entity.States.Update;
+                //UsersN.Add(u);
+                //Console.Write("\nID: {0}", u.ID);
             }
 
             finally
