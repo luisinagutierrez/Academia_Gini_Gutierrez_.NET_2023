@@ -22,6 +22,33 @@ namespace Negocio
                 ds = null;
             }
         }
+            public int GetStudentsRegByIdCourse(int idC)
+        {
+            Datos.StudentsRegistrations ds;
+            try
+            {
+                ds = new Datos.StudentsRegistrations();
+                int cant = 0;
+                foreach (Entidades.StudentsRegistrations c in ds.GetStudentsRegByIdCourse(idC))
+                {
+                    cant++;
+                }
+                if (cant == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
+
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
 
         //public List<Entidades.StudentsRegistrations> GetAll()
         //{

@@ -42,11 +42,12 @@ namespace UIDesktop
         private void btnDeleteSubject_Click(object sender, EventArgs e)
         {
             int idS = Convert.ToInt32(txtIdSubject.Text);
-            Negocio.Subjects nS = new Negocio.Subjects();
+
             Negocio.Courses nC = new Negocio.Courses();
             int c = nC.GetCoursesByIdSubject(idS);
             if (c == 0)
             {
+                Negocio.Subjects nS = new Negocio.Subjects();
                 nS.Delete(idS);
                 MessageBox.Show("Operación exitosa");
                 this.Close();

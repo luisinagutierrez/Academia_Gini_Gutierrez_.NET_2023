@@ -127,11 +127,17 @@ namespace Datos
                     objCommissions.CommissionDescription = (string)(oReader["CommissionDescription"]);
                     objCommissions.SpecialityYear = (int)(oReader["SpecialityYear"]);
                     objCommissions.IdPlan = (int)(oReader["IdPlan"]);
-
-
-                    return objCommissions;
-
+                    
+                    if (oReader["IdCommission"] == DBNull.Value)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return objCommissions;
+                    }
                 }
+
             }
             finally
             {

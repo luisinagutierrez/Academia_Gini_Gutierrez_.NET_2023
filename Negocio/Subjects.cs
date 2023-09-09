@@ -93,5 +93,20 @@ namespace Negocio
                 ds = null;
             }
         }
+        public Entidades.Subjects GetOne(int id)
+        {
+            Datos.Subjects ds;
+            try
+            {
+                ds = new Datos.Subjects();
+                Entidades.Subjects sub = ds.GetOne(id);
+                return sub;
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
     }
+
 }

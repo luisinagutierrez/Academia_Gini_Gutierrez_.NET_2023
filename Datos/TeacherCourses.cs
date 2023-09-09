@@ -134,5 +134,38 @@ namespace Datos
                 objTeacherCourses = null;
             }
         }
+
+        public List<Entidades.TeacherCourses> GetTeacherCoursesByIdCourse(int IdCourse)
+        {
+            
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM TeacherCourses WHERE  IdCourse = @IdCourse", Conn);
+                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+                List<Entidades.TeacherCourses> TeacherCoursesList = new List<Entidades.TeacherCourses>();
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                    while (oReader.Read())
+                    {
+                        Entidades.TeacherCourses objTeacherCourses = new Entidades.TeacherCourses();
+                        objTeacherCourses.IdDictation = Convert.ToInt32(oReader["IdDictation"]);
+                        objTeacherCourses.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
+                        objTeacherCourses.IdTeacher = Convert.ToInt32(oReader["IdTeacher"]);
+                        objTeacherCourses.Position = Convert.ToInt32(oReader["Position"]);
+
+                        TeacherCoursesList.Add(objTeacherCourses);
+                        objTeacherCourses = null;
+                    }
+                return TeacherCoursesList;
+            }
+
+            finally
+            {
+                this.Disconnect();
+            }
+        }
+
     }
 }

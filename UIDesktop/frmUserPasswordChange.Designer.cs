@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserPasswordChange));
-            txtUserName = new TextBox();
-            lbUserPasswordChangeName = new Label();
+            txtIdUser = new TextBox();
+            lbIdUser = new Label();
             btnUserNewPasswordCancel = new Button();
             btnUserNewPasswordAcept = new Button();
             txtUserNewPassword = new TextBox();
@@ -40,21 +40,21 @@
             ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
             SuspendLayout();
             // 
-            // txtUserName
+            // txtIdUser
             // 
-            txtUserName.Location = new Point(269, 123);
-            txtUserName.Name = "txtUserName";
-            txtUserName.Size = new Size(192, 27);
-            txtUserName.TabIndex = 6;
+            txtIdUser.Location = new Point(269, 123);
+            txtIdUser.Name = "txtIdUser";
+            txtIdUser.Size = new Size(192, 27);
+            txtIdUser.TabIndex = 6;
             // 
-            // lbUserPasswordChangeName
+            // lbIdUser
             // 
-            lbUserPasswordChangeName.AutoSize = true;
-            lbUserPasswordChangeName.Location = new Point(96, 126);
-            lbUserPasswordChangeName.Name = "lbUserPasswordChangeName";
-            lbUserPasswordChangeName.Size = new Size(143, 20);
-            lbUserPasswordChangeName.TabIndex = 4;
-            lbUserPasswordChangeName.Text = "Nombre de usuario*";
+            lbIdUser.AutoSize = true;
+            lbIdUser.Location = new Point(96, 126);
+            lbIdUser.Name = "lbIdUser";
+            lbIdUser.Size = new Size(82, 20);
+            lbIdUser.TabIndex = 4;
+            lbIdUser.Text = "Id Usuario*";
             // 
             // btnUserNewPasswordCancel
             // 
@@ -124,8 +124,8 @@
             Controls.Add(label1);
             Controls.Add(btnUserNewPasswordAcept);
             Controls.Add(btnUserNewPasswordCancel);
-            Controls.Add(txtUserName);
-            Controls.Add(lbUserPasswordChangeName);
+            Controls.Add(txtIdUser);
+            Controls.Add(lbIdUser);
             Name = "frmUserPasswordChange";
             Text = "frmUserPasswordChange";
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
@@ -134,8 +134,8 @@
         }
 
         #endregion
-        private TextBox txtUserName;
-        private Label lbUserPasswordChangeName;
+        private TextBox txtIdUser;
+        private Label lbIdUser;
         private Button btnUserNewPasswordCancel;
         private Button btnUserNewPasswordAcept;
         private TextBox txtUserNewPassword;

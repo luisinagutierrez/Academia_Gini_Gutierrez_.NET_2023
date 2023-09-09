@@ -9,18 +9,18 @@ using System.Data.SqlClient;
 namespace Datos { 
     public class Courses:Connection
     {
-        public int Add(Entidades.Courses item)
+        public void Add(int IdSubject, int IdCommission, int CalendarYear, int Quota)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("INSERT INTO Courses (IdSubject, IdCommission, CalendarYear, Quota, NumStudents) VALUES (@IdSubject, @IdCommission, @CalendarYear, @Quota, @numStudents)", Conn);
-                comm.Parameters.AddWithValue("@IdSubject", item.IdSubject);
-                comm.Parameters.AddWithValue("@IdCommission", item.IdCommission);
-                comm.Parameters.AddWithValue("@CalendarYear", item.CalendarYear);
-                comm.Parameters.AddWithValue("@Quota", item.Quota);
-                comm.Parameters.AddWithValue("@NumStudents", item.NumStudents);
-                return comm.ExecuteNonQuery();
+                this.Connect();
+                SqlCommand comm = new SqlCommand("INSERT INTO Courses (IdSubject, IdCommission, CalendarYear, Quota, NumStudents) VALUES (@IdSubject, @IdCommission, @CalendarYear, @Quota, 0)", Conn);
+                comm.Parameters.AddWithValue("@IdSubject", IdSubject);
+                comm.Parameters.AddWithValue("@IdCommission", IdCommission);
+                comm.Parameters.AddWithValue("@CalendarYear", CalendarYear);
+                comm.Parameters.AddWithValue("@Quota", Quota);
+                //comm.Parameters.AddWithValue("@NumStudents", item.NumStudents);
+                comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
@@ -29,52 +29,54 @@ namespace Datos {
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
-        public void Update(Entidades.Courses item, int id)
+        public void Update(int IdCourse, int IdSubject, int IdCommission, int CalendarYear, int Quota)
         {
+            
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("UPDATE Courses SET (IdSubject, IdCommission, CalendarYear, Quota) = (@IdSubject, @IdCommission, @CalendarYear, @Quota) WHERE IdCourse = @Id", Conn);
-                comm.Parameters.AddWithValue("@IdSubject", item.IdSubject);
-                comm.Parameters.AddWithValue("@IdCommission", item.IdCommission);
-                comm.Parameters.AddWithValue("@CalendarYear", item.CalendarYear);
-                comm.Parameters.AddWithValue("@Quota", item.Quota);
-                comm.Parameters.AddWithValue("@NumStudents", item.NumStudents);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("UPDATE Courses SET IdSubject = @IdSubject, IdCommission = @IdCommission, CalendarYear = @CalendarYear, Quota = @Quota WHERE IdCourse = @IdCourse", Conn);
+                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+                comm.Parameters.AddWithValue("@IdSubject", IdSubject);
+                comm.Parameters.AddWithValue("@IdCommission", IdCommission);
+                comm.Parameters.AddWithValue("@CalendarYear", CalendarYear);
+                comm.Parameters.AddWithValue("@Quota", Quota);
+                
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                Exception HandledException = new Exception("Error al actualizar especialidad", Ex);
-                throw HandledException;
+                Exception HandledException = new Exception("Error al actualizar el curso", Ex);
+                //throw HandledException;
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
-        public void Delete(int id)
+        public void Delete(int IdCourse)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("DELETE Courses WHERE IdCourse = @Id", Conn);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("DELETE Courses WHERE IdCourse = @IdCourse", Conn);
 
-                comm.Parameters.AddWithValue("@IdCourses", id);
+                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
                 Exception HandledException = new Exception("Error al eliminar curso ", Ex);
-                throw HandledException;
+                //throw HandledException;
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
 
@@ -113,14 +115,14 @@ namespace Datos {
             }
         }
 
-        public Entidades.Courses GetOne(int id)
+        public Entidades.Courses GetOne(int IdCourse)
         {
             Entidades.Courses objCourses = new Entidades.Courses();
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Courses WHERE @IdCourse = id", Conn);
-                comm.Parameters.AddWithValue("@IdUser", id);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Courses WHERE @IdCourse = IdCourse", Conn);
+                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
 
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
@@ -134,8 +136,6 @@ namespace Datos {
                     objCourses.Quota = Convert.ToInt32(oReader["Quota"]);
                     objCourses.NumStudents = Convert.ToInt32(oReader["NumStudents"]);
 
-                    
-
                     return objCourses;
 
                 }
@@ -143,6 +143,8 @@ namespace Datos {
             finally
             {
                 objCourses = null;
+                this.Disconnect();
+
             }
         }
 

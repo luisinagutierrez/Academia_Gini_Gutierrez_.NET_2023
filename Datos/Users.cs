@@ -5,24 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Datos
 {
     public class Users : Connection
     {
-        public int Add(Entidades.Users item)
+        public void Add(int IdPerson, int Privilege, string UserName, string Password)
         {
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("INSERT INTO Users (UserName, Password, Status, ChangePassword, IdPerson, Privilege) VALUES (@UserName, @Password, @Status, @ChangePassword, @IdPerson, @Privilege) seelct @@identity", Conn);
-                comm.Parameters.AddWithValue("@UserName", item.UserName);
-                comm.Parameters.AddWithValue("@Password", item.Password);
-                comm.Parameters.AddWithValue("@Status", item.Status);
-                comm.Parameters.AddWithValue("@ChangePassword", item.ChangePassword);
-                comm.Parameters.AddWithValue("@IdPerson", item.IdPerson);
-                comm.Parameters.AddWithValue("@Privilege", item.Privilege);
-                return comm.ExecuteNonQuery();
+                SqlCommand comm = new SqlCommand("INSERT INTO Users (UserName, Password, Status, ChangePassword, IdPerson, Privilege) VALUES (@UserName, @Password, 1, 0, @IdPerson, @Privilege) select @@identity", Conn);
+                comm.Parameters.AddWithValue("@UserName", UserName);
+                comm.Parameters.AddWithValue("@Password", Password);
+                comm.Parameters.AddWithValue("@IdPerson", IdPerson);
+                comm.Parameters.AddWithValue("@Privilege",Privilege);
+                comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
@@ -114,16 +113,15 @@ namespace Datos
                 this.Disconnect();
             }
         }
- 
-        
-        public Entidades.Users GetOne(int id)
+
+        public Entidades.Users GetOne(int IdUser)
         {
             Entidades.Users objUsers = new Entidades.Users();
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE @IdUser = id", Conn);
-                comm.Parameters.AddWithValue("@IdUser", id);
+                SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE @IdUser = IdUser", Conn);
+                comm.Parameters.AddWithValue("@IdUser", IdUser);
   
                 // Ejecutamos el comando y retornamos los valores
                 SqlDataReader oReader = comm.ExecuteReader();
@@ -186,27 +184,28 @@ namespace Datos
             }
         }
 
-        public void ChangePassword(string nom, string pass)
+        public void  ChangePassword(int IdUser, string Password)
         {
             Entidades.Users objUsers = new Entidades.Users();
+            int rowsAffected = 0;
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("UPDATE User SET Password = @pass, ChangePassword = 1 WHERE UserName = @nom", Conn);
-                comm.Parameters.AddWithValue("@UserName", nom);
-                comm.Parameters.AddWithValue("@Password", pass);
+                SqlCommand comm = new SqlCommand("UPDATE Users SET Password = @Password, ChangePassword = 1 WHERE IdUser = @IdUser;");
+                comm.Parameters.AddWithValue("@IdUser", IdUser);
+                comm.Parameters.AddWithValue("@Password", Password);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                Exception HandledException = new Exception("Error al actualizar usuario ", Ex);
-                //throw HandledException;
+                Console.WriteLine("Error: no se conecta " + Ex.Message);
             }
             finally
             {
                 this.Disconnect();
             }
         }
+
 
         public int GetIdPerson(string nom, string pass)
         {
@@ -261,7 +260,7 @@ namespace Datos
             finally
             {
                 // Finally nos da siempre la oportunidad de liberar memoria usada por los objetos 
-                objUsers = null;
+                //objUsers = null;
                 this.Disconnect();
             }
         }

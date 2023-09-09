@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserSignUp));
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txtUserName = new TextBox();
+            txtUserPassword = new TextBox();
+            txtIdPerson = new TextBox();
             lbUserName = new Label();
             lbUserPassword = new Label();
             lbUserIdPerson = new Label();
@@ -42,28 +42,28 @@
             ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // txtUserName
             // 
-            textBox1.Location = new Point(209, 105);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(240, 27);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
+            txtUserName.Location = new Point(209, 105);
+            txtUserName.Name = "txtUserName";
+            txtUserName.Size = new Size(240, 27);
+            txtUserName.TabIndex = 0;
+            txtUserName.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // txtUserPassword
             // 
-            textBox2.Location = new Point(209, 169);
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(240, 27);
-            textBox2.TabIndex = 1;
+            txtUserPassword.Location = new Point(209, 169);
+            txtUserPassword.Name = "txtUserPassword";
+            txtUserPassword.PasswordChar = '*';
+            txtUserPassword.Size = new Size(240, 27);
+            txtUserPassword.TabIndex = 1;
             // 
-            // textBox3
+            // txtIdPerson
             // 
-            textBox3.Location = new Point(209, 226);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(151, 27);
-            textBox3.TabIndex = 2;
+            txtIdPerson.Location = new Point(209, 226);
+            txtIdPerson.Name = "txtIdPerson";
+            txtIdPerson.Size = new Size(151, 27);
+            txtIdPerson.TabIndex = 2;
             // 
             // lbUserName
             // 
@@ -101,6 +101,7 @@
             btnUserSignUpAccept.TabIndex = 7;
             btnUserSignUpAccept.Text = "Aceptar";
             btnUserSignUpAccept.UseVisualStyleBackColor = true;
+            btnUserSignUpAccept.Click += btnUserSignUpAccept_Click;
             // 
             // btnUserSignUpCancel
             // 
@@ -145,9 +146,9 @@
             Controls.Add(lbUserIdPerson);
             Controls.Add(lbUserPassword);
             Controls.Add(lbUserName);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtIdPerson);
+            Controls.Add(txtUserPassword);
+            Controls.Add(txtUserName);
             Name = "frmUserSignUp";
             Text = "frmUserSignUp";
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
@@ -157,9 +158,9 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtUserName;
+        private TextBox txtUserPassword;
+        private TextBox txtIdPerson;
         private Label lbUserName;
         private Label lbUserPassword;
         private Label lbUserIdPerson;

@@ -39,7 +39,7 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("UPDATE Subjects SET (SubjectDescription, WeeklyHours, TotalHours, IdPlan) = (@SubjectDescription, @WeeklyHours, @TotalHours, @IdPlan) WHERE IdSubject = @Id", Conn);
+                SqlCommand comm = new SqlCommand("UPDATE Subjects SET (SubjectDescription, WeeklyHours, TotalHours, IdPlan) = (@SubjectDescription, @WeeklyHours, @TotalHours, @IdPlan) WHERE IdSubject = @IdSubject", Conn);
                 comm.Parameters.AddWithValue("@IdSubject", IdSubject);
                 comm.Parameters.AddWithValue("@SubjectDescription", SubjectDescription);
                 comm.Parameters.AddWithValue("@WeeklyHours", WeeklyHours);
@@ -132,9 +132,7 @@ namespace Datos
                     objSubjects.TotalHours = (int)oReader["TotalHours"];
                     objSubjects.IdPlan = (int)oReader["IdPlan"];
 
-
                     return objSubjects;
-
                 }
             }
             finally

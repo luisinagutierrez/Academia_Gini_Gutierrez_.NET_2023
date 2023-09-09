@@ -97,6 +97,21 @@ namespace Negocio
                 ds = null;
             }
         }
+        public Entidades.Commissions GetOne(int id)
+        {
+            Datos.Commissions ds;
+            try
+            {
+                ds = new Datos.Commissions();
+                Entidades.Commissions user = ds.GetOne(id);
 
+                return user;
+            }
+            finally
+            {
+                ds = null;
+            }
+
+        }
     }
 }

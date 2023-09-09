@@ -1,7 +1,10 @@
-﻿using Entidades;
+﻿using Datos;
+using Entidades;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,7 +56,6 @@ namespace Negocio
             }
 
         }
-
         public int GetIdPerson(string nom, string pass)
         {
             Datos.Users ds;
@@ -69,7 +71,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public int GetUserByIdPerson(int idP)
         {
             Datos.Users ds;
@@ -90,21 +91,18 @@ namespace Negocio
                 ds = null;
             }
         }
-
-        public void ChangePassword(string nom, string pass)
+        public void  ChangePassword(int idU, string pass)
         {
             Datos.Users ds;
             try
             {
                 ds = new Datos.Users();
-                ds.ChangePassword(nom, pass);
-
+                ds.ChangePassword(idU, pass);
             }
             finally
             {
                 ds = null;
             }
-
         }
         public void Delete(int ID)
         {
@@ -120,14 +118,13 @@ namespace Negocio
             }
 
         }
-
-        public void Add(Entidades.Users item)
+        public void Add(int idP, int privilege, string name, string pass)
         {
             Datos.Users ds;
             try
             {
                 ds = new Datos.Users();
-                ds.Add(item);
+                ds.Add(idP, privilege, name, pass);
             }
             finally
             {
@@ -147,8 +144,9 @@ namespace Negocio
             {
                 ds = null;
             }
-
         }
+
+    
 
         //public void Save(Entidades.Users usuario)
         //{
