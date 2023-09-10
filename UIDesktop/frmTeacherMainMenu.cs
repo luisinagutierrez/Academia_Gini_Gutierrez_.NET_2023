@@ -19,6 +19,12 @@ namespace UIDesktop
 
         private void frmTeacherMainMenu_Load(object sender, EventArgs e)
         {
+            //MOSTRAR TODOS LOS CURSOS DE UN PROFESOR 
+            Negocio.TeacherCourses nTc = new Negocio.TeacherCourses();
+            List<Entidades.TeacherCourses> CoursesList = nTc.GetTeacherCoursesByIdPerson(1); // aca debería de ir el idPerson que no se como vamos a hacer para pasar 
+            dgvTeacheraCoursesList.DataSource = CoursesList;
+
+            //MOSTRAR LOS STUDENT REGISTRATION DE UN CURSO EN PARICULAR, no se como se como se podría hacer capaz q pidiendole el curso y depues apretando aceptar, pero donde se valida que l curso que ingresó estaba bien 
 
         }
 

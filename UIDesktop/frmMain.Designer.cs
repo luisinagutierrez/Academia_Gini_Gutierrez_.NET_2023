@@ -251,6 +251,7 @@
             btnTeacherMenu.TabIndex = 2;
             btnTeacherMenu.Text = "Notas y condiciones";
             btnTeacherMenu.UseVisualStyleBackColor = true;
+            btnTeacherMenu.Click += btnTeacherMenu_Click;
             // 
             // btnStudentRegistration
             // 

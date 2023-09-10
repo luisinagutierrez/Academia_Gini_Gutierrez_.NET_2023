@@ -33,6 +33,19 @@ namespace Negocio
                 ds = null;
             }
         }
+        public List<Entidades.TeacherCourses> GetTeacherCoursesByIdPerson(int idTeacher)
+        {
+            Datos.TeacherCourses ds;
+            try
+            {
+                ds = new Datos.TeacherCourses();
+                return ds.GetTeacherCoursesByIdPerson(idTeacher);
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
 
     }
 }

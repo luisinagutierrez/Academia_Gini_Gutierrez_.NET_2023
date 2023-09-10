@@ -31,7 +31,6 @@ namespace Datos
                 Conn.Close();
             }
         }
-
         public void Update(Entidades.TeacherCourses item, int id)
         {
             try
@@ -53,7 +52,6 @@ namespace Datos
                 Conn.Close();
             }
         }
-
         public void Delete(int id)
         {
             try
@@ -74,37 +72,7 @@ namespace Datos
                 Conn.Close();
             }
         }
-
-        public List<Entidades.TeacherCourses> GetAll()
-        {
-            Entidades.TeacherCourses objTeacherCourses = new Entidades.TeacherCourses();
-            try
-            {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("SELECT * FROM TeacherCourses", Conn);
-                List<Entidades.TeacherCourses> TeacherCoursesList = new List<Entidades.TeacherCourses>();
-
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
-                {
-                    while (oReader.Read())
-                    {
-                        objTeacherCourses.IdDictation = Convert.ToInt32(oReader["IdDictation"]);
-                        objTeacherCourses.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
-                        objTeacherCourses.IdTeacher = Convert.ToInt32(oReader["IdTeacher"]);
-                        objTeacherCourses.Position = Convert.ToInt32(oReader["Position"]);
-
-                        TeacherCoursesList.Add(objTeacherCourses);
-                        objTeacherCourses = null;
-                    }
-                    return TeacherCoursesList;
-                }
-            }
-            finally
-            {
-                objTeacherCourses = null;
-            }
-        }
+        
         public Entidades.TeacherCourses GetOne(int id)
         {
             Entidades.TeacherCourses objTeacherCourses = new Entidades.TeacherCourses();
@@ -134,7 +102,6 @@ namespace Datos
                 objTeacherCourses = null;
             }
         }
-
         public List<Entidades.TeacherCourses> GetTeacherCoursesByIdCourse(int IdCourse)
         {
 
@@ -163,6 +130,38 @@ namespace Datos
 
             finally
             {
+                this.Disconnect();
+            }
+        }
+        public List<Entidades.TeacherCourses> GetTeacherCoursesByIdPerson(int IdTeacher)
+        {
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM TeacherCourses WHERE IdTeacher = @IdTeacher", Conn);
+                comm.Parameters.AddWithValue("@IdTeacher", IdTeacher);
+                List<Entidades.TeacherCourses> TeacherCoursesList = new List<Entidades.TeacherCourses>();
+
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    while (oReader.Read())
+                    {
+                        Entidades.TeacherCourses objTeacherCourses = new Entidades.TeacherCourses();
+                        objTeacherCourses.IdDictation = (int)oReader["IdDictation"];
+                        objTeacherCourses.IdCourse = (int)oReader["IdCourse"];
+                        objTeacherCourses.IdTeacher = (int)oReader["IdTeacher"];
+                        objTeacherCourses.Position = (int)oReader["Position"];
+
+                        TeacherCoursesList.Add(objTeacherCourses);
+                        objTeacherCourses = null;
+                    }
+                    return TeacherCoursesList;
+                }
+            }
+            finally
+            {
+                //objCourses = null;
                 this.Disconnect();
             }
         }

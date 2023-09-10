@@ -19,35 +19,27 @@ namespace UIDesktop
         public frmMain(int idPerson, int privilege)
         {
             InitializeComponent();
+            btnTeacherMenu.Visible = false;
+            btnStudentRegistration.Visible = false;
+            btnPerson.Visible = false;
+            btnSpeciality.Visible = false;
+            btnSubjects.Visible = false;
+            btnCommission.Visible = false;
+            btnCourse.Visible = false;
+            btnReports.Visible = false;
+            btnPlan.Visible = false;
+
             switch (privilege)
             {
                 case 1: //Teacher
                     btnTeacherMenu.Visible = true;
-                    btnStudentRegistration.Visible = false;
-                    btnPerson.Visible = false;
-                    btnSpeciality.Visible = false;
-                    btnSubjects.Visible = false;
-                    btnCommission.Visible = false;
-                    btnCourse.Visible = false;
-                    btnReports.Visible = false;
-                    btnPlan.Visible = false;
                     break;
 
                 case 2: //Student
-                    btnTeacherMenu.Visible = false;
                     btnStudentRegistration.Visible = true;
-                    btnPerson.Visible = false;
-                    btnSpeciality.Visible = false;
-                    btnSubjects.Visible = false;
-                    btnCommission.Visible = false;
-                    btnCourse.Visible = false;
-                    btnReports.Visible = false;
-                    btnPlan.Visible = false;
                     break;
 
                 case 3: //Admin
-                    btnTeacherMenu.Visible = false;
-                    btnStudentRegistration.Visible = false;
                     btnPerson.Visible = true;
                     btnSpeciality.Visible = true;
                     btnSubjects.Visible = true;
@@ -168,6 +160,11 @@ namespace UIDesktop
         private void btnContact_Click(object sender, EventArgs e)
         {
             OpenDaughterForm(new frmContacts());
+        }
+
+        private void btnTeacherMenu_Click(object sender, EventArgs e)
+        {
+            OpenDaughterForm(new frmTeacherMainMenu());
         }
     }
 }
