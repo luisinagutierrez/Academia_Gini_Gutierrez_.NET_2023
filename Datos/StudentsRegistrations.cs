@@ -8,31 +8,28 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class StudentsRegistrations:Connection
+    public class StudentsRegistrations : Connection
     {
-        public int Add(Entidades.StudentsRegistrations item)
+        public void Add(int IdCourse, int IdStudent)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("INSERT INTO StudentsRegistrations (IdStudent, IdCourse, Condition, Mark) VALUES (@IdStudent, @IdCourse, @Condition, @Mark)", Conn);
-                comm.Parameters.AddWithValue("@IdStudent", item.IdStudent);
-                comm.Parameters.AddWithValue("@IdCourse", item.IdCourse);
-                comm.Parameters.AddWithValue("@Condition", item.Condition);    // Al inscribirse desde un principio debería ser inscripto desde el principio 
-                //comm.Parameters.AddWithValue("@Mark", item.Mark);     
-                return comm.ExecuteNonQuery();
+                this.Connect();
+                SqlCommand comm = new SqlCommand("INSERT INTO StudentsRegistrations (IdStudent, IdCourse, Condition, Mark) VALUES (@IdStudent, @IdCourse, 'inscripto', 0)", Conn);
+                comm.Parameters.AddWithValue("@IdStudent", IdStudent);
+                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+                comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
                 Exception HandledException = new Exception("Error al agregar inscripcion ", Ex);
-                throw HandledException;
+                //throw HandledException;
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
-
         public void Update(Entidades.StudentsRegistrations item, int id)
         {
             try
@@ -55,30 +52,29 @@ namespace Datos
                 Conn.Close();
             }
         }
-
-        public void Delete(int id)
+        public void Delete(int IdRegistration)
         {
             try
             {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("DELETE StudentsRegistrations WHERE IdRegistration = @Id", Conn);
+                this.Connect();
+                SqlCommand comm = new SqlCommand("DELETE StudentsRegistrations WHERE IdRegistration = @IdRegistration", Conn);
 
-                comm.Parameters.AddWithValue("@IdRegistration", id);
+                comm.Parameters.AddWithValue("@IdRegistration", IdRegistration);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
                 Exception HandledException = new Exception("Error al eliminar inscripcion ", Ex);
-                throw HandledException;
+                //throw HandledException; CORTA EL PROGRAMA SI LO DEJO PERO TAMPOCO ME DICE CUAL ES EL PROBLEMA 
             }
             finally
             {
-                Conn.Close();
+                this.Disconnect();
             }
         }
         public List<Entidades.StudentsRegistrations> GetAll()
         {
-            Entidades.StudentsRegistrations objStudentsRegistrations = new Entidades.StudentsRegistrations();
+
             try
             {
                 Conn.Open();
@@ -90,6 +86,7 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
+                        Entidades.StudentsRegistrations objStudentsRegistrations = new Entidades.StudentsRegistrations();
                         objStudentsRegistrations.IdRegistration = Convert.ToInt32(oReader["IdRegistration"]);
                         objStudentsRegistrations.IdStudent = Convert.ToInt32(oReader["IdStudent"]);
                         objStudentsRegistrations.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
@@ -104,36 +101,8 @@ namespace Datos
             }
             finally
             {
-                objStudentsRegistrations = null;
-            }
-        }
-        public Entidades.StudentsRegistrations GetOne(int id)
-        {
-            Entidades.StudentsRegistrations objStudentsRegistrations = new Entidades.StudentsRegistrations();
-            try
-            {
-                Conn.Open();
-                SqlCommand comm = new SqlCommand("SELECT * FROM StudentsRegistrations WHERE @IdUser = id", Conn);
-                comm.Parameters.AddWithValue("@IdUser", id);
-
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
-                {
-                    oReader.Read();
-
-                    objStudentsRegistrations.IdRegistration = Convert.ToInt32(oReader["IdRegistration"]);
-                    objStudentsRegistrations.IdStudent = Convert.ToInt32(oReader["IdStudent"]);
-                    objStudentsRegistrations.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
-                    objStudentsRegistrations.Condition = Convert.ToString(oReader["Condition"]);
-                    objStudentsRegistrations.Mark = Convert.ToInt32(oReader["Mark"]);
-
-                    return objStudentsRegistrations;
-
-                }
-            }
-            finally
-            {
-                objStudentsRegistrations = null;
+                //objCourses = null;
+                this.Disconnect();
             }
         }
         public List<Entidades.StudentsRegistrations> GetStudentsRegByIdCourse(int IdCourse)
@@ -144,7 +113,7 @@ namespace Datos
             {
                 this.Connect();
 
-                SqlCommand comm = new SqlCommand("SELECT IdRegistration, IdStudent, IdCourse, Condition FROM StudentsRegistrations WHERE IdCourse = @IdCourse", Conn);
+                SqlCommand comm = new SqlCommand("SELECT IdRegistration, IdStudent, IdCourse, Condition  FROM StudentsRegistrations WHERE IdCourse = @IdCourse", Conn);
                 comm.Parameters.AddWithValue("@IdCourse", IdCourse);
                 List<Entidades.StudentsRegistrations> StudentsRegistrationsList = new List<Entidades.StudentsRegistrations>();
 
@@ -172,12 +141,66 @@ namespace Datos
                 this.Disconnect();
             }
         }
+        public List<Entidades.StudentsRegistrations> GetCoursesByIdPerson(int IdStudent)
+        {
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT IdRegistration,IdStudent, IdCourse, Condition, Mark FROM StudentsRegistrations WHERE IdStudent = @IdStudent", Conn);
+                List<Entidades.StudentsRegistrations> StudentsRegistrationsList = new List<Entidades.StudentsRegistrations>();
+                comm.Parameters.AddWithValue("@IdStudent", IdStudent);
 
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    while (oReader.Read())
+                    {
+                        Entidades.StudentsRegistrations objStudentsRegistrations = new Entidades.StudentsRegistrations();
+                        objStudentsRegistrations.IdRegistration = (int)oReader["IdRegistration"];
+                        objStudentsRegistrations.IdStudent = (int)oReader["IdStudent"];
+                        objStudentsRegistrations.IdCourse = (int)oReader["IdCourse"];
+                        objStudentsRegistrations.Condition = (string)oReader["Condition"];
+                        if (objStudentsRegistrations.Condition == "HAY QUE CAMBIAR ESTO PARA QUE QUEDE MEJOR")
+                        {
+                            objStudentsRegistrations.Mark = (int)oReader["Mark"];
+                        }
 
+                        StudentsRegistrationsList.Add(objStudentsRegistrations);
+                        objStudentsRegistrations = null;
+                    }
+                    return StudentsRegistrationsList;
+                }
+            }
+            finally
+            {
+                //objCourses = null;
+                this.Disconnect();
+            }
+        }
+        public int ValidateStudentsRegistrations(int IdRegistration, int IdStudent)
+        {
+            Entidades.StudentsRegistrations objStudentsRegistrations = new Entidades.StudentsRegistrations();
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT IdCourse FROM StudentsRegistrations WHERE @IdRegistration = IdRegistration AND IdStudent =@IdStudent ", Conn);
+                comm.Parameters.AddWithValue("@IdStudent", IdStudent);
+                comm.Parameters.AddWithValue("@IdRegistration", IdRegistration);
 
-
-
-
-
+                SqlDataReader oReader = comm.ExecuteReader();
+                using (oReader)
+                {
+                    oReader.Read();
+                    objStudentsRegistrations.IdCourse = (int)oReader["IdCourse"];                     
+                    return objStudentsRegistrations.IdCourse;                                                     // SEGURAMENTE TIRE ERROR SI NO LO ENCUENTRA
+                                                                      //NO SE QUE DEVULEVE SI UN NULL O UN 0 PONELE
+                }
+            }
+            finally
+            {
+                objStudentsRegistrations = null;
+                this.Disconnect();
+            }
+        }
     }
 }

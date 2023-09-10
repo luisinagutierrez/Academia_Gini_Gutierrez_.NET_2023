@@ -22,7 +22,7 @@ namespace Negocio
                 ds = null;
             }
         }
-            public int GetStudentsRegByIdCourse(int idC)
+        public int GetStudentsRegByIdCourse(int idC)
         {
             Datos.StudentsRegistrations ds;
             try
@@ -48,7 +48,54 @@ namespace Negocio
                 ds = null;
             }
         }
+        public List<Entidades.StudentsRegistrations> GetCoursesByIdPerson(int idStudent)
+        {
+            Datos.StudentsRegistrations ds;
+            try
+            {
+                ds = new Datos.StudentsRegistrations();
+                return ds.GetCoursesByIdPerson(idStudent);
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+        public void Add(int IdCourse, int idStudent)
+        {
+            Datos.StudentsRegistrations ds;
+            try
+            {
+                ds = new Datos.StudentsRegistrations();
+                ds.Add(IdCourse, idStudent);
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
 
+        public int ValidateStudentsRegistrations(int IdRegistration, int IdStudent)
+        {
+            Datos.StudentsRegistrations ds;
+            try
+            {
+                ds = new Datos.StudentsRegistrations();
+                int course = ds.ValidateStudentsRegistrations(IdRegistration, IdStudent);
+                if (course != 0)
+                {
+                    this.Delete(IdRegistration);
+                }
+                return course;
+            }
+            finally
+            {
+                ds = null;
+            }
+
+        }
+    }
+}
 
         //public List<Entidades.StudentsRegistrations> GetAll()
         //{
@@ -64,5 +111,4 @@ namespace Negocio
         //        ds = null;
         //    }
         //}
-    }
-}
+    

@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class TeacherCourses:Connection
+    public class TeacherCourses : Connection
     {
         public int Add(Entidades.TeacherCourses item)
         {
@@ -83,7 +83,7 @@ namespace Datos
                 Conn.Open();
                 SqlCommand comm = new SqlCommand("SELECT * FROM TeacherCourses", Conn);
                 List<Entidades.TeacherCourses> TeacherCoursesList = new List<Entidades.TeacherCourses>();
-                
+
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
                 {
@@ -113,7 +113,7 @@ namespace Datos
                 Conn.Open();
                 SqlCommand comm = new SqlCommand("SELECT * FROM TeacherCourses WHERE @IdUser = id", Conn);
                 comm.Parameters.AddWithValue("@IdUser", id);
-                
+
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
                 {
@@ -137,7 +137,7 @@ namespace Datos
 
         public List<Entidades.TeacherCourses> GetTeacherCoursesByIdCourse(int IdCourse)
         {
-            
+
             try
             {
                 this.Connect();
@@ -169,3 +169,5 @@ namespace Datos
 
     }
 }
+
+

@@ -22,7 +22,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public List<Entidades.Courses> GetAvailableCourses()
         {
             Datos.Courses ds;
@@ -36,7 +35,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public int GetCoursesByIdSubject(int idS)
         {
             Datos.Courses ds;
@@ -44,7 +42,7 @@ namespace Negocio
             {
                 ds = new Datos.Courses();
                 int cant = 0;
-                foreach(Entidades.Courses c in ds.GetCoursesByIdSubject(idS))
+                foreach (Entidades.Courses c in ds.GetCoursesByIdSubject(idS))
                 {
                     cant++;
                 }
@@ -63,7 +61,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public int GetCoursesByIdCommission(int idC)
         {
             Datos.Courses ds;
@@ -90,7 +87,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public void Add(int idS, int idC, int cy, int q)
         {
             Datos.Courses ds;
@@ -104,7 +100,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public void Update(int idC, int idS, int idCc, int cy, int q)
         {
             Datos.Courses ds;
@@ -118,7 +113,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public int UpdateCourse(int idC, int idS, int idCc, int cy, int q)
         {
             Datos.Courses ds;
@@ -164,5 +158,41 @@ namespace Negocio
                 ds = null;
             }
         }
+        public void UpdateCourseAvailability(int IdCourse, int num)
+        {
+            Datos.Courses ds;
+            try
+            {
+                ds = new Datos.Courses();
+                ds.UpdateCourseAvailability(IdCourse, num);
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+        public bool ValidateCourseAvailability(int idC)
+        {
+            Datos.Courses ds;
+            bool flag = false;
+            try
+            {
+                Entidades.Courses co = new Entidades.Courses();
+                ds = new Datos.Courses();
+                co = ds.ValidateCourseAvailability(idC);
+                if (co != null)
+                {
+                    this.UpdateCourseAvailability(idC, 1);
+                    flag = true;
+                }
+                return flag;
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
     }
 }
+
+

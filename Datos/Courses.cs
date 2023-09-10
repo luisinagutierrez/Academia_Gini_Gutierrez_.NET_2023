@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Datos { 
-    public class Courses:Connection
+namespace Datos
+{
+    public class Courses : Connection
     {
         public void Add(int IdSubject, int IdCommission, int CalendarYear, int Quota)
         {
@@ -32,10 +33,9 @@ namespace Datos {
                 this.Disconnect();
             }
         }
-
         public void Update(int IdCourse, int IdSubject, int IdCommission, int CalendarYear, int Quota)
         {
-            
+
             try
             {
                 this.Connect();
@@ -45,7 +45,7 @@ namespace Datos {
                 comm.Parameters.AddWithValue("@IdCommission", IdCommission);
                 comm.Parameters.AddWithValue("@CalendarYear", CalendarYear);
                 comm.Parameters.AddWithValue("@Quota", Quota);
-                
+
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -58,7 +58,6 @@ namespace Datos {
                 this.Disconnect();
             }
         }
-
         public void Delete(int IdCourse)
         {
             try
@@ -79,7 +78,6 @@ namespace Datos {
                 this.Disconnect();
             }
         }
-
         public List<Entidades.Courses> GetAll()
         {
 
@@ -114,7 +112,6 @@ namespace Datos {
                 this.Disconnect();
             }
         }
-
         public Entidades.Courses GetOne(int IdCourse)
         {
             Entidades.Courses objCourses = new Entidades.Courses();
@@ -147,13 +144,12 @@ namespace Datos {
 
             }
         }
-
         public List<Entidades.Courses> GetAvailableCourses()
         {
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT Quota > NumStudents FROM Courses", Conn);
+                SqlCommand comm = new SqlCommand("SELECT * FROM Courses WHERE Quota > NumStudents", Conn);
                 List<Entidades.Courses> CoursesList = new List<Entidades.Courses>();
 
                 SqlDataReader oReader = comm.ExecuteReader();
@@ -168,7 +164,6 @@ namespace Datos {
                         objCourses.CalendarYear = (int)oReader["CalendarYear"];
                         objCourses.Quota = (int)oReader["Quota"];
                         objCourses.NumStudents = (int)oReader["NumStudents"];
-
                         CoursesList.Add(objCourses);
                         objCourses = null;
                     }
@@ -181,7 +176,6 @@ namespace Datos {
                 this.Disconnect();
             }
         }
-
         public List<Entidades.Courses> GetCoursesByIdSubject(int IdSubject)
         {
             try
@@ -216,7 +210,6 @@ namespace Datos {
                 this.Disconnect();
             }
         }
-
         public List<Entidades.Courses> GetCoursesByIdCommission(int IdCommission)
         {
             try
@@ -248,6 +241,57 @@ namespace Datos {
             finally
             {
                 //objCourses = null;
+                this.Disconnect();
+            }
+        }
+        public Entidades.Courses ValidateCourseAvailability(int IdCourse)
+        {
+            {
+                Entidades.Courses objCourses = new Entidades.Courses();
+                try
+                {
+                    this.Connect();
+                    SqlCommand comm = new SqlCommand("SELECT IdCourse FROM Courses WHERE @IdCourse = IdCourse and Quota >NumStudents ", Conn);
+                    comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+
+                    SqlDataReader oReader = comm.ExecuteReader();
+                    using (oReader)
+                    {
+                        oReader.Read();
+                        objCourses.IdCourse = (int)oReader["IdCourse"];
+                        ///TENDÍA QUE DEBOLVER 1 O 0 O LO Q SEA PARA SABER SI NO PUEDE INSCRIBIRSE PQ NO LO ENCONTRÓ O PORQUE NO HAY LUGAR
+                        //return objCourses.IdCourse;
+                    }
+                    return objCourses;
+                }
+                finally
+                {
+                    // objCourses = null;
+                    this.Disconnect();
+
+                }
+            }
+
+        }
+
+        public void UpdateCourseAvailability(int IdCourse, int num)
+        {
+
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("UPDATE Courses SET NumStudents = NumStudents + @num WHERE IdCourse = @IdCourse", Conn);
+                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+                comm.Parameters.AddWithValue("@num", num);
+                comm.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception HandledException = new Exception("Error al actualizar el curso", Ex);
+                //throw HandledException;
+            }
+            finally
+            {
                 this.Disconnect();
             }
         }
