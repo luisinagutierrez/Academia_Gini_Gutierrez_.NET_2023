@@ -33,7 +33,6 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
         public void Update(Entidades.Users item)
         {
             try
@@ -59,7 +58,6 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
         public void Delete(int id)
         {
             try
@@ -191,7 +189,7 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("UPDATE Users SET Password = @Password, ChangePassword = 1 WHERE IdUser = @IdUser;");
+                SqlCommand comm = new SqlCommand("UPDATE Users SET Password = @Password, ChangePassword = 1 WHERE IdUser = @IdUser", Conn);
                 comm.Parameters.AddWithValue("@IdUser", IdUser);
                 comm.Parameters.AddWithValue("@Password", Password);
                 comm.ExecuteNonQuery();

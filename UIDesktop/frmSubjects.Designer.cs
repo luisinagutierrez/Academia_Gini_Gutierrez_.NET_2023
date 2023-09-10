@@ -49,7 +49,7 @@
             // 
             // txtSubjectsPlan
             // 
-            txtSubjectsPlan.Location = new Point(825, 273);
+            txtSubjectsPlan.Location = new Point(1033, 309);
             txtSubjectsPlan.Name = "txtSubjectsPlan";
             txtSubjectsPlan.Size = new Size(124, 27);
             txtSubjectsPlan.TabIndex = 54;
@@ -57,7 +57,7 @@
             // lbSubjectIdPlan
             // 
             lbSubjectIdPlan.AutoSize = true;
-            lbSubjectIdPlan.Location = new Point(702, 273);
+            lbSubjectIdPlan.Location = new Point(910, 309);
             lbSubjectIdPlan.Name = "lbSubjectIdPlan";
             lbSubjectIdPlan.Size = new Size(55, 20);
             lbSubjectIdPlan.TabIndex = 53;
@@ -65,7 +65,7 @@
             // 
             // txtSubjectsWeeklyHours
             // 
-            txtSubjectsWeeklyHours.Location = new Point(825, 316);
+            txtSubjectsWeeklyHours.Location = new Point(1033, 352);
             txtSubjectsWeeklyHours.Name = "txtSubjectsWeeklyHours";
             txtSubjectsWeeklyHours.Size = new Size(124, 27);
             txtSubjectsWeeklyHours.TabIndex = 52;
@@ -73,7 +73,7 @@
             // lbSubjectsWeeklyHours
             // 
             lbSubjectsWeeklyHours.AutoSize = true;
-            lbSubjectsWeeklyHours.Location = new Point(702, 316);
+            lbSubjectsWeeklyHours.Location = new Point(910, 352);
             lbSubjectsWeeklyHours.Name = "lbSubjectsWeeklyHours";
             lbSubjectsWeeklyHours.Size = new Size(121, 20);
             lbSubjectsWeeklyHours.TabIndex = 51;
@@ -84,7 +84,7 @@
             // 
             lbCreateUpdateSubjects.AutoSize = true;
             lbCreateUpdateSubjects.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbCreateUpdateSubjects.Location = new Point(572, 51);
+            lbCreateUpdateSubjects.Location = new Point(696, 61);
             lbCreateUpdateSubjects.Name = "lbCreateUpdateSubjects";
             lbCreateUpdateSubjects.Size = new Size(108, 25);
             lbCreateUpdateSubjects.TabIndex = 50;
@@ -93,17 +93,17 @@
             // dgvSubjects
             // 
             dgvSubjects.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSubjects.Location = new Point(39, 128);
+            dgvSubjects.Location = new Point(176, 146);
             dgvSubjects.Name = "dgvSubjects";
             dgvSubjects.RowHeadersWidth = 51;
             dgvSubjects.RowTemplate.Height = 29;
-            dgvSubjects.Size = new Size(641, 233);
+            dgvSubjects.Size = new Size(702, 242);
             dgvSubjects.TabIndex = 48;
             dgvSubjects.CellContentClick += dgvSubjects_CellContentClick;
             // 
             // txtSubjectDescription
             // 
-            txtSubjectDescription.Location = new Point(825, 184);
+            txtSubjectDescription.Location = new Point(1033, 220);
             txtSubjectDescription.Multiline = true;
             txtSubjectDescription.Name = "txtSubjectDescription";
             txtSubjectDescription.Size = new Size(221, 71);
@@ -112,7 +112,7 @@
             // lbSubjectDescription
             // 
             lbSubjectDescription.AutoSize = true;
-            lbSubjectDescription.Location = new Point(702, 187);
+            lbSubjectDescription.Location = new Point(910, 223);
             lbSubjectDescription.Name = "lbSubjectDescription";
             lbSubjectDescription.Size = new Size(87, 20);
             lbSubjectDescription.TabIndex = 46;
@@ -120,7 +120,7 @@
             // 
             // btnUpdateSubject
             // 
-            btnUpdateSubject.Location = new Point(776, 447);
+            btnUpdateSubject.Location = new Point(895, 504);
             btnUpdateSubject.Name = "btnUpdateSubject";
             btnUpdateSubject.Size = new Size(121, 48);
             btnUpdateSubject.TabIndex = 45;
@@ -130,7 +130,7 @@
             // 
             // btnCreateSubject
             // 
-            btnCreateSubject.Location = new Point(572, 447);
+            btnCreateSubject.Location = new Point(691, 504);
             btnCreateSubject.Name = "btnCreateSubject";
             btnCreateSubject.Size = new Size(121, 48);
             btnCreateSubject.TabIndex = 44;
@@ -141,7 +141,7 @@
             // btnBack
             // 
             btnBack.BackColor = SystemColors.ControlLightLight;
-            btnBack.Location = new Point(357, 447);
+            btnBack.Location = new Point(476, 504);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(121, 48);
             btnBack.TabIndex = 43;
@@ -151,7 +151,7 @@
             // 
             // txtIdSubject
             // 
-            txtIdSubject.Location = new Point(825, 139);
+            txtIdSubject.Location = new Point(1033, 175);
             txtIdSubject.Name = "txtIdSubject";
             txtIdSubject.Size = new Size(124, 27);
             txtIdSubject.TabIndex = 42;
@@ -159,7 +159,7 @@
             // lbIdSubject
             // 
             lbIdSubject.AutoSize = true;
-            lbIdSubject.Location = new Point(702, 142);
+            lbIdSubject.Location = new Point(910, 178);
             lbIdSubject.Name = "lbIdSubject";
             lbIdSubject.Size = new Size(77, 20);
             lbIdSubject.TabIndex = 41;
@@ -167,7 +167,7 @@
             // 
             // txtSubjectsTotalHours
             // 
-            txtSubjectsTotalHours.Location = new Point(1092, 316);
+            txtSubjectsTotalHours.Location = new Point(1300, 352);
             txtSubjectsTotalHours.Name = "txtSubjectsTotalHours";
             txtSubjectsTotalHours.Size = new Size(124, 27);
             txtSubjectsTotalHours.TabIndex = 56;
@@ -175,7 +175,7 @@
             // lbSubjecttotalHours
             // 
             lbSubjecttotalHours.AutoSize = true;
-            lbSubjecttotalHours.Location = new Point(969, 316);
+            lbSubjecttotalHours.Location = new Point(1177, 352);
             lbSubjecttotalHours.Name = "lbSubjecttotalHours";
             lbSubjecttotalHours.Size = new Size(103, 20);
             lbSubjecttotalHours.TabIndex = 55;
@@ -183,7 +183,7 @@
             // 
             // btnDeleteSubject
             // 
-            btnDeleteSubject.Location = new Point(979, 447);
+            btnDeleteSubject.Location = new Point(1098, 504);
             btnDeleteSubject.Name = "btnDeleteSubject";
             btnDeleteSubject.Size = new Size(121, 48);
             btnDeleteSubject.TabIndex = 57;
@@ -196,7 +196,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1243, 511);
+            ClientSize = new Size(1513, 697);
             Controls.Add(btnDeleteSubject);
             Controls.Add(txtSubjectsTotalHours);
             Controls.Add(lbSubjecttotalHours);

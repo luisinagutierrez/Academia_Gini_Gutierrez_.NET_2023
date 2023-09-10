@@ -31,24 +31,27 @@ namespace UIDesktop
         private void btnUserSignUpAccept_Click(object sender, EventArgs e)
         {
             int idP = Convert.ToInt32(txtIdPerson.Text);
-            Negocio.Users user = new Negocio.Users();
+            Negocio.Users user = new Negocio.Users();      //NO LO TIENE QUE ENCONTRAR PARA ENTRAR AL IF Y AGREGAR UNO NUEVO
             int u = user.GetUserByIdPerson(idP);
-            if (u == 0)
+            if (u == 1)
             {
                 string name = Convert.ToString(txtUserName.Text);
                 string pass = Convert.ToString(txtUserPassword.Text);
                 Negocio.People p = new Negocio.People();
-                int privilege = p.GetPersonType(idP);
+                int privilege = p.GetPersonType(idP);  // BUSCO EL PRIVILEGIO 
                 user.Add(idP, privilege, name, pass);
+                MessageBox.Show("Operacion exitosa");
+                this.Close();
+
             }
             else
             {
-                MessageBox.Show("Ya tiene un usuario asociado");
+                MessageBox.Show("Ya tiene un usuario asociado");      //FUNCIONA
+                this.Close();
             }
-            //validar que ese id persona no tenga ya asociado un usuario
-            // necesito el tipo de persona de person 
-            //add y poner todo en null/ 0 si no es necesario
-
+            ///VALIDAR QUE EXISTA EL ID DE PERSONA NECESITO EL PRIVILEGIO PARA DARSELO AL USER
+            ///VALIDA QUE NO TIENE YA UN USUARIO ASOCIADO 
+            ///ADD USER 
         }
     }
 }

@@ -30,7 +30,6 @@ namespace UIDesktop
             Negocio.Users u = new Negocio.Users();
             Entidades.Users user = u.GetOne(idU);
             if (user != null)
-
             {
                 u.ChangePassword(idU, pass);
                 MessageBox.Show("Se guardó la contraseña correctamente.");

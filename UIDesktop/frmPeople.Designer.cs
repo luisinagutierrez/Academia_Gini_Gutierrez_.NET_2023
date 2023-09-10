@@ -59,7 +59,7 @@
             // 
             // txtPeopleIdPlan
             // 
-            txtPeopleIdPlan.Location = new Point(1181, 225);
+            txtPeopleIdPlan.Location = new Point(1438, 218);
             txtPeopleIdPlan.Name = "txtPeopleIdPlan";
             txtPeopleIdPlan.Size = new Size(80, 27);
             txtPeopleIdPlan.TabIndex = 82;
@@ -67,7 +67,7 @@
             // lbPeopleIdPlan
             // 
             lbPeopleIdPlan.AutoSize = true;
-            lbPeopleIdPlan.Location = new Point(1101, 228);
+            lbPeopleIdPlan.Location = new Point(1358, 221);
             lbPeopleIdPlan.Name = "lbPeopleIdPlan";
             lbPeopleIdPlan.Size = new Size(55, 20);
             lbPeopleIdPlan.TabIndex = 81;
@@ -75,15 +75,15 @@
             // 
             // txtPeopleEmail
             // 
-            txtPeopleEmail.Location = new Point(889, 307);
+            txtPeopleEmail.Location = new Point(1062, 307);
             txtPeopleEmail.Name = "txtPeopleEmail";
-            txtPeopleEmail.Size = new Size(226, 27);
+            txtPeopleEmail.Size = new Size(266, 27);
             txtPeopleEmail.TabIndex = 80;
             // 
             // lbPeopleEmail
             // 
             lbPeopleEmail.AutoSize = true;
-            lbPeopleEmail.Location = new Point(766, 310);
+            lbPeopleEmail.Location = new Point(939, 310);
             lbPeopleEmail.Name = "lbPeopleEmail";
             lbPeopleEmail.Size = new Size(52, 20);
             lbPeopleEmail.TabIndex = 79;
@@ -91,7 +91,7 @@
             // 
             // txtPeopleAddress
             // 
-            txtPeopleAddress.Location = new Point(889, 222);
+            txtPeopleAddress.Location = new Point(1062, 222);
             txtPeopleAddress.Name = "txtPeopleAddress";
             txtPeopleAddress.Size = new Size(183, 27);
             txtPeopleAddress.TabIndex = 78;
@@ -99,7 +99,7 @@
             // lbPeopleAddress
             // 
             lbPeopleAddress.AutoSize = true;
-            lbPeopleAddress.Location = new Point(766, 225);
+            lbPeopleAddress.Location = new Point(939, 225);
             lbPeopleAddress.Name = "lbPeopleAddress";
             lbPeopleAddress.Size = new Size(72, 20);
             lbPeopleAddress.TabIndex = 77;
@@ -107,7 +107,7 @@
             // 
             // txtPeopleSurname
             // 
-            txtPeopleSurname.Location = new Point(1181, 182);
+            txtPeopleSurname.Location = new Point(1438, 175);
             txtPeopleSurname.Name = "txtPeopleSurname";
             txtPeopleSurname.Size = new Size(124, 27);
             txtPeopleSurname.TabIndex = 76;
@@ -115,7 +115,7 @@
             // lbPeopleSurname
             // 
             lbPeopleSurname.AutoSize = true;
-            lbPeopleSurname.Location = new Point(1101, 189);
+            lbPeopleSurname.Location = new Point(1358, 182);
             lbPeopleSurname.Name = "lbPeopleSurname";
             lbPeopleSurname.Size = new Size(66, 20);
             lbPeopleSurname.TabIndex = 75;
@@ -123,7 +123,7 @@
             // 
             // txtPeopleName
             // 
-            txtPeopleName.Location = new Point(889, 179);
+            txtPeopleName.Location = new Point(1062, 179);
             txtPeopleName.Name = "txtPeopleName";
             txtPeopleName.Size = new Size(124, 27);
             txtPeopleName.TabIndex = 74;
@@ -131,7 +131,7 @@
             // lbPeopleName
             // 
             lbPeopleName.AutoSize = true;
-            lbPeopleName.Location = new Point(766, 182);
+            lbPeopleName.Location = new Point(939, 182);
             lbPeopleName.Name = "lbPeopleName";
             lbPeopleName.Size = new Size(64, 20);
             lbPeopleName.TabIndex = 73;
@@ -141,7 +141,7 @@
             // 
             lbCreateUpdatePeople.AutoSize = true;
             lbCreateUpdatePeople.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbCreateUpdatePeople.Location = new Point(697, 58);
+            lbCreateUpdatePeople.Location = new Point(823, 61);
             lbCreateUpdatePeople.Name = "lbCreateUpdatePeople";
             lbCreateUpdatePeople.Size = new Size(115, 25);
             lbCreateUpdatePeople.TabIndex = 72;
@@ -154,13 +154,13 @@
             dgvPeople.Name = "dgvPeople";
             dgvPeople.RowHeadersWidth = 51;
             dgvPeople.RowTemplate.Height = 29;
-            dgvPeople.Size = new Size(713, 385);
+            dgvPeople.Size = new Size(888, 385);
             dgvPeople.TabIndex = 70;
             dgvPeople.CellContentClick += dgvPeople_CellContentClick;
             // 
             // btnUpdatePeople
             // 
-            btnUpdatePeople.Location = new Point(1172, 453);
+            btnUpdatePeople.Location = new Point(1345, 453);
             btnUpdatePeople.Name = "btnUpdatePeople";
             btnUpdatePeople.Size = new Size(121, 48);
             btnUpdatePeople.TabIndex = 69;
@@ -170,7 +170,7 @@
             // 
             // btnCreatePeople
             // 
-            btnCreatePeople.Location = new Point(986, 453);
+            btnCreatePeople.Location = new Point(1159, 453);
             btnCreatePeople.Name = "btnCreatePeople";
             btnCreatePeople.Size = new Size(121, 48);
             btnCreatePeople.TabIndex = 68;
@@ -181,7 +181,7 @@
             // btnBack
             // 
             btnBack.BackColor = SystemColors.ControlLightLight;
-            btnBack.Location = new Point(804, 453);
+            btnBack.Location = new Point(977, 453);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(121, 48);
             btnBack.TabIndex = 67;
@@ -192,7 +192,7 @@
             // txtPeoplePersonType
             // 
             txtPeoplePersonType.ForeColor = SystemColors.WindowFrame;
-            txtPeoplePersonType.Location = new Point(918, 402);
+            txtPeoplePersonType.Location = new Point(1084, 399);
             txtPeoplePersonType.Name = "txtPeoplePersonType";
             txtPeoplePersonType.Size = new Size(154, 27);
             txtPeoplePersonType.TabIndex = 90;
@@ -201,7 +201,7 @@
             // lbPeoplePersonType
             // 
             lbPeoplePersonType.AutoSize = true;
-            lbPeoplePersonType.Location = new Point(766, 402);
+            lbPeoplePersonType.Location = new Point(939, 402);
             lbPeoplePersonType.Name = "lbPeoplePersonType";
             lbPeoplePersonType.Size = new Size(139, 20);
             lbPeoplePersonType.TabIndex = 89;
@@ -209,7 +209,7 @@
             // 
             // txtPeopleFileId
             // 
-            txtPeopleFileId.Location = new Point(1218, 138);
+            txtPeopleFileId.Location = new Point(1438, 135);
             txtPeopleFileId.Name = "txtPeopleFileId";
             txtPeopleFileId.Size = new Size(87, 27);
             txtPeopleFileId.TabIndex = 88;
@@ -217,7 +217,7 @@
             // lbPeopleFileId
             // 
             lbPeopleFileId.AutoSize = true;
-            lbPeopleFileId.Location = new Point(1101, 145);
+            lbPeopleFileId.Location = new Point(1358, 138);
             lbPeopleFileId.Name = "lbPeopleFileId";
             lbPeopleFileId.Size = new Size(54, 20);
             lbPeopleFileId.TabIndex = 87;
@@ -226,7 +226,7 @@
             // lbPeopleBirthDate
             // 
             lbPeopleBirthDate.AutoSize = true;
-            lbPeopleBirthDate.Location = new Point(766, 267);
+            lbPeopleBirthDate.Location = new Point(939, 267);
             lbPeopleBirthDate.Name = "lbPeopleBirthDate";
             lbPeopleBirthDate.Size = new Size(146, 20);
             lbPeopleBirthDate.TabIndex = 85;
@@ -234,7 +234,7 @@
             // 
             // txtPeopleTelephone
             // 
-            txtPeopleTelephone.Location = new Point(889, 352);
+            txtPeopleTelephone.Location = new Point(1062, 352);
             txtPeopleTelephone.Name = "txtPeopleTelephone";
             txtPeopleTelephone.Size = new Size(124, 27);
             txtPeopleTelephone.TabIndex = 84;
@@ -242,7 +242,7 @@
             // lbPeopleTelephone
             // 
             lbPeopleTelephone.AutoSize = true;
-            lbPeopleTelephone.Location = new Point(766, 355);
+            lbPeopleTelephone.Location = new Point(939, 355);
             lbPeopleTelephone.Name = "lbPeopleTelephone";
             lbPeopleTelephone.Size = new Size(67, 20);
             lbPeopleTelephone.TabIndex = 83;
@@ -250,14 +250,14 @@
             // 
             // dtpPeopleBirthDate
             // 
-            dtpPeopleBirthDate.Location = new Point(918, 262);
+            dtpPeopleBirthDate.Location = new Point(1091, 262);
             dtpPeopleBirthDate.Name = "dtpPeopleBirthDate";
-            dtpPeopleBirthDate.Size = new Size(250, 27);
+            dtpPeopleBirthDate.Size = new Size(283, 27);
             dtpPeopleBirthDate.TabIndex = 91;
             // 
             // btnDeletePerson
             // 
-            btnDeletePerson.Location = new Point(1355, 453);
+            btnDeletePerson.Location = new Point(1528, 453);
             btnDeletePerson.Name = "btnDeletePerson";
             btnDeletePerson.Size = new Size(121, 48);
             btnDeletePerson.TabIndex = 92;
@@ -268,7 +268,7 @@
             // lbIdPerson
             // 
             lbIdPerson.AutoSize = true;
-            lbIdPerson.Location = new Point(766, 145);
+            lbIdPerson.Location = new Point(939, 145);
             lbIdPerson.Name = "lbIdPerson";
             lbIdPerson.Size = new Size(73, 20);
             lbIdPerson.TabIndex = 93;
@@ -276,7 +276,7 @@
             // 
             // txtIdPerson
             // 
-            txtIdPerson.Location = new Point(889, 138);
+            txtIdPerson.Location = new Point(1062, 138);
             txtIdPerson.Name = "txtIdPerson";
             txtIdPerson.Size = new Size(124, 27);
             txtIdPerson.TabIndex = 94;
@@ -287,7 +287,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1532, 525);
+            ClientSize = new Size(1726, 766);
             Controls.Add(txtIdPerson);
             Controls.Add(lbIdPerson);
             Controls.Add(btnDeletePerson);

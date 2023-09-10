@@ -44,7 +44,7 @@
             // lbIdSpecialities
             // 
             lbIdSpecialities.AutoSize = true;
-            lbIdSpecialities.Location = new Point(571, 152);
+            lbIdSpecialities.Location = new Point(608, 158);
             lbIdSpecialities.Name = "lbIdSpecialities";
             lbIdSpecialities.Size = new Size(110, 20);
             lbIdSpecialities.TabIndex = 0;
@@ -52,14 +52,14 @@
             // 
             // txtIdSpeciality
             // 
-            txtIdSpeciality.Location = new Point(694, 152);
+            txtIdSpeciality.Location = new Point(731, 158);
             txtIdSpeciality.Name = "txtIdSpeciality";
             txtIdSpeciality.Size = new Size(124, 27);
             txtIdSpeciality.TabIndex = 1;
             // 
             // brnBack
             // 
-            brnBack.Location = new Point(321, 348);
+            brnBack.Location = new Point(416, 372);
             brnBack.Name = "brnBack";
             brnBack.Size = new Size(121, 48);
             brnBack.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             // btnCreateSpecialitie
             // 
-            btnCreateSpecialitie.Location = new Point(503, 348);
+            btnCreateSpecialitie.Location = new Point(598, 372);
             btnCreateSpecialitie.Name = "btnCreateSpecialitie";
             btnCreateSpecialitie.Size = new Size(121, 48);
             btnCreateSpecialitie.TabIndex = 3;
@@ -79,7 +79,7 @@
             // 
             // btnUpdateSpecialitie
             // 
-            btnUpdateSpecialitie.Location = new Point(689, 348);
+            btnUpdateSpecialitie.Location = new Point(784, 372);
             btnUpdateSpecialitie.Name = "btnUpdateSpecialitie";
             btnUpdateSpecialitie.Size = new Size(121, 48);
             btnUpdateSpecialitie.TabIndex = 4;
@@ -89,7 +89,7 @@
             // 
             // txtSpecialityDescription
             // 
-            txtSpecialityDescription.Location = new Point(688, 197);
+            txtSpecialityDescription.Location = new Point(725, 203);
             txtSpecialityDescription.Multiline = true;
             txtSpecialityDescription.Name = "txtSpecialityDescription";
             txtSpecialityDescription.Size = new Size(221, 71);
@@ -98,7 +98,7 @@
             // lbSpecialityDescription
             // 
             lbSpecialityDescription.AutoSize = true;
-            lbSpecialityDescription.Location = new Point(571, 197);
+            lbSpecialityDescription.Location = new Point(608, 203);
             lbSpecialityDescription.Name = "lbSpecialityDescription";
             lbSpecialityDescription.Size = new Size(87, 20);
             lbSpecialityDescription.TabIndex = 5;
@@ -107,11 +107,11 @@
             // dgvSpecialities
             // 
             dgvSpecialities.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSpecialities.Location = new Point(72, 108);
+            dgvSpecialities.Location = new Point(167, 132);
             dgvSpecialities.Name = "dgvSpecialities";
             dgvSpecialities.RowHeadersWidth = 51;
             dgvSpecialities.RowTemplate.Height = 29;
-            dgvSpecialities.Size = new Size(448, 185);
+            dgvSpecialities.Size = new Size(393, 185);
             dgvSpecialities.TabIndex = 9;
             dgvSpecialities.CellContentClick += dgvSpecialities_CellContentClick;
             // 
@@ -119,7 +119,7 @@
             // 
             lbCreateUpdateSpecialities.AutoSize = true;
             lbCreateUpdateSpecialities.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbCreateUpdateSpecialities.Location = new Point(447, 46);
+            lbCreateUpdateSpecialities.Location = new Point(598, 47);
             lbCreateUpdateSpecialities.Name = "lbCreateUpdateSpecialities";
             lbCreateUpdateSpecialities.Size = new Size(177, 25);
             lbCreateUpdateSpecialities.TabIndex = 14;
@@ -127,7 +127,7 @@
             // 
             // btnDeleteSpeciality
             // 
-            btnDeleteSpeciality.Location = new Point(882, 348);
+            btnDeleteSpeciality.Location = new Point(977, 372);
             btnDeleteSpeciality.Name = "btnDeleteSpeciality";
             btnDeleteSpeciality.Size = new Size(121, 48);
             btnDeleteSpeciality.TabIndex = 15;
@@ -140,7 +140,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1057, 461);
+            ClientSize = new Size(1397, 870);
             Controls.Add(btnDeleteSpeciality);
             Controls.Add(lbCreateUpdateSpecialities);
             Controls.Add(dgvSpecialities);

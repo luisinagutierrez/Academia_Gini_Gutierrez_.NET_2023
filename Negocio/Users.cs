@@ -73,18 +73,14 @@ namespace Negocio
         }
         public int GetUserByIdPerson(int idP)
         {
+            int rta = 0;
             Datos.Users ds;
             try
             {
                 ds = new Datos.Users();
-                if(ds.GetUserByIdPerson(idP) != null)
-                {
-                    return 1;
-                }else
-                {
-                    return 0;
-                }
-
+                if (ds.GetUserByIdPerson(idP) == null)  { rta = 1; }
+            
+                return rta;
             }
             finally
             {
