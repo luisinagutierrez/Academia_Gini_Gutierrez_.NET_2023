@@ -117,25 +117,26 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE @IdUser = IdUser", Conn);
-                comm.Parameters.AddWithValue("@IdUser", IdUser);
-  
-                // Ejecutamos el comando y retornamos los valores
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE @IdUser = IdUser", Conn))
                 {
-                    oReader.Read();
-                    // Si existe algun valor, creamos el objeto y lo almacenamos en la colección
-                    objUsers.IdUser = (int)oReader["IdUser"];
-                    objUsers.UserName = (string)oReader["UserName"];
-                    objUsers.Privilege = (int)oReader["Privilege"];
-                    objUsers.Password = (string)oReader["Password"];
-                    objUsers.Status = (bool)oReader["Status"];
-                    objUsers.ChangePassword = (bool)oReader["ChangePassword"];
-                    objUsers.IdPerson = (int)oReader["IdPerson"];
+                    comm.Parameters.AddWithValue("@IdUser", IdUser);
 
+                    // Ejecutamos el comando y retornamos los valores
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            // Si existe algun valor, creamos el objeto y lo almacenamos en la colección
+                            objUsers.IdUser = (int)oReader["IdUser"];
+                            objUsers.UserName = (string)oReader["UserName"];
+                            objUsers.Privilege = (int)oReader["Privilege"];
+                            objUsers.Password = (string)oReader["Password"];
+                            objUsers.Status = (bool)oReader["Status"];
+                            objUsers.ChangePassword = (bool)oReader["ChangePassword"];
+                            objUsers.IdPerson = (int)oReader["IdPerson"];
+                        }
+                    }
                     return objUsers;
-
                 }
             }
             finally
@@ -171,15 +172,15 @@ namespace Datos
                 this.Disconnect();
             }
         }
-        public void  ChangePassword(int IdUser, string Password)
+        public void  ChangePassword(string UserName, string Password)
         {
             Entidades.Users objUsers = new Entidades.Users();
             int rowsAffected = 0;
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("UPDATE Users SET Password = @Password, ChangePassword = 1 WHERE IdUser = @IdUser", Conn);
-                comm.Parameters.AddWithValue("@IdUser", IdUser);
+                SqlCommand comm = new SqlCommand("UPDATE Users SET Password = @Password, ChangePassword = 1 WHERE UserName = @UserName", Conn);
+                comm.Parameters.AddWithValue("@UserName", UserName);
                 comm.Parameters.AddWithValue("@Password", Password);
                 comm.ExecuteNonQuery();
             }
@@ -198,15 +199,18 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT IdPerson FROM Users WHERE UserName = @UserName AND Password = @Password", Conn);
-                comm.Parameters.AddWithValue("@UserName", UserName);
-                comm.Parameters.AddWithValue("@Password", Password);
-                // Ejecutamos el comando y retornamos los valores
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlCommand comm = new SqlCommand("SELECT IdPerson FROM Users WHERE UserName = @UserName AND Password = @Password", Conn))
                 {
-                    oReader.Read();
-                    objUsers.IdPerson = (int)oReader["IdPerson"];
+                    comm.Parameters.AddWithValue("@UserName", UserName);
+                    comm.Parameters.AddWithValue("@Password", Password);
+                    // Ejecutamos el comando y retornamos los valores
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            objUsers.IdPerson = (int)oReader["IdPerson"];
+                        }
+                    }
                 }
                 return objUsers.IdPerson;
             }
@@ -223,20 +227,57 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE IdPerson = @IdPerson", Conn);
-                comm.Parameters.AddWithValue("@IdPerson", IdPerson);
-                // Ejecutamos el comando y retornamos los valores
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE IdPerson = @IdPerson", Conn))
                 {
-                    oReader.Read();
-                    objUsers.IdUser = (int)oReader["IdUser"];
-                    objUsers.UserName = (string)oReader["UserName"];
-                    objUsers.Privilege = (int)oReader["Privilege"];
-                    objUsers.Password = (string)oReader["Password"];
-                    objUsers.Status = (bool)oReader["Status"];
-                    objUsers.ChangePassword = (bool)oReader["ChangePassword"];
-                    objUsers.IdPerson = (int)oReader["IdPerson"];
+                    comm.Parameters.AddWithValue("@IdPerson", IdPerson);
+                    // Ejecutamos el comando y retornamos los valores
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            objUsers.IdUser = (int)oReader["IdUser"];
+                            objUsers.UserName = (string)oReader["UserName"];
+                            objUsers.Privilege = (int)oReader["Privilege"];
+                            objUsers.Password = (string)oReader["Password"];
+                            objUsers.Status = (bool)oReader["Status"];
+                            objUsers.ChangePassword = (bool)oReader["ChangePassword"];
+                            objUsers.IdPerson = (int)oReader["IdPerson"];
+                        }
+                    }
+                }
+                return objUsers;
+            }
+            finally
+            {
+                // Finally nos da siempre la oportunidad de liberar memoria usada por los objetos 
+                //objUsers = null;
+                this.Disconnect();
+            }
+        }
+
+        public Entidades.Users GetUserByUserName(string UserName)
+        {
+            Entidades.Users objUsers = new Entidades.Users();
+            try
+            {
+                this.Connect();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE UserName = @UserName", Conn))
+                {
+                    comm.Parameters.AddWithValue("@UserName", UserName);
+                    // Ejecutamos el comando y retornamos los valores
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            objUsers.IdUser = (int)oReader["IdUser"];
+                            objUsers.UserName = (string)oReader["UserName"];
+                            objUsers.Privilege = (int)oReader["Privilege"];
+                            objUsers.Password = (string)oReader["Password"];
+                            objUsers.Status = (bool)oReader["Status"];
+                            objUsers.ChangePassword = (bool)oReader["ChangePassword"];
+                            objUsers.IdPerson = (int)oReader["IdPerson"];
+                        }
+                    }
                 }
                 return objUsers;
             }

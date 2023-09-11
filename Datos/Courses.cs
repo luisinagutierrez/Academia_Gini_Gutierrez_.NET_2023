@@ -118,24 +118,25 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Courses WHERE @IdCourse = IdCourse", Conn);
-                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
-
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM Courses WHERE @IdCourse = IdCourse", Conn))
                 {
-                    oReader.Read();
+                    comm.Parameters.AddWithValue("@IdCourse", IdCourse);
 
-                    objCourses.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
-                    objCourses.IdSubject = Convert.ToInt32(oReader["IdSubject"]);
-                    objCourses.IdCommission = Convert.ToInt32(oReader["IdCommission"]);
-                    objCourses.CalendarYear = Convert.ToInt32(oReader["CalendarYear"]);
-                    objCourses.Quota = Convert.ToInt32(oReader["Quota"]);
-                    objCourses.NumStudents = Convert.ToInt32(oReader["NumStudents"]);
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            objCourses.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
+                            objCourses.IdSubject = Convert.ToInt32(oReader["IdSubject"]);
+                            objCourses.IdCommission = Convert.ToInt32(oReader["IdCommission"]);
+                            objCourses.CalendarYear = Convert.ToInt32(oReader["CalendarYear"]);
+                            objCourses.Quota = Convert.ToInt32(oReader["Quota"]);
+                            objCourses.NumStudents = Convert.ToInt32(oReader["NumStudents"]);
+                        }
 
-                    return objCourses;
-
+                    }
                 }
+                return objCourses;
             }
             finally
             {
@@ -146,29 +147,32 @@ namespace Datos
         }
         public List<Entidades.Courses> GetAvailableCourses()
         {
+            List<Entidades.Courses> CoursesList = new List<Entidades.Courses>();
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Courses WHERE Quota > NumStudents", Conn);
-                List<Entidades.Courses> CoursesList = new List<Entidades.Courses>();
-
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM Courses WHERE Quota > NumStudents", Conn))
                 {
-                    while (oReader.Read())
+
+                    SqlDataReader oReader = comm.ExecuteReader();
+                    using (oReader)
                     {
-                        Entidades.Courses objCourses = new Entidades.Courses();
-                        objCourses.IdCourse = (int)oReader["IdCourse"];
-                        objCourses.IdSubject = (int)oReader["IdSubject"];
-                        objCourses.IdCommission = (int)oReader["IdCommission"];
-                        objCourses.CalendarYear = (int)oReader["CalendarYear"];
-                        objCourses.Quota = (int)oReader["Quota"];
-                        objCourses.NumStudents = (int)oReader["NumStudents"];
-                        CoursesList.Add(objCourses);
-                        objCourses = null;
+                        while (oReader.Read())
+                        {
+                            Entidades.Courses objCourses = new Entidades.Courses();
+                            objCourses.IdCourse = (int)oReader["IdCourse"];
+                            objCourses.IdSubject = (int)oReader["IdSubject"];
+                            objCourses.IdCommission = (int)oReader["IdCommission"];
+                            objCourses.CalendarYear = (int)oReader["CalendarYear"];
+                            objCourses.Quota = (int)oReader["Quota"];
+                            objCourses.NumStudents = (int)oReader["NumStudents"];
+                            CoursesList.Add(objCourses);
+                            objCourses = null;
+                        }
                     }
-                    return CoursesList;
                 }
+                return CoursesList;
+
             }
             finally
             {

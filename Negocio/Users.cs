@@ -76,7 +76,8 @@ namespace Negocio
             try
             {
                 ds = new Datos.Users();
-                if (ds.GetUserByIdPerson(idP) == null)  { rta = 1; }
+                Entidades.Users user = ds.GetUserByIdPerson(idP);
+                if (user.IdUser == 0)  { rta = 1; }
             
                 return rta;
             }
@@ -85,13 +86,28 @@ namespace Negocio
                 ds = null;
             }
         }
-        public void  ChangePassword(int idU, string pass)
+
+        public Entidades.Users GetUserByUserName (string userName)
         {
             Datos.Users ds;
             try
             {
                 ds = new Datos.Users();
-                ds.ChangePassword(idU, pass);
+                Entidades.Users user = ds.GetUserByUserName(userName);
+                return user;
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+        public void ChangePassword(string username, string pass)
+        {
+            Datos.Users ds;
+            try
+            {
+                ds = new Datos.Users();
+                ds.ChangePassword(username, pass);
             }
             finally
             {

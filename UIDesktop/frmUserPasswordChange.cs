@@ -24,19 +24,19 @@ namespace UIDesktop
 
         private void btnUserNewPasswordAcept_Click(object sender, EventArgs e)
         {
-            int idU = Convert.ToInt32(txtIdUser.Text);
+            string username = Convert.ToString(txtUserName.Text);
             string pass = Convert.ToString(txtUserNewPassword.Text);
 
             Negocio.Users u = new Negocio.Users();
-            Entidades.Users user = u.GetOne(idU);
-            if (user != null)
+            Entidades.Users user = u.GetUserByUserName(username);
+            if (user.IdUser != 0)
             {
-                u.ChangePassword(idU, pass);
+                u.ChangePassword(username, pass);
                 MessageBox.Show("Se guardó la contraseña correctamente.");
             }
             else
             {
-                MessageBox.Show("No se pudo actualizar la contraseña.");
+                MessageBox.Show("Usuario ingresado no existe.");
             }
 
             this.Close();

@@ -62,7 +62,7 @@ namespace UIDesktop
             Negocio.Commissions c = new Negocio.Commissions();
             Entidades.Commissions com = c.GetOne(idC);
 
-            if (com != null && sub != null)
+            if (com.IdCommission != 0 && sub.IdSubject != 0)
             {
                 Negocio.Courses course = new Negocio.Courses();
                 course.Add(idS, idC, cy, q);
@@ -91,7 +91,7 @@ namespace UIDesktop
             Negocio.Commissions c = new Negocio.Commissions();
             Entidades.Commissions com = c.GetOne(idCc);
 
-            if (com != null && sub != null)
+            if (com.IdCommission != 0 && sub.IdSubject != 0)
             {
                 Negocio.Courses course = new Negocio.Courses();
                 course.UpdateCourse(idC, idS, idCc, cy, q);

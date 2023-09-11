@@ -106,21 +106,24 @@ namespace Datos
             Entidades.Plans objPlans = new Entidades.Plans();
             try
             {
-                this.Connect(); 
-                SqlCommand comm = new SqlCommand("SELECT * FROM Plans WHERE @IdPlan = IdPlan", Conn);
-                comm.Parameters.AddWithValue("@IdPlan", IdPlan);
-
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                this.Connect();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM Plans WHERE @IdPlan = IdPlan", Conn))
                 {
-                    oReader.Read();
+                    comm.Parameters.AddWithValue("@IdPlan", IdPlan);
 
-                    objPlans.IdPlan = (int)(oReader["IdPlan"]);
-                    objPlans.PlanDescription = (string)(oReader["PlanDescription"]);
-                    objPlans.IdSpeciality = (int)(oReader["IdSpeciality"]);
-
-                    return objPlans;
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            objPlans.IdPlan = (int)(oReader["IdPlan"]);
+                            objPlans.PlanDescription = (string)(oReader["PlanDescription"]);
+                            objPlans.IdSpeciality = (int)(oReader["IdSpeciality"]);
+                        }
+                    }
                 }
+
+                return objPlans;
+
             } catch (Exception Ex)
             {
                 Exception HandledException = new Exception("Error al buscar plan ", Ex);

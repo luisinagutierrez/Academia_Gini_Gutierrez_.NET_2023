@@ -35,7 +35,20 @@ namespace UIDesktop
         {
             Negocio.Courses nCourses = new Negocio.Courses();
             List<Entidades.Courses> AvailableCoursesList = nCourses.GetAvailableCourses();
-            dgvAvailableCourses.DataSource = AvailableCoursesList;
+            int cant = 0;
+            foreach(Entidades.Courses course in AvailableCoursesList)
+            {
+                cant++;
+            }
+            if (cant == 0)
+            {
+                MessageBox.Show("No hay cursos disponibles");
+                this.Close();
+            }
+            else
+            {
+                dgvAvailableCourses.DataSource = AvailableCoursesList;
+            }
 
             Negocio.StudentsRegistrations nSt = new Negocio.StudentsRegistrations();
             List<Entidades.StudentsRegistrations> CoursesList = nSt.GetCoursesByIdPerson(this.idPerson);

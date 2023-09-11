@@ -40,7 +40,7 @@ namespace UIDesktop
             int personType = Convert.ToInt32(txtPeoplePersonType.Text);
             Negocio.Plans nPlans = new Negocio.Plans();
             Entidades.Plans pl = nPlans.GetOne(idPlan);
-            if (pl != null)
+            if (pl.IdPlan != 0)
             {
                 Negocio.People nP = new Negocio.People();
                 Entidades.People p = new Entidades.People();
@@ -76,7 +76,7 @@ namespace UIDesktop
 
             Negocio.Plans nPlan = new Negocio.Plans();
             Entidades.Plans pl = nPlan.GetOne(idPlan);
-            if (pl != null)
+            if (pl.IdPlan != 0)
             {
 
                 Negocio.People p = new Negocio.People();

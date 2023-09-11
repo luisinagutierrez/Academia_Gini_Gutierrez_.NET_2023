@@ -42,7 +42,7 @@ namespace UIDesktop
             Negocio.Plans p = new Negocio.Plans();
             Entidades.Plans pl = p.GetOne(idP);
             
-            if (pl != null)
+            if (pl.IdPlan != 0)
             {
                 Negocio.Commissions sub = new Negocio.Commissions();
                 sub.Add(idP, descrip, y);
@@ -65,7 +65,7 @@ namespace UIDesktop
             Negocio.Plans p = new Negocio.Plans();
             Entidades.Plans pl = p.GetOne(idP);
 
-            if (pl != null)
+            if (pl.IdPlan != 0)
             {
                 Negocio.Commissions com = new Negocio.Commissions();
                 int co = com.UpdateCommission(idC, descrip, y, idP);
