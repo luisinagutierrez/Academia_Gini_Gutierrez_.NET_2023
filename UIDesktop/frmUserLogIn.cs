@@ -35,12 +35,13 @@ namespace UIDesktop
             string nom = Convert.ToString(txtUserName.Text);
             string pass = Convert.ToString(txtUserPassword.Text);
 
-            int cont = 0;
-            while (cont < 3)
+            int cont = 3;
+            while (cont != 0)
             {
                 Negocio.Users u = new Negocio.Users();
                 int privilege = u.ValidateUser(nom, pass);
-                if (privilege != -1)
+                
+                if (privilege != 0)
                 {
                     int idPerson = u.GetIdPerson(nom, pass);
                     frmMain frmMain = new frmMain(idPerson, privilege);
@@ -49,8 +50,8 @@ namespace UIDesktop
                 }
                 else
                 {
-                    MessageBox.Show("Usuario o contraseña incrrectos, intente nuevamente");
-                    cont++;
+                    MessageBox.Show("Usuario o contraseña incrrectos,intente nuevamente, le quedan " + cont.ToString() +" intentos");
+                    cont--;/// no sale del while ver
                 }
             }
         }

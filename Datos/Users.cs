@@ -111,7 +111,6 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
         public Entidades.Users GetOne(int IdUser)
         {
             Entidades.Users objUsers = new Entidades.Users();
@@ -151,37 +150,27 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT privilege FROM Users WHERE UserName = @userName AND Password = @password", Conn);
-                comm.Parameters.AddWithValue("@UserName", userName);
-                comm.Parameters.AddWithValue("@Password", password);
-                // Ejecutamos el comando y retornamos los valores
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlCommand comm = new SqlCommand("SELECT Privilege FROM Users WHERE UserName = @userName AND Password = @password", Conn))
                 {
-                    oReader.Read();
-                    // Si existe algun valor, creamos el objeto y lo almacenamos en la colección
-                   objUsers.Privilege = (int)oReader["Privilege"];
-                    if (oReader["Privilege"]  == DBNull.Value)
-                    {
-                        return -1;
-                    }
-                    else 
-                    {
-                        objUsers.Privilege = (int)oReader["Privilege"];
-                        return objUsers.Privilege;
-                    }
-                        
+                    comm.Parameters.AddWithValue("@userName", userName);
+                    comm.Parameters.AddWithValue("@password", password);
 
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            objUsers.Privilege = (int)oReader["Privilege"];
+                        }
+                    }
                 }
+                return objUsers.Privilege;
             }
             finally
             {
-                // Finally nos da siempre la oportunidad de liberar memoria usada por los objetos 
                 objUsers = null;
                 this.Disconnect();
             }
         }
-
         public void  ChangePassword(int IdUser, string Password)
         {
             Entidades.Users objUsers = new Entidades.Users();
@@ -203,8 +192,6 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
-
         public int GetIdPerson(string nom, string pass)
         {
             Entidades.Users objUsers = new Entidades.Users();
@@ -230,8 +217,7 @@ namespace Datos
                 objUsers = null;
                 this.Disconnect();
             }
-        }
-
+        } 
         public Entidades.Users GetUserByIdPerson(int IdPerson)
         {
             Entidades.Users objUsers = new Entidades.Users();

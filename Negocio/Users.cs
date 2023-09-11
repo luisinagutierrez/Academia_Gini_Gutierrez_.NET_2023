@@ -19,7 +19,6 @@ namespace Negocio
             {
                 ds = new Datos.Users();
                 int privilege = ds.GetPrivilege(userName, password);
-
                 return privilege;
             }
             finally
