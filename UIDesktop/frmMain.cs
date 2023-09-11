@@ -29,6 +29,8 @@ namespace UIDesktop
             btnReports.Visible = false;
             btnPlan.Visible = false;
 
+            this.idPerson = idPerson;
+
             switch (privilege)
             {
                 case 1: //Teacher
@@ -122,9 +124,9 @@ namespace UIDesktop
             fd.Show();
         }
 
-        private void btnStudentRegistration_Click(object sender, EventArgs e)
+        public void btnStudentRegistration_Click(object sender, EventArgs e)
         {
-            OpenDaughterForm(new frmRegistration());
+            OpenDaughterForm(new frmRegistration(this.idPerson));
         }
 
         private void btnPerson_Click(object sender, EventArgs e)
@@ -164,7 +166,7 @@ namespace UIDesktop
 
         private void btnTeacherMenu_Click(object sender, EventArgs e)
         {
-            OpenDaughterForm(new frmTeacherMainMenu());
+            OpenDaughterForm(new frmTeacherMainMenu(this.idPerson));
         }
     }
 }

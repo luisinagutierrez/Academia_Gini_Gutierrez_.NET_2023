@@ -41,7 +41,7 @@ namespace UIDesktop
 
             Negocio.Plans p = new Negocio.Plans();
             Entidades.Plans pl = p.GetOne(idP);
-
+            
             if (pl != null)
             {
                 Negocio.Commissions sub = new Negocio.Commissions();
@@ -69,7 +69,7 @@ namespace UIDesktop
             {
                 Negocio.Commissions com = new Negocio.Commissions();
                 int co = com.UpdateCommission(idC, descrip, y, idP);
-                if (co == 1)
+                if (co != 0)
                 {
                     MessageBox.Show("Se actualizó la comision correctamente.");
                     this.Close();
@@ -92,7 +92,7 @@ namespace UIDesktop
             Negocio.Commissions nC = new Negocio.Commissions();
             Negocio.Courses nCourses = new Negocio.Courses();
             int c = nCourses.GetCoursesByIdCommission(idC);
-            if (c == 0)
+            if (c == 1)
             {
                 nC.Delete(idC);
                 MessageBox.Show("Operación exitosa");

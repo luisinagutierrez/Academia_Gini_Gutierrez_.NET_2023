@@ -35,6 +35,7 @@
             btnTeacherCoursesAccept = new Button();
             btnTeacherCoursesCancel = new Button();
             dataGridView1 = new DataGridView();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvTeacheraCoursesList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -55,7 +56,7 @@
             // 
             lbTeacherCoursesList.AutoSize = true;
             lbTeacherCoursesList.Font = new Font("Verdana", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbTeacherCoursesList.Location = new Point(286, 48);
+            lbTeacherCoursesList.Location = new Point(199, 55);
             lbTeacherCoursesList.Name = "lbTeacherCoursesList";
             lbTeacherCoursesList.Size = new Size(241, 28);
             lbTeacherCoursesList.TabIndex = 2;
@@ -80,7 +81,7 @@
             // 
             // btnTeacherCoursesAccept
             // 
-            btnTeacherCoursesAccept.Location = new Point(602, 390);
+            btnTeacherCoursesAccept.Location = new Point(441, 332);
             btnTeacherCoursesAccept.Name = "btnTeacherCoursesAccept";
             btnTeacherCoursesAccept.Size = new Size(120, 39);
             btnTeacherCoursesAccept.TabIndex = 5;
@@ -110,12 +111,24 @@
             dataGridView1.Size = new Size(593, 211);
             dataGridView1.TabIndex = 7;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Verdana", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(664, 43);
+            label2.Name = "label2";
+            label2.Size = new Size(636, 28);
+            label2.TabIndex = 8;
+            label2.Text = "alumnos de un curso que ingresa en el momento";
+            label2.Click += label2_Click;
+            // 
             // frmTeacherMainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1324, 701);
+            Controls.Add(label2);
             Controls.Add(dataGridView1);
             Controls.Add(btnTeacherCoursesCancel);
             Controls.Add(btnTeacherCoursesAccept);
@@ -141,5 +154,6 @@
         private Button btnTeacherCoursesAccept;
         private Button btnTeacherCoursesCancel;
         private DataGridView dataGridView1;
+        private Label label2;
     }
 }

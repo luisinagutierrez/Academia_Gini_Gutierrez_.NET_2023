@@ -37,7 +37,6 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
         public void Update(int IdPerson, int FileId, string Name, string Surname, string Address, string Email, DateTime BirthDate, string Telephone, int IdPlan)
         {
             try
@@ -65,7 +64,6 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
         public void Delete(int IdPerson)
         {
             try

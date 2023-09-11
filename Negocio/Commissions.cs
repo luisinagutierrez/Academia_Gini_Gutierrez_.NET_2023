@@ -59,7 +59,7 @@ namespace Negocio
                 Entidades.Commissions com = new Entidades.Commissions();
                 ds = new Datos.Commissions();
                 com = ds.GetOne(idC);
-                if (com != null)
+                if (com.IdCommission != 0)
                 {
                     this.Update(idC, descrip, y, idP);
                     return 1;
@@ -74,7 +74,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public void Delete(int id)
         {
             Datos.Commissions ds;
@@ -82,15 +81,7 @@ namespace Negocio
             {
                 Entidades.Commissions com = new Entidades.Commissions();
                 ds = new Datos.Commissions();
-                com = ds.GetOne(id);
-                if (com != null)
-                {
-                    ds.Delete(id);
-                }
-                else
-                {
-                    throw new Exception("No se puede eliminar la comision, ya que no existe");
-                }
+                ds.Delete(id);
             }
             finally
             {
@@ -103,9 +94,8 @@ namespace Negocio
             try
             {
                 ds = new Datos.Commissions();
-                Entidades.Commissions user = ds.GetOne(id);
-
-                return user;
+                Entidades.Commissions com = ds.GetOne(id);
+                return com;
             }
             finally
             {

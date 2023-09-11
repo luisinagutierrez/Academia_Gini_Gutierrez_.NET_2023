@@ -61,8 +61,7 @@ namespace Negocio
             try
             {
                 ds = new Datos.Users();
-                int IdPerson = ds.GetPrivilege(nom, pass);
-
+                int IdPerson = ds.GetIdPerson(nom, pass);
                 return IdPerson;
             }
             finally

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace UIDesktop
 {
     public partial class frmRegistration : Form
     {
-        public frmRegistration()
+        public int idPerson;
+        public frmRegistration(int idPerson)
         {
+            
             InitializeComponent();
+            this.idPerson = idPerson;
         }
 
         private void btnStudentNewRegistrationCancel_Click(object sender, EventArgs e)
@@ -33,11 +37,9 @@ namespace UIDesktop
             List<Entidades.Courses> AvailableCoursesList = nCourses.GetAvailableCourses();
             dgvAvailableCourses.DataSource = AvailableCoursesList;
 
-            int idPerson = 31; /// debería de pasarselo el main pero no se como hacerlo!!!!1
             Negocio.StudentsRegistrations nSt = new Negocio.StudentsRegistrations();
-            List<Entidades.StudentsRegistrations> CoursesList = nSt.GetCoursesByIdPerson(idPerson);
+            List<Entidades.StudentsRegistrations> CoursesList = nSt.GetCoursesByIdPerson(this.idPerson);
             dgvRegistrationCourses.DataSource = CoursesList;
-
         }
 
 
@@ -50,7 +52,7 @@ namespace UIDesktop
             if (course)
             {
                 Negocio.StudentsRegistrations nst = new Negocio.StudentsRegistrations();
-                nst.Add(IdCourse, 31);//  sería el id de persona que no se como pasarle al form !!!!         
+                nst.Add(IdCourse, this.idPerson);//  sería el id de persona que no se como pasarle al form !!!!         
                 MessageBox.Show("Operacion exitosa");
                 this.Close();
             }
@@ -70,7 +72,7 @@ namespace UIDesktop
 
             int IdRegistration = Convert.ToInt32(txtIdRegistration.Text);
             Negocio.StudentsRegistrations nStuReg = new Negocio.StudentsRegistrations();
-            int idCourse = nStuReg.ValidateStudentsRegistrations(IdRegistration, 31); //      sería el id de persona que no se como pasarle al form !!!!        
+            int idCourse = nStuReg.ValidateStudentsRegistrations(IdRegistration, this.idPerson); //      sería el id de persona que no se como pasarle al form !!!!        
             if (idCourse != 0) ///ACA NO SE QUE ME DEVOLVERÍA SI INGRESA UNA REGISTRATION NO VALIDA
             {
                 Negocio.Courses nCourses = new Negocio.Courses();

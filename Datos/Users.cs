@@ -192,21 +192,20 @@ namespace Datos
                 this.Disconnect();
             }
         }
-        public int GetIdPerson(string nom, string pass)
+        public int GetIdPerson(string UserName, string Password)
         {
             Entidades.Users objUsers = new Entidades.Users();
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT IdPerson FROM Users WHERE UserName = @nom AND Password = @pass", Conn);
-                comm.Parameters.AddWithValue("@UserName", nom);
-                comm.Parameters.AddWithValue("@Password", pass);
+                SqlCommand comm = new SqlCommand("SELECT IdPerson FROM Users WHERE UserName = @UserName AND Password = @Password", Conn);
+                comm.Parameters.AddWithValue("@UserName", UserName);
+                comm.Parameters.AddWithValue("@Password", Password);
                 // Ejecutamos el comando y retornamos los valores
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
                 {
                     oReader.Read();
-                    // Si existe algun valor, creamos el objeto y lo almacenamos en la colección
                     objUsers.IdPerson = (int)oReader["IdPerson"];
                 }
                 return objUsers.IdPerson;

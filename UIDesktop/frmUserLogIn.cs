@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UIDesktop
 {
     public partial class frmUserLogIn : Form
     {
+        public int cont;
         public frmUserLogIn()
         {
             InitializeComponent();
@@ -32,32 +34,40 @@ namespace UIDesktop
 
         private void btnUserLogInAccept_Click(object sender, EventArgs e)
         {
-            string nom = Convert.ToString(txtUserName.Text);
-            string pass = Convert.ToString(txtUserPassword.Text);
-
-            int cont = 3;
-            while (cont != 0)
+            if (this.cont != 0)
             {
+                string nom = Convert.ToString(txtUserName.Text);
+                string pass = Convert.ToString(txtUserPassword.Text);
+
                 Negocio.Users u = new Negocio.Users();
                 int privilege = u.ValidateUser(nom, pass);
-                
+
                 if (privilege != 0)
                 {
                     int idPerson = u.GetIdPerson(nom, pass);
                     frmMain frmMain = new frmMain(idPerson, privilege);
                     frmMain.ShowDialog();
                     this.Close();
+                    return;
                 }
-                else
+                else 
                 {
-                    MessageBox.Show("Usuario o contraseña incrrectos,intente nuevamente, le quedan " + cont.ToString() +" intentos");
-                    cont--;/// no sale del while ver
+                    txtUserName.Text = "";
+                    txtUserPassword.Text = "";
+                    MessageBox.Show("Usuario o contraseña incorrectos, intente nuevamente, le quedan " + this.cont.ToString() + " intentos");
+                    this.cont--;
                 }
+
+            }
+            else 
+            {
+                this.Close();
             }
         }
 
         private void frmUserLogIn_Load(object sender, EventArgs e)
         {
+            this.cont = 2;
 
         }
 

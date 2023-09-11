@@ -38,7 +38,7 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(290, 304);
+            btnBack.Location = new Point(527, 391);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(158, 52);
             btnBack.TabIndex = 0;
@@ -49,7 +49,7 @@
             // lbTitleContacts
             // 
             lbTitleContacts.AutoSize = true;
-            lbTitleContacts.Location = new Point(290, 90);
+            lbTitleContacts.Location = new Point(377, 123);
             lbTitleContacts.Name = "lbTitleContacts";
             lbTitleContacts.Size = new Size(193, 200);
             lbTitleContacts.TabIndex = 2;
@@ -59,7 +59,7 @@
             // 
             lbSpecialities.AutoSize = true;
             lbSpecialities.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbSpecialities.Location = new Point(334, 49);
+            lbSpecialities.Location = new Point(589, 35);
             lbSpecialities.Name = "lbSpecialities";
             lbSpecialities.Size = new Size(111, 25);
             lbSpecialities.TabIndex = 3;
@@ -68,9 +68,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(594, 90);
+            pictureBox1.Location = new Point(704, 99);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(184, 190);
+            pictureBox1.Size = new Size(271, 255);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
@@ -81,7 +81,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(826, 400);
+            ClientSize = new Size(1196, 760);
             Controls.Add(pictureBox1);
             Controls.Add(lbSpecialities);
             Controls.Add(lbTitleContacts);

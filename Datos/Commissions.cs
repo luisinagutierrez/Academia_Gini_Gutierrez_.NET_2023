@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class Commissions : Connection { 
+    public class Commissions : Connection {
         public int Add(int IdPlan, string CommissionDescription, int SpecialityYear)
         {
             try
@@ -35,7 +35,7 @@ namespace Datos
         {
             try
             {
-                this.Connect(); 
+                this.Connect();
                 SqlCommand comm = new SqlCommand("UPDATE Commissions SET CommissionDescription = @CommissionDescription, SpecialityYear = @SpecialityYear, IdPlan = @IdPlan WHERE IdCommission = @IdCommission", Conn);
                 comm.Parameters.AddWithValue("@IdCommission", IdCommission);
                 comm.Parameters.AddWithValue("@CommissionDescription", CommissionDescription);
@@ -117,28 +117,19 @@ namespace Datos
                 this.Connect();
                 SqlCommand comm = new SqlCommand("SELECT * FROM Commissions WHERE @IdCommission = IdCommission", Conn);
                 comm.Parameters.AddWithValue("@IdCommission", IdCommission);
-
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlDataReader oReader = comm.ExecuteReader())
                 {
-                    oReader.Read();
-
-                    objCommissions.IdCommission = (int)(oReader["IdCommission"]);
-                    objCommissions.CommissionDescription = (string)(oReader["CommissionDescription"]);
-                    objCommissions.SpecialityYear = (int)(oReader["SpecialityYear"]);
-                    objCommissions.IdPlan = (int)(oReader["IdPlan"]);
-                    
-                    if (oReader["IdCommission"] == DBNull.Value)
+                    if (oReader.Read())
                     {
-                        return null;
-                    }
-                    else
-                    {
-                        return objCommissions;
+                        objCommissions.IdCommission = (int)(oReader["IdCommission"]);
+                        objCommissions.CommissionDescription = (string)(oReader["CommissionDescription"]);
+                        objCommissions.SpecialityYear = (int)(oReader["SpecialityYear"]);
+                        objCommissions.IdPlan = (int)(oReader["IdPlan"]);
                     }
                 }
-
+                return objCommissions;
             }
+            
             finally
             {
                 this.Disconnect();

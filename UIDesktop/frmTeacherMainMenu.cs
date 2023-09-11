@@ -12,9 +12,11 @@ namespace UIDesktop
 {
     public partial class frmTeacherMainMenu : Form
     {
-        public frmTeacherMainMenu()
+        public int idPerson;
+        public frmTeacherMainMenu(int idPerson)
         {
             InitializeComponent();
+            this.idPerson = idPerson;
         }
 
         private void frmTeacherMainMenu_Load(object sender, EventArgs e)
@@ -25,6 +27,10 @@ namespace UIDesktop
             dgvTeacheraCoursesList.DataSource = CoursesList;
 
             //MOSTRAR LOS STUDENT REGISTRATION DE UN CURSO EN PARICULAR, no se como se como se podría hacer capaz q pidiendole el curso y depues apretando aceptar, pero donde se valida que l curso que ingresó estaba bien 
+
+            //Negocio.TeacherCourses nSt = new Negocio.TeacherCourses();
+            //List<Entidades.StudentsRegistrations> CoursesList = nSt.GetCoursesByIdPerson(this.idPerson);
+            //dgvRegistrationCourses.DataSource = CoursesList;
 
         }
 
@@ -43,6 +49,11 @@ namespace UIDesktop
             //aca habria que validar que exista el curso
             //de no existir, mostrar un mensaje de error y dejarlo volver a ingresar
             //si existe, pasa a los alumnos que esten inscriptos en ese curso
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

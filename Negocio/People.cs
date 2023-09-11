@@ -73,7 +73,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public void Update(int idP, int fileId, string name, string surname, string address, string email, DateTime birthDate, string telephone, int idPlan)
         {
             Datos.People ds;
@@ -88,6 +87,19 @@ namespace Negocio
             }
         }
 
+        //public void UpdatePeople(int idP, int fileId, string name, string surname, string address, string email, DateTime birthDate, string telephone, int idPlan)
+        //{
+        //    Datos.People ds;
+        //    try
+        //    {
+        //        ds = new Datos.People();
+        //        ds.Update(idP, fileId, name, surname, address, email, birthDate, telephone, idPlan);
+        //    }
+        //    finally
+        //    {
+        //        ds = null;
+        //    }
+        //}
         public void Delete(int id)
         {
             Datos.People ds;
