@@ -773,3 +773,4 @@ C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\PruebaAcademia
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\PruebaAcademia\UIDesktop\bin\Debug\net6.0-windows\zh-CHS\CrystalDecisions.Shared.resources.dll
 C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\PruebaAcademia\UIDesktop\bin\Debug\net6.0-windows\zh-CHT\CrystalDecisions.Shared.resources.dll
 C:\Users\Usuario\OneDrive\Escritorio\ISI UTN 3ero\Tecnologías en Desarrollo de Software IDE (elec)\TPI Academia\TPI_3K2_TT_Academia\PruebaAcademia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmUsersAdmin.resources
+C:\Users\Usuario\Desktop\Tecnología de Desarrollo de SoftwarwIDE\PruebaAcademia\UIDesktop\obj\Debug\net6.0-windows\UIDesktop.frmUsersAdmin.resources

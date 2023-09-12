@@ -43,7 +43,6 @@
             btnUpdatePeople = new Button();
             btnCreatePeople = new Button();
             btnBack = new Button();
-            txtPeoplePersonType = new TextBox();
             lbPeoplePersonType = new Label();
             txtPeopleFileId = new TextBox();
             lbPeopleFileId = new Label();
@@ -54,6 +53,7 @@
             btnDeletePerson = new Button();
             lbIdPerson = new Label();
             txtIdPerson = new TextBox();
+            cboxTypePerson = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
             SuspendLayout();
             // 
@@ -190,15 +190,6 @@
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
             // 
-            // txtPeoplePersonType
-            // 
-            txtPeoplePersonType.ForeColor = SystemColors.WindowFrame;
-            txtPeoplePersonType.Location = new Point(1084, 399);
-            txtPeoplePersonType.Name = "txtPeoplePersonType";
-            txtPeoplePersonType.Size = new Size(154, 27);
-            txtPeoplePersonType.TabIndex = 90;
-            txtPeoplePersonType.Text = "1-docente 2-alumno";
-            // 
             // lbPeoplePersonType
             // 
             lbPeoplePersonType.AutoSize = true;
@@ -282,6 +273,15 @@
             txtIdPerson.Size = new Size(124, 27);
             txtIdPerson.TabIndex = 94;
             // 
+            // cboxTypePerson
+            // 
+            cboxTypePerson.FormattingEnabled = true;
+            cboxTypePerson.Items.AddRange(new object[] { "1", "2" });
+            cboxTypePerson.Location = new Point(1084, 399);
+            cboxTypePerson.Name = "cboxTypePerson";
+            cboxTypePerson.Size = new Size(72, 28);
+            cboxTypePerson.TabIndex = 95;
+            // 
             // frmPeople
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -289,11 +289,11 @@
             AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1726, 766);
+            Controls.Add(cboxTypePerson);
             Controls.Add(txtIdPerson);
             Controls.Add(lbIdPerson);
             Controls.Add(btnDeletePerson);
             Controls.Add(dtpPeopleBirthDate);
-            Controls.Add(txtPeoplePersonType);
             Controls.Add(lbPeoplePersonType);
             Controls.Add(txtPeopleFileId);
             Controls.Add(lbPeopleFileId);
@@ -352,5 +352,6 @@
         private Button btnDeletePerson;
         private Label lbIdPerson;
         private TextBox txtIdPerson;
+        private ComboBox cboxTypePerson;
     }
 }

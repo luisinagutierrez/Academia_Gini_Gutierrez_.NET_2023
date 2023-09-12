@@ -53,7 +53,7 @@ namespace UIDesktop
 
             Negocio.Specialities s = new Negocio.Specialities();
             int sp = s.Update(id, descrip);
-            if (sp == 1)
+            if (sp != 0)
             {
                 MessageBox.Show("Se actualizó la especialidad correctamente.");
                 this.Close();
@@ -80,7 +80,7 @@ namespace UIDesktop
                 Negocio.Specialities s = new Negocio.Specialities();
                 int rts = s.Delete(idS);
                 MessageBox.Show("del delete" + rts.ToString());
-                if (rts == 1)
+                if (rts != 0)
                 {
                     MessageBox.Show("Operación exitosa");
                     this.Close();

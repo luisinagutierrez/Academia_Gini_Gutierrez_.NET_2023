@@ -37,9 +37,11 @@ namespace UIDesktop
             string email = Convert.ToString(txtPeopleEmail.Text);
             DateTime birthDate = Convert.ToDateTime(dtpPeopleBirthDate.Text);
             string telephone = Convert.ToString(txtPeopleTelephone.Text);
-            int personType = Convert.ToInt32(txtPeoplePersonType.Text);
+            int personType = Convert.ToInt32(cboxTypePerson.Text);
+
             Negocio.Plans nPlans = new Negocio.Plans();
             Entidades.Plans pl = nPlans.GetOne(idPlan);
+
             if (pl.IdPlan != 0)
             {
                 Negocio.People nP = new Negocio.People();
@@ -55,12 +57,13 @@ namespace UIDesktop
                 p.IdPlan = idPlan;
                 nP.Add(p);
                 MessageBox.Show("Operación exitosa");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("El IdPlan ingresado no existe.");
             }
-            this.Close();
+
         }
         private void btnUpdatePeople_Click(object sender, EventArgs e)
         {
@@ -119,45 +122,35 @@ namespace UIDesktop
             else
             {
                 MessageBox.Show("No se puede eliminar la persona, ya que tiene un usuario asociado.");
-                this.Close();
             }
         }
 
         private void dgvPeople_SelectionChanged(object sender, EventArgs e)
         {
-            // Verifica si hay alguna fila seleccionada
             if (dgvPeople.SelectedRows.Count > 0)
             {
-                // Obtén la fila seleccionada
                 DataGridViewRow selectedRow = dgvPeople.SelectedRows[0];
-
-                // Accede a las celdas de la fila y asigna sus valores a los TextBox
                 txtIdPerson.Text = selectedRow.Cells["IdPerson"].Value.ToString();
                 txtPeopleName.Text = selectedRow.Cells["Name"].Value.ToString();
                 txtPeopleSurname.Text = selectedRow.Cells["Surname"].Value.ToString();
                 txtPeopleAddress.Text = selectedRow.Cells["Address"].Value.ToString();
                 txtPeopleEmail.Text = selectedRow.Cells["Email"].Value.ToString();
                 txtPeopleTelephone.Text = selectedRow.Cells["Telephone"].Value.ToString();
-                txtPeoplePersonType.Text = selectedRow.Cells["PersonType"].Value.ToString();
                 txtPeopleIdPlan.Text = selectedRow.Cells["IdPlan"].Value.ToString();
                 txtPeopleFileId.Text = selectedRow.Cells["FileId"].Value.ToString();
                 dtpPeopleBirthDate.Text = selectedRow.Cells["BirthDate"].Value.ToString();
-                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
             }
             else
             {
-                // Si no hay filas seleccionadas, borra los TextBox
                 txtIdPerson.Text = "";
                 txtPeopleName.Text = "";
                 txtPeopleSurname.Text = "";
                 txtPeopleAddress.Text = "";
                 txtPeopleEmail.Text = "";
                 txtPeopleTelephone.Text = "";
-                txtPeoplePersonType.Text = "";
                 txtPeopleIdPlan.Text = "";
                 txtPeopleFileId.Text = "";
                 dtpPeopleBirthDate.Text = "";
-                // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }
     }

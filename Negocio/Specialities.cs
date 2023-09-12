@@ -45,16 +45,14 @@ namespace Negocio
             Datos.Specialities ds;
             try
             {
-                int rt = 0;
                 Entidades.Specialities sp = new Entidades.Specialities();
                 ds = new Datos.Specialities();
                 sp = ds.GetOne(idS);
                 if (sp.IdSpeciality != 0)
                 {
                     ds.Delete(idS);
-                    rt = 1;
                 }
-                return rt;
+                return sp.IdSpeciality;
 
             }
             finally
@@ -82,16 +80,14 @@ namespace Negocio
             Datos.Specialities ds;
             try
             {
-                int rt = 0;
                 Entidades.Specialities sp = new Entidades.Specialities();
                 ds = new Datos.Specialities();
                 sp = ds.GetOne(id);
                 if (sp.IdSpeciality != 0)
                 {
                     ds.Update(id, desp);
-                    rt = 1;
                 }
-                return rt;
+                return sp.IdSpeciality;
             }
             finally
             {

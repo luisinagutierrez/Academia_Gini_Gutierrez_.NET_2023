@@ -67,12 +67,13 @@ namespace UIDesktop
                 Negocio.Courses course = new Negocio.Courses();
                 course.Add(idS, idC, cy, q);
                 MessageBox.Show("Operación exitosa");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Id ingresados no validos");
             }
-            this.Close();
+            
 
 
         }
@@ -102,8 +103,7 @@ namespace UIDesktop
             {
                 MessageBox.Show("Id ingresados no validos");
             }
-            this.Close();
-
+            
         }
 
         private void btnDeleteCourse_Click(object sender, EventArgs e)
@@ -129,7 +129,6 @@ namespace UIDesktop
                 else
                 {
                     MessageBox.Show("No se puede eliminar el curso, ya que tiene uno o varios profesores o inscripciones activas.");
-                    this.Close();
                 }
             }
             else { MessageBox.Show("Curso ingresado no valido"); }
@@ -137,29 +136,23 @@ namespace UIDesktop
 
         private void dgvCourses_SelectionChanged(object sender, EventArgs e)
         {
-            // Verifica si hay alguna fila seleccionada
             if (dgvCourses.SelectedRows.Count > 0)
             {
-                // Obtén la fila seleccionada
                 DataGridViewRow selectedRow = dgvCourses.SelectedRows[0];
 
-                // Accede a las celdas de la fila y asigna sus valores a los TextBox
                 txtIdCourse.Text = selectedRow.Cells["IdCourse"].Value.ToString();
                 txtCoursesIdSubject.Text = selectedRow.Cells["IdSubject"].Value.ToString();
                 txtCoursesIdCommission.Text = selectedRow.Cells["IdCommission"].Value.ToString();
                 txtCoursesCalendarYear.Text = selectedRow.Cells["CalendarYear"].Value.ToString();
                 txtCoursesQuota.Text = selectedRow.Cells["Quota"].Value.ToString();
-                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
             }
             else
             {
-                // Si no hay filas seleccionadas, borra los TextBox
                 txtIdCourse.Text = "";
                 txtCoursesIdSubject.Text = "";
                 txtCoursesIdCommission.Text = "";
                 txtCoursesCalendarYear.Text = "";
                 txtCoursesQuota.Text = "";
-                // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }
     }

@@ -54,16 +54,14 @@ namespace Negocio
             Datos.Plans ds;
             try
             {
-                int rt = 0;
                 Entidades.Plans pl = new Entidades.Plans();
                 ds = new Datos.Plans();
                 pl = ds.GetOne(idP);
                 if (pl.IdPlan != 0)
                 {
-                    ds.Update(idP, desp, idS);
-                    rt = 1; ;
+                    ds.Update(idP, desp, idS); 
                 }
-                return rt;
+                return pl.IdPlan;
 
             }
             finally
@@ -83,9 +81,8 @@ namespace Negocio
                 if (pl.IdPlan != 0)
                 {
                     ds.Delete(idP);
-                    rt = 1 ;
                 }
-                return rt;
+                return pl.IdPlan;
 
             }
             finally

@@ -68,8 +68,7 @@ namespace UIDesktop
 
             Negocio.Plans p = new Negocio.Plans();
             Entidades.Plans pl = p.GetOne(idP);
-            MessageBox.Show("id plan " + pl.ToString());
-
+            
             if (pl.IdPlan != 0)
             {
                 Negocio.Subjects sub = new Negocio.Subjects();

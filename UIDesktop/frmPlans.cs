@@ -74,7 +74,7 @@ namespace UIDesktop
             {
                 Negocio.Plans p = new Negocio.Plans();
                 int pl = p.Update(idP, descrip, idS);
-                if (pl == 1)
+                if (pl != 0)
                 {
                     MessageBox.Show("Se actualizó el plan correctamente.");
                     this.Close();
@@ -107,7 +107,7 @@ namespace UIDesktop
             if (sj == 0 && com == 0 && pp == 0)
             {
                 int rtp = plan.Delete(idP);
-                if (rtp == 1)
+                if (rtp != 0)
                 {
                     MessageBox.Show("Operación exitosa");
                     this.Close();
@@ -120,31 +120,24 @@ namespace UIDesktop
             else
             {
                 MessageBox.Show("No se puede eliminar el plan dado que tiene materias, personas o comisiones en el que está asignado.");
-                this.Close();
             }
         }
 
         private void dgvPlans_SelectionChanged(object sender, EventArgs e)
         {
-                // Verifica si hay alguna fila seleccionada
                 if (dgvPlans.SelectedRows.Count > 0)
                 {
-                    // Obtén la fila seleccionada
                     DataGridViewRow selectedRow = dgvPlans.SelectedRows[0];
 
-                    // Accede a las celdas de la fila y asigna sus valores a los TextBox
                     txtIdPlans.Text = selectedRow.Cells["IdPlan"].Value.ToString();
                     txtPlanDescription.Text = selectedRow.Cells["PlanDescription"].Value.ToString();
                     txtPlanSpeciality.Text = selectedRow.Cells["IdSpeciality"].Value.ToString();
-                    // ... y así sucesivamente para cada TextBox y columna que desees mostrar
                 }
                 else
                 {
-                    // Si no hay filas seleccionadas, borra los TextBox
                     txtIdPlans.Text = "";
                     txtPlanDescription.Text = "";
                     txtPlanSpeciality.Text = "";
-                    // ... y así sucesivamente para cada TextBox que desees borrar
                 }
 
         }
