@@ -100,6 +100,7 @@
             dgvSubjects.Size = new Size(702, 242);
             dgvSubjects.TabIndex = 48;
             dgvSubjects.CellContentClick += dgvSubjects_CellContentClick;
+            dgvSubjects.SelectionChanged += dgvSubjects_SelectionChanged;
             // 
             // txtSubjectDescription
             // 

@@ -51,6 +51,7 @@
             btnPerson = new Button();
             pictureBox1 = new PictureBox();
             pnContainerMain = new Panel();
+            btnUsers = new Button();
             pnUpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnRestore).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimize).BeginInit();
@@ -81,7 +82,7 @@
             btnRestore.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnRestore.Cursor = Cursors.Hand;
             btnRestore.Image = (Image)resources.GetObject("btnRestore.Image");
-            btnRestore.Location = new Point(1299, 7);
+            btnRestore.Location = new Point(1244, 7);
             btnRestore.Name = "btnRestore";
             btnRestore.Size = new Size(25, 25);
             btnRestore.SizeMode = PictureBoxSizeMode.Zoom;
@@ -95,7 +96,7 @@
             btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMinimize.Cursor = Cursors.Hand;
             btnMinimize.Image = (Image)resources.GetObject("btnMinimize.Image");
-            btnMinimize.Location = new Point(1256, 7);
+            btnMinimize.Location = new Point(1201, 7);
             btnMinimize.Name = "btnMinimize";
             btnMinimize.Size = new Size(25, 25);
             btnMinimize.SizeMode = PictureBoxSizeMode.Zoom;
@@ -108,7 +109,7 @@
             btnMaximize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMaximize.Cursor = Cursors.Hand;
             btnMaximize.Image = (Image)resources.GetObject("btnMaximize.Image");
-            btnMaximize.Location = new Point(1299, 7);
+            btnMaximize.Location = new Point(1244, 7);
             btnMaximize.Name = "btnMaximize";
             btnMaximize.Size = new Size(25, 25);
             btnMaximize.SizeMode = PictureBoxSizeMode.Zoom;
@@ -121,7 +122,7 @@
             btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnClose.Cursor = Cursors.Hand;
             btnClose.Image = (Image)resources.GetObject("btnClose.Image");
-            btnClose.Location = new Point(1342, 7);
+            btnClose.Location = new Point(1287, 7);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(25, 25);
             btnClose.SizeMode = PictureBoxSizeMode.Zoom;
@@ -132,9 +133,10 @@
             // pnLeftMain
             // 
             pnLeftMain.BackColor = Color.FromArgb(26, 32, 40);
+            pnLeftMain.Controls.Add(btnUsers);
             pnLeftMain.Controls.Add(btnContact);
-            pnLeftMain.Controls.Add(btnExit);
             pnLeftMain.Controls.Add(pnSubmenuReports);
+            pnLeftMain.Controls.Add(btnExit);
             pnLeftMain.Controls.Add(btnReports);
             pnLeftMain.Controls.Add(btnTeacherMenu);
             pnLeftMain.Controls.Add(btnStudentRegistration);
@@ -148,7 +150,7 @@
             pnLeftMain.Dock = DockStyle.Left;
             pnLeftMain.Location = new Point(0, 38);
             pnLeftMain.Name = "pnLeftMain";
-            pnLeftMain.Size = new Size(220, 742);
+            pnLeftMain.Size = new Size(220, 809);
             pnLeftMain.TabIndex = 1;
             // 
             // btnContact
@@ -159,7 +161,7 @@
             btnContact.FlatStyle = FlatStyle.Flat;
             btnContact.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             btnContact.ForeColor = SystemColors.ButtonHighlight;
-            btnContact.Location = new Point(0, 620);
+            btnContact.Location = new Point(0, 664);
             btnContact.Name = "btnContact";
             btnContact.Size = new Size(220, 32);
             btnContact.TabIndex = 6;
@@ -171,7 +173,7 @@
             // 
             btnExit.Cursor = Cursors.Hand;
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
-            btnExit.Location = new Point(0, 683);
+            btnExit.Location = new Point(0, 750);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(60, 59);
             btnExit.SizeMode = PictureBoxSizeMode.Zoom;
@@ -181,9 +183,9 @@
             // 
             // pnSubmenuReports
             // 
-            pnSubmenuReports.Controls.Add(btnPeopleReports);
             pnSubmenuReports.Controls.Add(btnUsersReport);
-            pnSubmenuReports.Location = new Point(71, 544);
+            pnSubmenuReports.Controls.Add(btnPeopleReports);
+            pnSubmenuReports.Location = new Point(71, 582);
             pnSubmenuReports.Name = "pnSubmenuReports";
             pnSubmenuReports.Size = new Size(149, 76);
             pnSubmenuReports.TabIndex = 4;
@@ -197,7 +199,7 @@
             btnPeopleReports.FlatStyle = FlatStyle.Flat;
             btnPeopleReports.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             btnPeopleReports.ForeColor = SystemColors.ButtonHighlight;
-            btnPeopleReports.Location = new Point(0, 38);
+            btnPeopleReports.Location = new Point(0, 0);
             btnPeopleReports.Name = "btnPeopleReports";
             btnPeopleReports.Size = new Size(149, 32);
             btnPeopleReports.TabIndex = 4;
@@ -213,7 +215,7 @@
             btnUsersReport.FlatStyle = FlatStyle.Flat;
             btnUsersReport.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             btnUsersReport.ForeColor = SystemColors.ButtonHighlight;
-            btnUsersReport.Location = new Point(0, 0);
+            btnUsersReport.Location = new Point(0, 44);
             btnUsersReport.Name = "btnUsersReport";
             btnUsersReport.Size = new Size(149, 32);
             btnUsersReport.TabIndex = 3;
@@ -229,7 +231,7 @@
             btnReports.FlatStyle = FlatStyle.Flat;
             btnReports.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             btnReports.ForeColor = SystemColors.ButtonHighlight;
-            btnReports.Location = new Point(0, 506);
+            btnReports.Location = new Point(0, 544);
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(220, 32);
             btnReports.TabIndex = 3;
@@ -381,14 +383,30 @@
             pnContainerMain.Dock = DockStyle.Fill;
             pnContainerMain.Location = new Point(220, 38);
             pnContainerMain.Name = "pnContainerMain";
-            pnContainerMain.Size = new Size(1150, 742);
+            pnContainerMain.Size = new Size(1150, 809);
             pnContainerMain.TabIndex = 2;
+            // 
+            // btnUsers
+            // 
+            btnUsers.Cursor = Cursors.Hand;
+            btnUsers.FlatAppearance.BorderSize = 0;
+            btnUsers.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            btnUsers.FlatStyle = FlatStyle.Flat;
+            btnUsers.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUsers.ForeColor = SystemColors.ButtonHighlight;
+            btnUsers.Location = new Point(0, 506);
+            btnUsers.Name = "btnUsers";
+            btnUsers.Size = new Size(220, 32);
+            btnUsers.TabIndex = 3;
+            btnUsers.Text = "Usuarios";
+            btnUsers.UseVisualStyleBackColor = true;
+            btnUsers.Click += btnUsers_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1370, 780);
+            ClientSize = new Size(1370, 847);
             Controls.Add(pnContainerMain);
             Controls.Add(pnLeftMain);
             Controls.Add(pnUpMain);
@@ -432,5 +450,6 @@
         private Button btnUsersReport;
         private PictureBox btnExit;
         private Button btnContact;
+        private Button btnUsers;
     }
 }

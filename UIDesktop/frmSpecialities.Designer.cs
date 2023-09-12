@@ -114,6 +114,7 @@
             dgvSpecialities.Size = new Size(339, 185);
             dgvSpecialities.TabIndex = 9;
             dgvSpecialities.CellContentClick += dgvSpecialities_CellContentClick;
+            dgvSpecialities.SelectionChanged += dgvSpecialities_SelectionChanged;
             // 
             // lbCreateUpdateSpecialities
             // 

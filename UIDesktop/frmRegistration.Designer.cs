@@ -83,6 +83,7 @@
             dgvAvailableCourses.Size = new Size(638, 216);
             dgvAvailableCourses.TabIndex = 18;
             dgvAvailableCourses.CellContentClick += dgvNewCourses_CellContentClick;
+            dgvAvailableCourses.SelectionChanged += dgvAvailableCourses_SelectionChanged;
             // 
             // txtIdCouse
             // 
@@ -119,6 +120,7 @@
             dgvRegistrationCourses.RowTemplate.Height = 29;
             dgvRegistrationCourses.Size = new Size(587, 216);
             dgvRegistrationCourses.TabIndex = 24;
+            dgvRegistrationCourses.SelectionChanged += dgvRegistrationCourses_SelectionChanged;
             // 
             // lbCoursesInscription
             // 

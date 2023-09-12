@@ -37,6 +37,9 @@
     <Compile Update="frmUserPasswordChange.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmUsersAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmUserSignUp.cs">
       <SubType>Form</SubType>
     </Compile>

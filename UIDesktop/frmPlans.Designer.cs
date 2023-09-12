@@ -63,6 +63,7 @@
             dgvPlans.Size = new Size(448, 185);
             dgvPlans.TabIndex = 22;
             dgvPlans.CellContentClick += dgvPlans_CellContentClick;
+            dgvPlans.SelectionChanged += dgvPlans_SelectionChanged;
             // 
             // txtPlanDescription
             // 
@@ -140,9 +141,9 @@
             lbPlanSpeciality.AutoSize = true;
             lbPlanSpeciality.Location = new Point(571, 287);
             lbPlanSpeciality.Name = "lbPlanSpeciality";
-            lbPlanSpeciality.Size = new Size(117, 20);
+            lbPlanSpeciality.Size = new Size(110, 20);
             lbPlanSpeciality.TabIndex = 25;
-            lbPlanSpeciality.Text = "Id escpecialidad";
+            lbPlanSpeciality.Text = "Id especialidad";
             // 
             // btnDeletePlan
             // 

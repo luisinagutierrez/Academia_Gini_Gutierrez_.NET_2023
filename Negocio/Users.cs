@@ -141,7 +141,8 @@ namespace Negocio
             try
             {
                 ds = new Datos.Users();
-                ds.Update(item);
+                int id = item.IdUser;
+                ds.Update(item, id);
             }
             finally
             {
@@ -149,7 +150,38 @@ namespace Negocio
             }
         }
 
-    
+        public int UpdateUser(int idUser,string userName,string password,bool status,bool changePassword,int idPerson,int privilege)
+        {
+            Datos.Users ds;
+            try
+            {
+                Entidades.Users u = new Entidades.Users();
+                ds = new Datos.Users();
+                u = ds.GetOne(idUser);
+                if (u.IdUser != 0)
+                {
+                    u.IdUser = idUser;
+                    u.UserName = userName;
+                    u.Password = password;
+                    u.Status = status;
+                    u.ChangePassword = changePassword;
+                    u.IdPerson = idPerson;
+                    u.Privilege = privilege;
+                    Update(u);
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
+
 
         //public void Save(Entidades.Users usuario)
         //{

@@ -67,6 +67,7 @@
             dgvCourses.Size = new Size(741, 225);
             dgvCourses.TabIndex = 48;
             dgvCourses.CellContentClick += dgvCourses_CellContentClick;
+            dgvCourses.SelectionChanged += dgvCourses_SelectionChanged;
             // 
             // btnUpdateCourse
             // 

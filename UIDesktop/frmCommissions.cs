@@ -41,7 +41,7 @@ namespace UIDesktop
 
             Negocio.Plans p = new Negocio.Plans();
             Entidades.Plans pl = p.GetOne(idP);
-            
+
             if (pl.IdPlan != 0)
             {
                 Negocio.Commissions sub = new Negocio.Commissions();
@@ -58,6 +58,11 @@ namespace UIDesktop
         private void btnUpdateCommission_Click(object sender, EventArgs e)
         {
             int idC = Convert.ToInt32(txtIdCommission.Text);
+            if (txtCommissionPlan.Text == "")
+            {
+                MessageBox.Show("El campo Plan no puede estar vacio");
+                return;
+            }
             int idP = Convert.ToInt32(txtCommissionPlan.Text);
             string descrip = Convert.ToString(txtCommissionDescription.Text);
             int y = Convert.ToInt32(txtCommissionSpecialityYear.Text);
@@ -102,6 +107,32 @@ namespace UIDesktop
             {
                 MessageBox.Show("No se puede eliminar la comision, ya que tiene uno o varios curso/s asociado/s.");
                 this.Close();
+            }
+        }
+
+        private void dgvCommissions_SelectionChanged(object sender, EventArgs e)
+        {
+            // Verifica si hay alguna fila seleccionada
+            if (dgvCommissions.SelectedRows.Count > 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow selectedRow = dgvCommissions.SelectedRows[0];
+
+                // Accede a las celdas de la fila y asigna sus valores a los TextBox
+                txtIdCommission.Text = selectedRow.Cells["IdCommission"].Value.ToString();
+                txtCommissionDescription.Text = selectedRow.Cells["CommissionDescription"].Value.ToString();
+                txtCommissionSpecialityYear.Text = selectedRow.Cells["SpecialityYear"].Value.ToString();
+                txtCommissionPlan.Text = selectedRow.Cells["IdPlan"].Value.ToString();
+                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
+            }
+            else
+            {
+                // Si no hay filas seleccionadas, borra los TextBox
+                txtIdCommission.Text = "";
+                txtCommissionDescription.Text = "";
+                txtCommissionSpecialityYear.Text = "";
+                txtCommissionPlan.Text = "";
+                // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }
     }

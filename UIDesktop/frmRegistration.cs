@@ -16,7 +16,7 @@ namespace UIDesktop
         public int idPerson;
         public frmRegistration(int idPerson)
         {
-            
+
             InitializeComponent();
             this.idPerson = idPerson;
         }
@@ -36,7 +36,7 @@ namespace UIDesktop
             Negocio.Courses nCourses = new Negocio.Courses();
             List<Entidades.Courses> AvailableCoursesList = nCourses.GetAvailableCourses();
             int cant = 0;
-            foreach(Entidades.Courses course in AvailableCoursesList)
+            foreach (Entidades.Courses course in AvailableCoursesList)
             {
                 cant++;
             }
@@ -96,6 +96,46 @@ namespace UIDesktop
             else
             {
                 MessageBox.Show("El curso ingresado no fue encontrado o no tiene cupo");
+            }
+        }
+
+        private void dgvAvailableCourses_SelectionChanged(object sender, EventArgs e)
+        {
+            // Verifica si hay alguna fila seleccionada
+            if (dgvAvailableCourses.SelectedRows.Count > 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow selectedRow = dgvAvailableCourses.SelectedRows[0];
+
+                // Accede a las celdas de la fila y asigna sus valores a los TextBox
+                txtIdCouse.Text = selectedRow.Cells["IdCourse"].Value.ToString();
+                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
+            }
+            else
+            {
+                // Si no hay filas seleccionadas, borra los TextBox
+                txtIdCouse.Text = "";
+                // ... y así sucesivamente para cada TextBox que desees borrar
+            }
+        }
+
+        private void dgvRegistrationCourses_SelectionChanged(object sender, EventArgs e)
+        {
+            // Verifica si hay alguna fila seleccionada
+            if (dgvRegistrationCourses.SelectedRows.Count > 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow selectedRow = dgvRegistrationCourses.SelectedRows[0];
+
+                // Accede a las celdas de la fila y asigna sus valores a los TextBox
+                txtIdRegistration.Text = selectedRow.Cells["IdRegistration"].Value.ToString();
+                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
+            }
+            else
+            {
+                // Si no hay filas seleccionadas, borra los TextBox
+                txtIdRegistration.Text = "";
+                // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }
     }

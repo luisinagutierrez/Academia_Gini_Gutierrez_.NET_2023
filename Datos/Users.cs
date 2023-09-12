@@ -33,12 +33,13 @@ namespace Datos
                 this.Disconnect();
             }
         }
-        public void Update(Entidades.Users item)
+        public void Update(Entidades.Users item, int IdUser)
         {
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("UPDATE Users SET (UserName, Password, Status, ChangePassword, Privilege, IdPerson) = (@UserName, @Password, @Status, @ChangePassword, @Privilege,@IdPerson) WHERE IdUser = @IdUser", Conn);
+                SqlCommand comm = new SqlCommand("UPDATE Users SET UserName = @UserName, Password = @Password, Status = @Status, ChangePassword = @ChangePassword, Privilege = @Privilege, IdPerson = @IdPerson WHERE IdUser = @IdUser", Conn);
+                comm.Parameters.AddWithValue("@IdUser", IdUser);
                 comm.Parameters.AddWithValue("@UserName", item.UserName);
                 comm.Parameters.AddWithValue("@Password", item.Password);
                 comm.Parameters.AddWithValue("@Status", item.Status);
@@ -58,14 +59,14 @@ namespace Datos
                 this.Disconnect();
             }
         }
-        public void Delete(int id)
+        public void Delete(int IdUser)
         {
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("DELETE Users WHERE IdUser = @Id", Conn);
+                SqlCommand comm = new SqlCommand("DELETE Users WHERE IdUser = @IdUser", Conn);
 
-                comm.Parameters.AddWithValue("@IdUser", id);
+                comm.Parameters.AddWithValue("@IdUser", IdUser);
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -80,7 +81,7 @@ namespace Datos
         }
         public List<Entidades.Users> GetAll()
         {
-            Entidades.Users objUsers = new Entidades.Users();
+
             try
             {
                 this.Connect();
@@ -92,6 +93,7 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
+                        Entidades.Users objUsers = new Entidades.Users();
                         objUsers.IdUser = (int)oReader["IdUser"];
                         objUsers.Privilege = (int)oReader["Privilege"];
                         objUsers.UserName = (string)oReader["UserName"];
@@ -107,7 +109,7 @@ namespace Datos
             }
             finally
             {
-                objUsers = null;
+                //objUsers = null;
                 this.Disconnect();
             }
         }

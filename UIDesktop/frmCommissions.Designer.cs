@@ -81,6 +81,7 @@
             dgvCommissions.Size = new Size(532, 212);
             dgvCommissions.TabIndex = 34;
             dgvCommissions.CellContentClick += dgvCommissions_CellContentClick;
+            dgvCommissions.SelectionChanged += dgvCommissions_SelectionChanged;
             // 
             // txtCommissionDescription
             // 

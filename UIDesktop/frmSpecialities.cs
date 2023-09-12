@@ -103,5 +103,27 @@ namespace UIDesktop
             List<Entidades.Specialities> PeopleList = nSpecialities.GetAll();
             dgvSpecialities.DataSource = PeopleList;
         }
+
+        private void dgvSpecialities_SelectionChanged(object sender, EventArgs e)
+        {
+            // Verifica si hay alguna fila seleccionada
+            if (dgvSpecialities.SelectedRows.Count > 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow selectedRow = dgvSpecialities.SelectedRows[0];
+
+                // Accede a las celdas de la fila y asigna sus valores a los TextBox
+                txtIdSpeciality.Text = selectedRow.Cells["IdSpeciality"].Value.ToString();
+                txtSpecialityDescription.Text = selectedRow.Cells["SpecialityDescription"].Value.ToString();
+                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
+            }
+            else
+            {
+                // Si no hay filas seleccionadas, borra los TextBox
+                txtIdSpeciality.Text = "";
+                txtSpecialityDescription.Text = "";
+                // ... y así sucesivamente para cada TextBox que desees borrar
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UIDesktop
 {
@@ -36,6 +37,11 @@ namespace UIDesktop
 
         private void btnCreatePlan_Click(object sender, EventArgs e)
         {
+            if (txtPlanSpeciality.Text == "" || txtPlanDescription.Text == "")
+            {
+                MessageBox.Show("Para poder crear un nuevo plan debe ingresar su descripcion y el id de la especialidad");
+                return;
+            }
             int idS = Convert.ToInt32(txtPlanSpeciality.Text);
             string descrip = Convert.ToString(txtPlanDescription.Text);
             Negocio.Specialities s = new Negocio.Specialities();
@@ -52,7 +58,7 @@ namespace UIDesktop
             {
                 MessageBox.Show("El Id de la especialidad no fue encontrado");
             }
-            
+
         }
 
         private void btnUpdatePlan_Click(object sender, EventArgs e)
@@ -88,7 +94,7 @@ namespace UIDesktop
         {
             int idP = Convert.ToInt32(txtIdPlans.Text);
             Negocio.Plans plan = new Negocio.Plans();
-            
+
             Negocio.Commissions c = new Negocio.Commissions();
             int com = c.GetCommissionsByIdPlan(idP);
 
@@ -98,7 +104,7 @@ namespace UIDesktop
             Negocio.Subjects s = new Negocio.Subjects();
             int sj = s.GetSubjectsByIdPlan(idP);
 
-            if (sj == 0 && com == 0 && pp ==0)
+            if (sj == 0 && com == 0 && pp == 0)
             {
                 int rtp = plan.Delete(idP);
                 if (rtp == 1)
@@ -106,7 +112,7 @@ namespace UIDesktop
                     MessageBox.Show("Operación exitosa");
                     this.Close();
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Id plan ingresado no valido");
                 }
@@ -116,6 +122,31 @@ namespace UIDesktop
                 MessageBox.Show("No se puede eliminar el plan dado que tiene materias, personas o comisiones en el que está asignado.");
                 this.Close();
             }
+        }
+
+        private void dgvPlans_SelectionChanged(object sender, EventArgs e)
+        {
+                // Verifica si hay alguna fila seleccionada
+                if (dgvPlans.SelectedRows.Count > 0)
+                {
+                    // Obtén la fila seleccionada
+                    DataGridViewRow selectedRow = dgvPlans.SelectedRows[0];
+
+                    // Accede a las celdas de la fila y asigna sus valores a los TextBox
+                    txtIdPlans.Text = selectedRow.Cells["IdPlan"].Value.ToString();
+                    txtPlanDescription.Text = selectedRow.Cells["PlanDescription"].Value.ToString();
+                    txtPlanSpeciality.Text = selectedRow.Cells["IdSpeciality"].Value.ToString();
+                    // ... y así sucesivamente para cada TextBox y columna que desees mostrar
+                }
+                else
+                {
+                    // Si no hay filas seleccionadas, borra los TextBox
+                    txtIdPlans.Text = "";
+                    txtPlanDescription.Text = "";
+                    txtPlanSpeciality.Text = "";
+                    // ... y así sucesivamente para cada TextBox que desees borrar
+                }
+
         }
     }
 }

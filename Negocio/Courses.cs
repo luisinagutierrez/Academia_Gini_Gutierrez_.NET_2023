@@ -68,11 +68,20 @@ namespace Negocio
             {
                 ds = new Datos.Courses();
                 int cant = 0;
-                foreach (Entidades.Courses c in ds.GetCoursesByIdCommission(idC))
+                List<Entidades.Courses> list = new List<Entidades.Courses>();
+                list = ds.GetCoursesByIdCommission(idC);
+                foreach (Entidades.Courses c in list)
                 {
                     cant++;
                 }
-                return cant;
+                if (cant == 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             finally
             {

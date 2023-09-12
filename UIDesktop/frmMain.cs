@@ -28,6 +28,7 @@ namespace UIDesktop
             btnCourse.Visible = false;
             btnReports.Visible = false;
             btnPlan.Visible = false;
+            btnUsers.Visible = false;
 
             this.idPerson = idPerson;
 
@@ -49,6 +50,7 @@ namespace UIDesktop
                     btnCourse.Visible = true;
                     btnReports.Visible = true;
                     btnPlan.Visible = true;
+                    btnUsers.Visible = true;
                     break;
             }
         }
@@ -167,6 +169,11 @@ namespace UIDesktop
         private void btnTeacherMenu_Click(object sender, EventArgs e)
         {
             OpenDaughterForm(new frmTeacherMainMenu(this.idPerson));
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            OpenDaughterForm(new frmUsersAdmin());
         }
     }
 }

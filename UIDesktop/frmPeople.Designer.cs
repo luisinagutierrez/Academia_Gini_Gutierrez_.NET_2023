@@ -157,6 +157,7 @@
             dgvPeople.Size = new Size(888, 385);
             dgvPeople.TabIndex = 70;
             dgvPeople.CellContentClick += dgvPeople_CellContentClick;
+            dgvPeople.SelectionChanged += dgvPeople_SelectionChanged;
             // 
             // btnUpdatePeople
             // 
