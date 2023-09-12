@@ -44,7 +44,7 @@
             // lbIdSpecialities
             // 
             lbIdSpecialities.AutoSize = true;
-            lbIdSpecialities.Location = new Point(608, 158);
+            lbIdSpecialities.Location = new Point(814, 180);
             lbIdSpecialities.Name = "lbIdSpecialities";
             lbIdSpecialities.Size = new Size(110, 20);
             lbIdSpecialities.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             // txtIdSpeciality
             // 
-            txtIdSpeciality.Location = new Point(731, 158);
+            txtIdSpeciality.Location = new Point(937, 180);
             txtIdSpeciality.Name = "txtIdSpeciality";
             txtIdSpeciality.Size = new Size(124, 27);
             txtIdSpeciality.TabIndex = 1;
@@ -89,7 +89,7 @@
             // 
             // txtSpecialityDescription
             // 
-            txtSpecialityDescription.Location = new Point(725, 203);
+            txtSpecialityDescription.Location = new Point(931, 225);
             txtSpecialityDescription.Multiline = true;
             txtSpecialityDescription.Name = "txtSpecialityDescription";
             txtSpecialityDescription.Size = new Size(221, 71);
@@ -98,7 +98,7 @@
             // lbSpecialityDescription
             // 
             lbSpecialityDescription.AutoSize = true;
-            lbSpecialityDescription.Location = new Point(608, 203);
+            lbSpecialityDescription.Location = new Point(814, 225);
             lbSpecialityDescription.Name = "lbSpecialityDescription";
             lbSpecialityDescription.Size = new Size(87, 20);
             lbSpecialityDescription.TabIndex = 5;
@@ -107,11 +107,11 @@
             // dgvSpecialities
             // 
             dgvSpecialities.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSpecialities.Location = new Point(167, 132);
+            dgvSpecialities.Location = new Point(393, 139);
             dgvSpecialities.Name = "dgvSpecialities";
             dgvSpecialities.RowHeadersWidth = 51;
             dgvSpecialities.RowTemplate.Height = 29;
-            dgvSpecialities.Size = new Size(393, 185);
+            dgvSpecialities.Size = new Size(339, 185);
             dgvSpecialities.TabIndex = 9;
             dgvSpecialities.CellContentClick += dgvSpecialities_CellContentClick;
             // 

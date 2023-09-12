@@ -79,8 +79,8 @@ namespace UIDesktop
             {
                 Negocio.Specialities s = new Negocio.Specialities();
                 int rts = s.Delete(idS);
-                MessageBox.Show("del delete"+rts.ToString());
-                if (rts == 1)                  
+                MessageBox.Show("del delete" + rts.ToString());
+                if (rts == 1)
                 {
                     MessageBox.Show("Operación exitosa");
                     this.Close();

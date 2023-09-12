@@ -175,7 +175,6 @@ namespace Datos
         public void  ChangePassword(string UserName, string Password)
         {
             Entidades.Users objUsers = new Entidades.Users();
-            int rowsAffected = 0;
             try
             {
                 this.Connect();
@@ -255,16 +254,17 @@ namespace Datos
             }
         }
 
-        public Entidades.Users GetUserByUserName(string UserName)
+        public Entidades.Users GetUserByUserName(string UserName, int IdPerson)
         {
             Entidades.Users objUsers = new Entidades.Users();
             try
             {
                 this.Connect();
-                using (SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE UserName = @UserName", Conn))
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM Users WHERE UserName = @UserName AND IdPerson =@IdPerson", Conn))
                 {
                     comm.Parameters.AddWithValue("@UserName", UserName);
-                    // Ejecutamos el comando y retornamos los valores
+                    comm.Parameters.AddWithValue("@IdPerson", IdPerson);
+
                     using (SqlDataReader oReader = comm.ExecuteReader())
                     {
                         if (oReader.Read())
@@ -283,7 +283,6 @@ namespace Datos
             }
             finally
             {
-                // Finally nos da siempre la oportunidad de liberar memoria usada por los objetos 
                 //objUsers = null;
                 this.Disconnect();
             }

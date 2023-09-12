@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,27 +88,19 @@ namespace Negocio
             }
         }
 
-        public Entidades.Users GetUserByUserName (string userName)
+        public int ChangePassword(string username,int id, string pass)
         {
             Datos.Users ds;
             try
             {
                 ds = new Datos.Users();
-                Entidades.Users user = ds.GetUserByUserName(userName);
-                return user;
-            }
-            finally
-            {
-                ds = null;
-            }
-        }
-        public void ChangePassword(string username, string pass)
-        {
-            Datos.Users ds;
-            try
-            {
-                ds = new Datos.Users();
-                ds.ChangePassword(username, pass);
+                Entidades.Users user = ds.GetUserByUserName(username, id);
+                if (user.IdUser != 0) 
+                {
+                    ds.ChangePassword(username, pass);
+                }
+                return user.IdUser;
+
             }
             finally
             {

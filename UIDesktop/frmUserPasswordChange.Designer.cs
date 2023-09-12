@@ -37,6 +37,8 @@
             label1 = new Label();
             lbUserNewPassword = new Label();
             pictureLogo = new PictureBox();
+            txtUserIdPerson = new TextBox();
+            lbUserIdPerson = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
             SuspendLayout();
             // 
@@ -78,7 +80,7 @@
             // 
             // txtUserNewPassword
             // 
-            txtUserNewPassword.Location = new Point(269, 188);
+            txtUserNewPassword.Location = new Point(269, 213);
             txtUserNewPassword.Name = "txtUserNewPassword";
             txtUserNewPassword.Size = new Size(192, 27);
             txtUserNewPassword.TabIndex = 11;
@@ -86,7 +88,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(96, 191);
+            label1.Location = new Point(96, 216);
             label1.Name = "label1";
             label1.Size = new Size(135, 20);
             label1.TabIndex = 10;
@@ -112,12 +114,30 @@
             pictureLogo.TabIndex = 24;
             pictureLogo.TabStop = false;
             // 
+            // txtUserIdPerson
+            // 
+            txtUserIdPerson.Location = new Point(269, 167);
+            txtUserIdPerson.Name = "txtUserIdPerson";
+            txtUserIdPerson.Size = new Size(123, 27);
+            txtUserIdPerson.TabIndex = 26;
+            // 
+            // lbUserIdPerson
+            // 
+            lbUserIdPerson.AutoSize = true;
+            lbUserIdPerson.Location = new Point(96, 170);
+            lbUserIdPerson.Name = "lbUserIdPerson";
+            lbUserIdPerson.Size = new Size(83, 20);
+            lbUserIdPerson.TabIndex = 25;
+            lbUserIdPerson.Text = "Id Persona*";
+            // 
             // frmUserPasswordChange
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(549, 400);
+            Controls.Add(txtUserIdPerson);
+            Controls.Add(lbUserIdPerson);
             Controls.Add(pictureLogo);
             Controls.Add(lbUserNewPassword);
             Controls.Add(txtUserNewPassword);
@@ -143,5 +163,7 @@
         private Label label1;
         private Label lbUserNewPassword;
         private PictureBox pictureLogo;
+        private TextBox txtUserIdPerson;
+        private Label lbUserIdPerson;
     }
 }
