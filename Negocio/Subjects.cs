@@ -35,20 +35,28 @@ namespace Negocio
                 ds = null;
             }
         }
-        public void Update(int idS, string descrip,int ths, int whs, int idP)
+        public int GetSubjectsByIdPlan(int idP)
         {
             Datos.Subjects ds;
             try
             {
                 ds = new Datos.Subjects();
-                ds.Update(idS, descrip, ths, whs, idP);
+                int cant = 0;
+                foreach (Entidades.Subjects c in ds.GetSubjectsByIdPlan(idP))
+                {
+                    cant++;
+                }
+                return cant;
             }
             finally
             {
                 ds = null;
             }
         }
-        public int UpdateSubject(int idS, string descrip, int ths, int whs, int idP)
+
+
+
+        public int Update(int idS, string descrip, int ths, int whs, int idP)
         {
             Datos.Subjects ds;
             try
@@ -58,7 +66,7 @@ namespace Negocio
                 sub = ds.GetOne(idS);
                 if (sub != null)
                 {
-                    this.Update(idS, descrip, ths, whs, idP);
+                    ds.Update(idS, descrip, ths, whs, idP);
                     return 1;
                 }
                 else

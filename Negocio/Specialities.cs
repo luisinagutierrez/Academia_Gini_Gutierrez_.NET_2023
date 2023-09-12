@@ -40,36 +40,22 @@ namespace Negocio
             }
         }
 
-        public void Update(int id, string desp)
+        public int Delete(int idS)
         {
             Datos.Specialities ds;
             try
             {
-                ds = new Datos.Specialities();
-                ds.Update(id, desp);
-            }
-            finally
-            {
-                ds = null;
-            }
-        }
-
-        public void Delete(int id)
-        {
-            Datos.Specialities ds;
-            try
-            {
+                int rt = 0;
                 Entidades.Specialities sp = new Entidades.Specialities();
                 ds = new Datos.Specialities();
-                sp = ds.GetOne(id);
-                if (sp != null)
+                sp = ds.GetOne(idS);
+                if (sp.IdSpeciality != 0)
                 {
-                    ds.Delete(id);
+                    ds.Delete(idS);
+                    rt = 1;
                 }
-                else
-                {
-                    throw new Exception("No se puede eliminar una especialidad que no existe");
-                }
+                return rt;
+
             }
             finally
             {
@@ -91,23 +77,21 @@ namespace Negocio
             }
         }
 
-        public int UpdateSpeciality(int id, string desp)
+        public int Update(int id, string desp)
         {
             Datos.Specialities ds;
             try
             {
+                int rt = 0;
                 Entidades.Specialities sp = new Entidades.Specialities();
                 ds = new Datos.Specialities();
                 sp = ds.GetOne(id);
-                if (sp != null)
+                if (sp.IdSpeciality != 0)
                 {
-                    this.Update(id, desp);
-                    return 1;
+                    ds.Update(id, desp);
+                    rt = 1;
                 }
-                else
-                {
-                    return 0;
-                }
+                return rt;
             }
             finally
             {

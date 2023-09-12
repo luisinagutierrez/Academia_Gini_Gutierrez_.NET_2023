@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.Intrinsics.Arm;
 
 namespace Datos
 {
@@ -134,6 +135,41 @@ namespace Datos
             {
                 this.Disconnect();
                 objCommissions = null;
+            }
+        }
+        public List<Entidades.Commissions> GetCommissionByIdPlan(int IdPlan)
+        {
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Commissions WHERE IdPlan = @IdPlan", Conn);
+                comm.Parameters.AddWithValue("@IdPlan", IdPlan);
+                List<Entidades.Commissions> CommissionsList = new List<Entidades.Commissions>();
+
+                using (SqlDataReader oReader = comm.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        if (oReader.Read())
+                        {
+                            Entidades.Commissions objCommissions = new Entidades.Commissions();
+                            objCommissions.IdCommission = (int)(oReader["IdCommission"]);
+                            objCommissions.CommissionDescription = (string)(oReader["CommissionDescription"]);
+                            objCommissions.SpecialityYear = (int)(oReader["SpecialityYear"]);
+                            objCommissions.IdPlan = (int)(oReader["IdPlan"]);
+
+                            CommissionsList.Add(objCommissions);
+                            objCommissions = null;
+                        }
+                    }
+                    return CommissionsList;
+                }
+            }
+            finally
+            {
+                //objCommissions = null;
+                this.Disconnect();
+
             }
         }
     }

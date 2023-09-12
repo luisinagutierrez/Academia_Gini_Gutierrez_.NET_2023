@@ -182,5 +182,47 @@ namespace Datos
                 objPeople = null;
             }
         }
+
+        public List<Entidades.People> GetPeopleByIdPlan(int IdPlan)
+        {
+
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM People WHERE IdPlan =@IdPlan", Conn);
+                comm.Parameters.AddWithValue("@IdPlan", IdPlan);
+                List<Entidades.People> PeopleList = new List<Entidades.People>();
+
+                using (SqlDataReader oReader = comm.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        if (oReader.Read())
+                        {
+                            Entidades.People objPeople = new Entidades.People();
+                            objPeople.IdPerson = (int)oReader["IdPerson"];
+                            objPeople.Name = (string)oReader["Name"];
+                            objPeople.Surname = (string)oReader["Surname"];
+                            objPeople.Address = (string)oReader["Address"];
+                            objPeople.Email = (string)oReader["Email"];
+                            objPeople.Telephone = (string)oReader["Telephone"];
+                            objPeople.BirthDate = Convert.ToDateTime(oReader["BirthDate"]);
+                            objPeople.FileId = (int)oReader["FileId"];
+                            objPeople.PersonType = (int)oReader["PersonType"];
+                            objPeople.IdPlan = (int)oReader["IdPlan"];
+
+                            PeopleList.Add(objPeople);
+                            objPeople = null;
+                        }
+                    }
+                    return PeopleList;
+                }
+            }
+            finally
+            {
+                this.Disconnect();
+                //objPeople = null;
+            }
+        }
     }
 }

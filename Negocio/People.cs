@@ -60,7 +60,7 @@ namespace Negocio
                 p = ds.GetOne(idP);
                 if (p != null)
                 {
-                    this.Update(idP, fileId, name, surname, address, email, birthDate, telephone, idPlan);
+                    ds.Update(idP, fileId, name, surname, address, email, birthDate, telephone, idPlan);
                     return 1;
                 }
                 else
@@ -73,13 +73,18 @@ namespace Negocio
                 ds = null;
             }
         }
-        public void Update(int idP, int fileId, string name, string surname, string address, string email, DateTime birthDate, string telephone, int idPlan)
+        public int GetPeopleByIdPlan(int idP)
         {
             Datos.People ds;
             try
             {
                 ds = new Datos.People();
-                ds.Update(idP, fileId, name, surname, address, email, birthDate, telephone, idPlan);
+                int cant = 0;
+                foreach (Entidades.People c in ds.GetPeopleByIdPlan(idP))
+                {
+                    cant++;
+                }
+                return cant;
             }
             finally
             {
@@ -87,19 +92,6 @@ namespace Negocio
             }
         }
 
-        //public void UpdatePeople(int idP, int fileId, string name, string surname, string address, string email, DateTime birthDate, string telephone, int idPlan)
-        //{
-        //    Datos.People ds;
-        //    try
-        //    {
-        //        ds = new Datos.People();
-        //        ds.Update(idP, fileId, name, surname, address, email, birthDate, telephone, idPlan);
-        //    }
-        //    finally
-        //    {
-        //        ds = null;
-        //    }
-        //}
         public void Delete(int id)
         {
             Datos.People ds;

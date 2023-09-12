@@ -72,15 +72,7 @@ namespace Negocio
                 {
                     cant++;
                 }
-                if (cant == 0)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return 1;
-                }
-
+                return cant;
             }
             finally
             {
@@ -100,20 +92,7 @@ namespace Negocio
                 ds = null;
             }
         }
-        public void Update(int idC, int idS, int idCc, int cy, int q)
-        {
-            Datos.Courses ds;
-            try
-            {
-                ds = new Datos.Courses();
-                ds.Update(idC, idS, idCc, cy, q);
-            }
-            finally
-            {
-                ds = null;
-            }
-        }
-        public int UpdateCourse(int idC, int idS, int idCc, int cy, int q)
+        public int Update(int idC, int idS, int idCc, int cy, int q)
         {
             Datos.Courses ds;
             try
@@ -123,7 +102,7 @@ namespace Negocio
                 co = ds.GetOne(idC);
                 if (co != null)
                 {
-                    this.Update(idC, idS, idCc, cy, q);
+                    ds.Update(idC, idS, idCc, cy, q);
                     return 1;
                 }
                 else
@@ -186,6 +165,19 @@ namespace Negocio
                     flag = true;
                 }
                 return flag;
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+        public Entidades.Courses GetOne(int id)
+        {
+            Datos.Courses ds;
+            try
+            {
+                ds = new Datos.Courses();
+                return ds.GetOne(id);
             }
             finally
             {

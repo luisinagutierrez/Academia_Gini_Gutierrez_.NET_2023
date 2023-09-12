@@ -111,9 +111,42 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
-        public Entidades.Subjects GetOne(int IdSubject)
+        public List<Entidades.Subjects> GetSubjectsByIdPlan(int IdPlan)
         {
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Subjects WHERE IdPlan =@IdPlan", Conn);
+                comm.Parameters.AddWithValue("@IdPlan", IdPlan);
+                List<Entidades.Subjects> SubjectsList = new List<Entidades.Subjects>();
+                using (SqlDataReader oReader = comm.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        if (oReader.Read())
+                        {
+                            Entidades.Subjects objSubjects = new Entidades.Subjects();
+                            objSubjects.IdSubject = (int)oReader["IdSubject"];
+                            objSubjects.SubjectDescription = (string)oReader["SubjectDescription"];
+                            objSubjects.WeeklyHours = (int)oReader["WeeklyHours"];
+                            objSubjects.TotalHours = (int)oReader["TotalHours"];
+                            objSubjects.IdPlan = (int)oReader["IdPlan"];
+
+                            SubjectsList.Add(objSubjects);
+                            objSubjects = null;
+                        }
+                    }
+                    return SubjectsList;
+                }
+            }
+            finally
+            {
+                //objSubjects = null;
+                this.Disconnect();
+            }
+        }
+            public Entidades.Subjects GetOne(int IdSubject)
+            {
             Entidades.Subjects objSubjects = new Entidades.Subjects();
             try
             {

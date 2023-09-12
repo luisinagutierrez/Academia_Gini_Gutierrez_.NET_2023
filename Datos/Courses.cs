@@ -277,7 +277,6 @@ namespace Datos
             }
 
         }
-
         public void UpdateCourseAvailability(int IdCourse, int num)
         {
 

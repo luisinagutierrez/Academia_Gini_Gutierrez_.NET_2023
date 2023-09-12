@@ -50,7 +50,6 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
         public void Delete(int IdSpeciality)
         {
             try
@@ -106,26 +105,20 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Specialities WHERE IdSpeciality = @IdSpeciality", Conn);
-                comm.Parameters.AddWithValue("@IdSpeciality", IdSpeciality);
-
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM Specialities WHERE IdSpeciality = @IdSpeciality", Conn)) 
                 {
-                    oReader.Read();
+                    comm.Parameters.AddWithValue("@IdSpeciality", IdSpeciality);
 
-                    objSpecialities.IdSpeciality = (int)oReader["IdSpeciality"];
-                    objSpecialities.SpecialityDescription = (string)oReader["SpecialityDescription"];
-                    if (oReader["IdSpeciality"] == DBNull.Value)
+                    using (SqlDataReader oReader = comm.ExecuteReader())
                     {
-                        return null;
+                        if (oReader.Read())
+                        {
+                            objSpecialities.IdSpeciality = (int)oReader["IdSpeciality"];
+                            objSpecialities.SpecialityDescription = (string)oReader["SpecialityDescription"];
+                        }
                     }
-                    else
-                    {
-                        return objSpecialities;
-                    }
+                    return objSpecialities;
                 }
-
             }
             finally
             {
@@ -133,6 +126,5 @@ namespace Datos
                 objSpecialities = null;
             }
         }
-
     }
 }

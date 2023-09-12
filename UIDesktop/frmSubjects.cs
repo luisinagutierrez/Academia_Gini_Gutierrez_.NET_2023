@@ -97,7 +97,7 @@ namespace UIDesktop
             if (pl != null)
             {
                 Negocio.Subjects sub = new Negocio.Subjects();
-                int sb = sub.UpdateSubject(idS, descrip, ths, whs, idP);
+                int sb = sub.Update(idS, descrip, ths, whs, idP);
                 if (sb == 1)
                 {
                     MessageBox.Show("Se actualizó la materia correctamente.");

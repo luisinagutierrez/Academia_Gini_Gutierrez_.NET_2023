@@ -68,7 +68,7 @@ namespace UIDesktop
             if (pl.IdPlan != 0)
             {
                 Negocio.Commissions com = new Negocio.Commissions();
-                int co = com.UpdateCommission(idC, descrip, y, idP);
+                int co = com.Update(idC, descrip, y, idP);
                 if (co != 0)
                 {
                     MessageBox.Show("Se actualizó la comision correctamente.");

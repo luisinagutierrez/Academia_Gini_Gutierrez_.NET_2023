@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,8 +50,9 @@ namespace UIDesktop
         {
             string descrip = Convert.ToString(txtSpecialityDescription.Text);
             int id = Convert.ToInt32(txtIdSpeciality.Text);
+
             Negocio.Specialities s = new Negocio.Specialities();
-            int sp = s.UpdateSpeciality(id, descrip);
+            int sp = s.Update(id, descrip);
             if (sp == 1)
             {
                 MessageBox.Show("Se actualizó la especialidad correctamente.");
@@ -58,7 +60,7 @@ namespace UIDesktop
             }
             else
             {
-                MessageBox.Show("No se pudo actualizar la especialidad.");
+                MessageBox.Show("El Id de la especialidad no fue encontrado");
             }
         }
 
@@ -68,11 +70,31 @@ namespace UIDesktop
 
         private void btnDeleteSpeciality_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtIdSpeciality.Text);
-            Negocio.Specialities s = new Negocio.Specialities();
-            s.Delete(id);
-            MessageBox.Show("Operación exitosa");
-            this.Close();
+            int idS = Convert.ToInt32(txtIdSpeciality.Text);
+
+            Negocio.Plans p = new Negocio.Plans();
+            int pl = p.GetPlansByIdSpeciality(idS);
+            MessageBox.Show(pl.ToString());              // muestra 0 aunque encuentre 
+            if (pl == 0)
+            {
+                Negocio.Specialities s = new Negocio.Specialities();
+                int rts = s.Delete(idS);
+                MessageBox.Show(rts.ToString());
+                if (rts == 1)                  
+                {
+                    MessageBox.Show("Operación exitosa");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Id especialidad ingresado no valido");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se puede eliminar la especialidad dado que tiene planas asignados a la misma.");
+                this.Close();
+            }
         }
 
         private void frmSpecialities_Load_1(object sender, EventArgs e)

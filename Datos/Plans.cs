@@ -135,5 +135,37 @@ namespace Datos
                 objPlans = null;
             }
         }
+        public List<Entidades.Plans> GetPlansByIdSpeciality(int IdSpeciality)
+        {
+            try
+            {
+                this.Connect();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Plans WHERE IdSpeciality = @IdSpeciality", Conn);
+                comm.Parameters.AddWithValue("@IdSpeciality", IdSpeciality);
+                List<Entidades.Plans> SubjectsList = new List<Entidades.Plans>();
+                using (SqlDataReader oReader = comm.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        if (oReader.Read())
+                        {
+                            Entidades.Plans objPlans = new Entidades.Plans();
+                            objPlans.IdPlan = (int)oReader["IdPlan"];
+                            objPlans.PlanDescription = (string)oReader["PlanDescription"];
+                            objPlans.IdSpeciality = (int)oReader["IdSpeciality"];
+                            SubjectsList.Add(objPlans);
+                            objPlans = null;
+                        }
+                    }
+                    return SubjectsList;
+                }
+            }
+            finally
+            {
+                //objSubjects = null;
+                this.Disconnect();
+            }
+        }
+
     }
 }

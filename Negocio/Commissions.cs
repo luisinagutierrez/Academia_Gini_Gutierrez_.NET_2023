@@ -37,21 +37,7 @@ namespace Negocio
             }
         }
 
-        public void Update(int idC, string descrip, int y, int idP)
-        {
-            Datos.Commissions ds;
-            try
-            {
-                ds = new Datos.Commissions();
-                ds.Update(idC, descrip, y, idP);
-            }
-            finally
-            {
-                ds = null;
-            }
-        }
-
-        public int UpdateCommission(int idC, string descrip, int y, int idP)
+        public int Update(int idC, string descrip, int y, int idP)
         {
             Datos.Commissions ds;
             try
@@ -61,7 +47,7 @@ namespace Negocio
                 com = ds.GetOne(idC);
                 if (com.IdCommission != 0)
                 {
-                    this.Update(idC, descrip, y, idP);
+                    ds.Update(idC, descrip, y, idP);
                     return 1;
                 }
                 else
@@ -103,5 +89,28 @@ namespace Negocio
             }
 
         }
+
+        public int GetCommissionsByIdPlan(int idP)
+        {
+            Datos.Commissions ds;
+            try
+            {
+                ds = new Datos.Commissions();
+                int cant = 0;
+                foreach (Entidades.Commissions c in ds.GetCommissionByIdPlan(idP))
+                {
+                    cant++;
+                }
+                return cant;
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
     }
 }
+
+
+    

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +22,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public void Add(int id, string descrip)
         {
             Datos.Plans ds;
@@ -35,7 +35,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public Entidades.Plans GetOne(int id)
         {
             Datos.Plans ds;
@@ -49,60 +48,63 @@ namespace Negocio
                 ds = null;
             }
         }
-
-        public void Update(int idP, string desp, int idS)
+        
+        public int Update(int idP, string desp, int idS)
         {
             Datos.Plans ds;
             try
             {
-                ds = new Datos.Plans();
-                ds.Update(idP, desp, idS);
-            }
-            finally
-            {
-                ds = null;
-            }
-        }
-        public int UpdatePlan(int idP, string desp, int idS)
-        {
-            Datos.Plans ds;
-            try
-            {
+                int rt = 0;
                 Entidades.Plans pl = new Entidades.Plans();
                 ds = new Datos.Plans();
                 pl = ds.GetOne(idP);
-                if (pl != null)
+                if (pl.IdPlan != 0)
                 {
-                    this.Update(idP, desp, idS);
-                    return 1;
+                    ds.Update(idP, desp, idS);
+                    rt = 1; ;
                 }
-                else
-                {
-                    return 0;
-                }
+                return rt;
+
             }
             finally
             {
                 ds = null;
             }
         }
-
-        public void Delete(int id)
+        public int Delete(int idP)
         {
             Datos.Plans ds;
             try
             {
+                int rt = 0;
                 Entidades.Plans pl = new Entidades.Plans();
                 ds = new Datos.Plans();
-                pl = ds.GetOne(id);
-                if (pl != null)
+                pl = ds.GetOne(idP);
+                if (pl.IdPlan != 0)
                 {
-                    ds.Delete(id);
+                    ds.Delete(idP);
+                    rt = 1 ;
                 }
-                else
+                return rt;
+
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+        public int GetPlansByIdSpeciality(int idS)
+        {
+            Datos.Plans ds;
+            try
+            {
+                ds = new Datos.Plans();
+                int cant = 0;
+                foreach (Entidades.Plans c in ds.GetPlansByIdSpeciality(idS))
                 {
-                    throw new Exception("No se puede eliminar el plan, ya que no existe");
+                    cant++;
                 }
+                return cant;
             }
             finally
             {

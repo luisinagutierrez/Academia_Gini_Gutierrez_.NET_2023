@@ -94,7 +94,7 @@ namespace UIDesktop
             if (com.IdCommission != 0 && sub.IdSubject != 0)
             {
                 Negocio.Courses course = new Negocio.Courses();
-                course.UpdateCourse(idC, idS, idCc, cy, q);
+                course.Update(idC, idS, idCc, cy, q);
                 MessageBox.Show("Operación exitosa");
                 this.Close();
             }
@@ -111,24 +111,28 @@ namespace UIDesktop
             int idC = Convert.ToInt32(txtIdCourse.Text);
             Negocio.Courses c = new Negocio.Courses();
 
-            Negocio.StudentsRegistrations str = new Negocio.StudentsRegistrations();
-            int s = str.GetStudentsRegByIdCourse(idC);
-
-            Negocio.TeacherCourses tc = new Negocio.TeacherCourses();
-            int t = tc.GetTeacherCoursesByIdCourse(idC);
-
-            if (s == 0 && t == 0)
+            Entidades.Courses course = c.GetOne(idC);
+            if (course.IdCourse != 0)
             {
-                Negocio.Courses course = new Negocio.Courses();
-                course.Delete(idC);
-                MessageBox.Show("Operación exitosa");
-                this.Close();
+                Negocio.StudentsRegistrations str = new Negocio.StudentsRegistrations();
+                int s = str.GetStudentsRegByIdCourse(idC);
+
+                Negocio.TeacherCourses tc = new Negocio.TeacherCourses();
+                int t = tc.GetTeacherCoursesByIdCourse(idC);
+
+                if (s == 0 && t == 0)
+                {
+                    c.Delete(idC);
+                    MessageBox.Show("Operación exitosa");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("No se puede eliminar el curso, ya que tiene uno o varios profesores o inscripciones activas.");
+                    this.Close();
+                }
             }
-            else
-            {
-                MessageBox.Show("No se puede eliminar el curso, ya que tiene uno o varios profesores o inscripciones activas.");
-                this.Close();
-            }
+            else { MessageBox.Show("Curso ingresado no valido"); }
         }
     }
 }

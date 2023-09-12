@@ -41,7 +41,7 @@ namespace UIDesktop
             Negocio.Specialities s = new Negocio.Specialities();
             Entidades.Specialities sp = s.GetOne(idS);
 
-            if (sp != null)
+            if (sp.IdSpeciality != 0)
             {
                 Negocio.Plans p = new Negocio.Plans();
                 p.Add(idS, descrip);
@@ -63,10 +63,10 @@ namespace UIDesktop
             Negocio.Specialities s = new Negocio.Specialities();
             Entidades.Specialities sp = s.GetOne(idS);
 
-            if (sp != null)
+            if (sp.IdSpeciality != 0)
             {
                 Negocio.Plans p = new Negocio.Plans();
-                int pl = p.UpdatePlan(idP, descrip, idS);
+                int pl = p.Update(idP, descrip, idS);
                 if (pl == 1)
                 {
                     MessageBox.Show("Se actualizó el plan correctamente.");
@@ -86,10 +86,38 @@ namespace UIDesktop
         private void btnDeletePlan_Click(object sender, EventArgs e)
         {
             int idP = Convert.ToInt32(txtIdPlans.Text);
-            Negocio.Plans p = new Negocio.Plans();
-            p.Delete(idP);
-            MessageBox.Show("Operación exitosa");
-            this.Close();
+            Negocio.Plans plan = new Negocio.Plans();
+            
+            Negocio.Commissions c = new Negocio.Commissions();
+            int com = c.GetCommissionsByIdPlan(idP);
+
+            Negocio.People p = new Negocio.People();
+            int pp = p.GetPeopleByIdPlan(idP);
+
+            Negocio.Subjects s = new Negocio.Subjects();
+            int sj = s.GetSubjectsByIdPlan(idP);
+
+
+            if (sj == 0 && com == 0 && pp ==0)
+            {
+                int rtp = plan.Delete(idP);
+                if (rtp == 1)
+                {
+                    MessageBox.Show("Operación exitosa");
+                    this.Close();
+                }
+                else 
+                {
+                    MessageBox.Show("Id plan ingresado no valido");
+                }
+
+                
+            }
+            else
+            {
+                MessageBox.Show("No se puede eliminar el plan dado que tiene materias, personas o comisiones en el que está asignado.");
+                this.Close();
+            }
         }
     }
 }
