@@ -55,7 +55,6 @@ namespace UIDesktop
             else
             {
                 MessageBox.Show("No se puede eliminar la materia, ya que tiene uno o varios curso/s asociado/s.");
-                this.Close();
             }
         }
 
@@ -76,12 +75,12 @@ namespace UIDesktop
                 Negocio.Subjects sub = new Negocio.Subjects();
                 sub.Add(idP, descrip, ths, whs);
                 MessageBox.Show("Operación exitosa");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("El Id del plan no fue encontrado");
             }
-            this.Close();
         }
 
         private void btnUpdateSubject_Click(object sender, EventArgs e)
@@ -94,14 +93,13 @@ namespace UIDesktop
 
             Negocio.Plans p = new Negocio.Plans();
             Entidades.Plans pl = p.GetOne(idP);
-            MessageBox.Show("id plan que encuentra " + pl.IdPlan.ToString());
 
             if (pl.IdPlan != 0)
             {
                 Negocio.Subjects sub = new Negocio.Subjects();
-                int sb = sub.Update(idS, descrip, ths, whs, idP);
-                MessageBox.Show("ide manteria que euncuentea " + sb.ToString());
-                if (sb > 0)
+                int rt = sub.Update(idS, descrip, ths, whs, idP);
+
+                if (rt != 0)
                 {
                     MessageBox.Show("Se actualizó la materia correctamente.");
                     this.Close();
@@ -115,6 +113,7 @@ namespace UIDesktop
             {
                 MessageBox.Show("El Id del plan no fue encontrado");
             }
+            this.Close();
         }
     }
 }

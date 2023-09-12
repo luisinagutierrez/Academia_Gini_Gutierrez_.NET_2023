@@ -39,7 +39,7 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("UPDATE Subjects SET (SubjectDescription, WeeklyHours, TotalHours, IdPlan) = (@SubjectDescription, @WeeklyHours, @TotalHours, @IdPlan) WHERE IdSubject = @IdSubject", Conn);
+                SqlCommand comm = new SqlCommand("UPDATE Subjects SET SubjectDescription = @SubjectDescription, WeeklyHours = @WeeklyHours, TotalHours = @TotalHours, IdPlan = @IdPlan  WHERE IdSubject = @IdSubject", Conn);
                 comm.Parameters.AddWithValue("@IdSubject", IdSubject);
                 comm.Parameters.AddWithValue("@SubjectDescription", SubjectDescription);
                 comm.Parameters.AddWithValue("@WeeklyHours", WeeklyHours);
@@ -50,7 +50,7 @@ namespace Datos
             catch (Exception Ex)
             {
                 Exception HandledException = new Exception("Error al actualizar materia ", Ex);
-                //throw HandledException;
+                throw HandledException;
             }
             finally
             {
@@ -150,22 +150,22 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Subjects WHERE @IdSubject = IdSubject", Conn);
-                comm.Parameters.AddWithValue("@IdSubject", IdSubject);
-
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM Subjects WHERE @IdSubject = IdSubject", Conn))
                 {
-                    oReader.Read();
-
-                    objSubjects.IdSubject = (int)oReader["IdSubject"];
-                    objSubjects.SubjectDescription = (string)oReader["SubjectDescription"];
-                    objSubjects.WeeklyHours = (int)oReader["WeeklyHours"];
-                    objSubjects.TotalHours = (int)oReader["TotalHours"];
-                    objSubjects.IdPlan = (int)oReader["IdPlan"];
-
-                    return objSubjects;
+                    comm.Parameters.AddWithValue("@IdSubject", IdSubject);
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            objSubjects.IdSubject = (int)oReader["IdSubject"];
+                            objSubjects.SubjectDescription = (string)oReader["SubjectDescription"];
+                            objSubjects.WeeklyHours = (int)oReader["WeeklyHours"];
+                            objSubjects.TotalHours = (int)oReader["TotalHours"];
+                            objSubjects.IdPlan = (int)oReader["IdPlan"];
+                        }
+                    }
                 }
+                return objSubjects;
             }
             finally
             {

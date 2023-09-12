@@ -58,17 +58,14 @@ namespace Negocio
             Datos.Subjects ds;
             try
             {
-                int rt = 0;
                 Entidades.Subjects sub = new Entidades.Subjects();
                 ds = new Datos.Subjects();
-                sub = ds.GetOne(idP);
+                sub = ds.GetOne(idS);
                 if (sub.IdSubject != 0)
                 {
-                    ds.Update(idS, descrip, ths,  whs,  idP);
-                    rt = sub.IdSubject; 
+                    ds.Update(idS, descrip, ths, whs, idP);
                 }
-                return rt;
-
+                return sub.IdSubject;
             }
             finally
             {
