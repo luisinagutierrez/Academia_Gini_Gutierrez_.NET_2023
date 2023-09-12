@@ -46,12 +46,13 @@ namespace UIDesktop
                 Negocio.Plans p = new Negocio.Plans();
                 p.Add(idS, descrip);
                 MessageBox.Show("Operación exitosa");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("El Id de la especialidad no fue encontrado");
             }
-            this.Close();
+            
         }
 
         private void btnUpdatePlan_Click(object sender, EventArgs e)
@@ -97,7 +98,6 @@ namespace UIDesktop
             Negocio.Subjects s = new Negocio.Subjects();
             int sj = s.GetSubjectsByIdPlan(idP);
 
-
             if (sj == 0 && com == 0 && pp ==0)
             {
                 int rtp = plan.Delete(idP);
@@ -110,8 +110,6 @@ namespace UIDesktop
                 {
                     MessageBox.Show("Id plan ingresado no valido");
                 }
-
-                
             }
             else
             {

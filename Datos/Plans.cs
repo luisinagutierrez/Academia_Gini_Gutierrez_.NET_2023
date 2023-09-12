@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class Plans:Connection
+    public class Plans : Connection
     {
         public int Add(int IdSpeciality, string PlanDescription)
         {
@@ -124,7 +124,8 @@ namespace Datos
 
                 return objPlans;
 
-            } catch (Exception Ex)
+            }
+            catch (Exception Ex)
             {
                 Exception HandledException = new Exception("Error al buscar plan ", Ex);
                 throw HandledException;
@@ -137,12 +138,14 @@ namespace Datos
         }
         public List<Entidades.Plans> GetPlansByIdSpeciality(int IdSpeciality)
         {
+
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Plans WHERE IdSpeciality = @IdSpeciality", Conn);
+                SqlCommand comm = new SqlCommand("SELECT * FROM Plans WHERE IdSpeciality =@IdSpeciality", Conn);
                 comm.Parameters.AddWithValue("@IdSpeciality", IdSpeciality);
-                List<Entidades.Plans> SubjectsList = new List<Entidades.Plans>();
+                List<Entidades.Plans> PlansList = new List<Entidades.Plans>();
+
                 using (SqlDataReader oReader = comm.ExecuteReader())
                 {
                     while (oReader.Read())
@@ -153,19 +156,20 @@ namespace Datos
                             objPlans.IdPlan = (int)oReader["IdPlan"];
                             objPlans.PlanDescription = (string)oReader["PlanDescription"];
                             objPlans.IdSpeciality = (int)oReader["IdSpeciality"];
-                            SubjectsList.Add(objPlans);
+
+                            PlansList.Add(objPlans);
                             objPlans = null;
                         }
                     }
-                    return SubjectsList;
+                    return PlansList;
                 }
             }
             finally
             {
-                //objSubjects = null;
                 this.Disconnect();
+                //objPeople = null;
             }
         }
-
     }
 }
+

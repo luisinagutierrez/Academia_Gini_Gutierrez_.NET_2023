@@ -57,7 +57,6 @@ namespace Datos
                 this.Disconnect();
             }
         }
-
         public void Delete(int IdSubject)
         {
             try

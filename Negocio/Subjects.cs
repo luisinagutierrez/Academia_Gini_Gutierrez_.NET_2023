@@ -53,26 +53,22 @@ namespace Negocio
                 ds = null;
             }
         }
-
-
-
         public int Update(int idS, string descrip, int ths, int whs, int idP)
         {
             Datos.Subjects ds;
             try
             {
+                int rt = 0;
                 Entidades.Subjects sub = new Entidades.Subjects();
                 ds = new Datos.Subjects();
-                sub = ds.GetOne(idS);
-                if (sub != null)
+                sub = ds.GetOne(idP);
+                if (sub.IdSubject != 0)
                 {
-                    ds.Update(idS, descrip, ths, whs, idP);
-                    return 1;
+                    ds.Update(idS, descrip, ths,  whs,  idP);
+                    rt = sub.IdSubject; 
                 }
-                else
-                {
-                    return 0;
-                }
+                return rt;
+
             }
             finally
             {
