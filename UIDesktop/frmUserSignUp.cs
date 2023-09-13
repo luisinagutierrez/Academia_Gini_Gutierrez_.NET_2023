@@ -33,7 +33,7 @@ namespace UIDesktop
             int idP = Convert.ToInt32(txtIdPerson.Text);
             Negocio.Users user = new Negocio.Users();      //NO LO TIENE QUE ENCONTRAR PARA ENTRAR AL IF Y AGREGAR UNO NUEVO
             int u = user.GetUserByIdPerson(idP);
-            if (u == 1)
+            if (u == 0)
             {
                 string name = Convert.ToString(txtUserName.Text);
                 string pass = Convert.ToString(txtUserPassword.Text);

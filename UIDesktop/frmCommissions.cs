@@ -35,6 +35,11 @@ namespace UIDesktop
 
         private void btnCreateCommission_Click(object sender, EventArgs e)
         {
+            if (txtIdCommission.Text != "")
+            {
+                MessageBox.Show("El campo IdCommission debe estar vacio para dar de alta una nueva comision.");
+                return;
+            }
             int idP = Convert.ToInt32(txtCommissionPlan.Text);
             string descrip = Convert.ToString(txtCommissionDescription.Text);
             int y = Convert.ToInt32(txtCommissionSpecialityYear.Text);
@@ -57,6 +62,11 @@ namespace UIDesktop
 
         private void btnUpdateCommission_Click(object sender, EventArgs e)
         {
+            if(txtIdCommission.Text == "")
+            {
+                MessageBox.Show("El campo IdCommission no puede estar vacio");
+                return;
+            }
             int idC = Convert.ToInt32(txtIdCommission.Text);
             if (txtCommissionPlan.Text == "")
             {
@@ -64,12 +74,23 @@ namespace UIDesktop
                 return;
             }
             int idP = Convert.ToInt32(txtCommissionPlan.Text);
+            if(txtCommissionDescription.Text == "" || txtCommissionSpecialityYear.Text == "")
+            {
+                MessageBox.Show("El campo Descripcion o Año de especialidad no pueden estar vacios.");
+                return;
+            }
             string descrip = Convert.ToString(txtCommissionDescription.Text);
             int y = Convert.ToInt32(txtCommissionSpecialityYear.Text);
 
             Negocio.Plans p = new Negocio.Plans();
             Entidades.Plans pl = p.GetOne(idP);
-
+            Negocio.Commissions nC = new Negocio.Commissions();
+            Entidades.Commissions comi = nC.GetOne(idC);
+            if(comi.IdCommission == 0)
+            {
+                MessageBox.Show("El Id de la comision no fue encontrado.");
+                return;
+            }
             if (pl.IdPlan != 0)
             {
                 Negocio.Commissions com = new Negocio.Commissions();
@@ -95,19 +116,29 @@ namespace UIDesktop
         {
             int idC = Convert.ToInt32(txtIdCommission.Text);
             Negocio.Commissions nC = new Negocio.Commissions();
+            Entidades.Commissions com = nC.GetOne(idC);
             Negocio.Courses nCourses = new Negocio.Courses();
             int c = nCourses.GetCoursesByIdCommission(idC);
-            if (c == 1)
+            if (com.IdCommission == 0)
             {
-                nC.Delete(idC);
-                MessageBox.Show("Operación exitosa");
-                this.Close();
+                MessageBox.Show("El Id de la comision no fue encontrado");
+                return;
             }
             else
             {
-                MessageBox.Show("No se puede eliminar la comision, ya que tiene uno o varios curso/s asociado/s.");
-                this.Close();
+                if (c == 1)
+                {
+                    nC.Delete(idC);
+                    MessageBox.Show("Operación exitosa");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("No se puede eliminar la comision, ya que tiene uno o varios curso/s asociado/s.");
+                    this.Close();
+                }
             }
+
         }
 
         private void dgvCommissions_SelectionChanged(object sender, EventArgs e)

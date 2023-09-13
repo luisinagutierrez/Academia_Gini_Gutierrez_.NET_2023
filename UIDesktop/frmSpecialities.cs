@@ -32,6 +32,11 @@ namespace UIDesktop
 
         private void btnCreateSpecialitie_Click(object sender, EventArgs e)
         {
+            if(txtIdSpeciality.Text != "")
+            {
+                MessageBox.Show("El campo IdSpeciality debe estar vacio para dar de alta una nueva especialidad.");
+                return;
+            }
             string descrip = Convert.ToString(txtSpecialityDescription.Text);
             if (descrip != " ")
             {

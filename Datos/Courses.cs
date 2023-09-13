@@ -254,7 +254,7 @@ namespace Datos
                 Entidades.Courses objCourses = new Entidades.Courses();
                 try
                 {
-                    using (SqlCommand comm = new SqlCommand("SELECT IdCourse FROM Courses WHERE @IdCourse = IdCourse and Quota >NumStudents", Conn))
+                    using (SqlCommand comm = new SqlCommand("SELECT IdCourse FROM Courses WHERE @IdCourse = IdCourse and Quota > NumStudents", Conn))
                     {
                         comm.Parameters.AddWithValue("@IdCourse", IdCourse);
 

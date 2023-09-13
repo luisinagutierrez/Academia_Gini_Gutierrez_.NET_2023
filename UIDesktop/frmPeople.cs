@@ -29,6 +29,14 @@ namespace UIDesktop
 
         private void btnCreatePeople_Click(object sender, EventArgs e)
         {
+            if (txtPeopleIdPlan.Text == "" || txtPeopleFileId.Text == "" || txtPeopleName.Text == "" || 
+                txtPeopleSurname.Text == "" || txtPeopleAddress.Text == "" || txtPeopleEmail.Text == "" ||
+                txtPeopleEmail.Text == "" || dtpPeopleBirthDate.Text == "" || txtPeopleTelephone.Text == "" ||
+                cboxTypePerson.Text == "")
+            {
+                MessageBox.Show("Ningun campo puede estar vacio para actualizar una persona.");
+                return;
+            }
             int idPlan = Convert.ToInt32(txtPeopleIdPlan.Text);
             int fileId = Convert.ToInt32(txtPeopleFileId.Text);
             string name = Convert.ToString(txtPeopleName.Text);
@@ -41,7 +49,11 @@ namespace UIDesktop
 
             Negocio.Plans nPlans = new Negocio.Plans();
             Entidades.Plans pl = nPlans.GetOne(idPlan);
-
+            if (txtIdPerson.Text != "")
+            {
+                MessageBox.Show("El campo IdPerson debe estar vacio para dar de alta una nueva persona.");
+                return;
+            }
             if (pl.IdPlan != 0)
             {
                 Negocio.People nP = new Negocio.People();
@@ -68,13 +80,53 @@ namespace UIDesktop
         private void btnUpdatePeople_Click(object sender, EventArgs e)
         {
             int idP = Convert.ToInt32(txtIdPerson.Text);
+            if (txtPeopleIdPlan.Text == "")
+            {
+                MessageBox.Show("El campo Plan no puede estar vacio");
+                return;
+            }
             int idPlan = Convert.ToInt32(txtPeopleIdPlan.Text);
+            if (txtPeopleFileId.Text == "")
+            {
+                MessageBox.Show("El campo legajo no puede estar vacio");
+                return;
+            }
             int fileId = Convert.ToInt32(txtPeopleFileId.Text);
+            if (txtPeopleName.Text == "")
+            {
+                MessageBox.Show("El campo nombre no puede estar vacio");
+                return;
+            }
             string name = Convert.ToString(txtPeopleName.Text);
+            if (txtPeopleSurname.Text == "")
+            {
+                MessageBox.Show("El campo apellido no puede estar vacio");
+                return;
+            }
             string surname = Convert.ToString(txtPeopleSurname.Text);
+            if (txtPeopleAddress.Text == "")
+            {
+                MessageBox.Show("El campo direccion no puede estar vacio");
+                return;
+            }
             string address = Convert.ToString(txtPeopleAddress.Text);
+            if (txtPeopleEmail.Text == "")
+            {
+                MessageBox.Show("El campo email no puede estar vacio");
+                return;
+            }
             string email = Convert.ToString(txtPeopleEmail.Text);
+            if (dtpPeopleBirthDate.Text == "")
+            {
+                MessageBox.Show("El campo fecha de nacimiento no puede estar vacio");
+                return;
+            }
             DateTime birthDate = Convert.ToDateTime(dtpPeopleBirthDate.Text);
+            if (txtPeopleTelephone.Text == "")
+            {
+                MessageBox.Show("El campo telefono no puede estar vacio");
+                return;
+            }
             string telephone = Convert.ToString(txtPeopleTelephone.Text);
 
             Negocio.Plans nPlan = new Negocio.Plans();
@@ -139,6 +191,7 @@ namespace UIDesktop
                 txtPeopleIdPlan.Text = selectedRow.Cells["IdPlan"].Value.ToString();
                 txtPeopleFileId.Text = selectedRow.Cells["FileId"].Value.ToString();
                 dtpPeopleBirthDate.Text = selectedRow.Cells["BirthDate"].Value.ToString();
+                cboxTypePerson.Text = selectedRow.Cells["PersonType"].Value.ToString();
             }
             else
             {
@@ -151,6 +204,7 @@ namespace UIDesktop
                 txtPeopleIdPlan.Text = "";
                 txtPeopleFileId.Text = "";
                 dtpPeopleBirthDate.Text = "";
+                cboxTypePerson.Text = "";
             }
         }
     }

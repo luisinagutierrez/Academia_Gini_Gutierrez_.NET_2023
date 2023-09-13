@@ -109,6 +109,7 @@
             Controls.Add(label1);
             Controls.Add(lbTeacherCoursesList);
             Controls.Add(dgvRegistrationCourses);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmTeacherMainMenu";
             Text = "Menú de Profesores";
             Load += frmTeacherMainMenu_Load;

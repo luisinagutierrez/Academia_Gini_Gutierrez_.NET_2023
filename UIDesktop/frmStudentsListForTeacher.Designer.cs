@@ -90,7 +90,7 @@
             lbIdStudent.Name = "lbIdStudent";
             lbIdStudent.Size = new Size(131, 20);
             lbIdStudent.TabIndex = 19;
-            lbIdStudent.Text = "id registro alumno";
+            lbIdStudent.Text = "Id registro alumno";
             // 
             // lbCourseList
             // 
@@ -128,6 +128,7 @@
             Controls.Add(lbIdStudent);
             Controls.Add(lbCourseList);
             Controls.Add(dgvStudentRegistration);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmStudentsListForTeacher";
             Text = "frmStudentsListForTeacher";
             Load += frmStudentsListForTeacher_Load;

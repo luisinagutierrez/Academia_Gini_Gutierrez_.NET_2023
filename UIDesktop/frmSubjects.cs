@@ -60,10 +60,34 @@ namespace UIDesktop
 
         private void btnCreateSubject_Click(object sender, EventArgs e)
         {
-
+            if(txtIdSubject.Text != "")
+            {
+                MessageBox.Show("El campo IdSubject debe estar vacio para dar de alta una nueva materia.");
+                return;
+            }
+            if(txtSubjectsPlan.Text == "")
+            {
+                MessageBox.Show("El campo IdPlan no puede estar vacio");
+                return;
+            }
             int idP = Convert.ToInt32(txtSubjectsPlan.Text);
+            if (txtSubjectDescription.Text == "")
+            {
+                MessageBox.Show("El campo Descripcion no puede estar vacio");
+                return;
+            }
             string descrip = Convert.ToString(txtSubjectDescription.Text);
+            if(txtSubjectsTotalHours.Text == "")
+            {
+                MessageBox.Show("El campo Horas totales no puede estar vacio");
+                return;
+            }
             int ths = Convert.ToInt32(txtSubjectsTotalHours.Text);
+            if(txtSubjectsWeeklyHours.Text == "")
+            {
+                MessageBox.Show("El campo Horas semanales no puede estar vacio");
+                return;
+            }
             int whs = Convert.ToInt32(txtSubjectsWeeklyHours.Text);
 
             Negocio.Plans p = new Negocio.Plans();
@@ -84,15 +108,47 @@ namespace UIDesktop
 
         private void btnUpdateSubject_Click(object sender, EventArgs e)
         {
+            if (txtIdSubject.Text == "")
+            {
+                MessageBox.Show("El campo IdSubject no puede estar vacio");
+                return;
+            }
             int idS = Convert.ToInt32(txtIdSubject.Text);
+            if (txtSubjectsPlan.Text == "")
+            {
+                MessageBox.Show("El campo IdPlan no puede estar vacio");
+                return;
+            }
             int idP = Convert.ToInt32(txtSubjectsPlan.Text);
+            if (txtSubjectDescription.Text == "")
+            {
+                MessageBox.Show("El campo Descripcion no puede estar vacio");
+                return;
+            }
             string descrip = Convert.ToString(txtSubjectDescription.Text);
+            if (txtSubjectsTotalHours.Text == "")
+            {
+                MessageBox.Show("El campo Horas totales no puede estar vacio");
+                return;
+            }
             int ths = Convert.ToInt32(txtSubjectsTotalHours.Text);
+            if (txtSubjectsWeeklyHours.Text == "")
+            {
+                MessageBox.Show("El campo Horas semanales no puede estar vacio");
+                return;
+            }
             int whs = Convert.ToInt32(txtSubjectsWeeklyHours.Text);
 
             Negocio.Plans p = new Negocio.Plans();
             Entidades.Plans pl = p.GetOne(idP);
+            Negocio.Subjects nS = new Negocio.Subjects();
+            Entidades.Subjects subject = nS.GetOne(idS);
 
+            if(subject.IdSubject == 0)
+            {
+                MessageBox.Show("El Id de la materia no fue encontrado");
+                return;
+            }
             if (pl.IdPlan != 0)
             {
                 Negocio.Subjects sub = new Negocio.Subjects();

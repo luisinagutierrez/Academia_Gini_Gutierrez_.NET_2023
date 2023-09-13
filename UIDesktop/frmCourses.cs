@@ -51,9 +51,34 @@ namespace UIDesktop
         private void btnCreateCourse_Click(object sender, EventArgs e)
         {
             //txtIdCourse
+            if (txtIdCourse.Text != "")
+            {
+                MessageBox.Show("El campo IdCourse debe estar vacio para dar de alta un nuevo curso.");
+                return;
+            }
+            if (txtCoursesIdSubject.Text == "")
+            {
+                MessageBox.Show("El campo Id Materia no puede estar vacio");
+                return;
+            }
             int idS = Convert.ToInt32(txtCoursesIdSubject.Text);
+            if (txtCoursesIdCommission.Text == "")
+            {
+                MessageBox.Show("El campo Id Comision no puede estar vacio");
+                return;
+            }
             int idC = Convert.ToInt32(txtCoursesIdCommission.Text);
+            if (txtCoursesCalendarYear.Text == "")
+            {
+                MessageBox.Show("El campo año no puede estar vacio");
+                return;
+            }
             int cy = Convert.ToInt32(txtCoursesCalendarYear.Text);
+            if (txtCoursesQuota.Text == "")
+            {
+                MessageBox.Show("El campo cupo no puede estar vacio");
+                return;
+            }
             int q = Convert.ToInt32(txtCoursesQuota.Text);
 
             Negocio.Subjects s = new Negocio.Subjects();
@@ -81,9 +106,29 @@ namespace UIDesktop
         private void btnUpdateCourse_Click(object sender, EventArgs e)
         {
             int idC = Convert.ToInt32(txtIdCourse.Text);
+            if (txtCoursesIdSubject.Text == "")
+            {
+                MessageBox.Show("El campo Id Materia no puede estar vacio");
+                return;
+            }
             int idS = Convert.ToInt32(txtCoursesIdSubject.Text);
+            if (txtCoursesIdCommission.Text == "")
+            {
+                MessageBox.Show("El campo Id Comision no puede estar vacio");
+                return;
+            }
             int idCc = Convert.ToInt32(txtCoursesIdCommission.Text);
+            if (txtCoursesCalendarYear.Text == "")
+            {
+                MessageBox.Show("El campo año no puede estar vacio");
+                return;
+            }
             int cy = Convert.ToInt32(txtCoursesCalendarYear.Text);
+            if (txtCoursesQuota.Text == "")
+            {
+                MessageBox.Show("El campo cupo no puede estar vacio");
+                return;
+            }
             int q = Convert.ToInt32(txtCoursesQuota.Text);
 
             Negocio.Subjects s = new Negocio.Subjects();
@@ -91,11 +136,19 @@ namespace UIDesktop
 
             Negocio.Commissions c = new Negocio.Commissions();
             Entidades.Commissions com = c.GetOne(idCc);
+            Negocio.Courses nCourse = new Negocio.Courses();
+            Entidades.Courses course = new Entidades.Courses();
+            course = nCourse.GetOne(idC);
 
+            if (course.IdCourse == 0)
+            {
+                MessageBox.Show("El Id del curso no fue encontrado");
+                return;
+            }
             if (com.IdCommission != 0 && sub.IdSubject != 0)
             {
-                Negocio.Courses course = new Negocio.Courses();
-                course.Update(idC, idS, idCc, cy, q);
+                Negocio.Courses nCour = new Negocio.Courses();
+                nCour.Update(idC, idS, idCc, cy, q);
                 MessageBox.Show("Operación exitosa");
                 this.Close();
             }

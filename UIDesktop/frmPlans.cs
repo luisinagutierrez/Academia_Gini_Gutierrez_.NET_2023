@@ -37,6 +37,11 @@ namespace UIDesktop
 
         private void btnCreatePlan_Click(object sender, EventArgs e)
         {
+            if(txtIdPlans.Text != "")
+            {
+                MessageBox.Show("El campo IdPlan debe estar vacio para dar de alta un nuevo plan.");
+                return;
+            }
             if (txtPlanSpeciality.Text == "" || txtPlanDescription.Text == "")
             {
                 MessageBox.Show("Para poder crear un nuevo plan debe ingresar su descripcion y el id de la especialidad");
@@ -63,13 +68,29 @@ namespace UIDesktop
 
         private void btnUpdatePlan_Click(object sender, EventArgs e)
         {
+            if (txtIdPlans.Text == "")
+            {
+                MessageBox.Show("El campo IdPlan no puede estar vacio");
+                return;
+            }
             int idP = Convert.ToInt32(txtIdPlans.Text);
+            if (txtPlanSpeciality.Text == "" || txtPlanDescription.Text == "")
+            {
+                MessageBox.Show("El campo IdSpeciality o PlanDescription no pueden estar vacios.");
+                return;
+            }
             int idS = Convert.ToInt32(txtPlanSpeciality.Text);
             string descrip = Convert.ToString(txtPlanDescription.Text);
 
             Negocio.Specialities s = new Negocio.Specialities();
             Entidades.Specialities sp = s.GetOne(idS);
-
+            Negocio.Plans nPl = new Negocio.Plans();
+            Entidades.Plans plan = nPl.GetOne(idP);
+            if (plan.IdPlan == 0)
+            {
+                MessageBox.Show("El Id del plan no fue encontrado");
+                return;
+            }
             if (sp.IdSpeciality != 0)
             {
                 Negocio.Plans p = new Negocio.Plans();
@@ -92,6 +113,11 @@ namespace UIDesktop
 
         private void btnDeletePlan_Click(object sender, EventArgs e)
         {
+            if (txtIdPlans.Text == "")
+            {
+                MessageBox.Show("El campo IdPlan no puede estar vacio");
+                return;
+            }
             int idP = Convert.ToInt32(txtIdPlans.Text);
             Negocio.Plans plan = new Negocio.Plans();
 

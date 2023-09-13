@@ -32,7 +32,7 @@ namespace UIDesktop
             int idR = Convert.ToInt32(txtIdRegistration.Text);
             int note = Convert.ToInt32(cBoxNote.Text);
             Negocio.StudentsRegistrations st = new Negocio.StudentsRegistrations();
-            st.UpdateNote(idR,note);
+            st.UpdateNote(idR, note);
             MessageBox.Show("Nota cargada");
         }
         private void dgvUsers_SelectionChanged(object sender, EventArgs e)
