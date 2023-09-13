@@ -80,7 +80,6 @@ namespace Datos
         }
         public List<Entidades.Courses> GetAll()
         {
-
             try
             {
                 this.Connect();
@@ -250,49 +249,42 @@ namespace Datos
         }
         public Entidades.Courses ValidateCourseAvailability(int IdCourse)
         {
+            Entidades.Courses objCourses = new Entidades.Courses();
+            try
             {
-                Entidades.Courses objCourses = new Entidades.Courses();
-                try
+                using (SqlCommand comm = new SqlCommand("SELECT IdCourse FROM Courses WHERE @IdCourse = IdCourse and Quota > NumStudents", Conn))
                 {
-                    using (SqlCommand comm = new SqlCommand("SELECT IdCourse FROM Courses WHERE @IdCourse = IdCourse and Quota > NumStudents", Conn))
+                    comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+                    using (SqlDataReader oReader = comm.ExecuteReader())
                     {
-                        comm.Parameters.AddWithValue("@IdCourse", IdCourse);
-
-                        using (SqlDataReader oReader = comm.ExecuteReader())
+                        if (oReader.Read())
                         {
-                            if (oReader.Read())
-                            {
-                                objCourses.IdCourse = (int)oReader["IdCourse"];
-                            }
+                            objCourses.IdCourse = (int)oReader["IdCourse"];
                         }
                     }
-                    return objCourses;
                 }
-                finally
-                {
-                    // objCourses = null;
-                    this.Disconnect();
-
-                }
+                return objCourses;
             }
+            finally
+            {
+                // objCourses = null;
+                this.Disconnect();
 
+            }
         }
         public void UpdateCourseAvailability(int IdCourse, int num)
         {
-
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("UPDATE Courses SET NumStudents = NumStudents + @num WHERE IdCourse = @IdCourse", Conn);
-                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
-                comm.Parameters.AddWithValue("@num", num);
-                comm.ExecuteNonQuery();
+                using (SqlCommand comm = new SqlCommand("UPDATE Courses SET NumStudents = NumStudents + @num WHERE IdCourse = @IdCourse", Conn))
+                {
+                    comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+                    comm.Parameters.AddWithValue("@num", num);
+                    comm.ExecuteNonQuery();
+                }
             }
-            catch (Exception Ex)
-            {
-                Exception HandledException = new Exception("Error al actualizar el curso", Ex);
-                //throw HandledException;
-            }
+
             finally
             {
                 this.Disconnect();

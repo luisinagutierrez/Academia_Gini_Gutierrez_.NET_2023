@@ -186,17 +186,19 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT IdCourse FROM StudentsRegistrations WHERE @IdRegistration = IdRegistration AND IdStudent =@IdStudent ", Conn);
-                comm.Parameters.AddWithValue("@IdStudent", IdStudent);
-                comm.Parameters.AddWithValue("@IdRegistration", IdRegistration);
-
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlCommand comm = new SqlCommand("SELECT IdCourse FROM StudentsRegistrations WHERE @IdRegistration = IdRegistration AND IdStudent =@IdStudent ", Conn))
                 {
-                    oReader.Read();
-                    objStudentsRegistrations.IdCourse = (int)oReader["IdCourse"];                     
-                    return objStudentsRegistrations.IdCourse;                                                     // SEGURAMENTE TIRE ERROR SI NO LO ENCUENTRA
-                                                                      //NO SE QUE DEVULEVE SI UN NULL O UN 0 PONELE
+                    comm.Parameters.AddWithValue("@IdStudent", IdStudent);
+                    comm.Parameters.AddWithValue("@IdRegistration", IdRegistration);
+
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            objStudentsRegistrations.IdCourse = (int)oReader["IdCourse"];
+                        }
+                    }
+                    return objStudentsRegistrations.IdCourse;                                                  
                 }
             }
             finally
@@ -207,3 +209,4 @@ namespace Datos
         }
     }
 }
+

@@ -9,19 +9,6 @@ namespace Negocio
 {
     public class StudentsRegistrations
     {
-        public void Delete(int id)
-        {
-            Datos.StudentsRegistrations ds;
-            try
-            {
-                ds = new Datos.StudentsRegistrations();
-                ds.Delete(id);
-            }
-            finally
-            {
-                ds = null;
-            }
-        }
         public void UpdateNote(int idR,int note) 
         {
             Datos.StudentsRegistrations ds;
@@ -121,7 +108,7 @@ namespace Negocio
                 int course = ds.ValidateStudentsRegistrations(IdRegistration, IdStudent);
                 if (course != 0)
                 {
-                    this.Delete(IdRegistration);
+                    ds.Delete(IdRegistration);
                 }
                 return course;
             }

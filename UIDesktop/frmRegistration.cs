@@ -79,14 +79,10 @@ namespace UIDesktop
 
         private void btnDeleteRegistration_Click(object sender, EventArgs e)
         {
-
-            // VALIDO QUE ESTÉ INGRESANDO UNA REGISTATION VALIDA PARA ESE ALUMNO PASAR COMO PARÁMETRO SU IDE Y EL DE LA REGISTRACION
-            //CURSOS RESTARLE UN INCRIPTO Y ELIMINAR LA REGISTRACION DEL REGISTRATION 
-
             int IdRegistration = Convert.ToInt32(txtIdRegistration.Text);
             Negocio.StudentsRegistrations nStuReg = new Negocio.StudentsRegistrations();
-            int idCourse = nStuReg.ValidateStudentsRegistrations(IdRegistration, this.idPerson); //      sería el id de persona que no se como pasarle al form !!!!        
-            if (idCourse != 0) ///ACA NO SE QUE ME DEVOLVERÍA SI INGRESA UNA REGISTRATION NO VALIDA
+            int idCourse = nStuReg.ValidateStudentsRegistrations(IdRegistration, this.idPerson);
+            if (idCourse != 0) 
             {
                 Negocio.Courses nCourses = new Negocio.Courses();
                 nCourses.UpdateCourseAvailability(idCourse, -1);
@@ -95,13 +91,12 @@ namespace UIDesktop
             }
             else
             {
-                MessageBox.Show("El curso ingresado no fue encontrado o no tiene cupo");
+                MessageBox.Show("Registro de inscripcion no encontrado");
             }
         }
 
         private void dgvAvailableCourses_SelectionChanged(object sender, EventArgs e)
         {
-            // Verifica si hay alguna fila seleccionada
             if (dgvAvailableCourses.SelectedRows.Count > 0)
             {
                 // Obtén la fila seleccionada

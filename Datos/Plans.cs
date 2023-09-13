@@ -123,7 +123,6 @@ namespace Datos
                 }
 
                 return objPlans;
-
             }
             catch (Exception Ex)
             {
