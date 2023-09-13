@@ -45,7 +45,7 @@
             // 
             // btnStudentNewRegistrationAccept
             // 
-            btnStudentNewRegistrationAccept.Location = new Point(652, 449);
+            btnStudentNewRegistrationAccept.Location = new Point(602, 341);
             btnStudentNewRegistrationAccept.Name = "btnStudentNewRegistrationAccept";
             btnStudentNewRegistrationAccept.Size = new Size(95, 51);
             btnStudentNewRegistrationAccept.TabIndex = 21;
@@ -55,9 +55,9 @@
             // 
             // btnStudentNewRegistrationCancel
             // 
-            btnStudentNewRegistrationCancel.Location = new Point(472, 449);
+            btnStudentNewRegistrationCancel.Location = new Point(614, 438);
             btnStudentNewRegistrationCancel.Name = "btnStudentNewRegistrationCancel";
-            btnStudentNewRegistrationCancel.Size = new Size(105, 51);
+            btnStudentNewRegistrationCancel.Size = new Size(182, 51);
             btnStudentNewRegistrationCancel.TabIndex = 20;
             btnStudentNewRegistrationCancel.Text = "Cancelar";
             btnStudentNewRegistrationCancel.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@
             // 
             // btnDeleteRegistration
             // 
-            btnDeleteRegistration.Location = new Point(811, 449);
+            btnDeleteRegistration.Location = new Point(1230, 345);
             btnDeleteRegistration.Name = "btnDeleteRegistration";
             btnDeleteRegistration.Size = new Size(95, 51);
             btnDeleteRegistration.TabIndex = 23;

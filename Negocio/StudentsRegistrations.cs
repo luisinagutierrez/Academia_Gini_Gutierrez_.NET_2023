@@ -22,6 +22,44 @@ namespace Negocio
                 ds = null;
             }
         }
+        public void UpdateNote(int idR,int note) 
+        {
+            Datos.StudentsRegistrations ds;
+            try
+            {
+                string condition;
+                ds = new Datos.StudentsRegistrations();
+                if (note > 5) 
+                {
+                    condition = "regular ";
+                }
+                else 
+                {
+                    condition = "recupera";
+                }
+                ds.UpdateNote(idR, note, condition);
+
+
+
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+        public List<Entidades.StudentsRegistrations> GetStudentsListRegByIdCourse(int idCourse) 
+        {
+            Datos.StudentsRegistrations ds;
+            try
+            {
+                ds = new Datos.StudentsRegistrations();
+                return ds.GetStudentsListRegByIdCourse(idCourse);
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
         public int GetStudentsRegByIdCourse(int idC)
         {
             Datos.StudentsRegistrations ds;
@@ -74,7 +112,6 @@ namespace Negocio
                 ds = null;
             }
         }
-
         public int ValidateStudentsRegistrations(int IdRegistration, int IdStudent)
         {
             Datos.StudentsRegistrations ds;
@@ -96,19 +133,3 @@ namespace Negocio
         }
     }
 }
-
-        //public List<Entidades.StudentsRegistrations> GetAll()
-        //{
-        //    Datos.StudentsRegistrations ds;
-        //    try
-        //    {
-        //        ds = new Datos.StudentsRegistrations();
-        //        List<Entidades.StudentsRegistrations> RegistrationsList = ds.GetAll();
-        //        return RegistrationsList;
-        //    }
-        //    finally
-        //    {
-        //        ds = null;
-        //    }
-        //}
-    

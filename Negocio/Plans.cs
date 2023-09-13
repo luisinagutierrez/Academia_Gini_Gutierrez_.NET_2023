@@ -74,7 +74,6 @@ namespace Negocio
             Datos.Plans ds;
             try
             {
-                int rt = 0;
                 Entidades.Plans pl = new Entidades.Plans();
                 ds = new Datos.Plans();
                 pl = ds.GetOne(idP);

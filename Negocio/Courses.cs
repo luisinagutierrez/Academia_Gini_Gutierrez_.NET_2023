@@ -159,21 +159,19 @@ namespace Negocio
                 ds = null;
             }
         }
-        public bool ValidateCourseAvailability(int idC)
+        public int ValidateCourseAvailability(int idC)
         {
             Datos.Courses ds;
-            bool flag = false;
             try
             {
                 Entidades.Courses co = new Entidades.Courses();
                 ds = new Datos.Courses();
                 co = ds.ValidateCourseAvailability(idC);
-                if (co != null)
+                if (co.IdCourse != 0)
                 {
                     this.UpdateCourseAvailability(idC, 1);
-                    flag = true;
                 }
-                return flag;
+                return co.IdCourse;
             }
             finally
             {

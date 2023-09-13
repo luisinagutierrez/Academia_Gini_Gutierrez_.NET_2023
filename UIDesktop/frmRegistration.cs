@@ -61,8 +61,8 @@ namespace UIDesktop
             //ME FALTÓ VALIDAR QUE EL ALUMNO NO ESTÉ YA INSCRIPTO EN ESE CURSO, NO SE SI ESO ES NECESARIO
             int IdCourse = Convert.ToInt32(txtIdCouse.Text);
             Negocio.Courses nCourses = new Negocio.Courses();
-            bool course = nCourses.ValidateCourseAvailability(IdCourse);
-            if (course)
+            int course = nCourses.ValidateCourseAvailability(IdCourse);
+            if (course != 0)
             {
                 Negocio.StudentsRegistrations nst = new Negocio.StudentsRegistrations();
                 nst.Add(IdCourse, this.idPerson);//  sería el id de persona que no se como pasarle al form !!!!         

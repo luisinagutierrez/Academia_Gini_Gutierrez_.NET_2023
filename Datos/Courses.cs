@@ -254,17 +254,17 @@ namespace Datos
                 Entidades.Courses objCourses = new Entidades.Courses();
                 try
                 {
-                    this.Connect();
-                    SqlCommand comm = new SqlCommand("SELECT IdCourse FROM Courses WHERE @IdCourse = IdCourse and Quota >NumStudents ", Conn);
-                    comm.Parameters.AddWithValue("@IdCourse", IdCourse);
-
-                    SqlDataReader oReader = comm.ExecuteReader();
-                    using (oReader)
+                    using (SqlCommand comm = new SqlCommand("SELECT IdCourse FROM Courses WHERE @IdCourse = IdCourse and Quota >NumStudents", Conn))
                     {
-                        oReader.Read();
-                        objCourses.IdCourse = (int)oReader["IdCourse"];
-                        ///TENDÍA QUE DEBOLVER 1 O 0 O LO Q SEA PARA SABER SI NO PUEDE INSCRIBIRSE PQ NO LO ENCONTRÓ O PORQUE NO HAY LUGAR
-                        //return objCourses.IdCourse;
+                        comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+
+                        using (SqlDataReader oReader = comm.ExecuteReader())
+                        {
+                            if (oReader.Read())
+                            {
+                                objCourses.IdCourse = (int)oReader["IdCourse"];
+                            }
+                        }
                     }
                     return objCourses;
                 }

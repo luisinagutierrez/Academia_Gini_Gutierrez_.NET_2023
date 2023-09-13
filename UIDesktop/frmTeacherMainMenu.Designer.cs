@@ -28,35 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvTeacheraCoursesList = new DataGridView();
+            dgvRegistrationCourses = new DataGridView();
             lbTeacherCoursesList = new Label();
             label1 = new Label();
             txtTeacherCoursesIdCourse = new TextBox();
             btnTeacherCoursesAccept = new Button();
             btnTeacherCoursesCancel = new Button();
-            dataGridView1 = new DataGridView();
-            label2 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvTeacheraCoursesList).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvRegistrationCourses).BeginInit();
             SuspendLayout();
             // 
-            // dgvTeacheraCoursesList
+            // dgvRegistrationCourses
             // 
-            dgvTeacheraCoursesList.AllowUserToOrderColumns = true;
-            dgvTeacheraCoursesList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTeacheraCoursesList.GridColor = SystemColors.ButtonHighlight;
-            dgvTeacheraCoursesList.Location = new Point(12, 99);
-            dgvTeacheraCoursesList.Name = "dgvTeacheraCoursesList";
-            dgvTeacheraCoursesList.RowHeadersWidth = 51;
-            dgvTeacheraCoursesList.RowTemplate.Height = 29;
-            dgvTeacheraCoursesList.Size = new Size(628, 211);
-            dgvTeacheraCoursesList.TabIndex = 1;
+            dgvRegistrationCourses.AllowUserToOrderColumns = true;
+            dgvRegistrationCourses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRegistrationCourses.GridColor = SystemColors.ButtonHighlight;
+            dgvRegistrationCourses.Location = new Point(509, 135);
+            dgvRegistrationCourses.Name = "dgvRegistrationCourses";
+            dgvRegistrationCourses.RowHeadersWidth = 51;
+            dgvRegistrationCourses.RowTemplate.Height = 29;
+            dgvRegistrationCourses.Size = new Size(520, 211);
+            dgvRegistrationCourses.TabIndex = 1;
+            dgvRegistrationCourses.CellContentClick += dgvTeacheraCoursesList_CellContentClick;
             // 
             // lbTeacherCoursesList
             // 
             lbTeacherCoursesList.AutoSize = true;
             lbTeacherCoursesList.Font = new Font("Verdana", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbTeacherCoursesList.Location = new Point(199, 55);
+            lbTeacherCoursesList.Location = new Point(649, 62);
             lbTeacherCoursesList.Name = "lbTeacherCoursesList";
             lbTeacherCoursesList.Size = new Size(241, 28);
             lbTeacherCoursesList.TabIndex = 2;
@@ -65,7 +63,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 341);
+            label1.Location = new Point(508, 370);
             label1.Name = "label1";
             label1.Size = new Size(262, 20);
             label1.TabIndex = 3;
@@ -73,7 +71,7 @@
             // 
             // txtTeacherCoursesIdCourse
             // 
-            txtTeacherCoursesIdCourse.Location = new Point(286, 338);
+            txtTeacherCoursesIdCourse.Location = new Point(782, 367);
             txtTeacherCoursesIdCourse.Name = "txtTeacherCoursesIdCourse";
             txtTeacherCoursesIdCourse.Size = new Size(125, 27);
             txtTeacherCoursesIdCourse.TabIndex = 4;
@@ -81,7 +79,7 @@
             // 
             // btnTeacherCoursesAccept
             // 
-            btnTeacherCoursesAccept.Location = new Point(441, 332);
+            btnTeacherCoursesAccept.Location = new Point(912, 433);
             btnTeacherCoursesAccept.Name = "btnTeacherCoursesAccept";
             btnTeacherCoursesAccept.Size = new Size(120, 39);
             btnTeacherCoursesAccept.TabIndex = 5;
@@ -91,7 +89,7 @@
             // 
             // btnTeacherCoursesCancel
             // 
-            btnTeacherCoursesCancel.Location = new Point(441, 390);
+            btnTeacherCoursesCancel.Location = new Point(782, 433);
             btnTeacherCoursesCancel.Name = "btnTeacherCoursesCancel";
             btnTeacherCoursesCancel.Size = new Size(107, 39);
             btnTeacherCoursesCancel.TabIndex = 6;
@@ -99,61 +97,33 @@
             btnTeacherCoursesCancel.UseVisualStyleBackColor = true;
             btnTeacherCoursesCancel.Click += btnTeacherCoursesCancel_Click;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.GridColor = SystemColors.ButtonHighlight;
-            dataGridView1.Location = new Point(664, 99);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(593, 211);
-            dataGridView1.TabIndex = 7;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Verdana", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(664, 43);
-            label2.Name = "label2";
-            label2.Size = new Size(636, 28);
-            label2.TabIndex = 8;
-            label2.Text = "alumnos de un curso que ingresa en el momento";
-            label2.Click += label2_Click;
-            // 
             // frmTeacherMainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1324, 701);
-            Controls.Add(label2);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(1393, 701);
             Controls.Add(btnTeacherCoursesCancel);
             Controls.Add(btnTeacherCoursesAccept);
             Controls.Add(txtTeacherCoursesIdCourse);
             Controls.Add(label1);
             Controls.Add(lbTeacherCoursesList);
-            Controls.Add(dgvTeacheraCoursesList);
+            Controls.Add(dgvRegistrationCourses);
             Name = "frmTeacherMainMenu";
             Text = "Menú de Profesores";
             Load += frmTeacherMainMenu_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvTeacheraCoursesList).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvRegistrationCourses).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dgvTeacheraCoursesList;
+        private DataGridView dgvRegistrationCourses;
         private Label lbTeacherCoursesList;
         private Label label1;
         private TextBox txtTeacherCoursesIdCourse;
         private Button btnTeacherCoursesAccept;
         private Button btnTeacherCoursesCancel;
-        private DataGridView dataGridView1;
-        private Label label2;
     }
 }
