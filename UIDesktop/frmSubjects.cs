@@ -22,6 +22,11 @@ namespace UIDesktop
             Negocio.Subjects nSubjects = new Negocio.Subjects();
             List<Entidades.Subjects> SubjectsList = nSubjects.GetAll();
             dgvSubjects.DataSource = SubjectsList;
+
+            Negocio.Plans nPlan = new Negocio.Plans();
+            List<Entidades.Plans> Pl = nPlan.GetAll();
+            cBoxIdPlan.DataSource = Pl;
+            cBoxIdPlan.DisplayMember = "IdPlan";
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -60,30 +65,30 @@ namespace UIDesktop
 
         private void btnCreateSubject_Click(object sender, EventArgs e)
         {
-            if(txtIdSubject.Text != "")
+            if (txtIdSubject.Text != "")
             {
                 MessageBox.Show("El campo IdSubject debe estar vacio para dar de alta una nueva materia.");
                 return;
             }
-            if(txtSubjectsPlan.Text == "")
+            if (cBoxIdPlan.Text == "")
             {
                 MessageBox.Show("El campo IdPlan no puede estar vacio");
                 return;
             }
-            int idP = Convert.ToInt32(txtSubjectsPlan.Text);
+            int idP = Convert.ToInt32(cBoxIdPlan.Text);
             if (txtSubjectDescription.Text == "")
             {
                 MessageBox.Show("El campo Descripcion no puede estar vacio");
                 return;
             }
             string descrip = Convert.ToString(txtSubjectDescription.Text);
-            if(txtSubjectsTotalHours.Text == "")
+            if (txtSubjectsTotalHours.Text == "")
             {
                 MessageBox.Show("El campo Horas totales no puede estar vacio");
                 return;
             }
             int ths = Convert.ToInt32(txtSubjectsTotalHours.Text);
-            if(txtSubjectsWeeklyHours.Text == "")
+            if (txtSubjectsWeeklyHours.Text == "")
             {
                 MessageBox.Show("El campo Horas semanales no puede estar vacio");
                 return;
@@ -92,7 +97,7 @@ namespace UIDesktop
 
             Negocio.Plans p = new Negocio.Plans();
             Entidades.Plans pl = p.GetOne(idP);
-            
+
             if (pl.IdPlan != 0)
             {
                 Negocio.Subjects sub = new Negocio.Subjects();
@@ -114,12 +119,12 @@ namespace UIDesktop
                 return;
             }
             int idS = Convert.ToInt32(txtIdSubject.Text);
-            if (txtSubjectsPlan.Text == "")
+            if (cBoxIdPlan.Text == "")
             {
                 MessageBox.Show("El campo IdPlan no puede estar vacio");
                 return;
             }
-            int idP = Convert.ToInt32(txtSubjectsPlan.Text);
+            int idP = Convert.ToInt32(cBoxIdPlan.Text);
             if (txtSubjectDescription.Text == "")
             {
                 MessageBox.Show("El campo Descripcion no puede estar vacio");
@@ -144,7 +149,7 @@ namespace UIDesktop
             Negocio.Subjects nS = new Negocio.Subjects();
             Entidades.Subjects subject = nS.GetOne(idS);
 
-            if(subject.IdSubject == 0)
+            if (subject.IdSubject == 0)
             {
                 MessageBox.Show("El Id de la materia no fue encontrado");
                 return;
@@ -184,7 +189,7 @@ namespace UIDesktop
                 txtSubjectDescription.Text = selectedRow.Cells["SubjectDescription"].Value.ToString();
                 txtSubjectsWeeklyHours.Text = selectedRow.Cells["WeeklyHours"].Value.ToString();
                 txtSubjectsTotalHours.Text = selectedRow.Cells["TotalHours"].Value.ToString();
-                txtSubjectsPlan.Text = selectedRow.Cells["IdPlan"].Value.ToString();
+                cBoxIdPlan.Text = selectedRow.Cells["IdPlan"].Value.ToString();
                 // ... y así sucesivamente para cada TextBox y columna que desees mostrar
             }
             else
@@ -194,7 +199,7 @@ namespace UIDesktop
                 txtSubjectDescription.Text = "";
                 txtSubjectsWeeklyHours.Text = "";
                 txtSubjectsTotalHours.Text = "";
-                txtSubjectsPlan.Text = "";
+                cBoxIdPlan.Text = "";
                 // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }

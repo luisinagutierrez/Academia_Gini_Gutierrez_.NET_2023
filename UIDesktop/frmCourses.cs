@@ -46,6 +46,16 @@ namespace UIDesktop
             Negocio.Courses nCourses = new Negocio.Courses();
             List<Entidades.Courses> CoursesList = nCourses.GetAll();
             dgvCourses.DataSource = CoursesList;
+
+            Negocio.Subjects nSubject = new Negocio.Subjects();
+            List<Entidades.Subjects> Sj = nSubject.GetAll();
+            cBoxIdSubject.DataSource = Sj;
+            cBoxIdSubject.DisplayMember = "IdSubject";
+
+            Negocio.Commissions nCommissions = new Negocio.Commissions();
+            List<Entidades.Commissions> Cm = nCommissions.GetAll();
+            cBoxIdCommission.DataSource = Cm;
+            cBoxIdCommission.DisplayMember = "IdCommission";
         }
 
         private void btnCreateCourse_Click(object sender, EventArgs e)
@@ -56,18 +66,18 @@ namespace UIDesktop
                 MessageBox.Show("El campo IdCourse debe estar vacio para dar de alta un nuevo curso.");
                 return;
             }
-            if (txtCoursesIdSubject.Text == "")
+            if (cBoxIdSubject.Text == "")
             {
                 MessageBox.Show("El campo Id Materia no puede estar vacio");
                 return;
             }
-            int idS = Convert.ToInt32(txtCoursesIdSubject.Text);
-            if (txtCoursesIdCommission.Text == "")
+            int idS = Convert.ToInt32(cBoxIdSubject.Text);
+            if (cBoxIdCommission.Text == "")
             {
                 MessageBox.Show("El campo Id Comision no puede estar vacio");
                 return;
             }
-            int idC = Convert.ToInt32(txtCoursesIdCommission.Text);
+            int idC = Convert.ToInt32(cBoxIdCommission.Text);
             if (txtCoursesCalendarYear.Text == "")
             {
                 MessageBox.Show("El campo año no puede estar vacio");
@@ -98,7 +108,7 @@ namespace UIDesktop
             {
                 MessageBox.Show("Id ingresados no validos");
             }
-            
+
 
 
         }
@@ -106,18 +116,18 @@ namespace UIDesktop
         private void btnUpdateCourse_Click(object sender, EventArgs e)
         {
             int idC = Convert.ToInt32(txtIdCourse.Text);
-            if (txtCoursesIdSubject.Text == "")
+            if (cBoxIdSubject.Text == "")
             {
                 MessageBox.Show("El campo Id Materia no puede estar vacio");
                 return;
             }
-            int idS = Convert.ToInt32(txtCoursesIdSubject.Text);
-            if (txtCoursesIdCommission.Text == "")
+            int idS = Convert.ToInt32(cBoxIdSubject.Text);
+            if (cBoxIdCommission.Text == "")
             {
                 MessageBox.Show("El campo Id Comision no puede estar vacio");
                 return;
             }
-            int idCc = Convert.ToInt32(txtCoursesIdCommission.Text);
+            int idCc = Convert.ToInt32(cBoxIdCommission.Text);
             if (txtCoursesCalendarYear.Text == "")
             {
                 MessageBox.Show("El campo año no puede estar vacio");
@@ -156,7 +166,7 @@ namespace UIDesktop
             {
                 MessageBox.Show("Id ingresados no validos");
             }
-            
+
         }
 
         private void btnDeleteCourse_Click(object sender, EventArgs e)
@@ -194,16 +204,16 @@ namespace UIDesktop
                 DataGridViewRow selectedRow = dgvCourses.SelectedRows[0];
 
                 txtIdCourse.Text = selectedRow.Cells["IdCourse"].Value.ToString();
-                txtCoursesIdSubject.Text = selectedRow.Cells["IdSubject"].Value.ToString();
-                txtCoursesIdCommission.Text = selectedRow.Cells["IdCommission"].Value.ToString();
+                cBoxIdSubject.Text = selectedRow.Cells["IdSubject"].Value.ToString();
+                cBoxIdCommission.Text = selectedRow.Cells["IdCommission"].Value.ToString();
                 txtCoursesCalendarYear.Text = selectedRow.Cells["CalendarYear"].Value.ToString();
                 txtCoursesQuota.Text = selectedRow.Cells["Quota"].Value.ToString();
             }
             else
             {
                 txtIdCourse.Text = "";
-                txtCoursesIdSubject.Text = "";
-                txtCoursesIdCommission.Text = "";
+                cBoxIdSubject.Text = "";
+                cBoxIdCommission.Text = "";
                 txtCoursesCalendarYear.Text = "";
                 txtCoursesQuota.Text = "";
             }

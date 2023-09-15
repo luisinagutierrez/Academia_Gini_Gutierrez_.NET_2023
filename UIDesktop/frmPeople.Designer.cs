@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtPeopleIdPlan = new TextBox();
             lbPeopleIdPlan = new Label();
             txtPeopleEmail = new TextBox();
             lbPeopleEmail = new Label();
@@ -54,15 +53,9 @@
             lbIdPerson = new Label();
             txtIdPerson = new TextBox();
             cboxTypePerson = new ComboBox();
+            cBoxIdPlan = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
             SuspendLayout();
-            // 
-            // txtPeopleIdPlan
-            // 
-            txtPeopleIdPlan.Location = new Point(1438, 218);
-            txtPeopleIdPlan.Name = "txtPeopleIdPlan";
-            txtPeopleIdPlan.Size = new Size(80, 27);
-            txtPeopleIdPlan.TabIndex = 82;
             // 
             // lbPeopleIdPlan
             // 
@@ -282,6 +275,14 @@
             cboxTypePerson.Size = new Size(72, 28);
             cboxTypePerson.TabIndex = 95;
             // 
+            // cBoxIdPlan
+            // 
+            cBoxIdPlan.FormattingEnabled = true;
+            cBoxIdPlan.Location = new Point(1438, 218);
+            cBoxIdPlan.Name = "cBoxIdPlan";
+            cBoxIdPlan.Size = new Size(87, 28);
+            cBoxIdPlan.TabIndex = 96;
+            // 
             // frmPeople
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -289,6 +290,7 @@
             AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1726, 766);
+            Controls.Add(cBoxIdPlan);
             Controls.Add(cboxTypePerson);
             Controls.Add(txtIdPerson);
             Controls.Add(lbIdPerson);
@@ -300,7 +302,6 @@
             Controls.Add(lbPeopleBirthDate);
             Controls.Add(txtPeopleTelephone);
             Controls.Add(lbPeopleTelephone);
-            Controls.Add(txtPeopleIdPlan);
             Controls.Add(lbPeopleIdPlan);
             Controls.Add(txtPeopleEmail);
             Controls.Add(lbPeopleEmail);
@@ -325,8 +326,6 @@
         }
 
         #endregion
-
-        private TextBox txtPeopleIdPlan;
         private Label lbPeopleIdPlan;
         private TextBox txtPeopleEmail;
         private Label lbPeopleEmail;
@@ -353,5 +352,6 @@
         private Label lbIdPerson;
         private TextBox txtIdPerson;
         private ComboBox cboxTypePerson;
+        private ComboBox cBoxIdPlan;
     }
 }

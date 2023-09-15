@@ -39,9 +39,9 @@
             btnBack = new Button();
             txtIdCommission = new TextBox();
             lbIdCommission = new Label();
-            txtCommissionPlan = new TextBox();
             lbCommissionIdPlan = new Label();
             btnDeleteCommission = new Button();
+            cBoxIdPlan = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvCommissions).BeginInit();
             SuspendLayout();
             // 
@@ -147,13 +147,6 @@
             lbIdCommission.TabIndex = 27;
             lbIdCommission.Text = "Id comision";
             // 
-            // txtCommissionPlan
-            // 
-            txtCommissionPlan.Location = new Point(710, 313);
-            txtCommissionPlan.Name = "txtCommissionPlan";
-            txtCommissionPlan.Size = new Size(124, 27);
-            txtCommissionPlan.TabIndex = 40;
-            // 
             // lbCommissionIdPlan
             // 
             lbCommissionIdPlan.AutoSize = true;
@@ -173,6 +166,14 @@
             btnDeleteCommission.UseVisualStyleBackColor = true;
             btnDeleteCommission.Click += btnDeleteCommission_Click;
             // 
+            // cBoxIdPlan
+            // 
+            cBoxIdPlan.FormattingEnabled = true;
+            cBoxIdPlan.Location = new Point(710, 313);
+            cBoxIdPlan.Name = "cBoxIdPlan";
+            cBoxIdPlan.Size = new Size(85, 28);
+            cBoxIdPlan.TabIndex = 42;
+            // 
             // frmCommissions
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -180,8 +181,8 @@
             AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(985, 482);
+            Controls.Add(cBoxIdPlan);
             Controls.Add(btnDeleteCommission);
-            Controls.Add(txtCommissionPlan);
             Controls.Add(lbCommissionIdPlan);
             Controls.Add(txtCommissionSpecialityYear);
             Controls.Add(lbCommissionSpecialityYear);
@@ -216,8 +217,8 @@
         private Button btnBack;
         private TextBox txtIdCommission;
         private Label lbIdCommission;
-        private TextBox txtCommissionPlan;
         private Label lbCommissionIdPlan;
         private Button btnDeleteCommission;
+        private ComboBox cBoxIdPlan;
     }
 }

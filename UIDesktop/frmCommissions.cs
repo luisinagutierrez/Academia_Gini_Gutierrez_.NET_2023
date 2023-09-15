@@ -22,6 +22,11 @@ namespace UIDesktop
             Negocio.Commissions nCommissions = new Negocio.Commissions();
             List<Entidades.Commissions> CommissionsList = nCommissions.GetAll();
             dgvCommissions.DataSource = CommissionsList;
+
+            Negocio.Plans nPlan = new Negocio.Plans();
+            List<Entidades.Plans> Pl = nPlan.GetAll();
+            cBoxIdPlan.DataSource = Pl;
+            cBoxIdPlan.DisplayMember = "IdPlan";
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -40,7 +45,7 @@ namespace UIDesktop
                 MessageBox.Show("El campo IdCommission debe estar vacio para dar de alta una nueva comision.");
                 return;
             }
-            int idP = Convert.ToInt32(txtCommissionPlan.Text);
+            int idP = Convert.ToInt32(cBoxIdPlan.Text);
             string descrip = Convert.ToString(txtCommissionDescription.Text);
             int y = Convert.ToInt32(txtCommissionSpecialityYear.Text);
 
@@ -62,19 +67,19 @@ namespace UIDesktop
 
         private void btnUpdateCommission_Click(object sender, EventArgs e)
         {
-            if(txtIdCommission.Text == "")
+            if (txtIdCommission.Text == "")
             {
                 MessageBox.Show("El campo IdCommission no puede estar vacio");
                 return;
             }
             int idC = Convert.ToInt32(txtIdCommission.Text);
-            if (txtCommissionPlan.Text == "")
+            if (cBoxIdPlan.Text == "")
             {
                 MessageBox.Show("El campo Plan no puede estar vacio");
                 return;
             }
-            int idP = Convert.ToInt32(txtCommissionPlan.Text);
-            if(txtCommissionDescription.Text == "" || txtCommissionSpecialityYear.Text == "")
+            int idP = Convert.ToInt32(cBoxIdPlan.Text);
+            if (txtCommissionDescription.Text == "" || txtCommissionSpecialityYear.Text == "")
             {
                 MessageBox.Show("El campo Descripcion o Año de especialidad no pueden estar vacios.");
                 return;
@@ -86,7 +91,7 @@ namespace UIDesktop
             Entidades.Plans pl = p.GetOne(idP);
             Negocio.Commissions nC = new Negocio.Commissions();
             Entidades.Commissions comi = nC.GetOne(idC);
-            if(comi.IdCommission == 0)
+            if (comi.IdCommission == 0)
             {
                 MessageBox.Show("El Id de la comision no fue encontrado.");
                 return;
@@ -143,27 +148,21 @@ namespace UIDesktop
 
         private void dgvCommissions_SelectionChanged(object sender, EventArgs e)
         {
-            // Verifica si hay alguna fila seleccionada
             if (dgvCommissions.SelectedRows.Count > 0)
             {
-                // Obtén la fila seleccionada
                 DataGridViewRow selectedRow = dgvCommissions.SelectedRows[0];
 
-                // Accede a las celdas de la fila y asigna sus valores a los TextBox
                 txtIdCommission.Text = selectedRow.Cells["IdCommission"].Value.ToString();
                 txtCommissionDescription.Text = selectedRow.Cells["CommissionDescription"].Value.ToString();
                 txtCommissionSpecialityYear.Text = selectedRow.Cells["SpecialityYear"].Value.ToString();
-                txtCommissionPlan.Text = selectedRow.Cells["IdPlan"].Value.ToString();
-                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
+                cBoxIdPlan.Text = selectedRow.Cells["IdPlan"].Value.ToString();
             }
             else
             {
-                // Si no hay filas seleccionadas, borra los TextBox
                 txtIdCommission.Text = "";
                 txtCommissionDescription.Text = "";
                 txtCommissionSpecialityYear.Text = "";
-                txtCommissionPlan.Text = "";
-                // ... y así sucesivamente para cada TextBox que desees borrar
+                cBoxIdPlan.Text = "";
             }
         }
     }

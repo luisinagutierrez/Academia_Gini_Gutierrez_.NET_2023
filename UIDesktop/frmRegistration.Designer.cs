@@ -32,13 +32,13 @@
             btnStudentNewRegistrationCancel = new Button();
             lbCoursesAvailable = new Label();
             dgvAvailableCourses = new DataGridView();
-            txtIdCouse = new TextBox();
             lbtxtNewCouseRegistrationIdCourse = new Label();
             btnDeleteRegistration = new Button();
             dgvRegistrationCourses = new DataGridView();
             lbCoursesInscription = new Label();
             txtIdRegistration = new TextBox();
             lbIdRegistration = new Label();
+            cBoxIdCourse = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvAvailableCourses).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvRegistrationCourses).BeginInit();
             SuspendLayout();
@@ -84,13 +84,6 @@
             dgvAvailableCourses.TabIndex = 18;
             dgvAvailableCourses.CellContentClick += dgvNewCourses_CellContentClick;
             dgvAvailableCourses.SelectionChanged += dgvAvailableCourses_SelectionChanged;
-            // 
-            // txtIdCouse
-            // 
-            txtIdCouse.Location = new Point(179, 353);
-            txtIdCouse.Name = "txtIdCouse";
-            txtIdCouse.Size = new Size(125, 27);
-            txtIdCouse.TabIndex = 17;
             // 
             // lbtxtNewCouseRegistrationIdCourse
             // 
@@ -148,12 +141,21 @@
             lbIdRegistration.TabIndex = 26;
             lbIdRegistration.Text = "Id Inscripcion*";
             // 
+            // cBoxIdCourse
+            // 
+            cBoxIdCourse.FormattingEnabled = true;
+            cBoxIdCourse.Location = new Point(147, 357);
+            cBoxIdCourse.Name = "cBoxIdCourse";
+            cBoxIdCourse.Size = new Size(110, 28);
+            cBoxIdCourse.TabIndex = 28;
+            // 
             // frmRegistration
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1409, 529);
+            Controls.Add(cBoxIdCourse);
             Controls.Add(txtIdRegistration);
             Controls.Add(lbIdRegistration);
             Controls.Add(lbCoursesInscription);
@@ -163,7 +165,6 @@
             Controls.Add(btnStudentNewRegistrationCancel);
             Controls.Add(lbCoursesAvailable);
             Controls.Add(dgvAvailableCourses);
-            Controls.Add(txtIdCouse);
             Controls.Add(lbtxtNewCouseRegistrationIdCourse);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmRegistration";
@@ -181,12 +182,12 @@
         private Button btnStudentNewRegistrationCancel;
         private Label lbCoursesAvailable;
         private DataGridView dgvAvailableCourses;
-        private TextBox txtIdCouse;
         private Label lbtxtNewCouseRegistrationIdCourse;
         private Button btnDeleteRegistration;
         private DataGridView dgvRegistrationCourses;
         private Label lbCoursesInscription;
         private TextBox txtIdRegistration;
         private Label lbIdRegistration;
+        private ComboBox cBoxIdCourse;
     }
 }

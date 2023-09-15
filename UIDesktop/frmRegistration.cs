@@ -53,25 +53,30 @@ namespace UIDesktop
             Negocio.StudentsRegistrations nSt = new Negocio.StudentsRegistrations();
             List<Entidades.StudentsRegistrations> CoursesList = nSt.GetCoursesByIdPerson(this.idPerson);
             dgvRegistrationCourses.DataSource = CoursesList;
+
+            Negocio.Courses nCourse = new Negocio.Courses();
+            List<Entidades.Courses> Pl = nCourse.GetAll();
+            cBoxIdCourse.DataSource = Pl;
+            cBoxIdCourse.DisplayMember = "IdCourse";
         }
 
 
         private void btnStudentNewRegistrationAccept_Click(object sender, EventArgs e)
         {
             //ME FALTÓ VALIDAR QUE EL ALUMNO NO ESTÉ YA INSCRIPTO EN ESE CURSO, NO SE SI ESO ES NECESARIO
-            int IdCourse = Convert.ToInt32(txtIdCouse.Text);
+            int IdCourse = Convert.ToInt32(cBoxIdCourse.Text);
             Negocio.Courses nCourses = new Negocio.Courses();
             int course = nCourses.ValidateCourseAvailability(IdCourse);
             if (course != 0)
             {
                 Negocio.StudentsRegistrations nst = new Negocio.StudentsRegistrations();
-                nst.Add(IdCourse, this.idPerson);//  sería el id de persona que no se como pasarle al form !!!!         
+                nst.Add(IdCourse, this.idPerson);
                 MessageBox.Show("Operacion exitosa");
                 this.Close();
             }
             else
             {
-                MessageBox.Show("El curso ingresado no fue encontrado o no tiene cupo");
+                MessageBox.Show("El curso ingresado no fue encontrado o no tiene cupo o ya está inscripto");
             }
 
         }
@@ -82,7 +87,7 @@ namespace UIDesktop
             int IdRegistration = Convert.ToInt32(txtIdRegistration.Text);
             Negocio.StudentsRegistrations nStuReg = new Negocio.StudentsRegistrations();
             int idCourse = nStuReg.ValidateStudentsRegistrations(IdRegistration, this.idPerson);
-            if (idCourse != 0) 
+            if (idCourse != 0)
             {
                 Negocio.Courses nCourses = new Negocio.Courses();
                 nCourses.UpdateCourseAvailability(idCourse, -1);
@@ -103,13 +108,13 @@ namespace UIDesktop
                 DataGridViewRow selectedRow = dgvAvailableCourses.SelectedRows[0];
 
                 // Accede a las celdas de la fila y asigna sus valores a los TextBox
-                txtIdCouse.Text = selectedRow.Cells["IdCourse"].Value.ToString();
+                cBoxIdCourse.Text = selectedRow.Cells["IdCourse"].Value.ToString();
                 // ... y así sucesivamente para cada TextBox y columna que desees mostrar
             }
             else
             {
                 // Si no hay filas seleccionadas, borra los TextBox
-                txtIdCouse.Text = "";
+                cBoxIdCourse.Text = "";
                 // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }

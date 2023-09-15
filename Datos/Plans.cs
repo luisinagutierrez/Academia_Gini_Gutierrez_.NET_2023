@@ -10,7 +10,7 @@ namespace Datos
 {
     public class Plans : Connection
     {
-        public int Add(int IdSpeciality, string PlanDescription)
+        public void Add(int IdSpeciality, string PlanDescription)
         {
             try
             {
@@ -18,12 +18,12 @@ namespace Datos
                 SqlCommand comm = new SqlCommand("INSERT INTO Plans (PlanDescription, IdSpeciality) VALUES (@PlanDescription, @IdSpeciality)", Conn);
                 comm.Parameters.AddWithValue("@PlanDescription", PlanDescription);
                 comm.Parameters.AddWithValue("@IdSpeciality", IdSpeciality);
-                return comm.ExecuteNonQuery();
+                comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
                 Exception HandledException = new Exception("Error al agregar plan ", Ex);
-                throw HandledException;
+                //throw HandledException;
             }
             finally
             {

@@ -37,9 +37,9 @@
             btnBack = new Button();
             txtIdPlans = new TextBox();
             lbIdPlan = new Label();
-            txtPlanSpeciality = new TextBox();
             lbPlanSpeciality = new Label();
             btnDeletePlan = new Button();
+            cBoxIdSpeciality = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPlans).BeginInit();
             SuspendLayout();
             // 
@@ -129,13 +129,6 @@
             lbIdPlan.TabIndex = 15;
             lbIdPlan.Text = "Id plan";
             // 
-            // txtPlanSpeciality
-            // 
-            txtPlanSpeciality.Location = new Point(694, 287);
-            txtPlanSpeciality.Name = "txtPlanSpeciality";
-            txtPlanSpeciality.Size = new Size(124, 27);
-            txtPlanSpeciality.TabIndex = 26;
-            // 
             // lbPlanSpeciality
             // 
             lbPlanSpeciality.AutoSize = true;
@@ -155,14 +148,23 @@
             btnDeletePlan.UseVisualStyleBackColor = true;
             btnDeletePlan.Click += btnDeletePlan_Click;
             // 
+            // cBoxIdSpeciality
+            // 
+            cBoxIdSpeciality.FormattingEnabled = true;
+            cBoxIdSpeciality.Location = new Point(694, 287);
+            cBoxIdSpeciality.Name = "cBoxIdSpeciality";
+            cBoxIdSpeciality.Size = new Size(80, 28);
+            cBoxIdSpeciality.TabIndex = 28;
+            cBoxIdSpeciality.SelectedIndexChanged += cBoxIdSpeciality_SelectedIndexChanged;
+            // 
             // frmPlans
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(986, 495);
+            Controls.Add(cBoxIdSpeciality);
             Controls.Add(btnDeletePlan);
-            Controls.Add(txtPlanSpeciality);
             Controls.Add(lbPlanSpeciality);
             Controls.Add(lbCreateUpdatePlans);
             Controls.Add(dgvPlans);
@@ -193,8 +195,8 @@
         private Button btnBack;
         private TextBox txtIdPlans;
         private Label lbIdPlan;
-        private TextBox txtPlanSpeciality;
         private Label lbPlanSpeciality;
         private Button btnDeletePlan;
+        private ComboBox cBoxIdSpeciality;
     }
 }

@@ -35,15 +35,15 @@
             btnBack = new Button();
             txtIdCourse = new TextBox();
             lbIdCommission = new Label();
-            txtCoursesIdSubject = new TextBox();
             lbCoursesIdSubject = new Label();
-            txtCoursesIdCommission = new TextBox();
             lbCoursesIdCommission = new Label();
             txtCoursesQuota = new TextBox();
             lbCoursesQuota = new Label();
             txtCoursesCalendarYear = new TextBox();
             lbCoursesCalendarYear = new Label();
             btnDeleteCourse = new Button();
+            cBoxIdSubject = new ComboBox();
+            cBoxIdCommission = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvCourses).BeginInit();
             SuspendLayout();
             // 
@@ -116,14 +116,6 @@
             lbIdCommission.TabIndex = 41;
             lbIdCommission.Text = "Id curso";
             // 
-            // txtCoursesIdSubject
-            // 
-            txtCoursesIdSubject.Location = new Point(1143, 210);
-            txtCoursesIdSubject.Name = "txtCoursesIdSubject";
-            txtCoursesIdSubject.Size = new Size(124, 27);
-            txtCoursesIdSubject.TabIndex = 56;
-            txtCoursesIdSubject.TextChanged += textBox1_TextChanged;
-            // 
             // lbCoursesIdSubject
             // 
             lbCoursesIdSubject.AutoSize = true;
@@ -133,13 +125,6 @@
             lbCoursesIdSubject.TabIndex = 55;
             lbCoursesIdSubject.Text = "Id Materia";
             lbCoursesIdSubject.Click += label1_Click;
-            // 
-            // txtCoursesIdCommission
-            // 
-            txtCoursesIdCommission.Location = new Point(1143, 253);
-            txtCoursesIdCommission.Name = "txtCoursesIdCommission";
-            txtCoursesIdCommission.Size = new Size(124, 27);
-            txtCoursesIdCommission.TabIndex = 58;
             // 
             // lbCoursesIdCommission
             // 
@@ -192,20 +177,36 @@
             btnDeleteCourse.UseVisualStyleBackColor = true;
             btnDeleteCourse.Click += btnDeleteCourse_Click;
             // 
+            // cBoxIdSubject
+            // 
+            cBoxIdSubject.FormattingEnabled = true;
+            cBoxIdSubject.Location = new Point(1143, 205);
+            cBoxIdSubject.Name = "cBoxIdSubject";
+            cBoxIdSubject.Size = new Size(124, 28);
+            cBoxIdSubject.TabIndex = 66;
+            // 
+            // cBoxIdCommission
+            // 
+            cBoxIdCommission.FormattingEnabled = true;
+            cBoxIdCommission.Location = new Point(1143, 248);
+            cBoxIdCommission.Name = "cBoxIdCommission";
+            cBoxIdCommission.Size = new Size(124, 28);
+            cBoxIdCommission.TabIndex = 67;
+            // 
             // frmCourses
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1585, 613);
+            Controls.Add(cBoxIdCommission);
+            Controls.Add(cBoxIdSubject);
             Controls.Add(btnDeleteCourse);
             Controls.Add(txtCoursesQuota);
             Controls.Add(lbCoursesQuota);
             Controls.Add(txtCoursesCalendarYear);
             Controls.Add(lbCoursesCalendarYear);
-            Controls.Add(txtCoursesIdCommission);
             Controls.Add(lbCoursesIdCommission);
-            Controls.Add(txtCoursesIdSubject);
             Controls.Add(lbCoursesIdSubject);
             Controls.Add(lbCreateUpdateCourse);
             Controls.Add(dgvCourses);
@@ -231,14 +232,14 @@
         private Button btnBack;
         private TextBox txtIdCourse;
         private Label lbIdCommission;
-        private TextBox txtCoursesIdSubject;
         private Label lbCoursesIdSubject;
-        private TextBox txtCoursesIdCommission;
         private Label lbCoursesIdCommission;
         private TextBox txtCoursesQuota;
         private Label lbCoursesQuota;
         private TextBox txtCoursesCalendarYear;
         private Label lbCoursesCalendarYear;
         private Button btnDeleteCourse;
+        private ComboBox cBoxIdSubject;
+        private ComboBox cBoxIdCommission;
     }
 }

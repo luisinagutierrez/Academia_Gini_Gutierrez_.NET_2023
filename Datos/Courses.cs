@@ -249,6 +249,7 @@ namespace Datos
         }
         public Entidades.Courses ValidateCourseAvailability(int IdCourse)
         {
+            this.Connect();
             Entidades.Courses objCourses = new Entidades.Courses();
             try
             {

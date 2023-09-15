@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtSubjectsPlan = new TextBox();
             lbSubjectIdPlan = new Label();
             txtSubjectsWeeklyHours = new TextBox();
             lbSubjectsWeeklyHours = new Label();
@@ -44,15 +43,9 @@
             txtSubjectsTotalHours = new TextBox();
             lbSubjecttotalHours = new Label();
             btnDeleteSubject = new Button();
+            cBoxIdPlan = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvSubjects).BeginInit();
             SuspendLayout();
-            // 
-            // txtSubjectsPlan
-            // 
-            txtSubjectsPlan.Location = new Point(1033, 309);
-            txtSubjectsPlan.Name = "txtSubjectsPlan";
-            txtSubjectsPlan.Size = new Size(124, 27);
-            txtSubjectsPlan.TabIndex = 54;
             // 
             // lbSubjectIdPlan
             // 
@@ -192,16 +185,24 @@
             btnDeleteSubject.UseVisualStyleBackColor = true;
             btnDeleteSubject.Click += btnDeleteSubject_Click;
             // 
+            // cBoxIdPlan
+            // 
+            cBoxIdPlan.FormattingEnabled = true;
+            cBoxIdPlan.Location = new Point(1033, 309);
+            cBoxIdPlan.Name = "cBoxIdPlan";
+            cBoxIdPlan.Size = new Size(124, 28);
+            cBoxIdPlan.TabIndex = 58;
+            // 
             // frmSubjects
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1513, 697);
+            Controls.Add(cBoxIdPlan);
             Controls.Add(btnDeleteSubject);
             Controls.Add(txtSubjectsTotalHours);
             Controls.Add(lbSubjecttotalHours);
-            Controls.Add(txtSubjectsPlan);
             Controls.Add(lbSubjectIdPlan);
             Controls.Add(txtSubjectsWeeklyHours);
             Controls.Add(lbSubjectsWeeklyHours);
@@ -224,8 +225,6 @@
         }
 
         #endregion
-
-        private TextBox txtSubjectsPlan;
         private Label lbSubjectIdPlan;
         private TextBox txtSubjectsWeeklyHours;
         private Label lbSubjectsWeeklyHours;
@@ -241,5 +240,6 @@
         private TextBox txtSubjectsTotalHours;
         private Label lbSubjecttotalHours;
         private Button btnDeleteSubject;
+        private ComboBox cBoxIdPlan;
     }
 }

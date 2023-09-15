@@ -33,22 +33,29 @@ namespace UIDesktop
             Negocio.Plans nPlans = new Negocio.Plans();
             List<Entidades.Plans> PlansList = nPlans.GetAll();
             dgvPlans.DataSource = PlansList;
+
+            Negocio.Specialities nSpecialities = new Negocio.Specialities();
+            List<Entidades.Specialities> Sp = nSpecialities.GetAll();
+            cBoxIdSpeciality.DataSource = Sp;
+            cBoxIdSpeciality.DisplayMember = "IdSpeciality";
         }
 
         private void btnCreatePlan_Click(object sender, EventArgs e)
         {
-            if(txtIdPlans.Text != "")
+            if (txtIdPlans.Text != "")
             {
                 MessageBox.Show("El campo IdPlan debe estar vacio para dar de alta un nuevo plan.");
                 return;
             }
-            if (txtPlanSpeciality.Text == "" || txtPlanDescription.Text == "")
+            if (cBoxIdSpeciality.Text == "" || txtPlanDescription.Text == "")
             {
                 MessageBox.Show("Para poder crear un nuevo plan debe ingresar su descripcion y el id de la especialidad");
                 return;
             }
-            int idS = Convert.ToInt32(txtPlanSpeciality.Text);
+
+            int idS = Convert.ToInt32(cBoxIdSpeciality.Text);
             string descrip = Convert.ToString(txtPlanDescription.Text);
+
             Negocio.Specialities s = new Negocio.Specialities();
             Entidades.Specialities sp = s.GetOne(idS);
 
@@ -74,16 +81,17 @@ namespace UIDesktop
                 return;
             }
             int idP = Convert.ToInt32(txtIdPlans.Text);
-            if (txtPlanSpeciality.Text == "" || txtPlanDescription.Text == "")
+            if (cBoxIdSpeciality.Text == "" || txtPlanDescription.Text == "")
             {
                 MessageBox.Show("El campo IdSpeciality o PlanDescription no pueden estar vacios.");
                 return;
             }
-            int idS = Convert.ToInt32(txtPlanSpeciality.Text);
+            int idS = Convert.ToInt32(cBoxIdSpeciality.Text);
             string descrip = Convert.ToString(txtPlanDescription.Text);
 
             Negocio.Specialities s = new Negocio.Specialities();
             Entidades.Specialities sp = s.GetOne(idS);
+
             Negocio.Plans nPl = new Negocio.Plans();
             Entidades.Plans plan = nPl.GetOne(idP);
             if (plan.IdPlan == 0)
@@ -151,20 +159,25 @@ namespace UIDesktop
 
         private void dgvPlans_SelectionChanged(object sender, EventArgs e)
         {
-                if (dgvPlans.SelectedRows.Count > 0)
-                {
-                    DataGridViewRow selectedRow = dgvPlans.SelectedRows[0];
+            if (dgvPlans.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvPlans.SelectedRows[0];
 
-                    txtIdPlans.Text = selectedRow.Cells["IdPlan"].Value.ToString();
-                    txtPlanDescription.Text = selectedRow.Cells["PlanDescription"].Value.ToString();
-                    txtPlanSpeciality.Text = selectedRow.Cells["IdSpeciality"].Value.ToString();
-                }
-                else
-                {
-                    txtIdPlans.Text = "";
-                    txtPlanDescription.Text = "";
-                    txtPlanSpeciality.Text = "";
-                }
+                txtIdPlans.Text = selectedRow.Cells["IdPlan"].Value.ToString();
+                txtPlanDescription.Text = selectedRow.Cells["PlanDescription"].Value.ToString();
+                cBoxIdSpeciality.Text = selectedRow.Cells["IdSpeciality"].Value.ToString();
+            }
+            else
+            {
+                txtIdPlans.Text = "";
+                txtPlanDescription.Text = "";
+                cBoxIdSpeciality.Text = "";
+            }
+
+        }
+
+        private void cBoxIdSpeciality_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -29,7 +29,7 @@ namespace UIDesktop
 
         private void btnCreatePeople_Click(object sender, EventArgs e)
         {
-            if (txtPeopleIdPlan.Text == "" || txtPeopleFileId.Text == "" || txtPeopleName.Text == "" || 
+            if (cBoxIdPlan.Text == "" || txtPeopleFileId.Text == "" || txtPeopleName.Text == "" ||
                 txtPeopleSurname.Text == "" || txtPeopleAddress.Text == "" || txtPeopleEmail.Text == "" ||
                 txtPeopleEmail.Text == "" || dtpPeopleBirthDate.Text == "" || txtPeopleTelephone.Text == "" ||
                 cboxTypePerson.Text == "")
@@ -37,7 +37,7 @@ namespace UIDesktop
                 MessageBox.Show("Ningun campo puede estar vacio para actualizar una persona.");
                 return;
             }
-            int idPlan = Convert.ToInt32(txtPeopleIdPlan.Text);
+            int idPlan = Convert.ToInt32(cBoxIdPlan.Text);
             int fileId = Convert.ToInt32(txtPeopleFileId.Text);
             string name = Convert.ToString(txtPeopleName.Text);
             string surname = Convert.ToString(txtPeopleSurname.Text);
@@ -80,12 +80,12 @@ namespace UIDesktop
         private void btnUpdatePeople_Click(object sender, EventArgs e)
         {
             int idP = Convert.ToInt32(txtIdPerson.Text);
-            if (txtPeopleIdPlan.Text == "")
+            if (cBoxIdPlan.Text == "")
             {
                 MessageBox.Show("El campo Plan no puede estar vacio");
                 return;
             }
-            int idPlan = Convert.ToInt32(txtPeopleIdPlan.Text);
+            int idPlan = Convert.ToInt32(cBoxIdPlan.Text);
             if (txtPeopleFileId.Text == "")
             {
                 MessageBox.Show("El campo legajo no puede estar vacio");
@@ -157,6 +157,11 @@ namespace UIDesktop
             Negocio.People nPeople = new Negocio.People();
             List<Entidades.People> PeopleList = nPeople.GetAll();
             dgvPeople.DataSource = PeopleList;
+
+            Negocio.Plans nPlan = new Negocio.Plans();
+            List<Entidades.Plans> Pl = nPlan.GetAll();
+            cBoxIdPlan.DataSource = Pl;
+            cBoxIdPlan.DisplayMember = "IdPlan";
         }
 
         private void btnDeletePerson_Click(object sender, EventArgs e)
@@ -188,7 +193,7 @@ namespace UIDesktop
                 txtPeopleAddress.Text = selectedRow.Cells["Address"].Value.ToString();
                 txtPeopleEmail.Text = selectedRow.Cells["Email"].Value.ToString();
                 txtPeopleTelephone.Text = selectedRow.Cells["Telephone"].Value.ToString();
-                txtPeopleIdPlan.Text = selectedRow.Cells["IdPlan"].Value.ToString();
+                cBoxIdPlan.Text = selectedRow.Cells["IdPlan"].Value.ToString();
                 txtPeopleFileId.Text = selectedRow.Cells["FileId"].Value.ToString();
                 dtpPeopleBirthDate.Text = selectedRow.Cells["BirthDate"].Value.ToString();
                 cboxTypePerson.Text = selectedRow.Cells["PersonType"].Value.ToString();
@@ -201,7 +206,7 @@ namespace UIDesktop
                 txtPeopleAddress.Text = "";
                 txtPeopleEmail.Text = "";
                 txtPeopleTelephone.Text = "";
-                txtPeopleIdPlan.Text = "";
+                cBoxIdPlan.Text = "";
                 txtPeopleFileId.Text = "";
                 dtpPeopleBirthDate.Text = "";
                 cboxTypePerson.Text = "";
