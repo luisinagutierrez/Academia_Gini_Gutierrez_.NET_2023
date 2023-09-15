@@ -66,7 +66,7 @@ namespace UIDesktop
             //ME FALTÓ VALIDAR QUE EL ALUMNO NO ESTÉ YA INSCRIPTO EN ESE CURSO, NO SE SI ESO ES NECESARIO
             int IdCourse = Convert.ToInt32(cBoxIdCourse.Text);
             Negocio.Courses nCourses = new Negocio.Courses();
-            int course = nCourses.ValidateCourseAvailability(IdCourse);
+            int course = nCourses.ValidateCourseAvailability(IdCourse);//, this.idPerson);
             if (course != 0)
             {
                 Negocio.StudentsRegistrations nst = new Negocio.StudentsRegistrations();

@@ -247,15 +247,17 @@ namespace Datos
                 this.Disconnect();
             }
         }
-        public Entidades.Courses ValidateCourseAvailability(int IdCourse)
+        public Entidades.Courses ValidateCourseAvailability(int IdCourse)//, int IdStudent)
         {
             this.Connect();
             Entidades.Courses objCourses = new Entidades.Courses();
             try
             {
-                using (SqlCommand comm = new SqlCommand("SELECT IdCourse FROM Courses WHERE @IdCourse = IdCourse and Quota > NumStudents", Conn))
+                using (SqlCommand comm = new SqlCommand("SELECT IdCourse FROM Courses WHERE @IdCourse = IdCourse and Quota > NumStudents", Conn)) //AND IdStudent <> @IdStudent
                 {
+                    this.Connect();
                     comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+                    //comm.Parameters.AddWithValue("@IdStudent", IdStudent);
                     using (SqlDataReader oReader = comm.ExecuteReader())
                     {
                         if (oReader.Read())
