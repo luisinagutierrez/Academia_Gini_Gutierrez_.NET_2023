@@ -42,7 +42,7 @@ namespace Negocio
             try
             {
                 ds = new Datos.StudentsRegistrations();
-                return ds.GetStudentsListRegByIdCourse(idCourse);
+                return ds.GetStudentsRegByIdCourse(idCourse);
             }
             finally
             {

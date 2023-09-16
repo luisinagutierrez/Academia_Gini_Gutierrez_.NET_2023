@@ -80,57 +80,20 @@ namespace Datos
             {
                 this.Connect();
 
-                SqlCommand comm = new SqlCommand("SELECT IdRegistration, IdStudent, IdCourse, Condition  FROM StudentsRegistrations WHERE IdCourse = @IdCourse", Conn);
-                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+                SqlCommand comm = new SqlCommand("SELECT * FROM StudentsRegistrations WHERE IdCourse = @IdCourse", Conn);
                 List<Entidades.StudentsRegistrations> StudentsRegistrationsList = new List<Entidades.StudentsRegistrations>();
+                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
 
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlDataReader oReader = comm.ExecuteReader())
                 {
                     while (oReader.Read())
                     {
-
                         Entidades.StudentsRegistrations objStudentsRegistrations = new Entidades.StudentsRegistrations();
                         objStudentsRegistrations.IdRegistration = (int)oReader["IdRegistration"];
                         objStudentsRegistrations.IdStudent = (int)oReader["IdStudent"];
                         objStudentsRegistrations.IdCourse = (int)oReader["IdCourse"];
                         objStudentsRegistrations.Condition = (string)oReader["Condition"];
-
-                        StudentsRegistrationsList.Add(objStudentsRegistrations);
-                        objStudentsRegistrations = null;
-                    }
-                    return StudentsRegistrationsList;
-                }
-            }
-            finally
-            {
-                //objCourses = null;
-                this.Disconnect();
-            }
-        }
-        public List<Entidades.StudentsRegistrations> GetStudentsListRegByIdCourse(int IdCourse)
-        {
-
-            try
-            {
-                this.Connect();
-
-                SqlCommand comm = new SqlCommand("SELECT IdRegistration, IdStudent, IdCourse, Condition  FROM StudentsRegistrations WHERE IdCourse = @IdCourse", Conn);
-                comm.Parameters.AddWithValue("@IdCourse", IdCourse);
-                List<Entidades.StudentsRegistrations> StudentsRegistrationsList = new List<Entidades.StudentsRegistrations>();
-
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
-                {
-                    while (oReader.Read())
-                    {
-
-                        Entidades.StudentsRegistrations objStudentsRegistrations = new Entidades.StudentsRegistrations();
-                        objStudentsRegistrations.IdRegistration = (int)oReader["IdRegistration"];
-                        objStudentsRegistrations.IdStudent = (int)oReader["IdStudent"];
-                        objStudentsRegistrations.IdCourse = (int)oReader["IdCourse"];
-                        objStudentsRegistrations.Condition = (string)oReader["Condition"];
-                        //objStudentsRegistrations.Mark = (int)oReader["Mark"];
+                        objStudentsRegistrations.Mark = (int)oReader["Mark"];
 
                         StudentsRegistrationsList.Add(objStudentsRegistrations);
                         objStudentsRegistrations = null;
@@ -149,7 +112,7 @@ namespace Datos
             try
             {
                 this.Connect();
-                SqlCommand comm = new SqlCommand("SELECT IdRegistration,IdStudent, IdCourse, Condition, Mark FROM StudentsRegistrations WHERE IdStudent = @IdStudent", Conn);
+                SqlCommand comm = new SqlCommand("SELECT * FROM StudentsRegistrations WHERE IdStudent = @IdStudent", Conn);
                 List<Entidades.StudentsRegistrations> StudentsRegistrationsList = new List<Entidades.StudentsRegistrations>();
                 comm.Parameters.AddWithValue("@IdStudent", IdStudent);
 
@@ -163,10 +126,6 @@ namespace Datos
                         objStudentsRegistrations.IdCourse = (int)oReader["IdCourse"];
                         objStudentsRegistrations.Condition = (string)oReader["Condition"];
                         objStudentsRegistrations.Mark = (int)oReader["Mark"];
-                        //if (objStudentsRegistrations.Condition == "HAY QUE CAMBIAR ESTO PARA QUE QUEDE MEJOR")
-                        //{
-                        //    objStudentsRegistrations.Mark = (int)oReader["Mark"];
-                        //}
 
                         StudentsRegistrationsList.Add(objStudentsRegistrations);
                         objStudentsRegistrations = null;

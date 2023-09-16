@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tOLQX2RjaPl9GOex+3z/smFjRScQc2vgu7v6nJbakCOia+uW5zLAMQqdyLU78DdCIwQEeLBsSn9zDAiN7R7sGA==",
+  "dgSpecHash": "+3GTxFlax0wjULRfCy2USb2r2nRC1QTflgwgVksIj4Cki5yAnEmgFxAsqqSjis+dek2eKjpmPWY3WyGuJWbKQQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ISI UTN 3ero\\Tecnologías en Desarrollo de Software IDE (elec)\\TPI Academia\\TPI_3K2_TT_Academia\\PruebaAcademia\\Reportes\\Reportes.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Tecnología de Desarrollo de SoftwarwIDE\\PruebaAcademia\\Reportes\\Reportes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\crystaldecisions.crystalreports.engine\\1.0.0\\crystaldecisions.crystalreports.engine.1.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.report.viewer\\11.0.0\\microsoft.report.viewer.11.0.0.nupkg.sha512"

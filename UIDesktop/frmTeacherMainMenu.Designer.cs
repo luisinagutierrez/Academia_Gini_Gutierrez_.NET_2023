@@ -39,7 +39,7 @@
             btnCancelStudentRegistration = new Button();
             btnStudentRegistrationAccept = new Button();
             txtIdRegistration = new TextBox();
-            lbIdStudent = new Label();
+            lbIdRegistration = new Label();
             lbCourseList = new Label();
             dgvStudentRegistration = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvRegistrationCourses).BeginInit();
@@ -111,7 +111,7 @@
             // 
             cBoxMark.FormattingEnabled = true;
             cBoxMark.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            cBoxMark.Location = new Point(1263, 365);
+            cBoxMark.Location = new Point(884, 365);
             cBoxMark.Name = "cBoxMark";
             cBoxMark.Size = new Size(91, 28);
             cBoxMark.TabIndex = 32;
@@ -119,7 +119,7 @@
             // lbNote
             // 
             lbNote.AutoSize = true;
-            lbNote.Location = new Point(1126, 373);
+            lbNote.Location = new Point(731, 373);
             lbNote.Name = "lbNote";
             lbNote.Size = new Size(42, 20);
             lbNote.TabIndex = 31;
@@ -127,7 +127,7 @@
             // 
             // btnCancelStudentRegistration
             // 
-            btnCancelStudentRegistration.Location = new Point(1076, 418);
+            btnCancelStudentRegistration.Location = new Point(1086, 354);
             btnCancelStudentRegistration.Name = "btnCancelStudentRegistration";
             btnCancelStudentRegistration.Size = new Size(120, 39);
             btnCancelStudentRegistration.TabIndex = 30;
@@ -137,7 +137,7 @@
             // 
             // btnStudentRegistrationAccept
             // 
-            btnStudentRegistrationAccept.Location = new Point(1263, 418);
+            btnStudentRegistrationAccept.Location = new Point(1273, 354);
             btnStudentRegistrationAccept.Name = "btnStudentRegistrationAccept";
             btnStudentRegistrationAccept.Size = new Size(120, 39);
             btnStudentRegistrationAccept.TabIndex = 29;
@@ -147,19 +147,19 @@
             // 
             // txtIdRegistration
             // 
-            txtIdRegistration.Location = new Point(1263, 323);
+            txtIdRegistration.Location = new Point(884, 316);
             txtIdRegistration.Name = "txtIdRegistration";
             txtIdRegistration.Size = new Size(125, 27);
             txtIdRegistration.TabIndex = 28;
             // 
-            // lbIdStudent
+            // lbIdRegistration
             // 
-            lbIdStudent.AutoSize = true;
-            lbIdStudent.Location = new Point(1126, 323);
-            lbIdStudent.Name = "lbIdStudent";
-            lbIdStudent.Size = new Size(131, 20);
-            lbIdStudent.TabIndex = 27;
-            lbIdStudent.Text = "Id registro alumno";
+            lbIdRegistration.AutoSize = true;
+            lbIdRegistration.Location = new Point(731, 323);
+            lbIdRegistration.Name = "lbIdRegistration";
+            lbIdRegistration.Size = new Size(131, 20);
+            lbIdRegistration.TabIndex = 27;
+            lbIdRegistration.Text = "Id registro alumno";
             // 
             // lbCourseList
             // 
@@ -195,7 +195,7 @@
             Controls.Add(btnCancelStudentRegistration);
             Controls.Add(btnStudentRegistrationAccept);
             Controls.Add(txtIdRegistration);
-            Controls.Add(lbIdStudent);
+            Controls.Add(lbIdRegistration);
             Controls.Add(lbCourseList);
             Controls.Add(dgvStudentRegistration);
             Controls.Add(btnTeacherCoursesCancel);
@@ -227,7 +227,7 @@
         private Button btnCancelStudentRegistration;
         private Button btnStudentRegistrationAccept;
         private TextBox txtIdRegistration;
-        private Label lbIdStudent;
+        private Label lbIdRegistration;
         private Label lbCourseList;
         private DataGridView dgvStudentRegistration;
     }

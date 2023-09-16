@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pzZ2OOFJ7VOlmS/oq+2SqpcM/3M/shIa0wqOYstvmLR5Kv2whXA31C1pIbUaE42Bi9JbYSzkNgEvY27WAmQxig==",
+  "dgSpecHash": "6nx3QL7Nsb9fyuPeKA86ktxI4MAKT7A+sSMKvnt48g45+Wa/2dL3esI2m8VnsFqF3Q+mxuGG/iY0VWgLhIqAZw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ISI UTN 3ero\\Tecnologías en Desarrollo de Software IDE (elec)\\TPI Academia\\TPI_3K2_TT_Academia\\PruebaAcademia\\UIDesktop\\UIDesktop.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Tecnología de Desarrollo de SoftwarwIDE\\PruebaAcademia\\UIDesktop\\UIDesktop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

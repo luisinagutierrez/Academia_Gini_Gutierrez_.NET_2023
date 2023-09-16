@@ -23,8 +23,12 @@ namespace UIDesktop
         private void frmTeacherMainMenu_Load(object sender, EventArgs e)
         {
             Negocio.TeacherCourses nTc = new Negocio.TeacherCourses();
-            List<Entidades.TeacherCourses> CoursesList = nTc.GetTeacherCoursesByIdPerson(this.idPerson); // aca debería de ir el idPerson que no se como vamos a hacer para pasar 
+            List<Entidades.TeacherCourses> CoursesList = nTc.GetTeacherCoursesByIdPerson(this.idPerson);
             dgvRegistrationCourses.DataSource = CoursesList;
+
+            //Negocio.StudentsRegistrations reg = new Negocio.StudentsRegistrations();
+            //List<Entidades.StudentsRegistrations> RegistrationList = reg.GetStudentsListRegByIdCourse(1);
+            //dgvStudentRegistration.DataSource = RegistrationList;
         }
 
         private void txtTeacherCoursesIdCourse_TextChanged(object sender, EventArgs e)
@@ -47,11 +51,12 @@ namespace UIDesktop
             {
                 int idC = Convert.ToInt32(txtTeacherCoursesIdCourse.Text);
                 Negocio.Courses nC = new Negocio.Courses();
-                Entidades.Courses cour = nC.GetOne(idC);   //quizá hbaría que validar q se de ese profesor en particular 
+                Entidades.Courses cour = nC.GetOne(idC);   //quizá habría que validar q se de ese profesor en particular 
 
                 if (cour.IdCourse != 0)
                 {
                     this.idCourse = idC;
+                    UploadDataToStudentRegistration(this.idCourse);
                 }
                 else
                 {
@@ -84,23 +89,7 @@ namespace UIDesktop
 
         private void dgvRegistrationCourses_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvRegistrationCourses.SelectedRows.Count > 0)
-            {
-                // Obtén la fila seleccionada
-                DataGridViewRow selectedRow = dgvRegistrationCourses.SelectedRows[0];
 
-                // Accede a las celdas de la fila y asigna sus valores a los TextBox
-                txtTeacherCoursesIdCourse.Text = selectedRow.Cells["IdCourse"].Value.ToString();
-                int idCourse = Convert.ToInt32(txtTeacherCoursesIdCourse.Text);
-                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
-                UploadDataToStudentRegistration(idCourse);
-            }
-            else
-            {
-                // Si no hay filas seleccionadas, borra los TextBox
-                txtTeacherCoursesIdCourse.Text = "";
-                // ... y así sucesivamente para cada TextBox que desees borrar
-            }
         }
         private void UploadDataToStudentRegistration(int idCourse)
         {
@@ -125,8 +114,10 @@ namespace UIDesktop
             {
                 int idR = Convert.ToInt32(txtIdRegistration.Text);
                 int mark = Convert.ToInt32(cBoxMark.Text);
+                
                 Negocio.StudentsRegistrations st = new Negocio.StudentsRegistrations();
                 st.UpdateMark(idR, mark);
+
                 MessageBox.Show("Nota cargada y condicion del alumno actualizada.");
                 // Ejemplo de cómo usar Invoke() para llamar a Refresh() desde otro hilo.
                 dgvStudentRegistration.Invoke(new MethodInvoker(Refresh));
