@@ -47,7 +47,7 @@
             // 
             // txtCommissionSpecialityYear
             // 
-            txtCommissionSpecialityYear.Location = new Point(710, 262);
+            txtCommissionSpecialityYear.Location = new Point(1069, 282);
             txtCommissionSpecialityYear.Name = "txtCommissionSpecialityYear";
             txtCommissionSpecialityYear.Size = new Size(124, 27);
             txtCommissionSpecialityYear.TabIndex = 38;
@@ -55,7 +55,7 @@
             // lbCommissionSpecialityYear
             // 
             lbCommissionSpecialityYear.AutoSize = true;
-            lbCommissionSpecialityYear.Location = new Point(587, 262);
+            lbCommissionSpecialityYear.Location = new Point(946, 282);
             lbCommissionSpecialityYear.Name = "lbCommissionSpecialityYear";
             lbCommissionSpecialityYear.Size = new Size(92, 20);
             lbCommissionSpecialityYear.TabIndex = 37;
@@ -65,7 +65,7 @@
             // 
             lbCreateUpdateCommission.AutoSize = true;
             lbCreateUpdateCommission.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbCreateUpdateCommission.Location = new Point(460, 54);
+            lbCreateUpdateCommission.Location = new Point(756, 53);
             lbCreateUpdateCommission.Name = "lbCreateUpdateCommission";
             lbCreateUpdateCommission.Size = new Size(140, 25);
             lbCreateUpdateCommission.TabIndex = 36;
@@ -74,7 +74,7 @@
             // dgvCommissions
             // 
             dgvCommissions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCommissions.Location = new Point(22, 128);
+            dgvCommissions.Location = new Point(381, 148);
             dgvCommissions.Name = "dgvCommissions";
             dgvCommissions.RowHeadersWidth = 51;
             dgvCommissions.RowTemplate.Height = 29;
@@ -85,7 +85,7 @@
             // 
             // txtCommissionDescription
             // 
-            txtCommissionDescription.Location = new Point(710, 173);
+            txtCommissionDescription.Location = new Point(1069, 193);
             txtCommissionDescription.Multiline = true;
             txtCommissionDescription.Name = "txtCommissionDescription";
             txtCommissionDescription.Size = new Size(221, 71);
@@ -94,7 +94,7 @@
             // lbCommissionDescription
             // 
             lbCommissionDescription.AutoSize = true;
-            lbCommissionDescription.Location = new Point(587, 176);
+            lbCommissionDescription.Location = new Point(946, 196);
             lbCommissionDescription.Name = "lbCommissionDescription";
             lbCommissionDescription.Size = new Size(87, 20);
             lbCommissionDescription.TabIndex = 32;
@@ -102,7 +102,7 @@
             // 
             // btnUpdateCommission
             // 
-            btnUpdateCommission.Location = new Point(646, 381);
+            btnUpdateCommission.Location = new Point(905, 467);
             btnUpdateCommission.Name = "btnUpdateCommission";
             btnUpdateCommission.Size = new Size(121, 48);
             btnUpdateCommission.TabIndex = 31;
@@ -112,7 +112,7 @@
             // 
             // btnCreateCommission
             // 
-            btnCreateCommission.Location = new Point(460, 381);
+            btnCreateCommission.Location = new Point(719, 467);
             btnCreateCommission.Name = "btnCreateCommission";
             btnCreateCommission.Size = new Size(121, 48);
             btnCreateCommission.TabIndex = 30;
@@ -123,7 +123,7 @@
             // btnBack
             // 
             btnBack.BackColor = SystemColors.ControlLightLight;
-            btnBack.Location = new Point(278, 381);
+            btnBack.Location = new Point(537, 467);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(121, 48);
             btnBack.TabIndex = 29;
@@ -133,7 +133,7 @@
             // 
             // txtIdCommission
             // 
-            txtIdCommission.Location = new Point(710, 128);
+            txtIdCommission.Location = new Point(1069, 148);
             txtIdCommission.Name = "txtIdCommission";
             txtIdCommission.Size = new Size(124, 27);
             txtIdCommission.TabIndex = 28;
@@ -141,7 +141,7 @@
             // lbIdCommission
             // 
             lbIdCommission.AutoSize = true;
-            lbIdCommission.Location = new Point(587, 131);
+            lbIdCommission.Location = new Point(946, 151);
             lbIdCommission.Name = "lbIdCommission";
             lbIdCommission.Size = new Size(86, 20);
             lbIdCommission.TabIndex = 27;
@@ -150,7 +150,7 @@
             // lbCommissionIdPlan
             // 
             lbCommissionIdPlan.AutoSize = true;
-            lbCommissionIdPlan.Location = new Point(587, 313);
+            lbCommissionIdPlan.Location = new Point(946, 333);
             lbCommissionIdPlan.Name = "lbCommissionIdPlan";
             lbCommissionIdPlan.Size = new Size(55, 20);
             lbCommissionIdPlan.TabIndex = 39;
@@ -158,7 +158,7 @@
             // 
             // btnDeleteCommission
             // 
-            btnDeleteCommission.Location = new Point(827, 381);
+            btnDeleteCommission.Location = new Point(1086, 467);
             btnDeleteCommission.Name = "btnDeleteCommission";
             btnDeleteCommission.Size = new Size(121, 48);
             btnDeleteCommission.TabIndex = 41;
@@ -169,7 +169,7 @@
             // cBoxIdPlan
             // 
             cBoxIdPlan.FormattingEnabled = true;
-            cBoxIdPlan.Location = new Point(710, 313);
+            cBoxIdPlan.Location = new Point(1069, 333);
             cBoxIdPlan.Name = "cBoxIdPlan";
             cBoxIdPlan.Size = new Size(85, 28);
             cBoxIdPlan.TabIndex = 42;
@@ -180,7 +180,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(985, 482);
+            ClientSize = new Size(1633, 763);
             Controls.Add(cBoxIdPlan);
             Controls.Add(btnDeleteCommission);
             Controls.Add(lbCommissionIdPlan);

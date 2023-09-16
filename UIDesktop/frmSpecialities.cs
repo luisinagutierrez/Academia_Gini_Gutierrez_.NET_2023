@@ -90,12 +90,10 @@ namespace UIDesktop
 
             Negocio.Plans p = new Negocio.Plans();
             int pl = p.GetPlansByIdSpeciality(idS);
-            //MessageBox.Show("del get plan" + pl.ToString());              // muestra 0 aunque encuentre 
             if (pl == 0)
             {
                 Negocio.Specialities s = new Negocio.Specialities();
                 int rts = s.Delete(idS);
-                //MessageBox.Show("del delete" + rts.ToString());
                 if (rts != 0)
                 {
                     MessageBox.Show("Operación exitosa");

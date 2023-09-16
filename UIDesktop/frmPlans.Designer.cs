@@ -47,7 +47,7 @@
             // 
             lbCreateUpdatePlans.AutoSize = true;
             lbCreateUpdatePlans.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbCreateUpdatePlans.Location = new Point(447, 46);
+            lbCreateUpdatePlans.Location = new Point(761, 63);
             lbCreateUpdatePlans.Name = "lbCreateUpdatePlans";
             lbCreateUpdatePlans.Size = new Size(86, 25);
             lbCreateUpdatePlans.TabIndex = 24;
@@ -56,7 +56,7 @@
             // dgvPlans
             // 
             dgvPlans.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPlans.Location = new Point(60, 138);
+            dgvPlans.Location = new Point(399, 168);
             dgvPlans.Name = "dgvPlans";
             dgvPlans.RowHeadersWidth = 51;
             dgvPlans.RowTemplate.Height = 29;
@@ -67,7 +67,7 @@
             // 
             // txtPlanDescription
             // 
-            txtPlanDescription.Location = new Point(694, 197);
+            txtPlanDescription.Location = new Point(1033, 227);
             txtPlanDescription.Multiline = true;
             txtPlanDescription.Name = "txtPlanDescription";
             txtPlanDescription.Size = new Size(221, 71);
@@ -76,7 +76,7 @@
             // lbPlanDescription
             // 
             lbPlanDescription.AutoSize = true;
-            lbPlanDescription.Location = new Point(571, 197);
+            lbPlanDescription.Location = new Point(910, 227);
             lbPlanDescription.Name = "lbPlanDescription";
             lbPlanDescription.Size = new Size(87, 20);
             lbPlanDescription.TabIndex = 20;
@@ -84,7 +84,7 @@
             // 
             // btnUpdatePlan
             // 
-            btnUpdatePlan.Location = new Point(646, 381);
+            btnUpdatePlan.Location = new Point(885, 431);
             btnUpdatePlan.Name = "btnUpdatePlan";
             btnUpdatePlan.Size = new Size(121, 48);
             btnUpdatePlan.TabIndex = 19;
@@ -94,7 +94,7 @@
             // 
             // btnCreatePlan
             // 
-            btnCreatePlan.Location = new Point(460, 381);
+            btnCreatePlan.Location = new Point(699, 431);
             btnCreatePlan.Name = "btnCreatePlan";
             btnCreatePlan.Size = new Size(121, 48);
             btnCreatePlan.TabIndex = 18;
@@ -105,7 +105,7 @@
             // btnBack
             // 
             btnBack.BackColor = SystemColors.ControlLightLight;
-            btnBack.Location = new Point(278, 381);
+            btnBack.Location = new Point(517, 431);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(121, 48);
             btnBack.TabIndex = 17;
@@ -115,7 +115,7 @@
             // 
             // txtIdPlans
             // 
-            txtIdPlans.Location = new Point(694, 152);
+            txtIdPlans.Location = new Point(1033, 182);
             txtIdPlans.Name = "txtIdPlans";
             txtIdPlans.Size = new Size(124, 27);
             txtIdPlans.TabIndex = 16;
@@ -123,7 +123,7 @@
             // lbIdPlan
             // 
             lbIdPlan.AutoSize = true;
-            lbIdPlan.Location = new Point(571, 152);
+            lbIdPlan.Location = new Point(910, 182);
             lbIdPlan.Name = "lbIdPlan";
             lbIdPlan.Size = new Size(55, 20);
             lbIdPlan.TabIndex = 15;
@@ -132,7 +132,7 @@
             // lbPlanSpeciality
             // 
             lbPlanSpeciality.AutoSize = true;
-            lbPlanSpeciality.Location = new Point(571, 287);
+            lbPlanSpeciality.Location = new Point(910, 317);
             lbPlanSpeciality.Name = "lbPlanSpeciality";
             lbPlanSpeciality.Size = new Size(110, 20);
             lbPlanSpeciality.TabIndex = 25;
@@ -140,7 +140,7 @@
             // 
             // btnDeletePlan
             // 
-            btnDeletePlan.Location = new Point(831, 381);
+            btnDeletePlan.Location = new Point(1070, 431);
             btnDeletePlan.Name = "btnDeletePlan";
             btnDeletePlan.Size = new Size(121, 48);
             btnDeletePlan.TabIndex = 27;
@@ -151,7 +151,7 @@
             // cBoxIdSpeciality
             // 
             cBoxIdSpeciality.FormattingEnabled = true;
-            cBoxIdSpeciality.Location = new Point(694, 287);
+            cBoxIdSpeciality.Location = new Point(1033, 317);
             cBoxIdSpeciality.Name = "cBoxIdSpeciality";
             cBoxIdSpeciality.Size = new Size(80, 28);
             cBoxIdSpeciality.TabIndex = 28;
@@ -162,7 +162,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(986, 495);
+            ClientSize = new Size(1709, 830);
             Controls.Add(cBoxIdSpeciality);
             Controls.Add(btnDeletePlan);
             Controls.Add(lbPlanSpeciality);

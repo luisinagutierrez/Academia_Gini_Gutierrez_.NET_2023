@@ -41,10 +41,10 @@ namespace UIDesktop
                 txtIdUser.Text = selectedRow.Cells["IdUser"].Value.ToString();
                 txtUserName.Text = selectedRow.Cells["UserName"].Value.ToString();
                 txtPassword.Text = selectedRow.Cells["Password"].Value.ToString();
-                txtStatus.Text = selectedRow.Cells["Status"].Value.ToString();
-                txtChangePassword.Text = selectedRow.Cells["ChangePassword"].Value.ToString();
+                cBoxStatus.Text = selectedRow.Cells["Status"].Value.ToString();
+                cBoxChangedPassword.Text = selectedRow.Cells["ChangePassword"].Value.ToString();
                 txtIdPerson.Text = selectedRow.Cells["IdPerson"].Value.ToString();
-                txtPrivilege.Text = selectedRow.Cells["Privilege"].Value.ToString();
+                cBoxPrivilege.Text = selectedRow.Cells["Privilege"].Value.ToString();
                 // ... y así sucesivamente para cada TextBox y columna que desees mostrar
             }
             else
@@ -53,10 +53,10 @@ namespace UIDesktop
                 txtIdUser.Text = "";
                 txtUserName.Text = "";
                 txtPassword.Text = "";
-                txtStatus.Text = "";
-                txtChangePassword.Text = "";
+                cBoxStatus.Text = "";
+                cBoxChangedPassword.Text = "";
                 txtIdPerson.Text = "";
-                txtPrivilege.Text = "";
+                cBoxPrivilege.Text = "";
                 // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }
@@ -66,10 +66,10 @@ namespace UIDesktop
             int idUser = Convert.ToInt32(txtIdUser.Text);
             string userName = Convert.ToString(txtUserName.Text);
             string password = Convert.ToString(txtPassword.Text);
-            bool status = Convert.ToBoolean(txtStatus.Text);
-            bool changePassword = Convert.ToBoolean(txtChangePassword.Text);
+            bool status = Convert.ToBoolean(cBoxStatus.Text);
+            bool changePassword = Convert.ToBoolean(cBoxChangedPassword.Text);
             int idPerson = Convert.ToInt32(txtIdPerson.Text);
-            int privilege = Convert.ToInt32(txtPrivilege.Text);
+            int privilege = Convert.ToInt32(cBoxPrivilege.Text);
 
             Negocio.Users u = new Negocio.Users();
             int us = u.UpdateUser(idUser, userName, password, status, changePassword, idPerson, privilege);
@@ -88,7 +88,7 @@ namespace UIDesktop
         {
             int idU = Convert.ToInt32(txtIdUser.Text);
             Negocio.Users nU = new Negocio.Users();
-            if(idU != 22)
+            if (idU != 22)
             {
                 if (idU != 0)
                 {
@@ -102,11 +102,16 @@ namespace UIDesktop
                     this.Close();
                 }
             }
-            else 
-            {                 
+            else
+            {
                 MessageBox.Show("No se puede eliminar el usuario administrador");
                 this.Close();
             }
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
