@@ -85,14 +85,13 @@ namespace Datos
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
                 {
-                    oReader.Read();
-
-                    objTeacherCourses.IdDictation = Convert.ToInt32(oReader["IdDictation"]);
-                    objTeacherCourses.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
-                    objTeacherCourses.IdTeacher = Convert.ToInt32(oReader["IdTeacher"]);
-                    objTeacherCourses.Position = Convert.ToInt32(oReader["Position"]);
-
-
+                    if (oReader.Read())
+                    {
+                        objTeacherCourses.IdDictation = Convert.ToInt32(oReader["IdDictation"]);
+                        objTeacherCourses.IdCourse = Convert.ToInt32(oReader["IdCourse"]);
+                        objTeacherCourses.IdTeacher = Convert.ToInt32(oReader["IdTeacher"]);
+                        objTeacherCourses.Position = Convert.ToInt32(oReader["Position"]);
+                    }
                     return objTeacherCourses;
 
                 }

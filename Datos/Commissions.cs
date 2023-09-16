@@ -150,8 +150,6 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
-                        if (oReader.Read())
-                        {
                             Entidades.Commissions objCommissions = new Entidades.Commissions();
                             objCommissions.IdCommission = (int)(oReader["IdCommission"]);
                             objCommissions.CommissionDescription = (string)(oReader["CommissionDescription"]);
@@ -160,7 +158,6 @@ namespace Datos
 
                             CommissionsList.Add(objCommissions);
                             objCommissions = null;
-                        }
                     }
                     return CommissionsList;
                 }

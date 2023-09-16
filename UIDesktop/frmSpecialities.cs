@@ -53,6 +53,12 @@ namespace UIDesktop
 
         private void btnUpdateSpecialitie_Click(object sender, EventArgs e)
         {
+            if (txtIdSpeciality.Text == "")
+            {
+                MessageBox.Show("El campo IdSpeciality no puede estar vacio para actualizar una especialidad.");
+                return;
+            }
+
             string descrip = Convert.ToString(txtSpecialityDescription.Text);
             int id = Convert.ToInt32(txtIdSpeciality.Text);
 
@@ -75,30 +81,35 @@ namespace UIDesktop
 
         private void btnDeleteSpeciality_Click(object sender, EventArgs e)
         {
+            if (txtIdSpeciality.Text == "")
+            {
+                MessageBox.Show("El campo IdSpeciality no puede estar vacio para eliminar una especialidad.");
+                return;
+            }
             int idS = Convert.ToInt32(txtIdSpeciality.Text);
 
             Negocio.Plans p = new Negocio.Plans();
             int pl = p.GetPlansByIdSpeciality(idS);
-            MessageBox.Show("del get plan" + pl.ToString());              // muestra 0 aunque encuentre 
+            //MessageBox.Show("del get plan" + pl.ToString());              // muestra 0 aunque encuentre 
             if (pl == 0)
             {
                 Negocio.Specialities s = new Negocio.Specialities();
                 int rts = s.Delete(idS);
-                MessageBox.Show("del delete" + rts.ToString());
+                //MessageBox.Show("del delete" + rts.ToString());
                 if (rts != 0)
                 {
                     MessageBox.Show("Operación exitosa");
-                    this.Close();
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("Id especialidad ingresado no valido");
+                    MessageBox.Show("Id especialidad ingresado no valido.");
                 }
             }
             else
             {
-                MessageBox.Show("No se puede eliminar la especialidad dado que tiene planas asignados a la misma.");
-                this.Close();
+                MessageBox.Show("No se puede eliminar la especialidad dado que tiene planes asignados a la misma.");
+                return;
             }
         }
 

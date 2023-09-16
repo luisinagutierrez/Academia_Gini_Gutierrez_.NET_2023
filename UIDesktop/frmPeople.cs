@@ -166,10 +166,21 @@ namespace UIDesktop
 
         private void btnDeletePerson_Click(object sender, EventArgs e)
         {
+            if (txtIdPerson.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar una persona para eliminarla.");
+                return;
+            }
             int idP = Convert.ToInt32(txtIdPerson.Text);
             Negocio.People nP = new Negocio.People();
             Negocio.Users nU = new Negocio.Users();
+            Negocio.StudentsRegistrations nSR = new Negocio.StudentsRegistrations();
             int u = nU.GetUserByIdPerson(idP);
+            if (nSR.GetStudentRegByIdPerson(idP) != 0)
+            {
+                MessageBox.Show("No se puede eliminar la persona, ya que tiene una/s inscripción/es asociada/s.");
+                return;
+            }
             if (u == 0)
             {
                 nP.Delete(idP);

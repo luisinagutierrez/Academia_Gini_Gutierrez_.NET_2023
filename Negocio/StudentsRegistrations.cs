@@ -139,5 +139,24 @@ namespace Negocio
                 ds = null;
             }
         }
+
+        public int GetStudentRegByIdPerson(int idPerson)
+        {
+            Datos.StudentsRegistrations ds;
+            try
+            {
+                ds = new Datos.StudentsRegistrations();
+                int cant = 0;
+                foreach (Entidades.StudentsRegistrations sr in ds.GetStudentRegByIdperson(idPerson))
+                {
+                    cant++;
+                }
+                return cant;
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
     }
 }

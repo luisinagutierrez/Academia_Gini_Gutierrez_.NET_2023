@@ -134,21 +134,19 @@ namespace Datos
                 SqlDataReader oReader = comm.ExecuteReader();
                 using (oReader)
                 {
-                    oReader.Read();
-
-                    objPeople.IdPerson = (int)(oReader["IdPerson"]);
-                    objPeople.Name = (string)(oReader["Name"]);
-                    objPeople.Address = (string)(oReader["Address"]);
-                    objPeople.Email = (string)(oReader["Email"]);
-                    objPeople.Telephone = (string)(oReader["Telephone"]);
-                    objPeople.BirthDate = (DateTime)(oReader["BirthDate"]);
-                    objPeople.FileId = (int)(oReader["FileId"]);
-                    objPeople.PersonType = (int)(oReader["PersonType"]);
-                    objPeople.IdPlan = (int)(oReader["IdPlan"]);
-                
-
+                   if(oReader.Read())
+                    {
+                        objPeople.IdPerson = (int)(oReader["IdPerson"]);
+                        objPeople.Name = (string)(oReader["Name"]);
+                        objPeople.Address = (string)(oReader["Address"]);
+                        objPeople.Email = (string)(oReader["Email"]);
+                        objPeople.Telephone = (string)(oReader["Telephone"]);
+                        objPeople.BirthDate = (DateTime)(oReader["BirthDate"]);
+                        objPeople.FileId = (int)(oReader["FileId"]);
+                        objPeople.PersonType = (int)(oReader["PersonType"]);
+                        objPeople.IdPlan = (int)(oReader["IdPlan"]);
+                    }
                     return objPeople;
-
                 }
             }
             finally
@@ -197,8 +195,6 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
-                        if (oReader.Read())
-                        {
                             Entidades.People objPeople = new Entidades.People();
                             objPeople.IdPerson = (int)oReader["IdPerson"];
                             objPeople.Name = (string)oReader["Name"];
@@ -213,7 +209,6 @@ namespace Datos
 
                             PeopleList.Add(objPeople);
                             objPeople = null;
-                        }
                     }
                     return PeopleList;
                 }

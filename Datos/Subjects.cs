@@ -122,8 +122,6 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
-                        if (oReader.Read())
-                        {
                             Entidades.Subjects objSubjects = new Entidades.Subjects();
                             objSubjects.IdSubject = (int)oReader["IdSubject"];
                             objSubjects.SubjectDescription = (string)oReader["SubjectDescription"];
@@ -133,7 +131,6 @@ namespace Datos
 
                             SubjectsList.Add(objSubjects);
                             objSubjects = null;
-                        }
                     }
                     return SubjectsList;
                 }

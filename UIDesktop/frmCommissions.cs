@@ -108,13 +108,14 @@ namespace UIDesktop
                 else
                 {
                     MessageBox.Show("No se pudo actualizar la comision.");
+                    return;
                 }
             }
             else
             {
                 MessageBox.Show("El Id del plan no fue encontrado");
             }
-            this.Close();
+            return;
         }
 
         private void btnDeleteCommission_Click(object sender, EventArgs e)
@@ -140,7 +141,7 @@ namespace UIDesktop
                 else
                 {
                     MessageBox.Show("No se puede eliminar la comision, ya que tiene uno o varios curso/s asociado/s.");
-                    this.Close();
+                    return;
                 }
             }
 

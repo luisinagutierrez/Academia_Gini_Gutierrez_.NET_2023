@@ -149,8 +149,6 @@ namespace Datos
                 {
                     while (oReader.Read())
                     {
-                        if (oReader.Read())
-                        {
                             Entidades.Plans objPlans = new Entidades.Plans();
                             objPlans.IdPlan = (int)oReader["IdPlan"];
                             objPlans.PlanDescription = (string)oReader["PlanDescription"];
@@ -158,7 +156,6 @@ namespace Datos
 
                             PlansList.Add(objPlans);
                             objPlans = null;
-                        }
                     }
                     return PlansList;
                 }

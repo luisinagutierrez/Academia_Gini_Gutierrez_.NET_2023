@@ -194,6 +194,41 @@ namespace Datos
                 this.Disconnect();
             }
         }
+
+        public List<Entidades.StudentsRegistrations> GetStudentRegByIdperson(int IdStudent)
+        {
+            List<Entidades.StudentsRegistrations> StudentRegistrationList = new List<Entidades.StudentsRegistrations>();
+            try
+            {
+                this.Connect();
+                using (SqlCommand comm = new SqlCommand("SELECT * FROM StudentsRegistrations WHERE IdStudent =@IdStudent ", Conn))
+                {
+                    comm.Parameters.AddWithValue("@IdStudent", IdStudent);
+
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        while (oReader.Read())
+                        {
+                            Entidades.StudentsRegistrations objStudentsRegistrations = new Entidades.StudentsRegistrations();
+                            objStudentsRegistrations.IdRegistration = (int)oReader["IdRegistration"];
+                            objStudentsRegistrations.IdStudent = (int)oReader["IdStudent"];
+                            objStudentsRegistrations.IdCourse = (int)oReader["IdCourse"];
+                            objStudentsRegistrations.Condition = (string)oReader["Condition"];
+                            objStudentsRegistrations.Mark = (int)oReader["Mark"];
+
+                            StudentRegistrationList.Add(objStudentsRegistrations);
+                            objStudentsRegistrations = null;
+                        }
+                    }
+                    return StudentRegistrationList;
+                }
+            }
+            finally
+            {
+                //objStudentsRegistrations = null;
+                this.Disconnect();
+            }
+        }
     }
 }
 
