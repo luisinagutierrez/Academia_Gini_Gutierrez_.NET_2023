@@ -57,7 +57,6 @@
             dgvRegistrationCourses.RowTemplate.Height = 29;
             dgvRegistrationCourses.Size = new Size(520, 211);
             dgvRegistrationCourses.TabIndex = 1;
-            dgvRegistrationCourses.CellContentClick += dgvTeacheraCoursesList_CellContentClick;
             dgvRegistrationCourses.SelectionChanged += dgvRegistrationCourses_SelectionChanged;
             // 
             // lbTeacherCoursesList

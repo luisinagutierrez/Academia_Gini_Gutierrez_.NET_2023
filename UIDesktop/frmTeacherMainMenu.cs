@@ -70,11 +70,7 @@ namespace UIDesktop
 
         }
 
-        private void dgvTeacheraCoursesList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private void dgvSubjects_SelectionChanged(object sender, EventArgs e)
+        private void dgvRegistrationCourses_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvRegistrationCourses.SelectedRows.Count > 0)
             {
@@ -85,11 +81,6 @@ namespace UIDesktop
             {
                 txtTeacherCoursesIdCourse.Text = "";
             }
-        }
-
-        private void dgvRegistrationCourses_SelectionChanged(object sender, EventArgs e)
-        {
-
         }
         private void UploadDataToStudentRegistration(int idCourse)
         {
@@ -120,7 +111,7 @@ namespace UIDesktop
 
                 MessageBox.Show("Nota cargada y condicion del alumno actualizada.");
                 // Ejemplo de cómo usar Invoke() para llamar a Refresh() desde otro hilo.
-                dgvStudentRegistration.Invoke(new MethodInvoker(Refresh));
+                dgvStudentRegistration.Refresh();
             }
         }
 

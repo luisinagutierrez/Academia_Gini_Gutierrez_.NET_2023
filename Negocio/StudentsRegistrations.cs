@@ -120,5 +120,26 @@ namespace Negocio
             }
 
         }
+
+        public bool GetStudentReg(int idStudent, int idCourse)
+        {
+            Datos.StudentsRegistrations ds;
+            try
+            {
+                ds = new Datos.StudentsRegistrations();
+                if(ds.GetStudentReg(idStudent, idCourse) != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
     }
 }

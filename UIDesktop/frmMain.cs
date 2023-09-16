@@ -29,6 +29,7 @@ namespace UIDesktop
             btnReports.Visible = false;
             btnPlan.Visible = false;
             btnUsers.Visible = false;
+            btnEntitiesInfo.Visible = false;
 
             this.idPerson = idPerson;
 
@@ -36,10 +37,12 @@ namespace UIDesktop
             {
                 case 1: //Teacher
                     btnTeacherMenu.Visible = true;
+                    btnEntitiesInfo.Visible = true;
                     break;
 
                 case 2: //Student
                     btnStudentRegistration.Visible = true;
+                    btnEntitiesInfo.Visible = true;
                     break;
 
                 case 3: //Admin
@@ -174,6 +177,11 @@ namespace UIDesktop
         private void btnUsers_Click(object sender, EventArgs e)
         {
             OpenDaughterForm(new frmUsersAdmin());
+        }
+
+        private void btnEntitiesInfo_Click(object sender, EventArgs e)
+        {
+            OpenDaughterForm(new frmEntitiesInfoForPeople());   
         }
     }
 }

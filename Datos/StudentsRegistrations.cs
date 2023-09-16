@@ -166,6 +166,34 @@ namespace Datos
                 this.Disconnect();
             }
         }
+
+        public int GetStudentReg(int IdStudent, int IdCourse)
+        {
+            Entidades.StudentsRegistrations objStudentsRegistrations = new Entidades.StudentsRegistrations();
+            try
+            {
+                this.Connect();
+                using (SqlCommand comm = new SqlCommand("SELECT IdCourse FROM StudentsRegistrations WHERE IdCourse = @IdCourse AND IdStudent =@IdStudent ", Conn))
+                {
+                    comm.Parameters.AddWithValue("@IdStudent", IdStudent);
+                    comm.Parameters.AddWithValue("@IdCourse", IdCourse);
+
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            objStudentsRegistrations.IdCourse = (int)oReader["IdCourse"];
+                        }
+                    }
+                    return objStudentsRegistrations.IdCourse;
+                }
+            }
+            finally
+            {
+                objStudentsRegistrations = null;
+                this.Disconnect();
+            }
+        }
     }
 }
 

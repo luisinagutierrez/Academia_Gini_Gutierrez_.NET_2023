@@ -63,24 +63,29 @@ namespace UIDesktop
 
         private void btnStudentNewRegistrationAccept_Click(object sender, EventArgs e)
         {
-            //ME FALTÓ VALIDAR QUE EL ALUMNO NO ESTÉ YA INSCRIPTO EN ESE CURSO, NO SE SI ESO ES NECESARIO
-            int IdCourse = Convert.ToInt32(cBoxIdCourse.Text);
             Negocio.Courses nCourses = new Negocio.Courses();
-            int course = nCourses.ValidateCourseAvailability(IdCourse);//, this.idPerson);
-            if (course != 0)
+            Negocio.StudentsRegistrations nStuReg = new Negocio.StudentsRegistrations();
+            if (cBoxIdCourse.Text == "")
             {
-                Negocio.StudentsRegistrations nst = new Negocio.StudentsRegistrations();
-                nst.Add(IdCourse, this.idPerson);
-                MessageBox.Show("Operacion exitosa");
-                this.Close();
+                MessageBox.Show("Debe seleccionar un curso");
+                return;
             }
-            else
+            int IdCourse = Convert.ToInt32(cBoxIdCourse.Text);
+            if (nStuReg.GetStudentReg(this.idPerson, IdCourse))
             {
                 MessageBox.Show("El curso ingresado no fue encontrado o no tiene cupo o ya está inscripto");
             }
-
+            else
+            {
+                int course = nCourses.ValidateCourseAvailability(IdCourse);//, this.idPerson);
+                if (course != 0)
+                {
+                    nStuReg.Add(IdCourse, this.idPerson);
+                    MessageBox.Show("Operacion exitosa");
+                    this.Close();
+                }
+            }
         }
-
 
         private void btnDeleteRegistration_Click(object sender, EventArgs e)
         {
