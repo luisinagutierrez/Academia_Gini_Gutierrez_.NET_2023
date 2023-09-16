@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CrystalDecisions.CrystalReports.Engine" Version="1.0.0" />
     <PackageReference Include="CrystalReports.Engine" Version="13.0.4003" />
+    <PackageReference Include="Microsoft.Report.Viewer" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>

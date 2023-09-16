@@ -9,24 +9,26 @@ namespace Negocio
 {
     public class StudentsRegistrations
     {
-        public void UpdateNote(int idR,int note) 
+        public void UpdateMark(int idR,int mark) 
         {
             Datos.StudentsRegistrations ds;
             try
             {
                 string condition;
                 ds = new Datos.StudentsRegistrations();
-                if (note > 5) 
+                if (mark >= 4 && mark < 6)
                 {
-                    condition = "regular ";
+                    condition = "Regular";
                 }
-                else 
+                else if (mark >= 6)
                 {
-                    condition = "recupera";
+                    condition = "Aprobado";
                 }
-                ds.UpdateNote(idR, note, condition);
-
-
+                else
+                {
+                    condition = "Libre";
+                }
+                ds.UpdateMark(idR, mark, condition);
 
             }
             finally

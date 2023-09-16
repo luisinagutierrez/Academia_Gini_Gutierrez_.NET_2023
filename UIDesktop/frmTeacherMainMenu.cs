@@ -39,20 +39,24 @@ namespace UIDesktop
 
         private void btnTeacherCoursesAccept_Click(object sender, EventArgs e)
         {
-
-            int idC = Convert.ToInt32(txtTeacherCoursesIdCourse.Text);
-
-            Negocio.Courses nC = new Negocio.Courses();
-            Entidades.Courses cour = nC.GetOne(idC);   //quizá hbaría que validar q se de ese profesor en particular 
-
-            if (cour.IdCourse != 0)
+            if (txtTeacherCoursesIdCourse.Text == "")
             {
-                frmStudentsListForTeacher frmStudentsListForTeacher = new frmStudentsListForTeacher(idC);
-                frmStudentsListForTeacher.ShowDialog();
+                MessageBox.Show("Debe seleccionar un curso.");
             }
             else
             {
-                MessageBox.Show("Cusro ingresado no valido");
+                int idC = Convert.ToInt32(txtTeacherCoursesIdCourse.Text);
+                Negocio.Courses nC = new Negocio.Courses();
+                Entidades.Courses cour = nC.GetOne(idC);   //quizá hbaría que validar q se de ese profesor en particular 
+
+                if (cour.IdCourse != 0)
+                {
+                    this.idCourse = idC;
+                }
+                else
+                {
+                    MessageBox.Show("Curso ingresado no valido");
+                }
             }
         }
 
@@ -75,6 +79,70 @@ namespace UIDesktop
             else
             {
                 txtTeacherCoursesIdCourse.Text = "";
+            }
+        }
+
+        private void dgvRegistrationCourses_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvRegistrationCourses.SelectedRows.Count > 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow selectedRow = dgvRegistrationCourses.SelectedRows[0];
+
+                // Accede a las celdas de la fila y asigna sus valores a los TextBox
+                txtTeacherCoursesIdCourse.Text = selectedRow.Cells["IdCourse"].Value.ToString();
+                int idCourse = Convert.ToInt32(txtTeacherCoursesIdCourse.Text);
+                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
+                UploadDataToStudentRegistration(idCourse);
+            }
+            else
+            {
+                // Si no hay filas seleccionadas, borra los TextBox
+                txtTeacherCoursesIdCourse.Text = "";
+                // ... y así sucesivamente para cada TextBox que desees borrar
+            }
+        }
+        private void UploadDataToStudentRegistration(int idCourse)
+        {
+            Negocio.StudentsRegistrations reg = new Negocio.StudentsRegistrations();
+            List<Entidades.StudentsRegistrations> RegistrationList = reg.GetStudentsListRegByIdCourse(idCourse); //this.idCourse
+            dgvStudentRegistration.DataSource = RegistrationList;
+        }
+
+        private void btnCancelStudentRegistration_Click_1(object sender, EventArgs e)
+        {
+            txtIdRegistration.Text = "";
+            cBoxMark.Text = "";
+        }
+
+        private void btnStudentRegistrationAccept_Click(object sender, EventArgs e)
+        {
+            if (txtIdRegistration.Text == "" || cBoxMark.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar un alumno y asignarle una nota.");
+            }
+            else
+            {
+                int idR = Convert.ToInt32(txtIdRegistration.Text);
+                int mark = Convert.ToInt32(cBoxMark.Text);
+                Negocio.StudentsRegistrations st = new Negocio.StudentsRegistrations();
+                st.UpdateMark(idR, mark);
+                MessageBox.Show("Nota cargada y condicion del alumno actualizada.");
+                // Ejemplo de cómo usar Invoke() para llamar a Refresh() desde otro hilo.
+                dgvStudentRegistration.Invoke(new MethodInvoker(Refresh));
+            }
+        }
+
+        private void dgvStudentRegistration_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvStudentRegistration.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvStudentRegistration.SelectedRows[0];
+                txtIdRegistration.Text = selectedRow.Cells["IdRegistration"].Value.ToString();
+            }
+            else
+            {
+                txtIdRegistration.Text = "";
             }
         }
     }

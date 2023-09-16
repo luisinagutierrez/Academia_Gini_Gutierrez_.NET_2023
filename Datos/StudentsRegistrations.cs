@@ -31,21 +31,21 @@ namespace Datos
                 this.Disconnect();
             }
         }
-        public void UpdateNote(int IdRegistration,int Mark, string Condition)
+        public void UpdateMark(int IdRegistration,int Mark, string Condition)
         {
             try
             {
                 this.Connect();
                 SqlCommand comm = new SqlCommand("UPDATE StudentsRegistrations SET Condition =@Condition,  Mark =@Mark  WHERE IdRegistration = @IdRegistration", Conn);
                 comm.Parameters.AddWithValue("@IdRegistration", IdRegistration);
-                comm.Parameters.AddWithValue("@Condition", Condition);      // LA CONDICION NO SE TENDRÍA Q ACTUALIZAR DEPENDIENDO DE LA NOTA?
+                comm.Parameters.AddWithValue("@Condition", Condition);
                 comm.Parameters.AddWithValue("@Mark", Mark);
 
                 comm.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                Exception HandledException = new Exception("Error al actualizar plan ", Ex);
+                Exception HandledException = new Exception("Error al actualizar la condicion del alumno ", Ex);
                 //throw HandledException;
             }
             finally
@@ -153,8 +153,7 @@ namespace Datos
                 List<Entidades.StudentsRegistrations> StudentsRegistrationsList = new List<Entidades.StudentsRegistrations>();
                 comm.Parameters.AddWithValue("@IdStudent", IdStudent);
 
-                SqlDataReader oReader = comm.ExecuteReader();
-                using (oReader)
+                using (SqlDataReader oReader = comm.ExecuteReader()) 
                 {
                     while (oReader.Read())
                     {
@@ -163,10 +162,11 @@ namespace Datos
                         objStudentsRegistrations.IdStudent = (int)oReader["IdStudent"];
                         objStudentsRegistrations.IdCourse = (int)oReader["IdCourse"];
                         objStudentsRegistrations.Condition = (string)oReader["Condition"];
-                        if (objStudentsRegistrations.Condition == "HAY QUE CAMBIAR ESTO PARA QUE QUEDE MEJOR")
-                        {
-                            objStudentsRegistrations.Mark = (int)oReader["Mark"];
-                        }
+                        objStudentsRegistrations.Mark = (int)oReader["Mark"];
+                        //if (objStudentsRegistrations.Condition == "HAY QUE CAMBIAR ESTO PARA QUE QUEDE MEJOR")
+                        //{
+                        //    objStudentsRegistrations.Mark = (int)oReader["Mark"];
+                        //}
 
                         StudentsRegistrationsList.Add(objStudentsRegistrations);
                         objStudentsRegistrations = null;

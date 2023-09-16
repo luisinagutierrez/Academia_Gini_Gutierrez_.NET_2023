@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "RsRxRZxktNYG2ofbOsEseN153ePYcAevCw8c/EUvpIoj6diqsIKhqU/qlD8wio2rB4mzQ9jpr3LNdBAnDxy9Yg==",
+  "dgSpecHash": "3Dbzb8R3y/dQ+IHtjMSDKzqbMQ71mSC6/2+92u5UIynSPSEu/j1wESqIlrKcURvRqTubjKcwHQxwosfh1JaDxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Tecnología de Desarrollo de SoftwarwIDE\\PruebaAcademia\\Datos\\Datos.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ISI UTN 3ero\\Tecnologías en Desarrollo de Software IDE (elec)\\TPI Academia\\TPI_3K2_TT_Academia\\PruebaAcademia\\Datos\\Datos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\crystaldecisions.crystalreports.engine\\1.0.0\\crystaldecisions.crystalreports.engine.1.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\crystalreports.engine\\13.0.4003\\crystalreports.engine.13.0.4003.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\crystalreports.reportappserver.clientdoc\\13.0.4003\\crystalreports.reportappserver.clientdoc.13.0.4003.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\crystalreports.reportappserver.commlayer\\13.0.4003\\crystalreports.reportappserver.commlayer.13.0.4003.nupkg.sha512",
@@ -52,6 +53,7 @@
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.24.0\\microsoft.identitymodel.tokens.6.24.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.report.viewer\\11.0.0\\microsoft.report.viewer.11.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
@@ -86,6 +88,16 @@
     "C:\\Users\\Usuario\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"CrystalDecisions.CrystalReports.Engine 1.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "CrystalDecisions.CrystalReports.Engine",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",
@@ -222,6 +234,16 @@
       "warningLevel": 1,
       "message": "El paquete \"CrystalReports.Shared 13.0.4003\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "CrystalReports.Shared",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Microsoft.Report.Viewer 11.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "Microsoft.Report.Viewer",
       "targetGraphs": [
         "net6.0"
       ]

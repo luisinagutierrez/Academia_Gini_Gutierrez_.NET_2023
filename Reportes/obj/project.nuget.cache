@@ -1,8 +1,32 @@
 {
   "version": 2,
-  "dgSpecHash": "S8j4wUxGzRCzuvh2g6zO3+LZ+qkwA+NKxQxfDdH5sjnUnpvqaMcsR7wcPzICVpdZJuLQnTtCtPxJpeBlw5aUCQ==",
+  "dgSpecHash": "tOLQX2RjaPl9GOex+3z/smFjRScQc2vgu7v6nJbakCOia+uW5zLAMQqdyLU78DdCIwQEeLBsSn9zDAiN7R7sGA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Tecnología de Desarrollo de SoftwarwIDE\\PruebaAcademia\\Reportes\\Reportes.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ISI UTN 3ero\\Tecnologías en Desarrollo de Software IDE (elec)\\TPI Academia\\TPI_3K2_TT_Academia\\PruebaAcademia\\Reportes\\Reportes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\crystaldecisions.crystalreports.engine\\1.0.0\\crystaldecisions.crystalreports.engine.1.0.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.report.viewer\\11.0.0\\microsoft.report.viewer.11.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"CrystalDecisions.CrystalReports.Engine 1.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "CrystalDecisions.CrystalReports.Engine",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Microsoft.Report.Viewer 11.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "Microsoft.Report.Viewer",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

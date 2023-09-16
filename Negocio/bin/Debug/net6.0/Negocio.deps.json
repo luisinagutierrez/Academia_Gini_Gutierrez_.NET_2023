@@ -8,11 +8,13 @@
     ".NETCoreApp,Version=v6.0": {
       "Negocio/1.0.0": {
         "dependencies": {
+          "CrystalDecisions.CrystalReports.Engine": "1.0.0",
           "CrystalReports.Engine": "13.0.4003",
           "Datos": "1.0.0",
           "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore": "7.0.9",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.9",
+          "Microsoft.Report.Viewer": "11.0.0",
           "System.Configuration.ConfigurationManager": "7.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -54,6 +56,7 @@
           }
         }
       },
+      "CrystalDecisions.CrystalReports.Engine/1.0.0": {},
       "CrystalReports.Engine/13.0.4003": {
         "dependencies": {
           "CrystalReports.ReportAppServer.ClientDoc": "13.0.4003",
@@ -712,6 +715,22 @@
       },
       "Microsoft.NETCore.Platforms/3.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.Report.Viewer/11.0.0": {
+        "runtime": {
+          "lib/net/Microsoft.ReportViewer.Common.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2802.16"
+          },
+          "lib/net/Microsoft.ReportViewer.ProcessingObjectModel.DLL": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2802.16"
+          },
+          "lib/net/Microsoft.ReportViewer.WebForms.DLL": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2802.16"
+          }
+        }
+      },
       "Microsoft.SqlServer.Server/1.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.SqlServer.Server.dll": {
@@ -1015,10 +1034,12 @@
       },
       "Datos/1.0.0": {
         "dependencies": {
+          "CrystalDecisions.CrystalReports.Engine": "1.0.0",
           "CrystalReports.Engine": "13.0.4003",
           "Entidades": "1.0.0",
           "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore": "7.0.9",
+          "Microsoft.Report.Viewer": "11.0.0",
           "System.Configuration.ConfigurationManager": "7.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -1028,9 +1049,11 @@
       },
       "Entidades/1.0.0": {
         "dependencies": {
+          "CrystalDecisions.CrystalReports.Engine": "1.0.0",
           "CrystalReports.Engine": "13.0.4003",
           "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore": "7.0.9",
+          "Microsoft.Report.Viewer": "11.0.0",
           "System.Configuration.ConfigurationManager": "7.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -1059,6 +1082,13 @@
       "sha512": "sha512-eHEiCO/8+MfNc9nH5dVew/+FvxdaGrkRL4OMNwIz0W79+wtJyEoeRlXJ3SrXhoy9XR58geBYKmzMR83VO7bcAw==",
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
+    },
+    "CrystalDecisions.CrystalReports.Engine/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qr+XgfiEvAWXModuJy4IamWlkarFNL6c2ueA9PcZkLUkoz17L0rptDNzLzJkFaSP8hh+nAwfD2t3wvRLdbjFQw==",
+      "path": "crystaldecisions.crystalreports.engine/1.0.0",
+      "hashPath": "crystaldecisions.crystalreports.engine.1.0.0.nupkg.sha512"
     },
     "CrystalReports.Engine/13.0.4003": {
       "type": "package",
@@ -1381,6 +1411,13 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.Report.Viewer/11.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QMPHoeVcTiqO55tUyG6z97nkesI0k8rNr1brbyECJezrK8XyjICzuRR3QtsZFI/7kalm4Ko/JCvK0lm+gztTVQ==",
+      "path": "microsoft.report.viewer/11.0.0",
+      "hashPath": "microsoft.report.viewer.11.0.0.nupkg.sha512"
     },
     "Microsoft.SqlServer.Server/1.0.0": {
       "type": "package",
