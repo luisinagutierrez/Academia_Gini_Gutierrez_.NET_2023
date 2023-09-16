@@ -77,7 +77,7 @@ namespace UIDesktop
             }
             else
             {
-                int course = nCourses.ValidateCourseAvailability(IdCourse);//, this.idPerson);
+                int course = nCourses.ValidateCourseAvailability(IdCourse);
                 if (course != 0)
                 {
                     nStuReg.Add(IdCourse, this.idPerson);
@@ -109,38 +109,26 @@ namespace UIDesktop
         {
             if (dgvAvailableCourses.SelectedRows.Count > 0)
             {
-                // Obtén la fila seleccionada
                 DataGridViewRow selectedRow = dgvAvailableCourses.SelectedRows[0];
 
-                // Accede a las celdas de la fila y asigna sus valores a los TextBox
                 cBoxIdCourse.Text = selectedRow.Cells["IdCourse"].Value.ToString();
-                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
             }
             else
             {
-                // Si no hay filas seleccionadas, borra los TextBox
                 cBoxIdCourse.Text = "";
-                // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }
 
         private void dgvRegistrationCourses_SelectionChanged(object sender, EventArgs e)
         {
-            // Verifica si hay alguna fila seleccionada
             if (dgvRegistrationCourses.SelectedRows.Count > 0)
             {
-                // Obtén la fila seleccionada
                 DataGridViewRow selectedRow = dgvRegistrationCourses.SelectedRows[0];
-
-                // Accede a las celdas de la fila y asigna sus valores a los TextBox
                 txtIdRegistration.Text = selectedRow.Cells["IdRegistration"].Value.ToString();
-                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
             }
             else
             {
-                // Si no hay filas seleccionadas, borra los TextBox
                 txtIdRegistration.Text = "";
-                // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }
     }

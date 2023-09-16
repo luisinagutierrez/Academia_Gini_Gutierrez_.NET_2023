@@ -126,15 +126,13 @@ namespace Negocio
             Datos.StudentsRegistrations ds;
             try
             {
+                bool flag = false;
                 ds = new Datos.StudentsRegistrations();
                 if(ds.GetStudentReg(idStudent, idCourse) != 0)
                 {
-                    return true;
+                    flag = true;
                 }
-                else
-                {
-                    return false;
-                }
+                return flag;
             }
             finally
             {

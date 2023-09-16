@@ -53,7 +53,7 @@
             dgvSpecialities.Name = "dgvSpecialities";
             dgvSpecialities.RowHeadersWidth = 51;
             dgvSpecialities.RowTemplate.Height = 29;
-            dgvSpecialities.Size = new Size(426, 188);
+            dgvSpecialities.Size = new Size(419, 188);
             dgvSpecialities.TabIndex = 0;
             // 
             // dgvPlans
