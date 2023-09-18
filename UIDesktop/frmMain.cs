@@ -106,6 +106,7 @@ namespace UIDesktop
         private void btnPeopleReports_Click(object sender, EventArgs e)
         {
             pnSubmenuReports.Visible = false;
+            OpenDaughterForm(new CoursesReport());
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -181,7 +182,7 @@ namespace UIDesktop
 
         private void btnEntitiesInfo_Click(object sender, EventArgs e)
         {
-            OpenDaughterForm(new frmEntitiesInfoForPeople());   
+            OpenDaughterForm(new frmEntitiesInfoForPeople());
         }
     }
 }

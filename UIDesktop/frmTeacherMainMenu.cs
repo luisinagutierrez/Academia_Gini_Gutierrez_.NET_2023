@@ -73,7 +73,7 @@ namespace UIDesktop
         private void dgvRegistrationCourses_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvRegistrationCourses.SelectedRows.Count > 0)
-            {
+            {   
                 DataGridViewRow selectedRow = dgvRegistrationCourses.SelectedRows[0];
                 txtTeacherCoursesIdCourse.Text = selectedRow.Cells["IdCourse"].Value.ToString();
             }

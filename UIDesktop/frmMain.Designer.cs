@@ -40,7 +40,7 @@
             btnContact = new Button();
             pnSubmenuReports = new Panel();
             btnUsersReport = new Button();
-            btnPeopleReports = new Button();
+            btnCoursesReports = new Button();
             btnExit = new PictureBox();
             btnReports = new Button();
             btnTeacherMenu = new Button();
@@ -206,7 +206,7 @@
             // pnSubmenuReports
             // 
             pnSubmenuReports.Controls.Add(btnUsersReport);
-            pnSubmenuReports.Controls.Add(btnPeopleReports);
+            pnSubmenuReports.Controls.Add(btnCoursesReports);
             pnSubmenuReports.Location = new Point(71, 606);
             pnSubmenuReports.Name = "pnSubmenuReports";
             pnSubmenuReports.Size = new Size(149, 76);
@@ -229,21 +229,21 @@
             btnUsersReport.UseVisualStyleBackColor = true;
             btnUsersReport.Click += btnUsersReport_Click;
             // 
-            // btnPeopleReports
+            // btnCoursesReports
             // 
-            btnPeopleReports.Cursor = Cursors.Hand;
-            btnPeopleReports.FlatAppearance.BorderSize = 0;
-            btnPeopleReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
-            btnPeopleReports.FlatStyle = FlatStyle.Flat;
-            btnPeopleReports.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPeopleReports.ForeColor = SystemColors.ButtonHighlight;
-            btnPeopleReports.Location = new Point(0, 0);
-            btnPeopleReports.Name = "btnPeopleReports";
-            btnPeopleReports.Size = new Size(149, 32);
-            btnPeopleReports.TabIndex = 4;
-            btnPeopleReports.Text = "Personas";
-            btnPeopleReports.UseVisualStyleBackColor = true;
-            btnPeopleReports.Click += btnPeopleReports_Click;
+            btnCoursesReports.Cursor = Cursors.Hand;
+            btnCoursesReports.FlatAppearance.BorderSize = 0;
+            btnCoursesReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            btnCoursesReports.FlatStyle = FlatStyle.Flat;
+            btnCoursesReports.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCoursesReports.ForeColor = SystemColors.ButtonHighlight;
+            btnCoursesReports.Location = new Point(0, 0);
+            btnCoursesReports.Name = "btnCoursesReports";
+            btnCoursesReports.Size = new Size(149, 32);
+            btnCoursesReports.TabIndex = 4;
+            btnCoursesReports.Text = "Cursos";
+            btnCoursesReports.UseVisualStyleBackColor = true;
+            btnCoursesReports.Click += btnPeopleReports_Click;
             // 
             // btnExit
             // 
@@ -464,7 +464,7 @@
         private Button btnTeacherMenu;
         private Button btnStudentRegistration;
         private Panel pnSubmenuReports;
-        private Button btnPeopleReports;
+        private Button btnCoursesReports;
         private Button btnUsersReport;
         private PictureBox btnExit;
         private Button btnContact;
