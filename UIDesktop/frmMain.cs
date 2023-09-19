@@ -60,7 +60,10 @@ namespace UIDesktop
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if(MessageBox.Show("¿Está seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -111,7 +114,12 @@ namespace UIDesktop
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if(MessageBox.Show("¿Está seguro que desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                frmUserLogIn frmUserLogIn = new frmUserLogIn();
+                frmUserLogIn.Show();
+                this.Close();
+            }
         }
 
         public void OpenDaughterForm(object formdaughter)

@@ -158,6 +158,7 @@
             Name = "frmUserLogIn";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio sesión";
+            FormClosed += LogOut;
             Load += frmUserLogIn_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ResumeLayout(false);

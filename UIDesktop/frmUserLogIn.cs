@@ -23,7 +23,7 @@ namespace UIDesktop
 
         private void btnUserLogInCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void llbUserPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -47,10 +47,11 @@ namespace UIDesktop
                     int idPerson = u.GetIdPerson(nom, pass);
                     frmMain frmMain = new frmMain(idPerson, privilege);
                     frmMain.ShowDialog();
-                    this.Close();
+                    frmMain.FormClosed += LogOut;
+                    this.Hide();
                     return;
                 }
-                else 
+                else
                 {
                     txtUserName.Text = "";
                     txtUserPassword.Text = "";
@@ -59,7 +60,7 @@ namespace UIDesktop
                 }
 
             }
-            else 
+            else
             {
                 this.Close();
             }
@@ -75,6 +76,14 @@ namespace UIDesktop
         {
             frmUserSignUp frmUserSignUp = new frmUserSignUp();
             frmUserSignUp.ShowDialog();
+        }
+
+        private void LogOut(object sender, FormClosedEventArgs e)
+        {
+            txtUserName.Text = "";
+            txtUserPassword.Text = "";
+            this.Show();
+            txtUserName.Focus();
         }
     }
 }
