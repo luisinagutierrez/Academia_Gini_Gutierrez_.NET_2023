@@ -219,5 +219,33 @@ namespace Datos
                 //objPeople = null;
             }
         }
+
+        public int GetIdPersonByEmail(string Email)
+        {
+            Entidades.People objPeople = new Entidades.People();
+            try
+            {
+                this.Connect();
+                using (SqlCommand comm = new SqlCommand("SELECT IdPerson FROM People WHERE Email = @Email", Conn))
+                {
+                    comm.Parameters.AddWithValue("@Email", Email);
+                    // Ejecutamos el comando y retornamos los valores
+                    using (SqlDataReader oReader = comm.ExecuteReader())
+                    {
+                        if (oReader.Read())
+                        {
+                            objPeople.IdPerson = (int)oReader["IdPerson"];
+                        }
+                    }
+                }
+                return objPeople.IdPerson;
+            }
+            finally
+            {
+                // Finally nos da siempre la oportunidad de liberar memoria usada por los objetos 
+                //objPeople = null;
+                this.Disconnect();
+            }
+        }
     }
 }

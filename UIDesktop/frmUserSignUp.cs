@@ -30,28 +30,38 @@ namespace UIDesktop
 
         private void btnUserSignUpAccept_Click(object sender, EventArgs e)
         {
-            int idP = Convert.ToInt32(txtIdPerson.Text);
-            Negocio.Users user = new Negocio.Users();      //NO LO TIENE QUE ENCONTRAR PARA ENTRAR AL IF Y AGREGAR UNO NUEVO
-            int u = user.GetUserByIdPerson(idP);
-            if (u == 0)
+            if (txtUserName.Text == "" || txtUserPassword.Text == "" || txtPersonEmail.Text == "")
             {
-                string name = Convert.ToString(txtUserName.Text);
-                string pass = Convert.ToString(txtUserPassword.Text);
-                Negocio.People p = new Negocio.People();
-                int privilege = p.GetPersonType(idP);  // BUSCO EL PRIVILEGIO 
-                user.Add(idP, privilege, name, pass);
-                MessageBox.Show("Operacion exitosa");
-                this.Close();
+                MessageBox.Show("Debe completar todos los campos");
+                return;
+            }
+            string email = Convert.ToString(txtPersonEmail.Text);
+            Negocio.People p = new Negocio.People();
+            int idP = p.GetIdPersonByEmail(email);
+            if (idP != 0)
+            {
+                Negocio.Users user = new Negocio.Users();
+                int u = user.GetUserByIdPerson(idP);
+                if (u == 0)
+                {
+                    string name = Convert.ToString(txtUserName.Text);
+                    string pass = Convert.ToString(txtUserPassword.Text);
+                    int privilege = p.GetPersonType(idP);
+                    user.Add(idP, privilege, name, pass);
+                    MessageBox.Show("Operacion exitosa");
+                    this.Close();
 
+                }
+                else
+                {
+                    MessageBox.Show("Ya tiene un usuario asociado");
+                    this.Close();
+                }
             }
             else
             {
-                MessageBox.Show("Ya tiene un usuario asociado");      //FUNCIONA
-                this.Close();
+                MessageBox.Show("No existe una persona con ese email");
             }
-            ///VALIDAR QUE EXISTA EL ID DE PERSONA NECESITO EL PRIVILEGIO PARA DARSELO AL USER
-            ///VALIDA QUE NO TIENE YA UN USUARIO ASOCIADO 
-            ///ADD USER 
         }
     }
 }

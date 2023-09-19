@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="CoursesReport.cs">
+    <Compile Update="frmCoursesReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmEntitiesInfoForPeople.cs">
@@ -49,5 +49,10 @@
     <Compile Update="frmUserSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Reports\DS_Reports.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
 </Project>

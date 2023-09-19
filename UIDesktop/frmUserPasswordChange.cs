@@ -25,22 +25,30 @@ namespace UIDesktop
         private void btnUserNewPasswordAcept_Click(object sender, EventArgs e)
         {
             string username = Convert.ToString(txtUserName.Text);
-            int id = Convert.ToInt32(txtUserIdPerson.Text);
+            string email = Convert.ToString(txtPersonEmail.Text);
             string pass = Convert.ToString(txtUserNewPassword.Text);
 
-            Negocio.Users u = new Negocio.Users();
-            int rta = u.ChangePassword(username, id, pass);
-            if (rta != 0)
+            Negocio.People p = new Negocio.People();
+            int idP = p.GetIdPersonByEmail(email);
+            if (idP != 0)
             {
-                MessageBox.Show("Se guardó la contraseña correctamente.");
-                this.Close();
+                Entidades.People pe = p.GetOne(idP);
+                Negocio.Users u = new Negocio.Users();
+                int rta = u.ChangePassword(username, pe.IdPerson, pass);
+                if (rta != 0)
+                {
+                    MessageBox.Show("Se guardó la contraseña correctamente.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario ingresado no existe.");
+                }
             }
             else
             {
-                MessageBox.Show("Usuario ingresado no existe.");
+                MessageBox.Show("No existe una persona con ese email.");
             }
-
-
         }
     }
 }

@@ -106,5 +106,35 @@ namespace Negocio
             }
         }
 
+        public int GetIdPersonByEmail(string email)
+        {
+            Datos.People ds;
+            try
+            {
+                ds = new Datos.People();
+                int id = ds.GetIdPersonByEmail(email);
+                return id;
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
+        public Entidades.People GetOne(int IdPerson)
+        {
+            Datos.People ds;
+            try
+            {
+                ds = new Datos.People();
+                Entidades.People p = ds.GetOne(IdPerson);
+                return p;
+            }
+            finally
+            {
+                ds = null;
+            }
+        }
+
     }
 }

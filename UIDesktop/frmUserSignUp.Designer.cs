@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserSignUp));
             txtUserName = new TextBox();
             txtUserPassword = new TextBox();
-            txtIdPerson = new TextBox();
+            txtPersonEmail = new TextBox();
             lbUserName = new Label();
             lbUserPassword = new Label();
-            lbUserIdPerson = new Label();
+            lbUserEmail = new Label();
             btnUserSignUpAccept = new Button();
             btnUserSignUpCancel = new Button();
             lbTitleUserSignUp = new Label();
@@ -58,12 +58,12 @@
             txtUserPassword.Size = new Size(240, 27);
             txtUserPassword.TabIndex = 1;
             // 
-            // txtIdPerson
+            // txtPersonEmail
             // 
-            txtIdPerson.Location = new Point(209, 226);
-            txtIdPerson.Name = "txtIdPerson";
-            txtIdPerson.Size = new Size(151, 27);
-            txtIdPerson.TabIndex = 2;
+            txtPersonEmail.Location = new Point(209, 226);
+            txtPersonEmail.Name = "txtPersonEmail";
+            txtPersonEmail.Size = new Size(240, 27);
+            txtPersonEmail.TabIndex = 2;
             // 
             // lbUserName
             // 
@@ -83,14 +83,14 @@
             lbUserPassword.TabIndex = 5;
             lbUserPassword.Text = "Contraseña*";
             // 
-            // lbUserIdPerson
+            // lbUserEmail
             // 
-            lbUserIdPerson.AutoSize = true;
-            lbUserIdPerson.Location = new Point(48, 233);
-            lbUserIdPerson.Name = "lbUserIdPerson";
-            lbUserIdPerson.Size = new Size(83, 20);
-            lbUserIdPerson.TabIndex = 6;
-            lbUserIdPerson.Text = "Id Persona*";
+            lbUserEmail.AutoSize = true;
+            lbUserEmail.Location = new Point(48, 233);
+            lbUserEmail.Name = "lbUserEmail";
+            lbUserEmail.Size = new Size(52, 20);
+            lbUserEmail.TabIndex = 6;
+            lbUserEmail.Text = "Email*";
             // 
             // btnUserSignUpAccept
             // 
@@ -143,10 +143,10 @@
             Controls.Add(lbTitleUserSignUp);
             Controls.Add(btnUserSignUpCancel);
             Controls.Add(btnUserSignUpAccept);
-            Controls.Add(lbUserIdPerson);
+            Controls.Add(lbUserEmail);
             Controls.Add(lbUserPassword);
             Controls.Add(lbUserName);
-            Controls.Add(txtIdPerson);
+            Controls.Add(txtPersonEmail);
             Controls.Add(txtUserPassword);
             Controls.Add(txtUserName);
             Name = "frmUserSignUp";
@@ -161,10 +161,10 @@
 
         private TextBox txtUserName;
         private TextBox txtUserPassword;
-        private TextBox txtIdPerson;
+        private TextBox txtPersonEmail;
         private Label lbUserName;
         private Label lbUserPassword;
-        private Label lbUserIdPerson;
+        private Label lbUserEmail;
         private Button btnUserSignUpAccept;
         private Button btnUserSignUpCancel;
         private Label lbTitleUserSignUp;

@@ -37,8 +37,8 @@
             label1 = new Label();
             lbUserNewPassword = new Label();
             pictureLogo = new PictureBox();
-            txtUserIdPerson = new TextBox();
-            lbUserIdPerson = new Label();
+            txtPersonEmail = new TextBox();
+            lbPersonEmail = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
             SuspendLayout();
             // 
@@ -114,21 +114,21 @@
             pictureLogo.TabIndex = 24;
             pictureLogo.TabStop = false;
             // 
-            // txtUserIdPerson
+            // txtPersonEmail
             // 
-            txtUserIdPerson.Location = new Point(269, 167);
-            txtUserIdPerson.Name = "txtUserIdPerson";
-            txtUserIdPerson.Size = new Size(123, 27);
-            txtUserIdPerson.TabIndex = 26;
+            txtPersonEmail.Location = new Point(269, 167);
+            txtPersonEmail.Name = "txtPersonEmail";
+            txtPersonEmail.Size = new Size(192, 27);
+            txtPersonEmail.TabIndex = 26;
             // 
-            // lbUserIdPerson
+            // lbPersonEmail
             // 
-            lbUserIdPerson.AutoSize = true;
-            lbUserIdPerson.Location = new Point(96, 170);
-            lbUserIdPerson.Name = "lbUserIdPerson";
-            lbUserIdPerson.Size = new Size(83, 20);
-            lbUserIdPerson.TabIndex = 25;
-            lbUserIdPerson.Text = "Id Persona*";
+            lbPersonEmail.AutoSize = true;
+            lbPersonEmail.Location = new Point(96, 170);
+            lbPersonEmail.Name = "lbPersonEmail";
+            lbPersonEmail.Size = new Size(52, 20);
+            lbPersonEmail.TabIndex = 25;
+            lbPersonEmail.Text = "Email*\r\n";
             // 
             // frmUserPasswordChange
             // 
@@ -136,8 +136,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(549, 400);
-            Controls.Add(txtUserIdPerson);
-            Controls.Add(lbUserIdPerson);
+            Controls.Add(txtPersonEmail);
+            Controls.Add(lbPersonEmail);
             Controls.Add(pictureLogo);
             Controls.Add(lbUserNewPassword);
             Controls.Add(txtUserNewPassword);
@@ -163,7 +163,7 @@
         private Label label1;
         private Label lbUserNewPassword;
         private PictureBox pictureLogo;
-        private TextBox txtUserIdPerson;
-        private Label lbUserIdPerson;
+        private TextBox txtPersonEmail;
+        private Label lbPersonEmail;
     }
 }
