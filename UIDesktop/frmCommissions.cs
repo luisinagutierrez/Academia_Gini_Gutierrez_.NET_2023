@@ -57,6 +57,7 @@ namespace UIDesktop
                 Negocio.Commissions sub = new Negocio.Commissions();
                 sub.Add(idP, descrip, y);
                 MessageBox.Show("Operación exitosa");
+                dgvCommissions.DataSource = sub.GetAll();
             }
             else
             {
@@ -103,7 +104,7 @@ namespace UIDesktop
                 if (co != 0)
                 {
                     MessageBox.Show("Se actualizó la comision correctamente.");
-                    this.Close();
+                    dgvCommissions.DataSource = com.GetAll();
                 }
                 else
                 {
@@ -136,7 +137,7 @@ namespace UIDesktop
                 {
                     nC.Delete(idC);
                     MessageBox.Show("Operación exitosa");
-                    this.Close();
+                    dgvCommissions.DataSource = nC.GetAll();
                 }
                 else
                 {

@@ -43,6 +43,7 @@ namespace UIDesktop
                 Negocio.Specialities s = new Negocio.Specialities();
                 s.Add(descrip);
                 MessageBox.Show("Operación exitosa");
+                dgvSpecialities.DataSource = s.GetAll();
             }
             else
             {
@@ -67,7 +68,7 @@ namespace UIDesktop
             if (sp != 0)
             {
                 MessageBox.Show("Se actualizó la especialidad correctamente.");
-                this.Close();
+                dgvSpecialities.DataSource = s.GetAll();
             }
             else
             {
@@ -97,7 +98,7 @@ namespace UIDesktop
                 if (rts != 0)
                 {
                     MessageBox.Show("Operación exitosa");
-                    return;
+                    dgvSpecialities.DataSource = s.GetAll();
                 }
                 else
                 {
@@ -120,23 +121,18 @@ namespace UIDesktop
 
         private void dgvSpecialities_SelectionChanged(object sender, EventArgs e)
         {
-            // Verifica si hay alguna fila seleccionada
             if (dgvSpecialities.SelectedRows.Count > 0)
             {
-                // Obtén la fila seleccionada
+                
                 DataGridViewRow selectedRow = dgvSpecialities.SelectedRows[0];
-
-                // Accede a las celdas de la fila y asigna sus valores a los TextBox
+       
                 txtIdSpeciality.Text = selectedRow.Cells["IdSpeciality"].Value.ToString();
-                txtSpecialityDescription.Text = selectedRow.Cells["SpecialityDescription"].Value.ToString();
-                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
+                txtSpecialityDescription.Text = selectedRow.Cells["SpecialityDescription"].Value.ToString();   
             }
             else
-            {
-                // Si no hay filas seleccionadas, borra los TextBox
+            {                
                 txtIdSpeciality.Text = "";
                 txtSpecialityDescription.Text = "";
-                // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }
     }

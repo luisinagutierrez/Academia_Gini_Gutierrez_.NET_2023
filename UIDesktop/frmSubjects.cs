@@ -55,7 +55,7 @@ namespace UIDesktop
                 Negocio.Subjects nS = new Negocio.Subjects();
                 nS.Delete(idS);
                 MessageBox.Show("Operación exitosa");
-                this.Close();
+                dgvSubjects.DataSource = nS.GetAll();
             }
             else
             {
@@ -103,7 +103,7 @@ namespace UIDesktop
                 Negocio.Subjects sub = new Negocio.Subjects();
                 sub.Add(idP, descrip, ths, whs);
                 MessageBox.Show("Operación exitosa");
-                this.Close();
+                dgvSubjects.DataSource = sub.GetAll();
             }
             else
             {
@@ -162,7 +162,7 @@ namespace UIDesktop
                 if (rt != 0)
                 {
                     MessageBox.Show("Se actualizó la materia correctamente.");
-                    this.Close();
+                    dgvSubjects.DataSource = sub.GetAll();
                 }
                 else
                 {

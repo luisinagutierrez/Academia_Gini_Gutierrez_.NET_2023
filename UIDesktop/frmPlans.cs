@@ -64,7 +64,7 @@ namespace UIDesktop
                 Negocio.Plans p = new Negocio.Plans();
                 p.Add(idS, descrip);
                 MessageBox.Show("Operación exitosa");
-                this.Close();
+                dgvPlans.DataSource = p.GetAll();
             }
             else
             {
@@ -106,7 +106,7 @@ namespace UIDesktop
                 if (pl != 0)
                 {
                     MessageBox.Show("Se actualizó el plan correctamente.");
-                    this.Close();
+                    dgvPlans.DataSource = p.GetAll();
                 }
                 else
                 {
@@ -144,7 +144,7 @@ namespace UIDesktop
                 if (rtp != 0)
                 {
                     MessageBox.Show("Operación exitosa");
-                    this.Close();
+                    dgvPlans.DataSource = p.GetAll();
                 }
                 else
                 {

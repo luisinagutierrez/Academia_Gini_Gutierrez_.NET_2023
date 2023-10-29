@@ -69,7 +69,7 @@ namespace UIDesktop
                 p.IdPlan = idPlan;
                 nP.Add(p);
                 MessageBox.Show("Operación exitosa");
-                this.Close();
+                dgvPeople.DataSource = nP.GetAll();
             }
             else
             {
@@ -139,7 +139,7 @@ namespace UIDesktop
                 if (pe == 1)
                 {
                     MessageBox.Show("Se actualizó la persona correctamente.");
-                    this.Close();
+                    dgvPeople.DataSource = p.GetAll();
                 }
                 else
                 {
@@ -185,7 +185,7 @@ namespace UIDesktop
             {
                 nP.Delete(idP);
                 MessageBox.Show("Operación exitosa");
-                this.Close();
+                dgvPeople.DataSource = nP.GetAll();
             }
             else
             {

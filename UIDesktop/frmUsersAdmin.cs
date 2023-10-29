@@ -76,7 +76,7 @@ namespace UIDesktop
             if (us == 1)
             {
                 MessageBox.Show("Se actualizó el usuario correctamente.");
-                this.Close();
+                dgvUsers.DataSource = u.GetAll();
             }
             else
             {
@@ -87,14 +87,14 @@ namespace UIDesktop
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
             int idU = Convert.ToInt32(txtIdUser.Text);
-            Negocio.Users nU = new Negocio.Users();
+            Negocio.Users u = new Negocio.Users();
             if (idU != 22)
             {
                 if (idU != 0)
                 {
-                    nU.Delete(idU);
+                    u.Delete(idU);
                     MessageBox.Show("Operación exitosa");
-                    this.Close();
+                    dgvUsers.DataSource = u.GetAll();
                 }
                 else
                 {

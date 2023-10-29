@@ -102,7 +102,7 @@ namespace UIDesktop
                 Negocio.Courses course = new Negocio.Courses();
                 course.Add(idS, idC, cy, q);
                 MessageBox.Show("Operación exitosa");
-                this.Close();
+                dgvCourses.DataSource = course.GetAll();
             }
             else
             {
@@ -160,7 +160,7 @@ namespace UIDesktop
                 Negocio.Courses nCour = new Negocio.Courses();
                 nCour.Update(idC, idS, idCc, cy, q);
                 MessageBox.Show("Operación exitosa");
-                this.Close();
+                dgvCourses.DataSource = nCour.GetAll();
             }
             else
             {
@@ -187,7 +187,7 @@ namespace UIDesktop
                 {
                     c.Delete(idC);
                     MessageBox.Show("Operación exitosa");
-                    this.Close();
+                    dgvCourses.DataSource = c.GetAll();
                 }
                 else
                 {

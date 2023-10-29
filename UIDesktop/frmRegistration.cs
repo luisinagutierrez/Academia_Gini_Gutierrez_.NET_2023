@@ -82,7 +82,7 @@ namespace UIDesktop
                 {
                     nStuReg.Add(IdCourse, this.idPerson);
                     MessageBox.Show("Operacion exitosa");
-                    this.Close();
+                    //dgvAvailableCourses.DataSource = nStuReg.GetAll();
                 }
             }
         }
