@@ -82,6 +82,7 @@ namespace UIDesktop
                 {
                     nStuReg.Add(IdCourse, this.idPerson);
                     MessageBox.Show("Operacion exitosa");
+                    dgvRegistrationCourses.DataSource = nStuReg.GetCoursesByIdPerson(this.idPerson);
                     //dgvAvailableCourses.DataSource = nStuReg.GetAll();
                 }
             }
@@ -97,7 +98,8 @@ namespace UIDesktop
                 Negocio.Courses nCourses = new Negocio.Courses();
                 nCourses.UpdateCourseAvailability(idCourse, -1);
                 MessageBox.Show("Operacion exitosa");
-                this.Close();
+                dgvRegistrationCourses.DataSource = nStuReg.GetCoursesByIdPerson(this.idPerson);
+                //this.Close();
             }
             else
             {

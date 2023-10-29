@@ -54,10 +54,10 @@ namespace UIDesktop
 
             if (pl.IdPlan != 0)
             {
-                Negocio.Commissions sub = new Negocio.Commissions();
-                sub.Add(idP, descrip, y);
+                Negocio.Commissions com = new Negocio.Commissions();
+                com.Add(idP, descrip, y);
                 MessageBox.Show("Operación exitosa");
-                dgvCommissions.DataSource = sub.GetAll();
+                dgvCommissions.DataSource = com.GetAll();
             }
             else
             {

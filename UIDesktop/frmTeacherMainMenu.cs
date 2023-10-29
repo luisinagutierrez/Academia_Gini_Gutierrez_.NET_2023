@@ -111,7 +111,7 @@ namespace UIDesktop
 
                 MessageBox.Show("Nota cargada y condicion del alumno actualizada.");
                 // Ejemplo de cómo usar Invoke() para llamar a Refresh() desde otro hilo.
-                dgvStudentRegistration.Refresh();
+                dgvRegistrationCourses.DataSource = st.GetStudentsListRegByIdCourse(this.idCourse);
             }
         }
 
