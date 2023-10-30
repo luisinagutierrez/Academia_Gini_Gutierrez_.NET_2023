@@ -43,7 +43,7 @@ namespace UIDesktop
             if (cant == 0)
             {
                 MessageBox.Show("No hay cursos disponibles");
-                this.Close();
+                //this.Close();
             }
             else
             {
@@ -83,7 +83,8 @@ namespace UIDesktop
                     nStuReg.Add(IdCourse, this.idPerson);
                     MessageBox.Show("Operacion exitosa");
                     dgvRegistrationCourses.DataSource = nStuReg.GetCoursesByIdPerson(this.idPerson);
-                    //dgvAvailableCourses.DataSource = nStuReg.GetAll();
+                    List<Entidades.Courses> AvailableCoursesList = nCourses.GetAvailableCourses();
+                    dgvAvailableCourses.DataSource = AvailableCoursesList;
                 }
             }
         }
@@ -99,7 +100,8 @@ namespace UIDesktop
                 nCourses.UpdateCourseAvailability(idCourse, -1);
                 MessageBox.Show("Operacion exitosa");
                 dgvRegistrationCourses.DataSource = nStuReg.GetCoursesByIdPerson(this.idPerson);
-                //this.Close();
+                List<Entidades.Courses> AvailableCoursesList = nCourses.GetAvailableCourses();
+                dgvAvailableCourses.DataSource = AvailableCoursesList; 
             }
             else
             {

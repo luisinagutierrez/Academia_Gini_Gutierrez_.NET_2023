@@ -173,35 +173,30 @@ namespace UIDesktop
             {
                 MessageBox.Show("El Id del plan no fue encontrado");
             }
-            this.Close();
         }
 
         private void dgvSubjects_SelectionChanged(object sender, EventArgs e)
         {
-            // Verifica si hay alguna fila seleccionada
             if (dgvSubjects.SelectedRows.Count > 0)
             {
-                // Obtén la fila seleccionada
+
                 DataGridViewRow selectedRow = dgvSubjects.SelectedRows[0];
 
-                // Accede a las celdas de la fila y asigna sus valores a los TextBox
                 txtIdSubject.Text = selectedRow.Cells["IdSubject"].Value.ToString();
                 txtSubjectDescription.Text = selectedRow.Cells["SubjectDescription"].Value.ToString();
                 txtSubjectsWeeklyHours.Text = selectedRow.Cells["WeeklyHours"].Value.ToString();
                 txtSubjectsTotalHours.Text = selectedRow.Cells["TotalHours"].Value.ToString();
                 cBoxIdPlan.Text = selectedRow.Cells["IdPlan"].Value.ToString();
-                // ... y así sucesivamente para cada TextBox y columna que desees mostrar
             }
             else
             {
-                // Si no hay filas seleccionadas, borra los TextBox
                 txtIdSubject.Text = "";
                 txtSubjectDescription.Text = "";
                 txtSubjectsWeeklyHours.Text = "";
                 txtSubjectsTotalHours.Text = "";
                 cBoxIdPlan.Text = "";
-                // ... y así sucesivamente para cada TextBox que desees borrar
             }
         }
     }
 }
+

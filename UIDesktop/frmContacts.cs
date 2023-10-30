@@ -26,5 +26,10 @@ namespace UIDesktop
         {
             this.Close();
         }
+
+        private void lbTitleContacts_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

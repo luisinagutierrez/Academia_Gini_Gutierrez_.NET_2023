@@ -49,7 +49,6 @@ namespace UIDesktop
             {
                 MessageBox.Show("Para poder crear una nueva especialidad debe ingresar su descripcion");
             }
-            this.Close();
         }
 
         private void btnUpdateSpecialitie_Click(object sender, EventArgs e)
@@ -115,8 +114,8 @@ namespace UIDesktop
         private void frmSpecialities_Load_1(object sender, EventArgs e)
         {
             Negocio.Specialities nSpecialities = new Negocio.Specialities();
-            List<Entidades.Specialities> PeopleList = nSpecialities.GetAll();
-            dgvSpecialities.DataSource = PeopleList;
+            List<Entidades.Specialities> SpecialitiesList = nSpecialities.GetAll();
+            dgvSpecialities.DataSource = SpecialitiesList;
         }
 
         private void dgvSpecialities_SelectionChanged(object sender, EventArgs e)

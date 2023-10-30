@@ -144,7 +144,7 @@ namespace UIDesktop
                 if (rtp != 0)
                 {
                     MessageBox.Show("Operación exitosa");
-                    dgvPlans.DataSource = p.GetAll();
+                    dgvPlans.DataSource = plan.GetAll();
                 }
                 else
                 {

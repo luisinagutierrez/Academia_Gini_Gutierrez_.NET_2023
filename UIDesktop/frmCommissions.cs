@@ -63,7 +63,6 @@ namespace UIDesktop
             {
                 MessageBox.Show("El Id del plan no fue encontrado");
             }
-            this.Close();
         }
 
         private void btnUpdateCommission_Click(object sender, EventArgs e)
