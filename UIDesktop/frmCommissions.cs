@@ -41,16 +41,16 @@ namespace UIDesktop
 
         private void btnCreateCommission_Click(object sender, EventArgs e)
         {
-            List<String> campos = new List<String>
+            if(txtIdCommission.Text != "")
             {
-                txtIdCommission.Text
-            };
-            if (!Validacion.vacios(campos))
-            {
-                MessageBox.Show("El campo IdCommission debe estar vacio para dar de alta una nueva comision.");
+                MessageBox.Show("El campo IdCommission debe estar vacío.");
                 return;
             }
-
+            if (cBoxIdPlan.Text == "" || txtCommissionDescription.Text == "" || txtCommissionSpecialityYear.Text == "")
+            {
+                MessageBox.Show("Los campos no pueden estar vacíos.");
+                return;
+            }
             int idP = Convert.ToInt32(cBoxIdPlan.Text);
             string descrip = Convert.ToString(txtCommissionDescription.Text);
             int y = Convert.ToInt32(txtCommissionSpecialityYear.Text);
@@ -73,36 +73,19 @@ namespace UIDesktop
 
         private void btnUpdateCommission_Click(object sender, EventArgs e)
         {
-            List<String> campos = new List<String>
+
+            if (txtIdCommission.Text == "")
             {
-                txtIdCommission.Text,
-                cBoxIdPlan.Text,
-                txtCommissionDescription.Text,
-                txtCommissionSpecialityYear.Text
-            };
-            if (!Validacion.vacios(campos))
-            {
-                MessageBox.Show("Debe completar todos los campos para actulizar la comision.");
+                MessageBox.Show("El campo IdCommission no puede estar vacio");
                 return;
             }
-
-            //if (txtIdCommission.Text == "")
-            //{
-            //    MessageBox.Show("El campo IdCommission no puede estar vacio");
-            //    return;
-            //}
             int idC = Convert.ToInt32(txtIdCommission.Text);
-            //if (cBoxIdPlan.Text == "")
-            //{
-            //    MessageBox.Show("El campo Plan no puede estar vacio");
-            //    return;
-            //}
+            if (cBoxIdPlan.Text == "" || txtCommissionDescription.Text == "" || txtCommissionSpecialityYear.Text == "")
+            {
+                MessageBox.Show("Los campos no pueden estar vacíos.");
+                return;
+            }
             int idP = Convert.ToInt32(cBoxIdPlan.Text);
-            //if (txtCommissionDescription.Text == "" || txtCommissionSpecialityYear.Text == "")
-            //{
-            //    MessageBox.Show("El campo Descripcion o Año de especialidad no pueden estar vacios.");
-            //    return;
-            //}
             string descrip = Convert.ToString(txtCommissionDescription.Text);
             int y = Convert.ToInt32(txtCommissionSpecialityYear.Text);
 
