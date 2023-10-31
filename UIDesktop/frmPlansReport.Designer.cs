@@ -51,9 +51,9 @@
             label1.ForeColor = SystemColors.ActiveCaptionText;
             label1.Location = new Point(372, 15);
             label1.Name = "label1";
-            label1.Size = new Size(275, 41);
+            label1.Size = new Size(272, 41);
             label1.TabIndex = 2;
-            label1.Text = "Reporte de Cursos";
+            label1.Text = "Reporte de Planes";
             // 
             // reportViewer1
             // 
