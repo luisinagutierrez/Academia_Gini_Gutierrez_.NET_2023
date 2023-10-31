@@ -32,7 +32,7 @@ namespace UIDesktop
 
         private void btnCreateSpecialitie_Click(object sender, EventArgs e)
         {
-            if(txtIdSpeciality.Text != "")
+            if (txtIdSpeciality.Text != "")
             {
                 MessageBox.Show("El campo IdSpeciality debe estar vacio para dar de alta una nueva especialidad.");
                 return;
@@ -122,14 +122,14 @@ namespace UIDesktop
         {
             if (dgvSpecialities.SelectedRows.Count > 0)
             {
-                
+
                 DataGridViewRow selectedRow = dgvSpecialities.SelectedRows[0];
-       
+
                 txtIdSpeciality.Text = selectedRow.Cells["IdSpeciality"].Value.ToString();
-                txtSpecialityDescription.Text = selectedRow.Cells["SpecialityDescription"].Value.ToString();   
+                txtSpecialityDescription.Text = selectedRow.Cells["SpecialityDescription"].Value.ToString();
             }
             else
-            {                
+            {
                 txtIdSpeciality.Text = "";
                 txtSpecialityDescription.Text = "";
             }

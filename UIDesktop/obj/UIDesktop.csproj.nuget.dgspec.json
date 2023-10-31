@@ -58,10 +58,6 @@
               "target": "Package",
               "version": "[7.0.9, )"
             },
-            "Microsoft.Report.Viewer": {
-              "target": "Package",
-              "version": "[11.0.0, )"
-            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -140,10 +136,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.9, )"
-            },
-            "Microsoft.Report.Viewer": {
-              "target": "Package",
-              "version": "[11.0.0, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
@@ -228,10 +220,6 @@
               "target": "Package",
               "version": "[7.0.9, )"
             },
-            "Microsoft.Report.Viewer": {
-              "target": "Package",
-              "version": "[11.0.0, )"
-            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -314,6 +302,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.9, )"
+            },
+            "Microsoft.ReportingServices.ReportViewerControl.Winforms": {
+              "target": "Package",
+              "version": "[140.1000.523, )"
+            },
+            "ReportViewerCore.WinForms": {
+              "target": "Package",
+              "version": "[15.1.18, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",

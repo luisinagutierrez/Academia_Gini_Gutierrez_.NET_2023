@@ -28,12 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "frmCoursesReport";
+            label1 = new Label();
+            btnCoursesReport = new Button();
+            reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(377, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(275, 41);
+            label1.TabIndex = 0;
+            label1.Text = "Reporte de Cursos";
+            // 
+            // btnCoursesReport
+            // 
+            btnCoursesReport.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCoursesReport.Location = new Point(436, 63);
+            btnCoursesReport.Name = "btnCoursesReport";
+            btnCoursesReport.Size = new Size(172, 43);
+            btnCoursesReport.TabIndex = 1;
+            btnCoursesReport.Text = "Cargar Reporte";
+            btnCoursesReport.UseVisualStyleBackColor = true;
+            btnCoursesReport.Click += btnCoursesReport_Click;
+            // 
+            // reportViewer1
+            // 
+            reportViewer1.Location = new Point(12, 112);
+            reportViewer1.Name = "reportViewer1";
+            reportViewer1.ServerReport.BearerToken = null;
+            reportViewer1.Size = new Size(983, 385);
+            reportViewer1.TabIndex = 2;
+            // 
+            // frmCoursesReport
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientInactiveCaption;
+            ClientSize = new Size(1007, 542);
+            Controls.Add(reportViewer1);
+            Controls.Add(btnCoursesReport);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "frmCoursesReport";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "frmCoursesReport";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private Button btnCoursesReport;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

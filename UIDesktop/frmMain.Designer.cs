@@ -39,7 +39,7 @@
             btnUsers = new Button();
             btnContact = new Button();
             pnSubmenuReports = new Panel();
-            btnUsersReport = new Button();
+            btnPlansReports = new Button();
             btnCoursesReports = new Button();
             btnExit = new PictureBox();
             btnReports = new Button();
@@ -205,7 +205,7 @@
             // 
             // pnSubmenuReports
             // 
-            pnSubmenuReports.Controls.Add(btnUsersReport);
+            pnSubmenuReports.Controls.Add(btnPlansReports);
             pnSubmenuReports.Controls.Add(btnCoursesReports);
             pnSubmenuReports.Location = new Point(71, 606);
             pnSubmenuReports.Name = "pnSubmenuReports";
@@ -213,21 +213,21 @@
             pnSubmenuReports.TabIndex = 4;
             pnSubmenuReports.Visible = false;
             // 
-            // btnUsersReport
+            // btnPlansReports
             // 
-            btnUsersReport.Cursor = Cursors.Hand;
-            btnUsersReport.FlatAppearance.BorderSize = 0;
-            btnUsersReport.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
-            btnUsersReport.FlatStyle = FlatStyle.Flat;
-            btnUsersReport.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUsersReport.ForeColor = SystemColors.ButtonHighlight;
-            btnUsersReport.Location = new Point(0, 44);
-            btnUsersReport.Name = "btnUsersReport";
-            btnUsersReport.Size = new Size(149, 32);
-            btnUsersReport.TabIndex = 3;
-            btnUsersReport.Text = "Usuarios";
-            btnUsersReport.UseVisualStyleBackColor = true;
-            btnUsersReport.Click += btnUsersReport_Click;
+            btnPlansReports.Cursor = Cursors.Hand;
+            btnPlansReports.FlatAppearance.BorderSize = 0;
+            btnPlansReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            btnPlansReports.FlatStyle = FlatStyle.Flat;
+            btnPlansReports.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPlansReports.ForeColor = SystemColors.ButtonHighlight;
+            btnPlansReports.Location = new Point(0, 44);
+            btnPlansReports.Name = "btnPlansReports";
+            btnPlansReports.Size = new Size(149, 32);
+            btnPlansReports.TabIndex = 3;
+            btnPlansReports.Text = "Planes";
+            btnPlansReports.UseVisualStyleBackColor = true;
+            btnPlansReports.Click += btnPlansReports_Click;
             // 
             // btnCoursesReports
             // 
@@ -465,7 +465,7 @@
         private Button btnStudentRegistration;
         private Panel pnSubmenuReports;
         private Button btnCoursesReports;
-        private Button btnUsersReport;
+        private Button btnPlansReports;
         private PictureBox btnExit;
         private Button btnContact;
         private Button btnUsers;

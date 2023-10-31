@@ -474,19 +474,6 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.Report.Viewer/11.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net/Microsoft.ReportViewer.Common.dll": {},
-          "lib/net/Microsoft.ReportViewer.ProcessingObjectModel.DLL": {},
-          "lib/net/Microsoft.ReportViewer.WebForms.DLL": {}
-        },
-        "runtime": {
-          "lib/net/Microsoft.ReportViewer.Common.dll": {},
-          "lib/net/Microsoft.ReportViewer.ProcessingObjectModel.DLL": {},
-          "lib/net/Microsoft.ReportViewer.WebForms.DLL": {}
-        }
-      },
       "Microsoft.SqlServer.Server/1.0.0": {
         "type": "package",
         "compile": {
@@ -1017,7 +1004,6 @@
           "Entidades": "1.0.0",
           "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore": "7.0.9",
-          "Microsoft.Report.Viewer": "11.0.0",
           "System.Configuration.ConfigurationManager": "7.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -1034,7 +1020,6 @@
         "dependencies": {
           "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore": "7.0.9",
-          "Microsoft.Report.Viewer": "11.0.0",
           "System.Configuration.ConfigurationManager": "7.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -1052,7 +1037,6 @@
           "Datos": "1.0.0",
           "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore": "7.0.9",
-          "Microsoft.Report.Viewer": "11.0.0",
           "System.Configuration.ConfigurationManager": "7.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -1793,20 +1777,6 @@
         "microsoft.netcore.targets.1.1.0.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
-      ]
-    },
-    "Microsoft.Report.Viewer/11.0.0": {
-      "sha512": "QMPHoeVcTiqO55tUyG6z97nkesI0k8rNr1brbyECJezrK8XyjICzuRR3QtsZFI/7kalm4Ko/JCvK0lm+gztTVQ==",
-      "type": "package",
-      "path": "microsoft.report.viewer/11.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net/Microsoft.ReportViewer.Common.dll",
-        "lib/net/Microsoft.ReportViewer.ProcessingObjectModel.DLL",
-        "lib/net/Microsoft.ReportViewer.WebForms.DLL",
-        "microsoft.report.viewer.11.0.0.nupkg.sha512",
-        "microsoft.report.viewer.nuspec"
       ]
     },
     "Microsoft.SqlServer.Server/1.0.0": {
@@ -2974,17 +2944,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"Microsoft.Report.Viewer 11.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "libraryId": "Microsoft.Report.Viewer",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

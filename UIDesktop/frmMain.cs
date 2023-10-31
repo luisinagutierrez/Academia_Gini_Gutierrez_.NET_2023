@@ -60,7 +60,7 @@ namespace UIDesktop
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("¿Está seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Está seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }
@@ -101,20 +101,15 @@ namespace UIDesktop
             pnSubmenuReports.Visible = true;
         }
 
-        private void btnUsersReport_Click(object sender, EventArgs e)
-        {
-            pnSubmenuReports.Visible = false;
-        }
-
         private void btnPeopleReports_Click(object sender, EventArgs e)
         {
             pnSubmenuReports.Visible = false;
-            //OpenDaughterForm(new CoursesReport());
+            OpenDaughterForm(new frmCoursesReport());
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("¿Está seguro que desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Está seguro que desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 frmUserLogIn frmUserLogIn = new frmUserLogIn();
                 frmUserLogIn.Show();
@@ -191,6 +186,11 @@ namespace UIDesktop
         private void btnEntitiesInfo_Click(object sender, EventArgs e)
         {
             OpenDaughterForm(new frmEntitiesInfoForPeople());
+        }
+
+        private void btnPlansReports_Click(object sender, EventArgs e)
+        {
+            OpenDaughterForm(new frmPlansReport());
         }
     }
 }

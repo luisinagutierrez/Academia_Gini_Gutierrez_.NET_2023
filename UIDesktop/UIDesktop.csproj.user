@@ -19,6 +19,9 @@
     <Compile Update="frmPlans.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmPlansReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmSpecialities.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -51,7 +54,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Update="Reports\DS_Reports.xsd">
+    <None Update="DataSet1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="DataSet2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
